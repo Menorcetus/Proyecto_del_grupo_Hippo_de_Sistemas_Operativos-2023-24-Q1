@@ -74,7 +74,7 @@ namespace ProyectoSO
                 }
 
             }
-            else
+            else if  (user.register == false)
             {
                 string mensaje = "2/" + user.Name + "/" + user.Password;
                 byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
@@ -84,6 +84,16 @@ namespace ProyectoSO
                 byte[] msg2 = new byte[80];
                 server.Receive(msg2);
                 mensaje = Encoding.ASCII.GetString(msg2).Split(',')[0];
+                if (Convert.ToInt32(mensaje) == 0)
+                {
+                    MessageBox.Show("El usuario ha inciado sesión correctamente.");
+
+                }
+                //control de errores a revisar
+                else
+                {
+                    MessageBox.Show("Error al iniciar sesión.");
+                }
 
             }
 

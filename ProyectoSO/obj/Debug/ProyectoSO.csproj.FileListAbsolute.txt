@@ -11,3 +11,16 @@ D:\Documentos\Estudios\EETAC_doble\Curso 3\3 A\SO\Proyecto\ProyectoSO\obj\Debug\
 D:\Documentos\Estudios\EETAC_doble\Curso 3\3 A\SO\Proyecto\ProyectoSO\obj\Debug\ProyectoSO.Form1.resources
 D:\Documentos\Estudios\EETAC_doble\Curso 3\3 A\SO\Proyecto\ProyectoSO\obj\Debug\ProyectoSO.login_form.resources
 D:\Documentos\Estudios\EETAC_doble\Curso 3\3 A\SO\Proyecto\ProyectoSO\obj\Debug\ProyectoSO.register_form.resources
+C:\Users\Iván\Documents\GitHub\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\bin\Debug\ProyectoSO.exe.config
+C:\Users\Iván\Documents\GitHub\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\bin\Debug\ProyectoSO.exe
+C:\Users\Iván\Documents\GitHub\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\bin\Debug\ProyectoSO.pdb
+C:\Users\Iván\Documents\GitHub\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.csproj.AssemblyReference.cache
+C:\Users\Iván\Documents\GitHub\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.csproj.SuggestedBindingRedirects.cache
+C:\Users\Iván\Documents\GitHub\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.Form1.resources
+C:\Users\Iván\Documents\GitHub\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.login_form.resources
+C:\Users\Iván\Documents\GitHub\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.Properties.Resources.resources
+C:\Users\Iván\Documents\GitHub\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.register_form.resources
+C:\Users\Iván\Documents\GitHub\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.csproj.GenerateResource.cache
+C:\Users\Iván\Documents\GitHub\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.csproj.CoreCompileInputs.cache
+C:\Users\Iván\Documents\GitHub\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.exe
+C:\Users\Iván\Documents\GitHub\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.pdb
