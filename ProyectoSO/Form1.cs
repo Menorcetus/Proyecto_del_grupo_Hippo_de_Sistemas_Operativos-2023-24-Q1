@@ -28,7 +28,7 @@ namespace ProyectoSO
         }
 
 
-        private void Connector_button_Click(object sender, EventArgs e)
+        public void Connector_button_Click(object sender, EventArgs e)
         {
 
             //Creamos un IPEndPoint con el ip del servidor y puerto del servidor 
@@ -50,63 +50,65 @@ namespace ProyectoSO
             {
                 //Si hay excepcion imprimimos error y salimos del programa con return 
                 MessageBox.Show("No he podido conectar con el servidor");
+                server = null;
                 return;
             }
-            if (user.register == true) //nuevo registro
-            {
-                string mensaje = "1/" + user.Name + "/" + user.Email + "/" + user.Password;
-                byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
-                server.Send(msg);
-
-                //Recibimos la respuesta del servidor
-                byte[] msg2 = new byte[80];
-                server.Receive(msg2);
-                mensaje = Encoding.ASCII.GetString(msg2).Split(',')[0];
-                if (Convert.ToInt32(mensaje) == 0)
-                {
-                    MessageBox.Show("El usuario se ha registrado correctamente.");
-
-                }
-                //control de errores a revisar
-                else
-                {
-                    MessageBox.Show("Usuario ya existente.");
-                }
-
-            }
-            else
-            {
-                string mensaje = "2/" + user.Name + "/" + user.Password;
-                byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
-                server.Send(msg);
-
-                //Recibimos la respuesta del servidor
-                byte[] msg2 = new byte[80];
-                server.Receive(msg2);
-                mensaje = Encoding.ASCII.GetString(msg2).Split(',')[0];
-
-            }
-
-            // Se terminó el servicio. 
-            // Nos desconectamos
-            this.BackColor = Color.Gray;
-            server.Shutdown(SocketShutdown.Both);
-            server.Close();
-
         }
 
         private void inicioDeSesiónToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            login_form lform = new login_form(user);
+            login_form lform = new login_form(user, server);
             lform.Show();
+            user = lform.GetUser();
 
         }
 
         private void registroToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            register_form rform = new register_form(user);
+            register_form rform = new register_form(user, server);
             rform.Show();
+            user = rform.GetUser();
+        }
+
+        private void Desconectar_Click(object sender, EventArgs e)
+        {
+            // Se terminó el servicio. 
+            // Nos desconectamos
+            string mensaje = "0/";
+            byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
+            server.Send(msg);
+
+            this.BackColor = Color.Gray;
+            server.Shutdown(SocketShutdown.Both);
+            server.Close();
+        }
+
+        private void sinVidasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string mensaje = "3/";
+            byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
+            server.Send(msg);
+
+            //Recibimos la respuesta del servidor
+            byte[] msg2 = new byte[512];
+            server.Receive(msg2);
+
+
+            mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
+            MessageBox.Show(mensaje);
+        }
+
+        private void buscarPersonajeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            buscar_partida_personaje bspers = new buscar_partida_personaje(user, server);
+            bspers.Show();
+        }
+
+        private void buscarPersonajeEnPartidaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            buscar_partida_usuario bpus = new buscar_partida_usuario(user, server);
+            bpus.Show();
         }
     }
 }
