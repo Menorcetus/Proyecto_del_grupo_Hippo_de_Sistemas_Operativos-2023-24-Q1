@@ -45,17 +45,11 @@ namespace ProyectoSO
                 //Recibimos la respuesta del servidor
                 byte[] msg2 = new byte[80];
                 server.Receive(msg2);
-                mensaje = Encoding.ASCII.GetString(msg2).Split(',')[0];
-                if (Convert.ToInt32(mensaje) == 0)
-                {
-                    MessageBox.Show("El usuario ha inciado sesión correctamente.");
 
-                }
-                //control de errores a revisar
-                else
-                {
-                    MessageBox.Show("Error al iniciar sesión.");
-                }
+
+                mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
+                MessageBox.Show(mensaje);
+                Close();
             }
             else
             {

@@ -20,8 +20,9 @@ int Register(char *p, int ID, char consulta[512], char conn[])
 	strcpy(consulta, "SELECT * FROM USUARIOS WHERE ID = ");
 	sprintf(IDs, "%d", ID);
 	strcat(consulta, IDs);
-	//strcat(consulta," AND NOMBRE = ");
-	//strcat(consulta, nombre);
+	strcat(consulta," OR NOMBRE = '");
+	strcat(consulta, nombre);
+	strcat(consulta,"'");
 
 	err=mysql_query (conn, consulta);
 	if (err!=0) {
@@ -78,10 +79,46 @@ int Register(char *p, int ID, char consulta[512], char conn[])
 	return 0;			
 }
 
-//int LogIN(char *p, int ID, char consulta[512], char conn[])
-//{
-			
-//}
+int LogIN(char *p, char consulta[512], char conn[])
+{
+	// SELECT PASSWORD FROM USUARIOS WHERE NOMBRE = <nombre>;
+	int err;
+	MYSQL_RES *resultado;	
+	MYSQL_ROW *row;
+	
+	p = strtok( NULL, "/");
+	char nombre[30];
+	strcpy (nombre, p);
+
+	p = strtok( NULL, "/");
+	char password[30];
+	strcpy (password, p);
+
+	strcpy(consulta, "SELECT PASSWORD FROM USUARIOS WHERE NOMBRE = '");
+	strcat(consulta, nombre);
+	strcat(consulta, "'");
+	err = mysql_query(conn, consulta);
+
+	resultado = mysql_store_result(conn);
+	row = mysql_fetch_row(resultado);
+	char realpass[30];	
+	if (row == NULL)
+	// No se ha encontrado el usuario
+		return 1;
+	else
+	{	
+	// Se convierte en un str comparable la password encontrada
+
+		sprintf (realpass, "%s", row[0] );
+	}
+
+	if(strcmp(password, realpass) == 0)
+	// La password coincide con la que se ha dado
+		return 0;
+	else	
+	// Password incorrecta
+		return 2;
+}
 
 int main(int argc, char *argv[])
 {
@@ -198,19 +235,19 @@ int main(int argc, char *argv[])
 			
 			else if (codigo == 2)
 			{
-				int res = Register(p, fila, consulta, conn);
+				int res = LogIN(p, consulta, conn);
 				printf("res es: %i", res);
 				if (res == 0)
 				{
-					sprintf(respuesta,"Se ha registrado el usuario");
+					sprintf(respuesta,"Se ha iniciado sesion");
 				}
 				else if (res == 1)
 				{
-					sprintf(respuesta,"Error durante el registro");
+					sprintf(respuesta,"No se ha encontrado el usuario");
 				}
 				else if (res == 2)
 				{
-					sprintf(respuesta,"Este usuario ya estaba registrado");
+					sprintf(respuesta,"La password es incorrecta");
 				}	
 			}
 			else if (codigo == 0)
