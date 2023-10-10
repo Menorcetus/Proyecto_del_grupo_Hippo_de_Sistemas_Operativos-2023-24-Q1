@@ -83,6 +83,58 @@ namespace ProyectoSO
             server.Shutdown(SocketShutdown.Both);
             server.Close();
         }
+
+        private void sinVidasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string mensaje = "3/";
+            byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
+            server.Send(msg);
+
+            //Recibimos la respuesta del servidor
+            byte[] msg2 = new byte[512];
+            server.Receive(msg2);
+
+
+            mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
+            MessageBox.Show(mensaje);
+            Close();
+        }
+
+        private void buscarPersonajeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            buscar_partida_personaje bspers = new buscar_partida_personaje();
+            bspers.Show();
+
+
+            string mensaje = "4/";
+            byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
+            server.Send(msg);
+
+            //Recibimos la respuesta del servidor
+            byte[] msg2 = new byte[512];
+            server.Receive(msg2);
+
+
+            mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
+            MessageBox.Show(mensaje);
+            Close();
+        }
+
+        private void buscarPersonajeEnPartidaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string mensaje = "5/";
+            byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
+            server.Send(msg);
+
+            //Recibimos la respuesta del servidor
+            byte[] msg2 = new byte[512];
+            server.Receive(msg2);
+
+
+            mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
+            MessageBox.Show(mensaje);
+            Close();
+        }
     }
 }
 

@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="buscar_partida_personaje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="buscar_partida_personaje.Designer.cs">
+      <DependentUpon>buscar_partida_personaje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="buscar_partida_usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="buscar_partida_usuario.Designer.cs">
+      <DependentUpon>buscar_partida_usuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +79,9 @@
       <DependentUpon>register_form.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
+    <EmbeddedResource Include="buscar_partida_personaje.resx">
+      <DependentUpon>buscar_partida_personaje.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

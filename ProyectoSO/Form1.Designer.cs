@@ -36,6 +36,10 @@
             this.inicioDeSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Desconectar = new System.Windows.Forms.Button();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.sinVidasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buscarPersonajeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buscarPersonajeEnPartidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,7 +74,8 @@
             // 
             this.menuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem2});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Size = new System.Drawing.Size(800, 28);
@@ -112,6 +117,37 @@
             this.Desconectar.UseVisualStyleBackColor = true;
             this.Desconectar.Click += new System.EventHandler(this.Desconectar_Click);
             // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sinVidasToolStripMenuItem,
+            this.buscarPersonajeToolStripMenuItem,
+            this.buscarPersonajeEnPartidaToolStripMenuItem});
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(89, 24);
+            this.toolStripMenuItem2.Text = "Peticiones";
+            // 
+            // sinVidasToolStripMenuItem
+            // 
+            this.sinVidasToolStripMenuItem.Name = "sinVidasToolStripMenuItem";
+            this.sinVidasToolStripMenuItem.Size = new System.Drawing.Size(276, 26);
+            this.sinVidasToolStripMenuItem.Text = "Sin vidas";
+            this.sinVidasToolStripMenuItem.Click += new System.EventHandler(this.sinVidasToolStripMenuItem_Click);
+            // 
+            // buscarPersonajeToolStripMenuItem
+            // 
+            this.buscarPersonajeToolStripMenuItem.Name = "buscarPersonajeToolStripMenuItem";
+            this.buscarPersonajeToolStripMenuItem.Size = new System.Drawing.Size(276, 26);
+            this.buscarPersonajeToolStripMenuItem.Text = "Buscar usuario en partida";
+            this.buscarPersonajeToolStripMenuItem.Click += new System.EventHandler(this.buscarPersonajeToolStripMenuItem_Click);
+            // 
+            // buscarPersonajeEnPartidaToolStripMenuItem
+            // 
+            this.buscarPersonajeEnPartidaToolStripMenuItem.Name = "buscarPersonajeEnPartidaToolStripMenuItem";
+            this.buscarPersonajeEnPartidaToolStripMenuItem.Size = new System.Drawing.Size(276, 26);
+            this.buscarPersonajeEnPartidaToolStripMenuItem.Text = "Buscar personaje en partida";
+            this.buscarPersonajeEnPartidaToolStripMenuItem.Click += new System.EventHandler(this.buscarPersonajeEnPartidaToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -143,6 +179,10 @@
         private System.Windows.Forms.ToolStripMenuItem inicioDeSesiónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registroToolStripMenuItem;
         private System.Windows.Forms.Button Desconectar;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem sinVidasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem buscarPersonajeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem buscarPersonajeEnPartidaToolStripMenuItem;
     }
 }
 

@@ -36,3 +36,17 @@ D:\GitHub\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\
 D:\GitHub\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.csproj.CoreCompileInputs.cache
 D:\GitHub\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.exe
 D:\GitHub\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.pdb
+D:\Documentos\Estudios\EETAC_doble\Curso 3\3 A\SO\entregas\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\bin\Debug\ProyectoSO.exe.config
+D:\Documentos\Estudios\EETAC_doble\Curso 3\3 A\SO\entregas\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\bin\Debug\ProyectoSO.exe
+D:\Documentos\Estudios\EETAC_doble\Curso 3\3 A\SO\entregas\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\bin\Debug\ProyectoSO.pdb
+D:\Documentos\Estudios\EETAC_doble\Curso 3\3 A\SO\entregas\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.csproj.AssemblyReference.cache
+D:\Documentos\Estudios\EETAC_doble\Curso 3\3 A\SO\entregas\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.csproj.SuggestedBindingRedirects.cache
+D:\Documentos\Estudios\EETAC_doble\Curso 3\3 A\SO\entregas\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.buscar_partida_personaje.resources
+D:\Documentos\Estudios\EETAC_doble\Curso 3\3 A\SO\entregas\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.Form1.resources
+D:\Documentos\Estudios\EETAC_doble\Curso 3\3 A\SO\entregas\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.login_form.resources
+D:\Documentos\Estudios\EETAC_doble\Curso 3\3 A\SO\entregas\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.Properties.Resources.resources
+D:\Documentos\Estudios\EETAC_doble\Curso 3\3 A\SO\entregas\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.register_form.resources
+D:\Documentos\Estudios\EETAC_doble\Curso 3\3 A\SO\entregas\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.csproj.GenerateResource.cache
+D:\Documentos\Estudios\EETAC_doble\Curso 3\3 A\SO\entregas\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.csproj.CoreCompileInputs.cache
+D:\Documentos\Estudios\EETAC_doble\Curso 3\3 A\SO\entregas\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.exe
+D:\Documentos\Estudios\EETAC_doble\Curso 3\3 A\SO\entregas\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.pdb
