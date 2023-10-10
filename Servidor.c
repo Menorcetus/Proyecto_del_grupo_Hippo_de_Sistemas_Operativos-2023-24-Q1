@@ -79,6 +79,120 @@ int Register(char *p, int ID, char consulta[512], char conn[])
 	return 0;			
 }
 
+char Jugador_muerto(char conn) // retorna todos los jugadores cuyos personajes tienen HP = 0 Formato ID1/ID2/...IDF/
+{
+    MYSQL_ROW row;
+	MYSQL_RES *resultado;
+	char respuesta [100];
+	char IDs [10];
+	int err;
+    err=mysql_query (conn, "SELECT ID FROM USUARIOS WHERE PERSONAJES.ID = USUARIOS.ID_PERS AND PERSONAJES.HP = 0");
+    if (err!=0){
+        printf ("Error al consultar datos de la base %u %s\n",
+                mysql_errno(conn), mysql_error(conn));
+        exit (1);
+    }
+
+    resultado = mysql_store_result (conn); 
+    row = mysql_fetch_row (resultado);
+	while (row!= NULL)
+	{           
+		if (row == NULL)
+			{printf ("No se ha obtenido el usuario con HP = 0.\n");}
+		else
+		{
+			printf ("%s tiene HP = 0.\n", row[1] ); //generar
+			sprintf(IDs, "%i", row[0]);
+			strcat(IDs, "/");
+			strcat(respuesta, IDs);
+			row = mysql_fetch_row (resultado); 
+
+		}
+
+	}
+
+    // cerrar la conexion con el servidor MYSQL 
+	return(respuesta);
+    mysql_close (conn);
+    exit(0);
+ }
+
+ char BuscarUsuarios(char ID, char conn[])
+{
+	
+	MYSQL_RES *resultado;
+	MYSQL_ROW row;
+	char consulta[80];
+	char respuesta [100];
+	int err;
+	char IDs[10];
+	
+	sprintf(consulta, "SELECT ID_PARTIDA FROM USUARIOS WHERE ID = %s",ID);
+	err = mysql_query (conn, consulta);
+	if (err!=0) {
+		printf ("Error al consultar datos de la base %u %s\n",
+				mysql_errno(conn), mysql_error(conn));
+		exit (1);
+	}
+	
+	resultado = mysql_store_result (conn);
+	row = mysql_fetch_row (resultado);
+	if (row == NULL)
+		printf ("No se han obtenido datos en la consulta\n");
+	else{
+		while (row !=NULL) {
+			printf ("ID: %d\n", atoi(row[0]));
+			// obtenemos la siguiente fila
+			sprintf(IDs, "%i", row[0]);
+			strcat(IDs, "/");
+			strcat(respuesta, IDs);
+			row = mysql_fetch_row (resultado);
+		}
+	}
+	return(respuesta);
+	mysql_close (conn);
+	exit(0);
+}
+
+char BuscarPersonaje(char ID, char conn[])
+{
+	
+	MYSQL_RES *resultado;
+	MYSQL_ROW row;
+	char consulta[80];
+	char respuesta [100];
+	int err;
+	char IDs[10];
+	
+	sprintf(consulta, "SELECT ID_PARTIDA FROM USUARIOS WHERE ID_PERS = %s",ID);
+	err = mysql_query (conn, consulta);
+	if (err!=0) {
+		printf ("Error al consultar datos de la base %u %s\n",
+				mysql_errno(conn), mysql_error(conn));
+		exit (1);
+	}
+	
+	resultado = mysql_store_result (conn);
+	row = mysql_fetch_row (resultado);
+	if (row == NULL)
+		printf ("No se han obtenido datos en la consulta\n");
+	else{
+		while (row !=NULL) {
+			printf ("ID: %d\n", atoi(row[0]));
+			// obtenemos la siguiente fila
+			sprintf(IDs, "%i", row[0]);
+			strcat(IDs, "/");
+			strcat(respuesta, IDs);
+			row = mysql_fetch_row (resultado);
+		}
+	}
+	return(respuesta);
+	mysql_close (conn);
+	exit(0);
+}
+
+
+
 int LogIN(char *p, char consulta[512], char conn[])
 {
 	// SELECT PASSWORD FROM USUARIOS WHERE NOMBRE = <nombre>;
