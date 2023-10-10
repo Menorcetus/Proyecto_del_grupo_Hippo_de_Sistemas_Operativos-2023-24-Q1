@@ -82,6 +82,9 @@
     <EmbeddedResource Include="buscar_partida_personaje.resx">
       <DependentUpon>buscar_partida_personaje.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="buscar_partida_usuario.resx">
+      <DependentUpon>buscar_partida_usuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

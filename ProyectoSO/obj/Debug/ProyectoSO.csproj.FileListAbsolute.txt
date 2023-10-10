@@ -50,3 +50,4 @@ D:\Documentos\Estudios\EETAC_doble\Curso 3\3 A\SO\entregas\Proyecto_del_grupo_Hi
 D:\Documentos\Estudios\EETAC_doble\Curso 3\3 A\SO\entregas\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.csproj.CoreCompileInputs.cache
 D:\Documentos\Estudios\EETAC_doble\Curso 3\3 A\SO\entregas\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.exe
 D:\Documentos\Estudios\EETAC_doble\Curso 3\3 A\SO\entregas\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.pdb
+D:\Documentos\Estudios\EETAC_doble\Curso 3\3 A\SO\entregas\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.buscar_partida_usuario.resources

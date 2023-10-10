@@ -364,6 +364,30 @@ int main(int argc, char *argv[])
 					sprintf(respuesta,"La password es incorrecta");
 				}	
 			}
+
+			else if (codigo == 3)
+			{
+				char jud_dead = Jugador_muerto(conn);
+				sprintf(respuesta, "%s", jud_dead);
+	
+			}
+
+			else if (codigo == 4)
+			{
+				char Busc_Pers = BuscarPersonaje(ID,conn);
+				sprintf(respuesta, "%s", Busc_Pers);
+	
+			}
+
+			else if (codigo == 5)
+			{
+				char Busc_Us = BuscarUsuarios(ID,conn);
+				sprintf(respuesta, "%s", Busc_Us);
+	
+			}
+
+
+
 			else if (codigo == 0)
 				terminar = 1;
 			if (codigo != 0){
