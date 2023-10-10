@@ -114,7 +114,6 @@ char Jugador_muerto(char conn) // retorna todos los jugadores cuyos personajes t
     // cerrar la conexion con el servidor MYSQL 
 	return(respuesta);
     mysql_close (conn);
-    exit(0);
  }
 
  char BuscarUsuarios(char ID, char conn[])
@@ -151,7 +150,6 @@ char Jugador_muerto(char conn) // retorna todos los jugadores cuyos personajes t
 	}
 	return(respuesta);
 	mysql_close (conn);
-	exit(0);
 }
 
 char BuscarPersonaje(char ID, char conn[])
@@ -328,6 +326,7 @@ int main(int argc, char *argv[])
 
 			char *p = strtok(buff, "/");
 			int codigo = atoi (p);
+			printf("El codigo es: %i\n",codigo);
 
 			if (codigo == 1)
 			{
@@ -374,6 +373,10 @@ int main(int argc, char *argv[])
 
 			else if (codigo == 4)
 			{
+				p = strtok(NULL, "/");
+				char ID[20];
+				sprintf(ID,"%d",p);
+				
 				char Busc_Pers = BuscarPersonaje(ID,conn);
 				sprintf(respuesta, "%s", Busc_Pers);
 	
@@ -381,6 +384,10 @@ int main(int argc, char *argv[])
 
 			else if (codigo == 5)
 			{
+				p = strtok(NULL, "/");
+				char ID[20];
+				sprintf(ID,"%d",p);
+
 				char Busc_Us = BuscarUsuarios(ID,conn);
 				sprintf(respuesta, "%s", Busc_Us);
 	
