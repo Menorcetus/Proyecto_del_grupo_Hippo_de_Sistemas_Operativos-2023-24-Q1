@@ -46,12 +46,13 @@ namespace ProyectoSO
 
 
                 //Recibimos la respuesta del servidor
-                byte[] msg2 = new byte[80];
+                byte[] msg2 = new byte[512];
                 server.Receive(msg2);
 
 
                 mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
                 MessageBox.Show(mensaje);
+                Close();
             }
             else
             {
