@@ -24,3 +24,15 @@ C:\Users\Iván\Documents\GitHub\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-
 C:\Users\Iván\Documents\GitHub\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.csproj.CoreCompileInputs.cache
 C:\Users\Iván\Documents\GitHub\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.exe
 C:\Users\Iván\Documents\GitHub\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.pdb
+D:\GitHub\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\bin\Debug\ProyectoSO.exe.config
+D:\GitHub\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\bin\Debug\ProyectoSO.exe
+D:\GitHub\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\bin\Debug\ProyectoSO.pdb
+D:\GitHub\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.csproj.AssemblyReference.cache
+D:\GitHub\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.Form1.resources
+D:\GitHub\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.login_form.resources
+D:\GitHub\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.Properties.Resources.resources
+D:\GitHub\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.register_form.resources
+D:\GitHub\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.csproj.GenerateResource.cache
+D:\GitHub\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.csproj.CoreCompileInputs.cache
+D:\GitHub\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.exe
+D:\GitHub\Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1\ProyectoSO\obj\Debug\ProyectoSO.pdb

@@ -35,6 +35,7 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.inicioDeSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Desconectar = new System.Windows.Forms.Button();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,7 +55,7 @@
             this.IP_box.Name = "IP_box";
             this.IP_box.Size = new System.Drawing.Size(127, 22);
             this.IP_box.TabIndex = 1;
-            this.IP_box.Text = "192.168.56.102";
+            this.IP_box.Text = "192.168.56.101";
             // 
             // menuStrip1
             // 
@@ -101,11 +102,22 @@
             this.registroToolStripMenuItem.Text = "Registro";
             this.registroToolStripMenuItem.Click += new System.EventHandler(this.registroToolStripMenuItem_Click);
             // 
+            // Desconectar
+            // 
+            this.Desconectar.Location = new System.Drawing.Point(323, 207);
+            this.Desconectar.Name = "Desconectar";
+            this.Desconectar.Size = new System.Drawing.Size(113, 44);
+            this.Desconectar.TabIndex = 4;
+            this.Desconectar.Text = "Desconectar";
+            this.Desconectar.UseVisualStyleBackColor = true;
+            this.Desconectar.Click += new System.EventHandler(this.Desconectar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Desconectar);
             this.Controls.Add(this.IP_box);
             this.Controls.Add(this.Connector_button);
             this.Controls.Add(this.menuStrip1);
@@ -130,6 +142,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem inicioDeSesiónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registroToolStripMenuItem;
+        private System.Windows.Forms.Button Desconectar;
     }
 }
 
