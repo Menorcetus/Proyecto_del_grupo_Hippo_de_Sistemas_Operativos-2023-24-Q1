@@ -44,9 +44,9 @@
             // 
             // Connector_button
             // 
-            this.Connector_button.Location = new System.Drawing.Point(334, 112);
+            this.Connector_button.Location = new System.Drawing.Point(322, 130);
             this.Connector_button.Name = "Connector_button";
-            this.Connector_button.Size = new System.Drawing.Size(103, 42);
+            this.Connector_button.Size = new System.Drawing.Size(114, 42);
             this.Connector_button.TabIndex = 0;
             this.Connector_button.Text = "Conexión";
             this.Connector_button.UseVisualStyleBackColor = true;

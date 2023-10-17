@@ -37,7 +37,7 @@
             // 
             // login_btn
             // 
-            this.login_btn.Location = new System.Drawing.Point(342, 275);
+            this.login_btn.Location = new System.Drawing.Point(319, 242);
             this.login_btn.Name = "login_btn";
             this.login_btn.Size = new System.Drawing.Size(92, 41);
             this.login_btn.TabIndex = 0;
@@ -48,7 +48,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(358, 143);
+            this.label1.Location = new System.Drawing.Point(335, 110);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 16);
             this.label1.TabIndex = 1;
@@ -57,7 +57,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(349, 205);
+            this.label2.Location = new System.Drawing.Point(326, 172);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 16);
             this.label2.TabIndex = 2;
@@ -65,14 +65,14 @@
             // 
             // user_box
             // 
-            this.user_box.Location = new System.Drawing.Point(334, 162);
+            this.user_box.Location = new System.Drawing.Point(311, 129);
             this.user_box.Name = "user_box";
             this.user_box.Size = new System.Drawing.Size(108, 22);
             this.user_box.TabIndex = 3;
             // 
             // pass_box
             // 
-            this.pass_box.Location = new System.Drawing.Point(334, 224);
+            this.pass_box.Location = new System.Drawing.Point(311, 191);
             this.pass_box.Name = "pass_box";
             this.pass_box.Size = new System.Drawing.Size(108, 22);
             this.pass_box.TabIndex = 4;
@@ -88,7 +88,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.login_btn);
             this.Name = "login_form";
-            this.Text = "login_form";
+            this.Text = "Inicia sesión";
             this.ResumeLayout(false);
             this.PerformLayout();
 

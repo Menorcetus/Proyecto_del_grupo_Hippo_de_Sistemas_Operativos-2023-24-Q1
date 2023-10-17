@@ -31,29 +31,33 @@ namespace ProyectoSO
 
         public void Connector_button_Click(object sender, EventArgs e)
         {
-
-            //Creamos un IPEndPoint con el ip del servidor y puerto del servidor 
-            //al que deseamos conectarnos
-            IPAddress direc = IPAddress.Parse(IP_box.Text);
-            IPEndPoint ipep = new IPEndPoint(direc, 9070);
-
-
-            //Creamos el socket 
-            server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            try
+            if (this.BackColor != Color.Green)
             {
-                server.Connect(ipep);//Intentamos conectar el socket
-                this.BackColor = Color.Green;
-                MessageBox.Show("Conectado");
+                //Creamos un IPEndPoint con el ip del servidor y puerto del servidor 
+                //al que deseamos conectarnos
+                IPAddress direc = IPAddress.Parse(IP_box.Text);
+                IPEndPoint ipep = new IPEndPoint(direc, 9070);
 
+
+                //Creamos el socket 
+                server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                try
+                {
+                    server.Connect(ipep);//Intentamos conectar el socket
+                    this.BackColor = Color.Green;
+                    MessageBox.Show("Conectado");
+
+                }
+                catch (SocketException ex)
+                {
+                    //Si hay excepcion imprimimos error y salimos del programa con return 
+                    MessageBox.Show("No he podido conectar con el servidor");
+                    server = null;
+                    return;
+                }
             }
-            catch (SocketException ex)
-            {
-                //Si hay excepcion imprimimos error y salimos del programa con return 
-                MessageBox.Show("No he podido conectar con el servidor");
-                server = null;
-                return;
-            }
+            else
+                MessageBox.Show("Ya estas conectado");
         }
 
         private void inicioDeSesiónToolStripMenuItem_Click(object sender, EventArgs e)
@@ -74,15 +78,20 @@ namespace ProyectoSO
 
         private void Desconectar_Click(object sender, EventArgs e)
         {
-            // Se terminó el servicio. 
-            // Nos desconectamos
-            string mensaje = "0/";
-            byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
-            server.Send(msg);
+            if (this.BackColor == Color.Green)
+            {
+                // Se terminó el servicio. 
+                // Nos desconectamos
+                string mensaje = "0/";
+                byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
+                server.Send(msg);
 
-            this.BackColor = Color.Gray;
-            server.Shutdown(SocketShutdown.Both);
-            server.Close();
+                this.BackColor = Color.Gray;
+                server.Shutdown(SocketShutdown.Both);
+                server.Close();
+            }
+            else
+                MessageBox.Show("No esta conectado");
         }
 
         private void sinVidasToolStripMenuItem_Click(object sender, EventArgs e)

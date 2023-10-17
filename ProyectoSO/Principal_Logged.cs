@@ -22,5 +22,10 @@ namespace ProyectoSO
             this.server = server;
             Bienvenida.Text = "Bienvenido " + user.Name;
         }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

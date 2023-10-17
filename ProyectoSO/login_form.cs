@@ -59,7 +59,6 @@ namespace ProyectoSO
 
                 }
                 MessageBox.Show(resultado);
-
                 Close();
             }
             else
