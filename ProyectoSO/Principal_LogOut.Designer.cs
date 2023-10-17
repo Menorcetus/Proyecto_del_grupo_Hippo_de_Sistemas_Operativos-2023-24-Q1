@@ -1,6 +1,6 @@
 ﻿namespace ProyectoSO
 {
-    partial class Form1
+    partial class Principal_LogOut
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -30,16 +30,15 @@
         {
             this.Connector_button = new System.Windows.Forms.Button();
             this.IP_box = new System.Windows.Forms.TextBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.inicioDeSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Desconectar = new System.Windows.Forms.Button();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.sinVidasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buscarPersonajeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buscarPersonajeEnPartidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Desconectar = new System.Windows.Forms.Button();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,17 +60,9 @@
             this.IP_box.TabIndex = 1;
             this.IP_box.Text = "192.168.56.101";
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Location = new System.Drawing.Point(0, 28);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
             // menuStrip2
             // 
+            this.menuStrip2.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.menuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
@@ -107,16 +98,6 @@
             this.registroToolStripMenuItem.Text = "Registro";
             this.registroToolStripMenuItem.Click += new System.EventHandler(this.registroToolStripMenuItem_Click);
             // 
-            // Desconectar
-            // 
-            this.Desconectar.Location = new System.Drawing.Point(323, 207);
-            this.Desconectar.Name = "Desconectar";
-            this.Desconectar.Size = new System.Drawing.Size(113, 44);
-            this.Desconectar.TabIndex = 4;
-            this.Desconectar.Text = "Desconectar";
-            this.Desconectar.UseVisualStyleBackColor = true;
-            this.Desconectar.Click += new System.EventHandler(this.Desconectar_Click);
-            // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -148,7 +129,17 @@
             this.buscarPersonajeEnPartidaToolStripMenuItem.Text = "Buscar personaje en partida";
             this.buscarPersonajeEnPartidaToolStripMenuItem.Click += new System.EventHandler(this.buscarPersonajeEnPartidaToolStripMenuItem_Click);
             // 
-            // Form1
+            // Desconectar
+            // 
+            this.Desconectar.Location = new System.Drawing.Point(323, 207);
+            this.Desconectar.Name = "Desconectar";
+            this.Desconectar.Size = new System.Drawing.Size(113, 44);
+            this.Desconectar.TabIndex = 4;
+            this.Desconectar.Text = "Desconectar";
+            this.Desconectar.UseVisualStyleBackColor = true;
+            this.Desconectar.Click += new System.EventHandler(this.Desconectar_Click);
+            // 
+            // Principal_LogOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -156,11 +147,9 @@
             this.Controls.Add(this.Desconectar);
             this.Controls.Add(this.IP_box);
             this.Controls.Add(this.Connector_button);
-            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.menuStrip2);
-            this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Principal_LogOut";
+            this.Text = "Principal";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
@@ -173,7 +162,6 @@
 
         private System.Windows.Forms.Button Connector_button;
         private System.Windows.Forms.TextBox IP_box;
-        private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem inicioDeSesiónToolStripMenuItem;

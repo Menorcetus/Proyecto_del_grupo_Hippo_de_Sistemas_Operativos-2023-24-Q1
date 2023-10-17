@@ -58,11 +58,17 @@
     <Compile Include="buscar_partida_usuario.Designer.cs">
       <DependentUpon>buscar_partida_usuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Principal_Logged.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Principal_Logged.Designer.cs">
+      <DependentUpon>Principal_Logged.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Principal_LogOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal_LogOut.Designer.cs">
+      <DependentUpon>Principal_LogOut.cs</DependentUpon>
     </Compile>
     <Compile Include="login_form.cs">
       <SubType>Form</SubType>
@@ -85,8 +91,11 @@
     <EmbeddedResource Include="buscar_partida_usuario.resx">
       <DependentUpon>buscar_partida_usuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Principal_Logged.resx">
+      <DependentUpon>Principal_Logged.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal_LogOut.resx">
+      <DependentUpon>Principal_LogOut.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login_form.resx">
       <DependentUpon>login_form.cs</DependentUpon>

@@ -191,9 +191,10 @@ char BuscarPersonaje(char ID, char conn[])
 
 
 
-int LogIN(char *p, char consulta[512], char conn[])
+int LogIN(char *p, char conn[], char info[512])
 {
 	// SELECT PASSWORD FROM USUARIOS WHERE NOMBRE = <nombre>;
+	char consulta[512];
 	int err;
 	MYSQL_RES *resultado;	
 	MYSQL_ROW *row;
@@ -225,8 +226,22 @@ int LogIN(char *p, char consulta[512], char conn[])
 	}
 
 	if(strcmp(password, realpass) == 0)
-	// La password coincide con la que se ha dado
+	{
+		mysql_free_result(resultado);
+		strcpy(consulta, "SELECT NOMBRE, CORREO FROM USUARIOS WHERE NOMBRE = '");
+		strcat(consulta, nombre);
+		strcat(consulta, "'");
+		err = mysql_query(conn, consulta);
+
+		resultado = mysql_store_result(conn);
+		row = mysql_fetch_row(resultado);
+		strcpy(info,nombre);
+		strcat(info,"/");
+		strcat(info,row[1]);
 		return 0;
+	}
+	// La password coincide con la que se ha dado
+
 	else	
 	// Password incorrecta
 		return 2;
@@ -238,9 +253,6 @@ int main(int argc, char *argv[])
 	
 	int sock_conn, sock_listen, ret;
 	struct sockaddr_in serv_adr;
-	char buff[512];
-	char buff2[512];
-	char respuesta[512];
 	// INICIALITZACIONS
 	// Obrim el socket
 	if ((sock_listen = socket(AF_INET, SOCK_STREAM, 0)) < 0)
@@ -252,7 +264,7 @@ int main(int argc, char *argv[])
 	// asocia el socket a cualquiera de las IP de la m?quina. 
 	//htonl formatea el numero que recibe al formato necesario
 	serv_adr.sin_addr.s_addr = htonl(INADDR_ANY);
-	// escucharemos en el port 9050
+	// escucharemos en el port 9070
 	serv_adr.sin_port = htons(9070);
 	if (bind(sock_listen, (struct sockaddr *) &serv_adr, sizeof(serv_adr)) < 0)
 		printf ("Error al bind");
@@ -263,18 +275,24 @@ int main(int argc, char *argv[])
 	int i;
 	// Atenderemos a infinitas peticiones
 	for(;;){
-		printf ("Escuchando\n");		
 
-		
+		printf ("Escuchando\n");
+		//sock_conn es el socket que usaremos para este cliente
+		//Aqui aceptamos la peticion de del cliente
+		sock_conn = accept(sock_listen, NULL, NULL);
+		printf ("He recibido conexion \n");
+					
+
 		// ---------------------------------Registro y Inicio Sesi�n-------------------------------
 		
-
-
 		int  terminar = 0;
 		while (terminar == 0)
-		{
+		{	
+			// Re/iniciamos los buffers
+			char buff[512];
+			char buff2[512];
+			char respuesta[512];
 			//--------------------------------SQL---------------------------------
-		
 			MYSQL *conn;
 			int err;
 			// Estructura especial para almacenar resultados de consultas 
@@ -288,7 +306,6 @@ int main(int argc, char *argv[])
 						mysql_errno(conn), mysql_error(conn));
 				exit (1);
 			}
-			
 			//inicializar la conexion
 			conn = mysql_real_connect (conn, "localhost","root", "mysql", "db",0, NULL, 0);
 			if (conn==NULL) {
@@ -307,15 +324,10 @@ int main(int argc, char *argv[])
 			resultado = mysql_store_result (conn);
 			fila = mysql_num_rows(resultado);
 			fila++;
-
-			printf("Hay %i filas\n", fila);
-			//--------------------------------SQL---------------------------------			
-			//sock_conn es el socket que usaremos para este cliente
-			//Aqui aceptamos la peticion de del cliente
-			sock_conn = accept(sock_listen, NULL, NULL);
-			printf ("He recibido conexion \n");
+			printf("La proxima ID a asignar sera: %i \n", fila);
 			
-			// Ahora recibimos su nombre, que dejamos en buff
+			//--------------------------------SQL---------------------------------			
+			// Ahora recibimos la request del cliente, que dejamos en buff
 			ret =read(sock_conn,buff, sizeof(buff));
 			printf ("Recibido\n");
 			
@@ -348,11 +360,15 @@ int main(int argc, char *argv[])
 			
 			else if (codigo == 2)
 			{
-				int res = LogIN(p, consulta, conn);
+				char info[512];
+				int res = LogIN(p, conn, info);
 				printf("res es: %i", res);
 				if (res == 0)
 				{
 					sprintf(respuesta,"Se ha iniciado sesion");
+					// Poner funcion para buscar toda la info del jugador
+					strcat(respuesta, "/");
+					strcat(respuesta, info);
 				}
 				else if (res == 1)
 				{
@@ -392,11 +408,11 @@ int main(int argc, char *argv[])
 				sprintf(respuesta, "%s", Busc_Us);
 	
 			}
-
-
-
+			// Mensaje de desconexion
 			else if (codigo == 0)
 				terminar = 1;
+			
+
 			if (codigo != 0){
 				mysql_close(conn);
 				printf("Respuesta: %s\n", respuesta);

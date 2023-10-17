@@ -9,22 +9,23 @@ using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
 using ProyectoSO;
+using System.Runtime.CompilerServices;
 
 namespace ProyectoSO
 {
-    public partial class Form1 : Form
+    public partial class Principal_LogOut : Form
     {
         Socket server;
         User user = new User();
 
-        public Form1()
+        public Principal_LogOut()
         {
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
 
@@ -110,6 +111,7 @@ namespace ProyectoSO
             buscar_partida_usuario bpus = new buscar_partida_usuario(user, server);
             bpus.Show();
         }
+
     }
 }
 
