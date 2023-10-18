@@ -69,7 +69,7 @@
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(172, 26);
             this.logOutToolStripMenuItem.Text = "Log Out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
@@ -81,17 +81,18 @@
             this.amigosToolStripMenuItem.Name = "amigosToolStripMenuItem";
             this.amigosToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
             this.amigosToolStripMenuItem.Text = "Amigos";
+            this.amigosToolStripMenuItem.Click += new System.EventHandler(this.amigosToolStripMenuItem_Click);
             // 
             // añadirToolStripMenuItem
             // 
             this.añadirToolStripMenuItem.Name = "añadirToolStripMenuItem";
-            this.añadirToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.añadirToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.añadirToolStripMenuItem.Text = "Buscar";
             // 
             // verListaToolStripMenuItem
             // 
             this.verListaToolStripMenuItem.Name = "verListaToolStripMenuItem";
-            this.verListaToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.verListaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.verListaToolStripMenuItem.Text = "Ver lista";
             // 
             // Bienvenida

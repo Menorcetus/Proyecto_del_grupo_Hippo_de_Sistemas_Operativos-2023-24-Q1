@@ -27,5 +27,10 @@ namespace ProyectoSO
         {
             Close();
         }
+
+        private void amigosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

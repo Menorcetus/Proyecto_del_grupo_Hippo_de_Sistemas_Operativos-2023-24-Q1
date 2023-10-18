@@ -94,32 +94,6 @@ namespace ProyectoSO
                 MessageBox.Show("No esta conectado");
         }
 
-        private void sinVidasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string mensaje = "3/";
-            byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
-            server.Send(msg);
-
-            //Recibimos la respuesta del servidor
-            byte[] msg2 = new byte[512];
-            server.Receive(msg2);
-
-
-            mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
-            MessageBox.Show(mensaje);
-        }
-
-        private void buscarPersonajeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            buscar_partida_personaje bspers = new buscar_partida_personaje(user, server);
-            bspers.Show();
-        }
-
-        private void buscarPersonajeEnPartidaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            buscar_partida_usuario bpus = new buscar_partida_usuario(user, server);
-            bpus.Show();
-        }
 
     }
 }
