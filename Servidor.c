@@ -79,8 +79,6 @@ int Register(char *p, int ID, char consulta[512], char conn[])
 	return 0;			
 }
 
-
-
 int LogIN(char *p, char conn[], char info[512])
 {
 	// SELECT PASSWORD FROM USERS WHERE NOMBRE = <nombre>;
