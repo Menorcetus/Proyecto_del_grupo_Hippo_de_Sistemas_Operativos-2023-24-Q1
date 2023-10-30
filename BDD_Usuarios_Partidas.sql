@@ -12,8 +12,36 @@ USE db;
 hay hasta cuatro jugadores por partida, dos por equipo, se guarda el resultado por equipo
 formato JUGADOR1 y JUGADOR2 en equipo 1 y 2 y 4 en equipo 2
 se recogen los datos de una partida cuandoe sta finaliza*/
-CREATE TABLE PARTIDAS (ID INT NOT NULL, NUM_JUG INT, DURACION FLOAT, JUGADOR1 VARCHAR(30), JUGARDOR2 VARCHAR (30), JUGADOR3 VARCHAR(30), JUGARDOR4 VARCHAR (30), PUNTOST1 INT, PUNTOST2 INT, PRIMARY KEY (ID)) ENGINE = InnoDB;
+CREATE TABLE Usuarios (
+    ID_usuario INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+    Nombre VARCHAR(30), 
+    Correo VARCHAR(30), 
+    Password VARCHAR(30)
+    ) ENGINE = InnoDB;
 
 
-CREATE TABLE USERS (ID INT NOT NULL, NOMBRE VARCHAR(30), CORREO VARCHAR(30), PASSWORD VARCHAR(30), PRIMARY KEY (ID)) ENGINE = InnoDB;
+CREATE TABLE Partidas (
+    ID_partida INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+    Num_jug INT, Duracion FLOAT, 
+    Jugador1 INT NOT NULL, 
+    Jugador2 INT NOT NULL, 
+    Jugador3 INT NOT NULL, 
+    Jugador4 INT NOT NULL, 
+    FOREIGN KEY (Jugador1) REFERENCES Usuarios(ID_usuario),
+    FOREIGN KEY (Jugador2) REFERENCES Usuarios(ID_usuario),
+    FOREIGN KEY (Jugador3) REFERENCES Usuarios(ID_usuario),
+    FOREIGN KEY (Jugador4) REFERENCES Usuarios(ID_usuario),
+    Puntos_T1 INT, Puntos_T2 INT
+    ) ENGINE = InnoDB;
+
+
+
+CREATE TABLE Cartas (
+    ID_carta INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+    Nombre VARCHAR(30),
+    Fuerza INT,
+    Posicion INT,
+    Repetible INT,
+    Imagen MEDIUMBLOB
+)ENGINE = InnoDB;
 

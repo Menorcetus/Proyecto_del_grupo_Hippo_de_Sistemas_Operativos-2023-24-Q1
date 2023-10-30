@@ -10,28 +10,7 @@
 
 pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 
-int SiguienteID(MYSQL *conn)
-{	
-	int err;
-	// Estructura especial para almacenar resultados de consultas 
-	MYSQL_RES *resultado;
-	MYSQL_ROW row;
-	char consulta [512];
-	// Comprobamos cual es la ultima ID, el numero de filas existentes sera la proxima ID
-	err=mysql_query (conn, "SELECT * FROM USERS");
-	if (err!=0) {
-		printf ("Error al consultar datos de la base %u %s\n",
-				mysql_errno(conn), mysql_error(conn));
-		exit (1);
-	}
-	int fila;
-	resultado = mysql_store_result (conn);
-	fila = mysql_num_rows(resultado);
-	fila++;
-	return fila;
-}
-
-int Register(char *p, int ID, char consulta[512], MYSQL *conn)
+int Register(char *p, char consulta[512], MYSQL *conn)
 {
 	int err;
 	MYSQL_RES *resultado;
@@ -41,10 +20,7 @@ int Register(char *p, int ID, char consulta[512], MYSQL *conn)
 	char nombre[30];
 	strcpy (nombre, p);
 
-	strcpy(consulta, "SELECT * FROM USERS WHERE ID = ");
-	sprintf(IDs, "%d", ID);
-	strcat(consulta, IDs);
-	strcat(consulta," OR NOMBRE = '");
+	strcpy(consulta, "SELECT * FROM Usuarios WHERE Nombre = '");
 	strcat(consulta, nombre);
 	strcat(consulta,"'");
 
@@ -58,7 +34,7 @@ int Register(char *p, int ID, char consulta[512], MYSQL *conn)
 	resultado = mysql_store_result (conn);
 	fila = mysql_num_rows(resultado);
 
-	printf("Hay %i filas\n", fila);
+	printf("Hay %i usuarios con ese nombre.\n", fila);
 	
 	if(fila != 0)
 		return 2;
@@ -76,12 +52,8 @@ int Register(char *p, int ID, char consulta[512], MYSQL *conn)
 
 	
 	
-	strcpy(consulta, "INSERT INTO USERS ");
-	strcat(consulta, "(ID, NOMBRE, CORREO, PASSWORD) VALUES (");
-		
-
-	strcat (consulta, IDs); 
-	strcat (consulta, ",'");
+	strcpy(consulta, "INSERT INTO Usuarios ");
+	strcat(consulta, "(Nombre, Correo, Password) VALUES ('");
 
 	strcat (consulta, nombre); 
 	strcat (consulta, "','");
@@ -119,7 +91,7 @@ int LogIN(char *p, MYSQL *conn, char info[512])
 	char password[30];
 	strcpy (password, p);
 
-	strcpy(consulta, "SELECT PASSWORD FROM USERS WHERE NOMBRE = '");
+	strcpy(consulta, "SELECT Password FROM Usuarios WHERE Nombre = '");
 	strcat(consulta, nombre);
 	strcat(consulta, "'");
 	err = mysql_query(conn, consulta);
@@ -140,7 +112,7 @@ int LogIN(char *p, MYSQL *conn, char info[512])
 	if(strcmp(password, realpass) == 0)
 	{
 		mysql_free_result(resultado);
-		strcpy(consulta, "SELECT NOMBRE, CORREO FROM USERS WHERE NOMBRE = '");
+		strcpy(consulta, "SELECT Nombre, Correo FROM Usuarios WHERE Nombre = '");
 		strcat(consulta, nombre);
 		strcat(consulta, "'");
 		err = mysql_query(conn, consulta);
@@ -212,10 +184,9 @@ void *AtenderCliente(void *socket)
 			// Se niega el acceso a otros theads para evitar registrar dos 
 			// usuarios con la misma ID
 			pthread_mutex_lock(&mutex);
-			int fila = SiguienteID(conn);
-			printf("La proxima ID a asignar sera: %i \n", fila);
+			printf("La proxima ID a asignar sera: %i \n");
 
-			int res = Register(p, fila, consulta, conn);
+			int res = Register(p, consulta, conn);
 			printf("Respuesta es: %i\n", res);
 			pthread_mutex_unlock(&mutex);
 			if (res == 0)
