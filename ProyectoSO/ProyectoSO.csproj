@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaz_juego.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaz_juego.Designer.cs">
+      <DependentUpon>Interfaz_juego.cs</DependentUpon>
+    </Compile>
     <Compile Include="Principal_Logged.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,9 @@
       <DependentUpon>register_form.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
+    <EmbeddedResource Include="Interfaz_juego.resx">
+      <DependentUpon>Interfaz_juego.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Principal_Logged.resx">
       <DependentUpon>Principal_Logged.cs</DependentUpon>
     </EmbeddedResource>
@@ -106,6 +115,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

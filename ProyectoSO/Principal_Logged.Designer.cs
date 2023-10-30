@@ -47,7 +47,7 @@
             this.amigosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1920, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -57,19 +57,19 @@
             this.preferenciasToolStripMenuItem,
             this.logOutToolStripMenuItem});
             this.cuentaToolStripMenuItem.Name = "cuentaToolStripMenuItem";
-            this.cuentaToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
+            this.cuentaToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.cuentaToolStripMenuItem.Text = "Cuenta";
             // 
             // preferenciasToolStripMenuItem
             // 
             this.preferenciasToolStripMenuItem.Name = "preferenciasToolStripMenuItem";
-            this.preferenciasToolStripMenuItem.Size = new System.Drawing.Size(172, 26);
+            this.preferenciasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.preferenciasToolStripMenuItem.Text = "Preferencias";
             // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(172, 26);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.logOutToolStripMenuItem.Text = "Log Out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
@@ -79,20 +79,20 @@
             this.añadirToolStripMenuItem,
             this.verListaToolStripMenuItem});
             this.amigosToolStripMenuItem.Name = "amigosToolStripMenuItem";
-            this.amigosToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
+            this.amigosToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.amigosToolStripMenuItem.Text = "Amigos";
             this.amigosToolStripMenuItem.Click += new System.EventHandler(this.amigosToolStripMenuItem_Click);
             // 
             // añadirToolStripMenuItem
             // 
             this.añadirToolStripMenuItem.Name = "añadirToolStripMenuItem";
-            this.añadirToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.añadirToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.añadirToolStripMenuItem.Text = "Buscar";
             // 
             // verListaToolStripMenuItem
             // 
             this.verListaToolStripMenuItem.Name = "verListaToolStripMenuItem";
-            this.verListaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.verListaToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.verListaToolStripMenuItem.Text = "Ver lista";
             // 
             // Bienvenida
@@ -101,19 +101,22 @@
             this.Bienvenida.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Bienvenida.Location = new System.Drawing.Point(141, 83);
             this.Bienvenida.Name = "Bienvenida";
-            this.Bienvenida.Size = new System.Drawing.Size(0, 38);
+            this.Bienvenida.Size = new System.Drawing.Size(0, 31);
             this.Bienvenida.TabIndex = 1;
             // 
             // Principal_Logged
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.Controls.Add(this.Bienvenida);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Principal_Logged";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

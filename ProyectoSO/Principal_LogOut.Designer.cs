@@ -64,7 +64,7 @@
             this.toolStripMenuItem1});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip2.Size = new System.Drawing.Size(800, 24);
             this.menuStrip2.TabIndex = 3;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -74,14 +74,14 @@
             this.inicioDeSesiónToolStripMenuItem,
             this.registroToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(85, 24);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(70, 20);
             this.toolStripMenuItem1.Text = "Conexión";
             // 
             // inicioDeSesiónToolStripMenuItem
             // 
             this.inicioDeSesiónToolStripMenuItem.Name = "inicioDeSesiónToolStripMenuItem";
             this.inicioDeSesiónToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
-            this.inicioDeSesiónToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
+            this.inicioDeSesiónToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.inicioDeSesiónToolStripMenuItem.Text = "Inicio de Sesión";
             this.inicioDeSesiónToolStripMenuItem.Click += new System.EventHandler(this.inicioDeSesiónToolStripMenuItem_Click);
             // 
@@ -89,7 +89,7 @@
             // 
             this.registroToolStripMenuItem.Name = "registroToolStripMenuItem";
             this.registroToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-            this.registroToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
+            this.registroToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.registroToolStripMenuItem.Text = "Registro";
             this.registroToolStripMenuItem.Click += new System.EventHandler(this.registroToolStripMenuItem_Click);
             // 
@@ -113,6 +113,7 @@
             this.Controls.Add(this.Connector_button);
             this.Controls.Add(this.menuStrip2);
             this.Name = "Principal_LogOut";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip2.ResumeLayout(false);

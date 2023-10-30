@@ -528,3 +528,4 @@ mono_crash.*.json
 
 # All binary
 *.bin
+.vscode/tasks.json

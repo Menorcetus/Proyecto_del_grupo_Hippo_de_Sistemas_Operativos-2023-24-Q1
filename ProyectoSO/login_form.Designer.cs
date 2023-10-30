@@ -88,6 +88,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.login_btn);
             this.Name = "login_form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Inicia sesión";
             this.ResumeLayout(false);
             this.PerformLayout();
