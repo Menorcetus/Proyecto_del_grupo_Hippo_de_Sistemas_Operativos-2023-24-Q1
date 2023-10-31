@@ -46,23 +46,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="buscar_partida_personaje.cs">
+    <Compile Include="Grid_Form_Conectados.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="buscar_partida_personaje.Designer.cs">
-      <DependentUpon>buscar_partida_personaje.cs</DependentUpon>
+    <Compile Include="Grid_Form_Conectados.Designer.cs">
+      <DependentUpon>Grid_Form_Conectados.cs</DependentUpon>
     </Compile>
-    <Compile Include="buscar_partida_usuario.cs">
+    <Compile Include="Interfaz_juego.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="buscar_partida_usuario.Designer.cs">
-      <DependentUpon>buscar_partida_usuario.cs</DependentUpon>
+    <Compile Include="Interfaz_juego.Designer.cs">
+      <DependentUpon>Interfaz_juego.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Principal_Logged.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Principal_Logged.Designer.cs">
+      <DependentUpon>Principal_Logged.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Principal_LogOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal_LogOut.Designer.cs">
+      <DependentUpon>Principal_LogOut.cs</DependentUpon>
     </Compile>
     <Compile Include="login_form.cs">
       <SubType>Form</SubType>
@@ -79,14 +85,17 @@
       <DependentUpon>register_form.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
-    <EmbeddedResource Include="buscar_partida_personaje.resx">
-      <DependentUpon>buscar_partida_personaje.cs</DependentUpon>
+    <EmbeddedResource Include="Grid_Form_Conectados.resx">
+      <DependentUpon>Grid_Form_Conectados.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="buscar_partida_usuario.resx">
-      <DependentUpon>buscar_partida_usuario.cs</DependentUpon>
+    <EmbeddedResource Include="Interfaz_juego.resx">
+      <DependentUpon>Interfaz_juego.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Principal_Logged.resx">
+      <DependentUpon>Principal_Logged.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal_LogOut.resx">
+      <DependentUpon>Principal_LogOut.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login_form.resx">
       <DependentUpon>login_form.cs</DependentUpon>
@@ -99,6 +108,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="register_form.resx">
       <DependentUpon>register_form.cs</DependentUpon>
@@ -115,6 +125,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondo_gwent.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

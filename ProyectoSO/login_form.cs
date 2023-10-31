@@ -48,7 +48,17 @@ namespace ProyectoSO
 
 
                 mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
-                MessageBox.Show(mensaje);
+                string resultado = mensaje.Split('/')[0];
+                if(resultado == "Se ha iniciado sesion")
+                {
+                    user.Name = mensaje.Split('/')[1];
+                    user.Email = mensaje.Split('/')[2];
+                    // faltan cosas a implementar pero de momento esta bien asi
+                    Principal_Logged principal_Logged = new Principal_Logged(user, server);
+                    principal_Logged.Show();
+
+                }
+                MessageBox.Show(resultado);
                 Close();
             }
             else

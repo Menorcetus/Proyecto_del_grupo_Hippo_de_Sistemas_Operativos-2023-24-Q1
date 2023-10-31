@@ -109,7 +109,8 @@
             this.Controls.Add(this.user_box);
             this.Controls.Add(this.register_btn);
             this.Name = "register_form";
-            this.Text = "register_form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Resgistro de usuario";
             this.ResumeLayout(false);
             this.PerformLayout();
 
