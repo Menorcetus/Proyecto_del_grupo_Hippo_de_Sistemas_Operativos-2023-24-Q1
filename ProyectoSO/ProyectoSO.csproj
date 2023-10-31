@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Grid_Form_Conectados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Grid_Form_Conectados.Designer.cs">
+      <DependentUpon>Grid_Form_Conectados.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaz_juego.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +85,9 @@
       <DependentUpon>register_form.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
+    <EmbeddedResource Include="Grid_Form_Conectados.resx">
+      <DependentUpon>Grid_Form_Conectados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Interfaz_juego.resx">
       <DependentUpon>Interfaz_juego.cs</DependentUpon>
     </EmbeddedResource>

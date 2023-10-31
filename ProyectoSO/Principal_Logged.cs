@@ -32,5 +32,11 @@ namespace ProyectoSO
         {
             Close();
         }
+
+        private void toolstripmostrarCon_Click(object sender, EventArgs e)
+        {
+            Grid_Form_Conectados Gform = new Grid_Form_Conectados(user, server);
+            Gform.Show();
+        }
     }
 }

@@ -38,6 +38,7 @@
             this.añadirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verListaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Bienvenida = new System.Windows.Forms.Label();
+            this.toolstripmostrarCon = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,7 +57,8 @@
             // usuarioToolStripMenuItem
             // 
             this.usuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.logOutToolStripMenuItem1});
+            this.logOutToolStripMenuItem1,
+            this.toolstripmostrarCon});
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
             this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(73, 26);
             this.usuarioToolStripMenuItem.Text = "Usuario";
@@ -64,7 +66,7 @@
             // logOutToolStripMenuItem1
             // 
             this.logOutToolStripMenuItem1.Name = "logOutToolStripMenuItem1";
-            this.logOutToolStripMenuItem1.Size = new System.Drawing.Size(141, 26);
+            this.logOutToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.logOutToolStripMenuItem1.Text = "LogOut";
             this.logOutToolStripMenuItem1.Click += new System.EventHandler(this.logOutToolStripMenuItem1_Click);
             // 
@@ -114,6 +116,13 @@
             this.Bienvenida.Size = new System.Drawing.Size(0, 38);
             this.Bienvenida.TabIndex = 1;
             // 
+            // toolstripmostrarCon
+            // 
+            this.toolstripmostrarCon.Name = "toolstripmostrarCon";
+            this.toolstripmostrarCon.Size = new System.Drawing.Size(224, 26);
+            this.toolstripmostrarCon.Text = "Conectados";
+            this.toolstripmostrarCon.Click += new System.EventHandler(this.toolstripmostrarCon_Click);
+            // 
             // Principal_Logged
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -151,5 +160,6 @@
         private System.Windows.Forms.Label Bienvenida;
         private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolstripmostrarCon;
     }
 }
