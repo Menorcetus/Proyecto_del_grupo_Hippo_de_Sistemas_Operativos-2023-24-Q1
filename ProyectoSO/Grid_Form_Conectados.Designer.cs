@@ -43,7 +43,7 @@
             this.dataGridConectados.ReadOnly = true;
             this.dataGridConectados.RowHeadersWidth = 51;
             this.dataGridConectados.RowTemplate.Height = 24;
-            this.dataGridConectados.Size = new System.Drawing.Size(240, 150);
+            this.dataGridConectados.Size = new System.Drawing.Size(582, 298);
             this.dataGridConectados.TabIndex = 0;
             // 
             // button1

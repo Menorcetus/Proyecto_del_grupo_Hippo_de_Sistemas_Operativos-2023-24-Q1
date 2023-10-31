@@ -10,7 +10,7 @@
 
 #define Max 30
 #define Max2 100
-#define buff 512
+#define buffer 512
 
 pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 
@@ -25,12 +25,17 @@ typedef struct {
 	int num;
 } ListaUsuarios;
 
+ListaUsuarios Usuarios;
+ListaUsuarios Conectados;
+int  conectados_num;
+int Usuarios_num;
+
 int GenerarListaUsuarios(ListaUsuarios *lista, MYSQL *conn){
 	// Esta funcion modifica la lista y devuelve el numero de usuarios en la base de datos
 	// Si no se puede conectar a la base de datos devuelve -1
 	int err;
 	MYSQL_RES * resultado;
-	MYSQL_ROW * row
+	MYSQL_ROW * row;
 	char consulta[512];
 	strcpy(consulta, "SELECT Nombre FROM Usuarios");
 
@@ -49,8 +54,12 @@ int GenerarListaUsuarios(ListaUsuarios *lista, MYSQL *conn){
 		strcpy(lista->usuarios[num].Nombre, row[0]);
 		lista->usuarios[num].con = 0;
 		lista->usuarios[num].jugando = 0;
+		printf("%s\n",lista->usuarios[num].Nombre);
 		num++;
+		row = mysql_fetch_row(resultado);
+
 	}
+	lista->num = num;
 	return num;
 }
 
@@ -70,11 +79,14 @@ int ActualizarListaUsuarios(ListaUsuarios *lista, char nombre[Max]){
 
 int DarConectados(ListaUsuarios *lista, ListaUsuarios *conectados){
 	int j = 0;
-	for(int i=0; i < lista->num; i++)
+	for(int i=0; i <= lista->num; i++)
 	{
 		if(lista->usuarios[i].con == 1)
 		{	// no se si funciona jajajaj
-			conectados->usuarios[j] = lista->usuarios.[i];
+			strcpy(conectados->usuarios[j].Nombre,lista->usuarios[i].Nombre);
+			conectados->usuarios[j].con = lista->usuarios[i].con;
+			conectados->usuarios[j].jugando = lista->usuarios[i].jugando;
+			conectados->num++;
 			j++;
 		}
 	}
@@ -82,7 +94,7 @@ int DarConectados(ListaUsuarios *lista, ListaUsuarios *conectados){
 	return j;
 }
 
-int Register(char *p, char consulta[512], MYSQL *conn)
+int Register(char *p, char consulta[512], MYSQL *conn, ListaUsuarios *lista)
 {
 	int err;
 	MYSQL_RES *resultado;
@@ -144,10 +156,16 @@ int Register(char *p, char consulta[512], MYSQL *conn)
 				mysql_errno(conn), mysql_error(conn));
 		exit (1);
 	}
-	return 0;			
+	err = ActualizarListaUsuarios(lista, nombre);
+	if (err == 1){
+		printf("No se ha podidio agregar el usuario a la lista\n");
+		return 1;
+	}
+	else
+		return 0;			
 }
 
-int LogIN(char *p, MYSQL *conn, char info[512])
+int LogIN(char *p, MYSQL *conn, char info[512], ListaUsuarios *lista)
 {
 	// SELECT PASSWORD FROM USERS WHERE NOMBRE = <nombre>;
 	char consulta[512];
@@ -194,6 +212,14 @@ int LogIN(char *p, MYSQL *conn, char info[512])
 		strcpy(info,nombre);
 		strcat(info,"/");
 		strcat(info,row[1]);
+		int i = 0;
+		while (strcmp(lista->usuarios[i].Nombre, nombre) != 0)
+		{
+			i++;
+		}
+		printf("%s\n",lista->usuarios[i].Nombre);
+		lista->usuarios[i].con = 1; 
+		printf("%i\n",lista->usuarios[i].con);
 		return 0;
 	}
 	// La password coincide con la que se ha dado
@@ -258,7 +284,7 @@ void *AtenderCliente(void *socket)
 			pthread_mutex_lock(&mutex);
 			printf("La proxima ID a asignar sera: %i \n");
 
-			int res = Register(p, consulta, conn);
+			int res = Register(p, consulta, conn, &Usuarios);
 			printf("Respuesta es: %i\n", res);
 			pthread_mutex_unlock(&mutex);
 			if (res == 0)
@@ -280,7 +306,7 @@ void *AtenderCliente(void *socket)
 		else if (codigo == 2)
 		{
 			char info[512];
-			int res = LogIN(p, conn, info);
+			int res = LogIN(p, conn, info, &Usuarios);
 			printf("res es: %i", res);
 			if (res == 0)
 			{
@@ -300,6 +326,15 @@ void *AtenderCliente(void *socket)
 			{
 				sprintf(respuesta,"La password es incorrecta");
 			}	
+		}
+		else if (codigo == 3)
+		{
+			conectados_num = DarConectados(&Usuarios, &Conectados);
+			printf("%s\n",Conectados.usuarios[0].Nombre);
+			sprintf(respuesta,"%d",conectados_num);
+			for(int i = 0; i <= conectados_num; i++ ){
+				sprintf(respuesta,"%s/%s",respuesta,Conectados.usuarios[i].Nombre);
+			}
 		}
 
 		// Mensaje de desconexion
@@ -340,7 +375,28 @@ int main(int argc, char *argv[])
 	if (listen(sock_listen, 4) < 0)
 		printf("Error en el Listen");
 	
+	MYSQL *conn;
+	int err;
+	char consulta [512];
+	//Creamos una conexion al servidor MYSQL 
+	conn = mysql_init(NULL);
+	if (conn==NULL) {
+		printf ("Error al crear la conexion: %u %s\n", 
+				mysql_errno(conn), mysql_error(conn));
+		exit (1);
+	}
+	//inicializar la conexion
+	conn = mysql_real_connect (conn, "localhost","root", "mysql", "db",0, NULL, 0);
+	if (conn==NULL) {
+		printf ("Error al inicializar la conexion: %u %s\n", 
+				mysql_errno(conn), mysql_error(conn));
+		exit (1);
+	}				
 
+	
+	Usuarios_num = GenerarListaUsuarios(&Usuarios, conn);
+	Conectados.num = 0;
+	
 	int i = 0;
 	int sockets[100];
 	pthread_t thread;

@@ -44,14 +44,13 @@ namespace ProyectoSO
                 dataGridConectados.RowCount = Convert.ToInt32(resultado);
                 dataGridConectados.ColumnCount = 2;
                 dataGridConectados.Columns[0].HeaderText = "Usuario";
-                dataGridConectados.Columns[0].HeaderText = "Jugando";
+                dataGridConectados.Columns[1].HeaderText = "Jugando";
                 while (i < Convert.ToInt32(resultado))
                 {
-                    dataGridConectados.Rows[i].Cells[0].Value = mensaje.Split('/')[i];
+                    dataGridConectados.Rows[i].Cells[0].Value = mensaje.Split('/')[i+1];
                     i++;
                     //dataGridConectados.Rows[i].Cells[1].Value = mensaje.Split('/')[i];
                     //Habrá que separar otra vez y poner un if en funcion de si es 1 o 0
-                    i++;
                 }
 
 
@@ -76,24 +75,20 @@ namespace ProyectoSO
                 //formato de mensaje NumeroConectados/Nombre/Nombre/Nombre--> NumeroCon/Nombre/Jugando/Nombre/Jugando/..
                 mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
                 string resultado = mensaje.Split('/')[0]; //numero
-                int i = 0;
+                int i = 1;
                 dataGridConectados.RowCount = Convert.ToInt32(resultado);
                 dataGridConectados.ColumnCount = 2;
                 dataGridConectados.Columns[0].HeaderText = "Usuario";
-                dataGridConectados.Columns[0].HeaderText = "Jugando";
+                dataGridConectados.Columns[1].HeaderText = "Jugando";
                 while (i < Convert.ToInt32(resultado))
                 {
                     dataGridConectados.Rows[i].Cells[0].Value = mensaje.Split('/')[i];
                     i++;
                     //dataGridConectados.Rows[i].Cells[1].Value = mensaje.Split('/')[i];
                     //Habrá que separar otra vez y poner un if en funcion de si es 1 o 0
-                    i++;
                 }
 
-
             }
-
-
         }
     }
 }
