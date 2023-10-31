@@ -8,7 +8,79 @@
 #include <mysql.h>
 #include <pthread.h>
 
+#define Max 30
+#define Max2 100
+#define buff 512
+
 pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+
+typedef struct{
+	int con;
+	char Nombre [Max];
+	int jugando;
+} Usuario;
+
+typedef struct {
+	Usuario usuarios[Max2];
+	int num;
+} ListaUsuarios;
+
+int GenerarListaUsuarios(ListaUsuarios *lista, MYSQL *conn){
+	// Esta funcion modifica la lista y devuelve el numero de usuarios en la base de datos
+	// Si no se puede conectar a la base de datos devuelve -1
+	int err;
+	MYSQL_RES * resultado;
+	MYSQL_ROW * row
+	char consulta[512];
+	strcpy(consulta, "SELECT Nombre FROM Usuarios");
+
+	err=mysql_query (conn, consulta);
+	if (err!=0) {
+		printf ("Error al consultar datos de la base %u %s\n",
+				mysql_errno(conn), mysql_error(conn));
+		return -1;
+	}
+
+	resultado = mysql_store_result (conn);
+	row = mysql_fetch_row(resultado);
+	int num = 0;
+	while (row != NULL)
+	{
+		strcpy(lista->usuarios[num].Nombre, row[0]);
+		lista->usuarios[num].con = 0;
+		lista->usuarios[num].jugando = 0;
+		num++;
+	}
+	return num;
+}
+
+int ActualizarListaUsuarios(ListaUsuarios *lista, char nombre[Max]){
+	// Funcion para añadir un usuario a la lista que se acaba de registrar
+	int num = lista->num;
+	if(num < Max2){
+		strcpy(lista->usuarios[num].Nombre, nombre);
+		lista->usuarios[num].con = 0;
+		lista->usuarios[num].jugando = 0;
+		num++;
+		return 0;
+	}
+	else
+		return 1;
+}	
+
+int DarConectados(ListaUsuarios *lista, ListaUsuarios *conectados){
+	int j = 0;
+	for(int i=0; i < lista->num; i++)
+	{
+		if(lista->usuarios[i].con == 1)
+		{	// no se si funciona jajajaj
+			conectados->usuarios[j] = lista->usuarios.[i];
+			j++;
+		}
+	}
+	// El numero de personas conectadas
+	return j;
+}
 
 int Register(char *p, char consulta[512], MYSQL *conn)
 {

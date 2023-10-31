@@ -23,14 +23,14 @@ namespace ProyectoSO
             Bienvenida.Text = "Bienvenido " + user.Name;
         }
 
-        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            Close();
+
         }
 
-        private void amigosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void logOutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
     }
 }
