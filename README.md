@@ -8,3 +8,5 @@ URL: https://youtu.be/uakGkLJbYJY
 
 Versión 2 generada por Miguel Martínez Martínez
 Version 2 verificada por Iván Pascuas Palma
+Version 2 comunicada por Jordi Gómez Yagual
+URL https://youtu.be/6T59NrVM6Lc
