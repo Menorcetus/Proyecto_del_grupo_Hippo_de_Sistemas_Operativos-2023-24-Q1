@@ -38,7 +38,7 @@
             this.dataGridConectados.AllowUserToAddRows = false;
             this.dataGridConectados.AllowUserToDeleteRows = false;
             this.dataGridConectados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridConectados.Location = new System.Drawing.Point(0, 0);
+            this.dataGridConectados.Location = new System.Drawing.Point(12, 12);
             this.dataGridConectados.Name = "dataGridConectados";
             this.dataGridConectados.ReadOnly = true;
             this.dataGridConectados.RowHeadersWidth = 51;
@@ -52,7 +52,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 38);
             this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
+            this.button1.Text = "Actualizar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 

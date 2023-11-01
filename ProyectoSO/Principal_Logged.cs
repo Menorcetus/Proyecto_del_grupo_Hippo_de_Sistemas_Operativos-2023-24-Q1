@@ -30,6 +30,17 @@ namespace ProyectoSO
 
         private void logOutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+
+            string mensaje = "4/" + user.Name;
+            byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
+            server.Send(msg);
+
+            //Recibimos la respuesta del servidor
+            byte[] msg2 = new byte[80];
+            server.Receive(msg2);
+
+            mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
+            MessageBox.Show(mensaje);
             Close();
         }
 

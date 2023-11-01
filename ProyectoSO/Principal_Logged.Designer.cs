@@ -31,6 +31,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolstripmostrarCon = new System.Windows.Forms.ToolStripMenuItem();
             this.cuentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.preferenciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,8 +39,9 @@
             this.añadirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verListaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Bienvenida = new System.Windows.Forms.Label();
-            this.toolstripmostrarCon = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -49,7 +51,7 @@
             this.usuarioToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1920, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1920, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -60,15 +62,22 @@
             this.logOutToolStripMenuItem1,
             this.toolstripmostrarCon});
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(73, 26);
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.usuarioToolStripMenuItem.Text = "Usuario";
             // 
             // logOutToolStripMenuItem1
             // 
             this.logOutToolStripMenuItem1.Name = "logOutToolStripMenuItem1";
-            this.logOutToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.logOutToolStripMenuItem1.Size = new System.Drawing.Size(170, 26);
             this.logOutToolStripMenuItem1.Text = "LogOut";
             this.logOutToolStripMenuItem1.Click += new System.EventHandler(this.logOutToolStripMenuItem1_Click);
+            // 
+            // toolstripmostrarCon
+            // 
+            this.toolstripmostrarCon.Name = "toolstripmostrarCon";
+            this.toolstripmostrarCon.Size = new System.Drawing.Size(170, 26);
+            this.toolstripmostrarCon.Text = "Conectados";
+            this.toolstripmostrarCon.Click += new System.EventHandler(this.toolstripmostrarCon_Click);
             // 
             // cuentaToolStripMenuItem
             // 
@@ -116,12 +125,16 @@
             this.Bienvenida.Size = new System.Drawing.Size(0, 38);
             this.Bienvenida.TabIndex = 1;
             // 
-            // toolstripmostrarCon
+            // pictureBox1
             // 
-            this.toolstripmostrarCon.Name = "toolstripmostrarCon";
-            this.toolstripmostrarCon.Size = new System.Drawing.Size(224, 26);
-            this.toolstripmostrarCon.Text = "Conectados";
-            this.toolstripmostrarCon.Click += new System.EventHandler(this.toolstripmostrarCon_Click);
+            this.pictureBox1.Image = global::ProyectoSO.Properties.Resources.Hippo;
+            this.pictureBox1.InitialImage = global::ProyectoSO.Properties.Resources.Hippo;
+            this.pictureBox1.Location = new System.Drawing.Point(580, 801);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 200);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // Principal_Logged
             // 
@@ -131,6 +144,7 @@
             this.BackgroundImage = global::ProyectoSO.Properties.Resources.fondo_gwent;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1920, 1080);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Bienvenida);
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
@@ -143,6 +157,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,5 +176,6 @@
         private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolstripmostrarCon;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -26,7 +26,6 @@ typedef struct {
 } ListaUsuarios;
 
 ListaUsuarios Usuarios;
-ListaUsuarios Conectados;
 int  conectados_num;
 int Usuarios_num;
 
@@ -36,7 +35,7 @@ int GenerarListaUsuarios(ListaUsuarios *lista, MYSQL *conn){
 	int err;
 	MYSQL_RES * resultado;
 	MYSQL_ROW * row;
-	char consulta[512];
+	char consulta[buffer];
 	strcpy(consulta, "SELECT Nombre FROM Usuarios");
 
 	err=mysql_query (conn, consulta);
@@ -64,8 +63,10 @@ int GenerarListaUsuarios(ListaUsuarios *lista, MYSQL *conn){
 }
 
 int ActualizarListaUsuarios(ListaUsuarios *lista, char nombre[Max]){
-	// Funcion para añadir un usuario a la lista que se acaba de registrar
+	// Funcion para concatenar un usuario a la lista, se usara para Register de forma mas ordenada
+	// num declara la ultima posicion de la lista
 	int num = lista->num;
+	// Detecta si la lista esta llena
 	if(num < Max2){
 		strcpy(lista->usuarios[num].Nombre, nombre);
 		lista->usuarios[num].con = 0;
@@ -78,7 +79,17 @@ int ActualizarListaUsuarios(ListaUsuarios *lista, char nombre[Max]){
 }	
 
 int DarConectados(ListaUsuarios *lista, ListaUsuarios *conectados){
+	// Rellena una lista de usuarios conectados con la info de la lista general
 	int j = 0;
+	for(int i=0; i <= conectados->num; i++)
+	{	
+		strcpy(conectados->usuarios[j].Nombre,"\0");
+		conectados->usuarios[j].con = NULL;
+		conectados->usuarios[j].jugando = NULL;
+		j++;
+	}
+	conectados->num = 0;
+	j=0;
 	for(int i=0; i <= lista->num; i++)
 	{
 		if(lista->usuarios[i].con == 1)
@@ -94,11 +105,10 @@ int DarConectados(ListaUsuarios *lista, ListaUsuarios *conectados){
 	return j;
 }
 
-int Register(char *p, char consulta[512], MYSQL *conn, ListaUsuarios *lista)
-{
+int Register(char *p, char consulta[buffer], MYSQL *conn, ListaUsuarios *lista){
+	// Hacemos la querry para detectar si el usuario ya existe
 	int err;
 	MYSQL_RES *resultado;
-	char IDs[11];	
 	
 	p = strtok( NULL, "/");
 	char nombre[30];
@@ -120,10 +130,12 @@ int Register(char *p, char consulta[512], MYSQL *conn, ListaUsuarios *lista)
 
 	printf("Hay %i usuarios con ese nombre.\n", fila);
 	
+	// El usuario ya existe
 	if(fila != 0)
 		return 2;
-	memset(consulta, 0, 512);
+	memset(consulta, 0, buffer);
 
+	// El usuario aun no existe
 	p = strtok( NULL, "/");
 	char mail[40];
 	strcpy (mail,p);
@@ -156,6 +168,7 @@ int Register(char *p, char consulta[512], MYSQL *conn, ListaUsuarios *lista)
 				mysql_errno(conn), mysql_error(conn));
 		exit (1);
 	}
+	// Ahora hay que actualizar la lista de usuarios
 	err = ActualizarListaUsuarios(lista, nombre);
 	if (err == 1){
 		printf("No se ha podidio agregar el usuario a la lista\n");
@@ -165,10 +178,9 @@ int Register(char *p, char consulta[512], MYSQL *conn, ListaUsuarios *lista)
 		return 0;			
 }
 
-int LogIN(char *p, MYSQL *conn, char info[512], ListaUsuarios *lista)
-{
+int LogIN(char *p, MYSQL *conn, char info[buffer], ListaUsuarios *lista){
 	// SELECT PASSWORD FROM USERS WHERE NOMBRE = <nombre>;
-	char consulta[512];
+	char consulta[buffer];
 	int err;
 	MYSQL_RES *resultado;	
 	MYSQL_ROW *row;
@@ -194,11 +206,11 @@ int LogIN(char *p, MYSQL *conn, char info[512], ListaUsuarios *lista)
 		return 1;
 	else
 	{	
-	// Se convierte en un str comparable la password encontrada
-
+		// Se convierte en un str comparable la password encontrada
 		sprintf (realpass, "%s", row[0] );
 	}
 
+	// La password coincide con la que se ha dado
 	if(strcmp(password, realpass) == 0)
 	{
 		mysql_free_result(resultado);
@@ -206,48 +218,63 @@ int LogIN(char *p, MYSQL *conn, char info[512], ListaUsuarios *lista)
 		strcat(consulta, nombre);
 		strcat(consulta, "'");
 		err = mysql_query(conn, consulta);
-
+		
+		// Devuelve diversa info del usuario al cliente durante el inicio de sesion
 		resultado = mysql_store_result(conn);
 		row = mysql_fetch_row(resultado);
 		strcpy(info,nombre);
 		strcat(info,"/");
 		strcat(info,row[1]);
+		// Busca el usuario en la lista de usuarios y lo define como conectado
 		int i = 0;
 		while (strcmp(lista->usuarios[i].Nombre, nombre) != 0)
-		{
 			i++;
-		}
+		// Debugg
 		printf("%s\n",lista->usuarios[i].Nombre);
 		lista->usuarios[i].con = 1; 
 		printf("%i\n",lista->usuarios[i].con);
 		return 0;
 	}
-	// La password coincide con la que se ha dado
-
-	else	
 	// Password incorrecta
+	else	
 		return 2;
 }
 
-void *AtenderCliente(void *socket)
-{
+int LogOUT(char *p, ListaUsuarios *lista){
+	// Cambiaremos la lista de conectados para decir que se ha cerrado sesion
+	p = strtok( NULL, "/");
+	char nombre[30];
+	strcpy (nombre, p);
+
+	int i = 0;
+	while (strcmp(lista->usuarios[i].Nombre, nombre) != 0)
+		i++;
+	// Debugg
+	printf("%s\n",lista->usuarios[i].Nombre);
+	lista->usuarios[i].con = 0; 
+	printf("%i\n",lista->usuarios[i].con);
+	return 0;
+}
+
+void *AtenderCliente(void *socket){
 	// Iniciamos el socket dentro del thread
 	int sock_conn;
 	int *s;
 	s= (int*) socket;
 	sock_conn= *s;
 	
+	// Empezamos bucle para el analisis de peticiones
 	int  terminar = 0;
 	while (terminar == 0)
 	{	
 		// Re/iniciamos los buffers
-		char buff[512];
-		char buff2[512];
-		char respuesta[512];
+		char buff[buffer];
+		char buff2[buffer];
+		char respuesta[buffer];
 		//--------------------------SQL Main Connection-------------------------
 		MYSQL *conn;
 		int err;
-		char consulta [512];
+		char consulta [buffer];
 		//Creamos una conexion al servidor MYSQL 
 		conn = mysql_init(NULL);
 		if (conn==NULL) {
@@ -276,71 +303,91 @@ void *AtenderCliente(void *socket)
 		int codigo = atoi (p);
 		printf("El codigo es: %i\n",codigo);
 		// A partir de aqui se seleccionara el servicio y se ejecutara
-		// Registro de usuario
-		if (codigo == 1)
-		{	
-			// Se niega el acceso a otros theads para evitar registrar dos 
-			// usuarios con la misma ID
-			pthread_mutex_lock(&mutex);
-			printf("La proxima ID a asignar sera: %i \n");
-
-			int res = Register(p, consulta, conn, &Usuarios);
-			printf("Respuesta es: %i\n", res);
-			pthread_mutex_unlock(&mutex);
-			if (res == 0)
-			{
-				sprintf(respuesta,"Se ha registrado el usuario");
+		switch (codigo){
+			// Registro de usuario
+			// Recibe: 1/<Nombre>/<Correo>/<Password>
+			case 1:	{
+				// Se niega el acceso a otros theads para evitar registrar dos 
+				// usuarios con la misma ID
+				pthread_mutex_lock(&mutex);
+				int res = Register(p, consulta, conn, &Usuarios);
+				// printf("Respuesta es: %i\n", res);
+				pthread_mutex_unlock(&mutex);
+				if (res == 0)
+				{
+					sprintf(respuesta,"Se ha registrado el usuario");
+				}
+				else if (res == 1)
+				{
+					sprintf(respuesta,"Error durante el registro");
+				}
+				else if (res == 2)
+				{	
+					// Una de las condiciones es que tengan misma ID, de todas formas
+					// ya no tendria que ocurrir nunca
+					sprintf(respuesta,"Este usuario ya estaba registrado");
+				}
+				break;
 			}
-			else if (res == 1)
-			{
-				sprintf(respuesta,"Error durante el registro");
+			// Inicio de sesion
+			// Recibe: 2/<Nombre>/<Password>
+			case 2:{	
+				char info[buffer];
+				pthread_mutex_lock(&mutex);
+				int res = LogIN(p, conn, info, &Usuarios);
+				pthread_mutex_unlock(&mutex);
+				// printf("res es: %i", res);
+				if (res == 0)
+				{
+					sprintf(respuesta,"Se ha iniciado sesion");
+					// Poner funcion para buscar toda la info del jugador
+					strcat(respuesta, "/");
+					// De momento solo devuelve el correo con el nombre, pero
+					// en el futuro se usara para enviar mas info al iniciar.
+					// Por ejemplo: lista de amigos
+					strcat(respuesta, info);
+				}
+				else if (res == 1)
+				{
+					sprintf(respuesta,"No se ha encontrado el usuario");
+				}
+				else if (res == 2)
+				{
+					sprintf(respuesta,"La password es incorrecta");
+				}	
+				break;
 			}
-			else if (res == 2)
-			{	
-				// Una de las condiciones es que tengan misma ID, de todas formas
-				// ya no tendria que ocurrir nunca
-				sprintf(respuesta,"Este usuario ya estaba registrado");
-			}	
+			// Dar lista de conectados a peticion
+			// Recibe: 3
+			case 3:{
+				ListaUsuarios Conectados;
+				conectados_num = DarConectados(&Usuarios, &Conectados);
+				sprintf(respuesta,"%d",conectados_num);
+				for(int i = 0; i <= conectados_num; i++ ){
+					sprintf(respuesta,"%s/%s",respuesta,Conectados.usuarios[i].Nombre);
+					// Debugg para consola
+					printf("Conectado: %s.\n", Conectados.usuarios[i].Nombre);
+				}
+				break;
+			}
+			// LogOut
+			// Recibe: 4/<Nombre>
+			case 4:{
+				pthread_mutex_lock(&mutex);
+				int res = LogOUT(p, &Usuarios);
+				pthread_mutex_unlock(&mutex);
+				if(res == 0)
+					sprintf(respuesta,"Se ha cerrado la sesion\n");
+				break;
+			}
+			// Mensaje de desconexion
+			case 0:{
+				terminar = 1;
+				break;
+			}
 		}
-		// Inicio de sesion
-		else if (codigo == 2)
-		{
-			char info[512];
-			int res = LogIN(p, conn, info, &Usuarios);
-			printf("res es: %i", res);
-			if (res == 0)
-			{
-				sprintf(respuesta,"Se ha iniciado sesion");
-				// Poner funcion para buscar toda la info del jugador
-				strcat(respuesta, "/");
-				// De momento solo devuelve el correo con el nombre, pero
-				// en el futuro se usara para enviar mas info al iniciar.
-				// Por ejemplo: lista de amigos
-				strcat(respuesta, info);
-			}
-			else if (res == 1)
-			{
-				sprintf(respuesta,"No se ha encontrado el usuario");
-			}
-			else if (res == 2)
-			{
-				sprintf(respuesta,"La password es incorrecta");
-			}	
-		}
-		else if (codigo == 3)
-		{
-			conectados_num = DarConectados(&Usuarios, &Conectados);
-			printf("%s\n",Conectados.usuarios[0].Nombre);
-			sprintf(respuesta,"%d",conectados_num);
-			for(int i = 0; i <= conectados_num; i++ ){
-				sprintf(respuesta,"%s/%s",respuesta,Conectados.usuarios[i].Nombre);
-			}
-		}
-
-		// Mensaje de desconexion
-		else if (codigo == 0)
-			terminar = 1;
-		// Envio de la respuesta (+ cerrar connexion a BBDD)
+		// Si el mensaje no es de desconexion, cerramos la conexion a mysql y enviamos 
+		// la respuesta al cliente
 		if (codigo != 0){
 			mysql_close(conn);
 			printf("Respuesta: %s\n", respuesta);
@@ -351,8 +398,7 @@ void *AtenderCliente(void *socket)
 }
 
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]){
 	//------------------------------Iniciamos Servidor-----------------------------------
 	int sock_conn, sock_listen;
 	struct sockaddr_in serv_adr;
@@ -377,7 +423,7 @@ int main(int argc, char *argv[])
 	
 	MYSQL *conn;
 	int err;
-	char consulta [512];
+	char consulta [buffer];
 	//Creamos una conexion al servidor MYSQL 
 	conn = mysql_init(NULL);
 	if (conn==NULL) {
@@ -391,12 +437,14 @@ int main(int argc, char *argv[])
 		printf ("Error al inicializar la conexion: %u %s\n", 
 				mysql_errno(conn), mysql_error(conn));
 		exit (1);
-	}				
+	}
 
-	
+	// Rellenamos la lista de usuarios en el servidor con la informacion del la BBDD
 	Usuarios_num = GenerarListaUsuarios(&Usuarios, conn);
-	Conectados.num = 0;
+	mysql_close(conn);
+	// Cerramos conexion mysql para ahorrar recursos
 	
+	// Generamos las variables necesarias para la utilizacion de threads para cada cliente
 	int i = 0;
 	int sockets[100];
 	pthread_t thread;
