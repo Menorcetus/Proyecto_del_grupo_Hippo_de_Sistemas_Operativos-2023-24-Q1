@@ -30,21 +30,24 @@ namespace ProyectoSO
 
         private void logOutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            DialogResult dialogResult = MessageBox.Show("¿Quieres cerrar la session?","Confirmacion",MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                string mensaje = "4/" + user.Name;
+                byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
+                server.Send(msg);
 
-            string mensaje = "4/" + user.Name;
-            byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
-            server.Send(msg);
+                //Recibimos la respuesta del servidor
+                byte[] msg2 = new byte[80];
+                server.Receive(msg2);
 
-            //Recibimos la respuesta del servidor
-            byte[] msg2 = new byte[80];
-            server.Receive(msg2);
-
-            mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
-            MessageBox.Show(mensaje);
-            Close();
+                mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
+                MessageBox.Show(mensaje);
+                Close();
+            }
         }
 
-        private void toolstripmostrarCon_Click(object sender, EventArgs e)
+        private void conectadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Grid_Form_Conectados Gform = new Grid_Form_Conectados(user, server);
             Gform.Show();

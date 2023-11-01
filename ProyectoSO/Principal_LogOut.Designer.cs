@@ -112,6 +112,8 @@
             this.Controls.Add(this.IP_box);
             this.Controls.Add(this.Connector_button);
             this.Controls.Add(this.menuStrip2);
+            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.MainMenuStrip = this.menuStrip2;
             this.Name = "Principal_LogOut";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal";
