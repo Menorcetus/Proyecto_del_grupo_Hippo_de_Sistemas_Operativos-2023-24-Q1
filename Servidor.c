@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <mysql.h>
 #include <pthread.h>
+#include <my_global.h>
 
 #define Max 30
 #define Max2 100
@@ -53,7 +54,7 @@ int GenerarListaUsuarios(ListaUsuarios *lista, MYSQL *conn){
 		strcpy(lista->usuarios[num].Nombre, row[0]);
 		lista->usuarios[num].con = 0;
 		lista->usuarios[num].jugando = 0;
-		printf("%s\n",lista->usuarios[num].Nombre);
+		// printf("%s\n",lista->usuarios[num].Nombre);
 		num++;
 		row = mysql_fetch_row(resultado);
 
@@ -283,7 +284,7 @@ void *AtenderCliente(void *socket){
 			exit (1);
 		}
 		//inicializar la conexion
-		conn = mysql_real_connect (conn, "localhost","root", "mysql", "db",0, NULL, 0);
+		conn = mysql_real_connect (conn, "shiva2.upc.es","root", "mysql", "T3_BDDJuego",0, NULL, 0);
 		if (conn==NULL) {
 			printf ("Error al inicializar la conexion: %u %s\n", 
 					mysql_errno(conn), mysql_error(conn));
@@ -413,8 +414,8 @@ int main(int argc, char *argv[]){
 	// asocia el socket a cualquiera de las IP de la maquina. 
 	// htonl formatea el numero que recibe al formato necesario
 	serv_adr.sin_addr.s_addr = htonl(INADDR_ANY);
-	// escucharemos en el port 9070
-	serv_adr.sin_port = htons(9070);
+	// escucharemos en el port 50060
+	serv_adr.sin_port = htons(50060);
 	if (bind(sock_listen, (struct sockaddr *) &serv_adr, sizeof(serv_adr)) < 0)
 		printf ("Error al bind");
 	// La cola de peticiones pendientes no podra ser superior a 4
@@ -432,7 +433,7 @@ int main(int argc, char *argv[]){
 		exit (1);
 	}
 	//inicializar la conexion
-	conn = mysql_real_connect (conn, "localhost","root", "mysql", "db",0, NULL, 0);
+	conn = mysql_real_connect (conn, "shiva2.upc.es","root", "mysql", "T3_BDDJuego",0, NULL, 0);
 	if (conn==NULL) {
 		printf ("Error al inicializar la conexion: %u %s\n", 
 				mysql_errno(conn), mysql_error(conn));
