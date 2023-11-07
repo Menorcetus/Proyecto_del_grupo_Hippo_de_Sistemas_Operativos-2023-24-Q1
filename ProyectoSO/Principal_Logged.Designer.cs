@@ -53,13 +53,14 @@
             // 
             // BarraPrincipal
             // 
+            this.BarraPrincipal.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.BarraPrincipal.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.BarraPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usuarioToolStripMenuItem,
             this.socialToolStripMenuItem});
             this.BarraPrincipal.Location = new System.Drawing.Point(0, 0);
             this.BarraPrincipal.Name = "BarraPrincipal";
-            this.BarraPrincipal.Size = new System.Drawing.Size(1920, 24);
+            this.BarraPrincipal.Size = new System.Drawing.Size(1920, 36);
             this.BarraPrincipal.TabIndex = 0;
             this.BarraPrincipal.Text = "menuStrip1";
             this.BarraPrincipal.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -69,13 +70,13 @@
             this.usuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.logOutToolStripMenuItem1});
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(88, 32);
             this.usuarioToolStripMenuItem.Text = "Usuario";
             // 
             // logOutToolStripMenuItem1
             // 
             this.logOutToolStripMenuItem1.Name = "logOutToolStripMenuItem1";
-            this.logOutToolStripMenuItem1.Size = new System.Drawing.Size(114, 22);
+            this.logOutToolStripMenuItem1.Size = new System.Drawing.Size(174, 34);
             this.logOutToolStripMenuItem1.Text = "LogOut";
             this.logOutToolStripMenuItem1.Click += new System.EventHandler(this.logOutToolStripMenuItem1_Click);
             // 
@@ -85,21 +86,21 @@
             this.conectadosToolStripMenuItem,
             this.amigosToolStripMenuItem1});
             this.socialToolStripMenuItem.Name = "socialToolStripMenuItem";
-            this.socialToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.socialToolStripMenuItem.Size = new System.Drawing.Size(74, 32);
             this.socialToolStripMenuItem.Text = "Social";
             // 
             // conectadosToolStripMenuItem
             // 
             this.conectadosToolStripMenuItem.CheckOnClick = true;
             this.conectadosToolStripMenuItem.Name = "conectadosToolStripMenuItem";
-            this.conectadosToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.conectadosToolStripMenuItem.Size = new System.Drawing.Size(336, 34);
             this.conectadosToolStripMenuItem.Text = "Conectados";
             this.conectadosToolStripMenuItem.Click += new System.EventHandler(this.conectadosToolStripMenuItem_Click);
             // 
             // amigosToolStripMenuItem1
             // 
             this.amigosToolStripMenuItem1.Name = "amigosToolStripMenuItem1";
-            this.amigosToolStripMenuItem1.Size = new System.Drawing.Size(223, 22);
+            this.amigosToolStripMenuItem1.Size = new System.Drawing.Size(336, 34);
             this.amigosToolStripMenuItem1.Text = "Amigos (No implementado)";
             // 
             // cuentaToolStripMenuItem
@@ -114,13 +115,13 @@
             // preferenciasToolStripMenuItem
             // 
             this.preferenciasToolStripMenuItem.Name = "preferenciasToolStripMenuItem";
-            this.preferenciasToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.preferenciasToolStripMenuItem.Size = new System.Drawing.Size(208, 34);
             this.preferenciasToolStripMenuItem.Text = "Preferencias";
             // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(208, 34);
             // 
             // amigosToolStripMenuItem
             // 
@@ -145,7 +146,7 @@
             this.Bienvenida.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Bienvenida.Location = new System.Drawing.Point(141, 83);
             this.Bienvenida.Name = "Bienvenida";
-            this.Bienvenida.Size = new System.Drawing.Size(0, 31);
+            this.Bienvenida.Size = new System.Drawing.Size(0, 45);
             this.Bienvenida.TabIndex = 1;
             // 
             // dataGridConectados
@@ -164,19 +165,22 @@
             this.Jugando_column});
             this.dataGridConectados.Location = new System.Drawing.Point(15, 71);
             this.dataGridConectados.Name = "dataGridConectados";
+            this.dataGridConectados.RowHeadersWidth = 62;
             this.dataGridConectados.RowTemplate.Height = 24;
-            this.dataGridConectados.Size = new System.Drawing.Size(462, 338);
+            this.dataGridConectados.Size = new System.Drawing.Size(362, 238);
             this.dataGridConectados.TabIndex = 2;
             // 
             // User_column
             // 
             this.User_column.HeaderText = "Usuario";
+            this.User_column.MinimumWidth = 8;
             this.User_column.Name = "User_column";
             this.User_column.ReadOnly = true;
             // 
             // Jugando_column
             // 
             this.Jugando_column.HeaderText = "Jugando";
+            this.Jugando_column.MinimumWidth = 8;
             this.Jugando_column.Name = "Jugando_column";
             this.Jugando_column.ReadOnly = true;
             this.Jugando_column.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -187,9 +191,10 @@
             this.panelConectados.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panelConectados.Controls.Add(this.TituloConectados);
             this.panelConectados.Controls.Add(this.dataGridConectados);
-            this.panelConectados.Location = new System.Drawing.Point(49, 568);
+            this.panelConectados.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panelConectados.Location = new System.Drawing.Point(49, 300);
             this.panelConectados.Name = "panelConectados";
-            this.panelConectados.Size = new System.Drawing.Size(492, 421);
+            this.panelConectados.Size = new System.Drawing.Size(392, 321);
             this.panelConectados.TabIndex = 3;
             this.panelConectados.Visible = false;
             // 
@@ -199,7 +204,7 @@
             this.TituloConectados.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TituloConectados.Location = new System.Drawing.Point(12, 13);
             this.TituloConectados.Name = "TituloConectados";
-            this.TituloConectados.Size = new System.Drawing.Size(321, 37);
+            this.TituloConectados.Size = new System.Drawing.Size(471, 55);
             this.TituloConectados.TabIndex = 3;
             this.TituloConectados.Text = "Lista de conectados";
             // 
