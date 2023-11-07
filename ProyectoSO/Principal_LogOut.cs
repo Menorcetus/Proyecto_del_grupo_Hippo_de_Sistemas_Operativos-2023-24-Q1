@@ -10,6 +10,7 @@ using System.Net;
 using System.Net.Sockets;
 using ProyectoSO;
 using System.Runtime.CompilerServices;
+using System.Threading;
 
 namespace ProyectoSO
 {
@@ -17,10 +18,15 @@ namespace ProyectoSO
     {
         Socket server;
         User user = new User();
+        Thread atender; Thread ThreadLogged;
+        Principal_Logged logged_form;
+        login_form lform;
+        register_form rform;
 
         public Principal_LogOut()
         {
             InitializeComponent();
+            CheckForIllegalCrossThreadCalls = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -28,6 +34,45 @@ namespace ProyectoSO
             
         }
 
+        public void AtenderServidor()
+        {
+            while (true)
+            {
+                byte[] msg2 = new byte[512];
+                server.Receive(msg2);
+
+                string[] trozos = Encoding.ASCII.GetString(msg2).Split(new[] {'/'}, 2);
+                int codigo = Convert.ToInt32(trozos[0]);
+                string mensaje = trozos[1];
+
+                switch (codigo)
+                {
+                    case 1:
+                        rform.Respuesta(mensaje);
+                        break;
+                    case 2:
+                        int res = lform.Respuesta(mensaje);
+                        if (res == 0)
+                        {
+                            logged_form = new Principal_Logged(lform.GetUser(), server);
+                            lform.Close();
+
+                            ThreadStart ts = delegate { logged_form.ShowDialog();};
+                            ThreadLogged = new Thread(ts);
+                            ThreadLogged.Start();
+                        }
+                        break;
+                    case 3:
+                        logged_form.Tabla(mensaje);
+                        break;
+                    case 4:
+                        logged_form.GestionarLogOut(mensaje);
+                        logged_form.Close();
+                        break;
+                }
+            }
+
+        }
 
         public void Connector_button_Click(object sender, EventArgs e)
         {
@@ -46,7 +91,6 @@ namespace ProyectoSO
                     server.Connect(ipep);//Intentamos conectar el socket
                     this.BackColor = Color.Green;
                     MessageBox.Show("Conectado");
-
                 }
                 catch (SocketException ex)
                 {
@@ -55,25 +99,27 @@ namespace ProyectoSO
                     server = null;
                     return;
                 }
+
+                ThreadStart ts = delegate { AtenderServidor(); };
+                atender = new Thread(ts);
+                atender.Start();
             }
             else
                 MessageBox.Show("Ya estas conectado");
         }
 
-        private void inicioDeSesiónToolStripMenuItem_Click(object sender, EventArgs e)
+        public void inicioDeSesiónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-            login_form lform = new login_form(user, server);
-            lform.Show();
-            user = lform.GetUser();
+            lform = new login_form(server);
+            lform.ShowDialog();
+            
 
         }
 
-        private void registroToolStripMenuItem_Click(object sender, EventArgs e)
+        public void registroToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            register_form rform = new register_form(user, server);
-            rform.Show();
-            user = rform.GetUser();
+            this.rform = new register_form(user,server);
+            rform.ShowDialog();
         }
 
         private void Desconectar_Click(object sender, EventArgs e)
@@ -86,6 +132,7 @@ namespace ProyectoSO
                 byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
                 server.Send(msg);
 
+                atender.Abort();
                 this.BackColor = Color.Gray;
                 server.Shutdown(SocketShutdown.Both);
                 server.Close();
@@ -93,7 +140,6 @@ namespace ProyectoSO
             else
                 MessageBox.Show("No esta conectado");
         }
-
 
     }
 }

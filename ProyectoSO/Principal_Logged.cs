@@ -36,21 +36,39 @@ namespace ProyectoSO
                 string mensaje = "4/" + user.Name;
                 byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
                 server.Send(msg);
-
-                //Recibimos la respuesta del servidor
-                byte[] msg2 = new byte[80];
-                server.Receive(msg2);
-
-                mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
-                MessageBox.Show(mensaje);
-                Close();
             }
         }
 
         private void conectadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Grid_Form_Conectados Gform = new Grid_Form_Conectados(user, server);
-            Gform.Show();
+            // Legacy version
+            //Grid_Form_Conectados Gform = new Grid_Form_Conectados(user, server);
+            //Gform.Show();
+            // Ahora podemos iterer su visulizacion con un click
+            if (conectadosToolStripMenuItem.Checked == false)
+                panelConectados.Visible = false;
+            else if(conectadosToolStripMenuItem.Checked == true)
+                panelConectados.Visible = true;
+
+        }
+
+        public void Tabla(string mensaje)
+        {
+            string[] trozos = mensaje.Split('/');
+            dataGridConectados.RowCount = Convert.ToInt32(trozos[0]);
+            if (Convert.ToInt32(trozos[0]) != 0)
+            {
+                for(int i = 0; i < Convert.ToInt32(trozos[0]); i++)
+                {
+                    dataGridConectados.Rows[i].Cells[0].Value = trozos[i + 1];
+
+                }
+            }
+        }
+
+        public void GestionarLogOut(string mensaje)
+        {
+            MessageBox.Show(mensaje);
         }
     }
 }

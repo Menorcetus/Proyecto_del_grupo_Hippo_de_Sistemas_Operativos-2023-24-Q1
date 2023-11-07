@@ -11,6 +11,9 @@
 #define Max 30
 #define Max2 100
 #define buffer 512
+// Variables para la implementacion de una lista de sockets
+int socket_num = 0;
+int sockets[100];
 
 pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 
@@ -80,16 +83,16 @@ int ActualizarListaUsuarios(ListaUsuarios *lista, char nombre[Max]){
 
 int DarConectados(ListaUsuarios *lista, ListaUsuarios *conectados){
 	// Rellena una lista de usuarios conectados con la info de la lista general
-	int j = 0;
+	// Primero borramos el contenido de la lista de conectados
 	for(int i=0; i <= conectados->num; i++)
 	{	
-		strcpy(conectados->usuarios[j].Nombre,"\0");
-		conectados->usuarios[j].con = NULL;
-		conectados->usuarios[j].jugando = NULL;
-		j++;
+		strcpy(conectados->usuarios[i].Nombre,"\0");
+		conectados->usuarios[i].con = NULL;
+		conectados->usuarios[i].jugando = NULL;
 	}
+	// Rellenamos la lista de conectados a prtir de la general
 	conectados->num = 0;
-	j=0;
+	int j=0;
 	for(int i=0; i <= lista->num; i++)
 	{
 		if(lista->usuarios[i].con == 1)
@@ -269,7 +272,7 @@ void *AtenderCliente(void *socket){
 	{	
 		// Re/iniciamos los buffers
 		char buff[buffer];
-		char buff2[buffer];
+		char notificacion[buffer];
 		char respuesta[buffer];
 		//--------------------------SQL Main Connection-------------------------
 		MYSQL *conn;
@@ -292,11 +295,12 @@ void *AtenderCliente(void *socket){
 		//--------------------------SQL Main Connection-------------------------	
 		// Ahora recibimos la request del cliente, que dejamos en buff
 		int ret =read(sock_conn,buff, sizeof(buff));
-		printf ("Recibido\n");
+		printf ("Recibido:\n");
 		
 		// Tenemos que agregar la marca de fin de string 
 		// para que no escriba lo que hay despues en el buffer
 		buff[ret] = '\0';
+		printf("%s.\n", buff);
 
 		// Detectamos el servicio que se pide
 		char *p = strtok(buff, "/");
@@ -315,19 +319,19 @@ void *AtenderCliente(void *socket){
 				pthread_mutex_unlock(&mutex);
 				if (res == 0)
 				{
-					sprintf(respuesta,"Se ha registrado el usuario");
+					sprintf(respuesta,"1/Se ha registrado el usuario");
 				}
 				else if (res == 1)
 				{
-					sprintf(respuesta,"Error durante el registro");
+					sprintf(respuesta,"1/Error durante el registro");
 				}
 				else if (res == 2)
 				{	
 					// Una de las condiciones es que tengan misma ID, de todas formas
 					// ya no tendria que ocurrir nunca
-					sprintf(respuesta,"Este usuario ya estaba registrado");
+					sprintf(respuesta,"1/Este usuario ya estaba registrado");
 				}
-				break;
+								break;
 			}
 			// Inicio de sesion
 			// Recibe: 2/<Nombre>/<Password>
@@ -339,7 +343,7 @@ void *AtenderCliente(void *socket){
 				// printf("res es: %i", res);
 				if (res == 0)
 				{
-					sprintf(respuesta,"Se ha iniciado sesion");
+					sprintf(respuesta,"2/Se ha iniciado sesion");
 					// Poner funcion para buscar toda la info del jugador
 					strcat(respuesta, "/");
 					// De momento solo devuelve el correo con el nombre, pero
@@ -349,35 +353,35 @@ void *AtenderCliente(void *socket){
 				}
 				else if (res == 1)
 				{
-					sprintf(respuesta,"No se ha encontrado el usuario");
+					sprintf(respuesta,"2/No se ha encontrado el usuario");
 				}
 				else if (res == 2)
 				{
-					sprintf(respuesta,"La password es incorrecta");
+					sprintf(respuesta,"2/La password es incorrecta");
 				}	
-				break;
+								break;
 			}
 			// Dar lista de conectados a peticion
 			// Recibe: 3
-			case 3:{
-				ListaUsuarios Conectados;
-				conectados_num = DarConectados(&Usuarios, &Conectados);
-				sprintf(respuesta,"%d",conectados_num);
-				for(int i = 0; i <= conectados_num; i++ ){
-					sprintf(respuesta,"%s/%s",respuesta,Conectados.usuarios[i].Nombre);
-					// Debugg para consola
-					printf("Conectado: %s.\n", Conectados.usuarios[i].Nombre);
-				}
-				break;
-			}
+			//case 3:{
+			//	ListaUsuarios Conectados;
+			//	conectados_num = DarConectados(&Usuarios, &Conectados);
+			//	sprintf(respuesta,"3/%d",conectados_num);
+			//	for(int i = 0; i <= conectados_num; i++ ){
+			//		sprintf(respuesta,"%s/%s",respuesta,Conectados.usuarios[i].Nombre);
+			//		// Debugg para consola
+			//		printf("Conectado: %s.\n", Conectados.usuarios[i].Nombre);
+			//	}
+			//	break;
+			//}
 			// LogOut
 			// Recibe: 4/<Nombre>
 			case 4:{
 				pthread_mutex_lock(&mutex);
 				int res = LogOUT(p, &Usuarios);
-				pthread_mutex_unlock(&mutex);
 				if(res == 0)
-					sprintf(respuesta,"Se ha cerrado la sesion\n");
+					sprintf(respuesta,"4/Se ha cerrado la sesion\n");
+				pthread_mutex_unlock(&mutex);
 				break;
 			}
 			// Mensaje de desconexion
@@ -392,6 +396,26 @@ void *AtenderCliente(void *socket){
 			mysql_close(conn);
 			printf("Respuesta: %s\n", respuesta);
 			write(sock_conn, respuesta, strlen(respuesta));
+		}
+		// Generacion de la notificacion de conectados
+		if ((codigo == 1) || (codigo == 2) || (codigo == 4)){
+			pthread_mutex_lock(&mutex);
+			ListaUsuarios Conectados;
+			conectados_num = DarConectados(&Usuarios, &Conectados);
+			if(conectados_num != 0){
+				sprintf(notificacion,"3/%d",conectados_num);
+				for(int i = 0; i < conectados_num; i++ ){
+					sprintf(notificacion,"%s/%s",notificacion,Conectados.usuarios[i].Nombre);
+					// Debugg para consola
+					printf("Conectado: %s.\n", Conectados.usuarios[i].Nombre);
+				}	
+			}
+			else if(conectados_num == 0)
+				strcpy(notificacion,"3/0/");
+			pthread_mutex_unlock(&mutex);
+			printf("Notificacion: %s\n", notificacion);
+			for (int j = 0; j < conectados_num; j++)
+				write(sockets[j], notificacion, strlen(notificacion));
 		}
 	}
 	close(sock_conn);
@@ -445,8 +469,6 @@ int main(int argc, char *argv[]){
 	// Cerramos conexion mysql para ahorrar recursos
 	
 	// Generamos las variables necesarias para la utilizacion de threads para cada cliente
-	int i = 0;
-	int sockets[100];
 	pthread_t thread;
 	// Atenderemos a infinitas peticiones
 	for(;;){
@@ -456,8 +478,8 @@ int main(int argc, char *argv[]){
 		sock_conn = accept(sock_listen, NULL, NULL);
 		printf ("He recibido conexion \n");
 		// Generamos los threads para cada conexion		
-		sockets[i] = sock_conn;
-		pthread_create (&thread, NULL, AtenderCliente, &sockets[i]);
-		i++;
+		sockets[socket_num] = sock_conn;
+		pthread_create (&thread, NULL, AtenderCliente, &sockets[socket_num]);
+		socket_num++;
 	}
 }

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,14 +14,13 @@ namespace ProyectoSO
 {
     public partial class login_form : Form
     {
-        User user;
+        User user = new User();
         Socket server;
-        public login_form(User user, Socket server)
+        public login_form(Socket server)
         {
             InitializeComponent();
-            this.user = user;
             this.server = server;
-            if (server == null)
+                        if (server == null)
             {
                 MessageBox.Show("No estas conectado al servidor, conectate antes de continuar");
             }
@@ -28,7 +28,7 @@ namespace ProyectoSO
 
         public User GetUser()
         {
-            return user;
+            return this.user;
         }
 
         private void login_btn_Click(object sender, EventArgs e)
@@ -41,31 +41,28 @@ namespace ProyectoSO
                 string mensaje = "2/" + user.Name + "/" + user.Password;
                 byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
                 server.Send(msg);
-
-                //Recibimos la respuesta del servidor
-                byte[] msg2 = new byte[80];
-                server.Receive(msg2);
-
-
-                mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
-                string resultado = mensaje.Split('/')[0];
-                if(resultado == "Se ha iniciado sesion")
-                {
-                    user.Name = mensaje.Split('/')[1];
-                    user.Email = mensaje.Split('/')[2];
-                    // faltan cosas a implementar pero de momento esta bien asi
-                    Principal_Logged principal_Logged = new Principal_Logged(user, server);
-                    principal_Logged.Show();
-
-                }
-                MessageBox.Show(resultado);
-                Close();
             }
             else
             {
                 MessageBox.Show("Aun no te has conectado cabezon");
             }
 
+        }
+
+        public int Respuesta(String mensaje)
+        {
+            string[] trozos = mensaje.Split('/');
+            mensaje = trozos[0].Split('\0')[0];
+            if (mensaje == "Se ha iniciado sesion")
+            {
+                user.Name = trozos[1].Split('\0')[0];
+                user.Email = trozos[2].Split('\0')[0];
+            }
+            MessageBox.Show(mensaje.Split('/')[0]);
+            if (mensaje == "Se ha iniciado sesion")
+                return 0;
+            else
+                return 1;
         }
     }
 }
