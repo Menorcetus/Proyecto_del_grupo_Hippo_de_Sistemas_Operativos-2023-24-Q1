@@ -284,7 +284,7 @@ void *AtenderCliente(void *socket){
 			exit (1);
 		}
 		//inicializar la conexion
-		conn = mysql_real_connect (conn, "shiva2.upc.es","root", "mysql", "T3_BDDJuego",0, NULL, 0);
+		conn = mysql_real_connect (conn, "shiva2.upc.es","root", "mysql", "TG3_BDDJuego",0, NULL, 0);
 		if (conn==NULL) {
 			printf ("Error al inicializar la conexion: %u %s\n", 
 					mysql_errno(conn), mysql_error(conn));
@@ -410,7 +410,6 @@ int main(int argc, char *argv[]){
 	// Hacemos el bind al puerto, inicializa a zero serv_addr
 	memset(&serv_adr, 0, sizeof(serv_adr));
 	serv_adr.sin_family = AF_INET;
-	
 	// asocia el socket a cualquiera de las IP de la maquina. 
 	// htonl formatea el numero que recibe al formato necesario
 	serv_adr.sin_addr.s_addr = htonl(INADDR_ANY);
@@ -433,7 +432,7 @@ int main(int argc, char *argv[]){
 		exit (1);
 	}
 	//inicializar la conexion
-	conn = mysql_real_connect (conn, "shiva2.upc.es","root", "mysql", "T3_BDDJuego",0, NULL, 0);
+	conn = mysql_real_connect (conn, "shiva2.upc.es","root", "mysql", "TG3_BDDJuego",0, NULL, 0);
 	if (conn==NULL) {
 		printf ("Error al inicializar la conexion: %u %s\n", 
 				mysql_errno(conn), mysql_error(conn));

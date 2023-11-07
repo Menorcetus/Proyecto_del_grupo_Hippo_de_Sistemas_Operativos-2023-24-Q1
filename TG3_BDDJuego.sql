@@ -3,10 +3,10 @@ respecto a la anterior se eliminina la tabla personajes
 se modifica usuarios porque la base de datos ya no nos importa para saber en que partida esta, V2 usa una lista en C*/
 
 
-DROP DATABASE IF EXISTS T3_BDDJuego;
-CREATE DATABASE T3_BDDJuego;
+DROP DATABASE IF EXISTS TG3_BDDJuego;
+CREATE DATABASE TG3_BDDJuego;
 
-USE T3_BDDJuego;
+USE TG3_BDDJuego;
 
 /*para guardar partidas realizadas con resultado
 hay hasta cuatro jugadores por partida, dos por equipo, se guarda el resultado por equipo
