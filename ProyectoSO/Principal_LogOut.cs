@@ -81,7 +81,7 @@ namespace ProyectoSO
                 //Creamos un IPEndPoint con el ip del servidor y puerto del servidor 
                 //al que deseamos conectarnos
                 IPAddress direc = IPAddress.Parse(IP_box.Text);
-                IPEndPoint ipep = new IPEndPoint(direc, 9070);
+                IPEndPoint ipep = new IPEndPoint(direc, 50060);
 
 
                 //Creamos el socket 
