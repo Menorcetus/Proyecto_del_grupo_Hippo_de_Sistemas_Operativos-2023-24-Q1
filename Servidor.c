@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <mysql.h>
 #include <pthread.h>
-#include <my_global.h>
+//#include <my_global.h>
 
 #define Max 30
 #define Max2 100
@@ -22,12 +22,27 @@ typedef struct{
 	int con;
 	char Nombre [Max];
 	int jugando;
+	int Socket;
 } Usuario;
 
 typedef struct {
 	Usuario usuarios[Max2];
 	int num;
 } ListaUsuarios;
+
+// Estructura para almacenar partida
+typedef struct{
+	int id;
+	Usuario Jugador1;
+	Usuario Jugador2;
+	Usuario Jugador3;
+	Usuario Jugador4;
+} Partida;
+// Estructura para almacenar las partidas activas
+typedef struct {
+	Partida partidas[Max];
+	int num;
+} ListaPartidas;
 
 ListaUsuarios Usuarios;
 int  conectados_num;
@@ -57,6 +72,7 @@ int GenerarListaUsuarios(ListaUsuarios *lista, MYSQL *conn){
 		strcpy(lista->usuarios[num].Nombre, row[0]);
 		lista->usuarios[num].con = 0;
 		lista->usuarios[num].jugando = 0;
+		lista->usuarios[num].Socket = NULL;
 		// printf("%s\n",lista->usuarios[num].Nombre);
 		num++;
 		row = mysql_fetch_row(resultado);
@@ -75,6 +91,7 @@ int ActualizarListaUsuarios(ListaUsuarios *lista, char nombre[Max]){
 		strcpy(lista->usuarios[num].Nombre, nombre);
 		lista->usuarios[num].con = 0;
 		lista->usuarios[num].jugando = 0;
+		lista->usuarios[num].Socket = NULL;
 		num++;
 		return 0;
 	}
@@ -90,6 +107,7 @@ int DarConectados(ListaUsuarios *lista, ListaUsuarios *conectados){
 		strcpy(conectados->usuarios[i].Nombre,"\0");
 		conectados->usuarios[i].con = NULL;
 		conectados->usuarios[i].jugando = NULL;
+		conectados->usuarios[i].Socket = NULL;
 	}
 	// Rellenamos la lista de conectados a prtir de la general
 	conectados->num = 0;
@@ -101,6 +119,7 @@ int DarConectados(ListaUsuarios *lista, ListaUsuarios *conectados){
 			strcpy(conectados->usuarios[j].Nombre,lista->usuarios[i].Nombre);
 			conectados->usuarios[j].con = lista->usuarios[i].con;
 			conectados->usuarios[j].jugando = lista->usuarios[i].jugando;
+			conectados->usuarios[j].Socket = lista->usuarios[i].Socket;
 			conectados->num++;
 			j++;
 		}
@@ -132,7 +151,7 @@ int Register(char *p, char consulta[buffer], MYSQL *conn, ListaUsuarios *lista){
 	resultado = mysql_store_result (conn);
 	fila = mysql_num_rows(resultado);
 
-	printf("Hay %i usuarios con ese nombre.\n", fila);
+	// printf("Hay %i usuarios con ese nombre.\n", fila);
 	
 	// El usuario ya existe
 	if(fila != 0)
@@ -182,7 +201,7 @@ int Register(char *p, char consulta[buffer], MYSQL *conn, ListaUsuarios *lista){
 		return 0;			
 }
 
-int LogIN(char *p, MYSQL *conn, char info[buffer], ListaUsuarios *lista){
+int LogIN(char *p, MYSQL *conn, char info[buffer], ListaUsuarios *lista, int Socket){
 	// SELECT PASSWORD FROM USERS WHERE NOMBRE = <nombre>;
 	char consulta[buffer];
 	int err;
@@ -233,10 +252,13 @@ int LogIN(char *p, MYSQL *conn, char info[buffer], ListaUsuarios *lista){
 		int i = 0;
 		while (strcmp(lista->usuarios[i].Nombre, nombre) != 0)
 			i++;
-		// Debugg
-		printf("%s\n",lista->usuarios[i].Nombre);
 		lista->usuarios[i].con = 1; 
-		printf("%i\n",lista->usuarios[i].con);
+		lista->usuarios[i].Socket = Socket;
+		// Debugg
+	printf("Estado actualizado:\n");
+	printf("-> Nombre: %s\n",lista->usuarios[i].Nombre);
+	printf("-> Conectado? %i\n",lista->usuarios[i].con);
+	printf("-> Socket: %i\n",lista->usuarios[i].Socket);
 		return 0;
 	}
 	// Password incorrecta
@@ -254,9 +276,12 @@ int LogOUT(char *p, ListaUsuarios *lista){
 	while (strcmp(lista->usuarios[i].Nombre, nombre) != 0)
 		i++;
 	// Debugg
-	printf("%s\n",lista->usuarios[i].Nombre);
 	lista->usuarios[i].con = 0; 
-	printf("%i\n",lista->usuarios[i].con);
+	lista->usuarios[i].Socket = NULL; 
+	printf("Estado actualizado:\n");
+	printf("-> Nombre: %s\n",lista->usuarios[i].Nombre);
+	printf("-> Conectado? %i\n",lista->usuarios[i].con);
+	printf("-> Socket: %i\n",lista->usuarios[i].Socket);
 	return 0;
 }
 
@@ -287,7 +312,7 @@ void *AtenderCliente(void *socket){
 			exit (1);
 		}
 		//inicializar la conexion
-		conn = mysql_real_connect (conn, "shiva2.upc.es","root", "mysql", "TG3_BDDJuego",0, NULL, 0);
+		conn = mysql_real_connect (conn, "localhost","root", "mysql", "db",0, NULL, 0);
 		if (conn==NULL) {
 			printf ("Error al inicializar la conexion: %u %s\n", 
 					mysql_errno(conn), mysql_error(conn));
@@ -306,7 +331,7 @@ void *AtenderCliente(void *socket){
 		// Detectamos el servicio que se pide
 		char *p = strtok(buff, "/");
 		int codigo = atoi (p);
-		printf("El codigo es: %i\n",codigo);
+		// printf("El codigo es: %i\n",codigo);
 		// A partir de aqui se seleccionara el servicio y se ejecutara
 		switch (codigo){
 			// Registro de usuario
@@ -339,7 +364,7 @@ void *AtenderCliente(void *socket){
 			case 2:{	
 				char info[buffer];
 				pthread_mutex_lock(&mutex);
-				int res = LogIN(p, conn, info, &Usuarios);
+				int res = LogIN(p, conn, info, &Usuarios, sock_conn);
 				pthread_mutex_unlock(&mutex);
 				// printf("res es: %i", res);
 				if (res == 0)
@@ -380,8 +405,6 @@ void *AtenderCliente(void *socket){
 			case 4:{
 				pthread_mutex_lock(&mutex);
 				int res = LogOUT(p, &Usuarios);
-				if(res == 0)
-					sprintf(respuesta,"4/Se ha cerrado la sesion\n");
 				pthread_mutex_unlock(&mutex);
 				break;
 			}
@@ -393,7 +416,7 @@ void *AtenderCliente(void *socket){
 		}
 		// Si el mensaje no es de desconexion, cerramos la conexion a mysql y enviamos 
 		// la respuesta al cliente
-		if (codigo != 0){
+		if ((codigo != 0)&&(codigo != 4)){
 			mysql_close(conn);
 			printf("Respuesta: %s\n", respuesta);
 			write(sock_conn, respuesta, strlen(respuesta));
@@ -408,7 +431,7 @@ void *AtenderCliente(void *socket){
 				for(int i = 0; i < conectados_num; i++ ){
 					sprintf(notificacion,"%s/%s",notificacion,Conectados.usuarios[i].Nombre);
 					// Debugg para consola
-					printf("Conectado: %s.\n", Conectados.usuarios[i].Nombre);
+					printf("Conectado: %s\n", Conectados.usuarios[i].Nombre);
 				}	
 			}
 			else if(conectados_num == 0)
@@ -456,7 +479,7 @@ int main(int argc, char *argv[]){
 		exit (1);
 	}
 	//inicializar la conexion
-	conn = mysql_real_connect (conn, "shiva2.upc.es","root", "mysql", "TG3_BDDJuego",0, NULL, 0);
+	conn = mysql_real_connect (conn, "localhost","root", "mysql", "db",0, NULL, 0);
 	if (conn==NULL) {
 		printf ("Error al inicializar la conexion: %u %s\n", 
 				mysql_errno(conn), mysql_error(conn));

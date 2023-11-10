@@ -36,6 +36,7 @@ namespace ProyectoSO
                 string mensaje = "4/" + user.Name;
                 byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
                 server.Send(msg);
+                Close();
             }
         }
 
@@ -64,11 +65,6 @@ namespace ProyectoSO
 
                 }
             }
-        }
-
-        public void GestionarLogOut(string mensaje)
-        {
-            MessageBox.Show(mensaje);
         }
     }
 }

@@ -22,6 +22,7 @@ namespace ProyectoSO
         Principal_Logged logged_form;
         login_form lform;
         register_form rform;
+        int Entry = 1;
 
         public Principal_LogOut()
         {
@@ -44,6 +45,9 @@ namespace ProyectoSO
                 string[] trozos = Encoding.ASCII.GetString(msg2).Split(new[] {'/'}, 2);
                 int codigo = Convert.ToInt32(trozos[0]);
                 string mensaje = trozos[1];
+                ConsolaControl.AppendText(String.Format("Entry {0}: {1}/{2}. ", Entry, codigo, mensaje));
+                ConsolaControl.AppendText(Environment.NewLine);
+                Entry++;
 
                 switch (codigo)
                 {
@@ -65,10 +69,6 @@ namespace ProyectoSO
                     case 3:
                         logged_form.Tabla(mensaje);
                         break;
-                    case 4:
-                        logged_form.GestionarLogOut(mensaje);
-                        logged_form.Close();
-                        break;
                 }
             }
 
@@ -80,7 +80,7 @@ namespace ProyectoSO
             {
                 //Creamos un IPEndPoint con el ip del servidor y puerto del servidor 
                 //al que deseamos conectarnos
-                IPAddress direc = IPAddress.Parse(IP_box.Text);
+                IPAddress direc = IPAddress.Parse(IP_Box.Text);
                 IPEndPoint ipep = new IPEndPoint(direc, 50060);
 
 
@@ -91,11 +91,18 @@ namespace ProyectoSO
                     server.Connect(ipep);//Intentamos conectar el socket
                     this.BackColor = Color.Green;
                     MessageBox.Show("Conectado");
+                    ConsolaControl.AppendText(String.Format("Entry {0}: Conectado a {1}. ", Entry, IP_Box.Text) + Environment.NewLine);
+                    Entry++;
+                    IP_Box.Enabled = false;
+                    ConexionStripMenuItem1.Visible = true;
                 }
                 catch (SocketException ex)
                 {
                     //Si hay excepcion imprimimos error y salimos del programa con return 
                     MessageBox.Show("No he podido conectar con el servidor");
+                    // Mucahs gracias a Asier Lopez^2 por ayudarnos con la consola de control
+                    ConsolaControl.AppendText(String.Format("Entry {0}: No he podido conectar con el servidor {1}. ", Entry, IP_Box.Text) + Environment.NewLine);
+                    Entry++;
                     server = null;
                     return;
                 }
@@ -133,14 +140,25 @@ namespace ProyectoSO
                 server.Send(msg);
 
                 atender.Abort();
+                ConsolaControl.AppendText(String.Format("Entry {0}: Se ha cerrado la conexion con {1}. ", Entry, IP_Box.Text) + Environment.NewLine);
+                Entry++;
                 this.BackColor = Color.Gray;
                 server.Shutdown(SocketShutdown.Both);
                 server.Close();
+                IP_Box.Enabled = true; 
+                ConexionStripMenuItem1.Visible = false;
             }
             else
-                MessageBox.Show("No esta conectado");
+                MessageBox.Show("No estas conectado a ningun servidor.");
         }
 
+        private void consolaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (consolaToolStripMenuItem.Checked == false)
+                ConsolaControl.Visible = false;
+            else if (consolaToolStripMenuItem.Checked == true)
+                ConsolaControl.Visible = true;
+        }
     }
 }
 
