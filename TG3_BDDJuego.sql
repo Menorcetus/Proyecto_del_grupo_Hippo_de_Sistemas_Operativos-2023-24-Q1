@@ -37,11 +37,15 @@ CREATE TABLE Partidas (
 
 
 CREATE TABLE Cartas (
-    ID_carta INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+    ID_carta INT NOT NULL PRIMARY KEY, 
     Nombre VARCHAR(30),
     Fuerza INT,
-    Posicion INT,
-    Repetible INT,
-    Imagen MEDIUMBLOB
+    Posicion INT,   /*1 es cuerpo a cuerpo, 2 distancia, 3 artilleria, 4 cualquiera*/
+    Repetible INT,  /*1 si, 0 no*/
 )ENGINE = InnoDB;
+
+INSERT INTO Cartas (Nombre, Fuerza, Posicion, Repetible, Imagen)
+VALUES (1,'Hippotenusa',8,3,1),(2,'Highppo',6,1,1),(3,'Conclave de nutrias',4,1,1),(4,'Kinkis reclutas',1,1,1),(5,'King of KinkIX',5,1,0),
+(6,'Heterodino',5,1,1),(7,'Jinete de Hippo',6,1,1),(8,'Dragon-Nutria',9,2,0),(9,'Pintor austriaco',3,2,1),(10,'Horda de ratas',2,1,1),(11,'Macaco',4,2,1),(12,'Plebeyos armados',3,2,1),(13,'Arquero elfo',6,2,1),(14,'Arcabucero enano',5,2,1),
+(15,'Gnomo con tirachinas',3,2,1),(16,'Mago de fuego',6,2,1),(17,'Homodino',5,3,1),(18,'Escupefuegos',6,3,1),(19,'Balista',6,3,1),(20,'Gremio de ingenieros',2,3,1),(21,'Apoyo moral',3,4,1),(22,'Superheterodino',10,4,0)
 
