@@ -14,6 +14,5 @@ namespace ProyectoSO
 
         public bool register;
 
-
     }
 }

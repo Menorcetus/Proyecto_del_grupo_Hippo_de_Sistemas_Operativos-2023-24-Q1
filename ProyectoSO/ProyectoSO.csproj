@@ -47,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Carta.cs" />
+    <Compile Include="Baraja.cs" />
     <Compile Include="Grid_Form_Conectados.cs">
       <SubType>Form</SubType>
     </Compile>
