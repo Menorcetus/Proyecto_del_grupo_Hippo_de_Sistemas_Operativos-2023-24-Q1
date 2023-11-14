@@ -42,9 +42,12 @@ namespace ProyectoSO
                 byte[] msg2 = new byte[512];
                 server.Receive(msg2);
 
-                string[] trozos = Encoding.ASCII.GetString(msg2).Split(new[] {'/'}, 2);
+                string clean_ms = Encoding.ASCII.GetString(msg2).Split('\0')[0];
+                string[] trozos = clean_ms.Split(new[] {'/'}, 2);
+
                 int codigo = Convert.ToInt32(trozos[0]);
                 string mensaje = trozos[1];
+
                 ConsolaControl.AppendText(String.Format("Entry {0}: {1}/{2}. ", Entry, codigo, mensaje));
                 ConsolaControl.AppendText(Environment.NewLine);
                 Entry++;
@@ -68,6 +71,9 @@ namespace ProyectoSO
                         break;
                     case 3:
                         logged_form.Tabla(mensaje);
+                        break;
+                    case 4:
+                        logged_form.ResponderInvitacion(mensaje);
                         break;
                 }
             }
