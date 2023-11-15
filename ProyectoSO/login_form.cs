@@ -52,14 +52,13 @@ namespace ProyectoSO
         public int Respuesta(String mensaje)
         {
             string[] trozos = mensaje.Split('/');
-            mensaje = trozos[0].Split('\0')[0];
-            if (mensaje == "Se ha iniciado sesion")
+            if (trozos[0] == "Se ha iniciado sesion")
             {
-                user.Name = trozos[1].Split('\0')[0];
-                user.Email = trozos[2].Split('\0')[0];
+                user.Name = trozos[1];
+                user.Email = trozos[2];
             }
             MessageBox.Show(mensaje.Split('/')[0]);
-            if (mensaje == "Se ha iniciado sesion")
+            if (trozos[0] == "Se ha iniciado sesion")
                 return 0;
             else
                 return 1;
