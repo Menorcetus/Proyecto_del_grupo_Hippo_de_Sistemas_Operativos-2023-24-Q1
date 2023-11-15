@@ -8,7 +8,7 @@ namespace ProyectoSO
 {
     internal class Baraja : Carta //la baraja coje las cartas
     {
-        public int numero_cartas { get; set; }
+        public int numero_cartas { get; set; } //esta será la mano del jugador
         public int jugador { get; set; } //hay que asignar a la baraja su jugador o user
 
         // 1) generar una lista entera con todas las cartas para cada jugador,
@@ -38,7 +38,7 @@ namespace ProyectoSO
 
         //2
 
-        public void Generar_Baraja()
+        public void Generar_Mano()
         {
 
 

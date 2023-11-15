@@ -44,8 +44,8 @@ CREATE TABLE Cartas (
     Repetible INT,  /*1 si, 0 no*/
 )ENGINE = InnoDB;
 
-INSERT INTO Cartas (Nombre, Fuerza, Posicion, Repetible, Imagen)
+INSERT INTO Cartas (ID, Nombre, Fuerza, Posicion, Repetible)
 VALUES (1,'Hippotenusa',8,3,1),(2,'Highppo',6,1,1),(3,'Conclave de nutrias',4,1,1),(4,'Kinkis reclutas',1,1,1),(5,'King of KinkIX',5,1,0),
-(6,'Heterodino',5,1,1),(7,'Jinete de Hippo',6,1,1),(8,'Dragon-Nutria',9,2,0),(9,'Pintor austriaco',3,2,1),(10,'Horda de ratas',2,1,1),(11,'Macaco',4,2,1),(12,'Plebeyos armados',3,2,1),(13,'Arquero elfo',6,2,1),(14,'Arcabucero enano',5,2,1),
-(15,'Gnomo con tirachinas',3,2,1),(16,'Mago de fuego',6,2,1),(17,'Homodino',5,3,1),(18,'Escupefuegos',6,3,1),(19,'Balista',6,3,1),(20,'Gremio de ingenieros',2,3,1),(21,'Apoyo moral',3,4,1),(22,'Superheterodino',10,4,0)
+(6,'Pirrata',5,1,1),(7,'Jinete de Hippo',6,1,1),(8,'Hipphombre',5,1,1),(9,'Hippo-tauro',7,1,1),(10,'Dragon-Nutria',9,2,0),(11,'Jimmy Enriques',3,2,1),(12,'Horda de ratas',2,1,1),(13,'Macaco',4,2,1),(14,'Plebeyos armados',3,2,1),(15,'Arquero elfo',6,2,1),(16,'Arcabucero enano',5,2,1),
+(17,'Gnomo con tirachinas',3,2,1),(18,'Mago de fuego',6,2,1),(19,'Drac-King',5,2,1),(20,'3-mono',4,2,1),(21,'Homodino',5,3,1),(22,'Escupefuegos',6,3,1),(23,'Balista',6,3,1),(24,'Gremio de ingenieros',2,3,1),(25,'Duck',2,3,1),(26,'Bee-holder',2,3,1),(27,'Beer-holder',0,3,1),(28,'Apoyo moral',3,4,1),(29,'Superheterodino',10,4,0),(30,'Cucos',6,4,1)
 
