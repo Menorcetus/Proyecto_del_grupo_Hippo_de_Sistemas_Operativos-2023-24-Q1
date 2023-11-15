@@ -75,6 +75,9 @@ namespace ProyectoSO
                     case 4:
                         logged_form.ResponderInvitacion(mensaje);
                         break;
+                    case 5:
+                        logged_form.MostrarRespuesta(mensaje);
+                        break;
                 }
             }
 

@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <mysql.h>
 #include <pthread.h>
-//#include <my_global.h>
+#include <my_global.h>
 
 #define Max 30
 #define Max2 100
@@ -329,6 +329,34 @@ int CrearPartida(char *p, ListaPartidas *partidas, ListaUsuarios *usuarios){
 	return num;
 }
 
+int AceptarPartida(int id_partida, int aceptado, char persona[Max], ListaPartidas *Partidas){
+	// El mensaje de respuesta a una  invitacion devolvera una referencia 
+	// a la partida para identifiacarla, el nombre de la persona que a 
+	// responde i un booleano indicando si acepta (1) o no (0)
+
+
+	int num_jugador = 0;
+	int i = 0;
+	int encontrado  = 0;
+	while((i <= strlen(Partidas->partidas[id_partida].jugadores)) && (encontrado == 0)){
+		if(strcmp(Partidas->partidas[id_partida].jugadores[i].Nombre, persona) == 0)
+			num_jugador = i;
+			encontrado = 1;
+		i++;
+	}
+
+
+	if (aceptado == 1){
+		Partidas->partidas[id_partida].confirmaciones[num_jugador] = 1;
+		return 1;
+	} 
+	else if(aceptado == 0){
+		Partidas->partidas[id_partida].confirmaciones[num_jugador] = 0;
+		return 0;
+	}
+
+}
+
 void *AtenderCliente(void *socket){
 	// Iniciamos el socket dentro del thread
 	int sock_conn;
@@ -356,7 +384,7 @@ void *AtenderCliente(void *socket){
 			exit (1);
 		}
 		//inicializar la conexion
-		conn = mysql_real_connect (conn, "localhost","root", "mysql", "db",0, NULL, 0);
+		conn = mysql_real_connect (conn, "shiva2.upc.es","root", "mysql", "TG3_BDDJuego",0, NULL, 0);
 		if (conn==NULL) {
 			printf ("Error al inicializar la conexion: %u %s\n", 
 					mysql_errno(conn), mysql_error(conn));
@@ -464,15 +492,39 @@ void *AtenderCliente(void *socket){
 				break;
 			}
 			// Aceptar partida
-			// Recibe: 5/<id de partida>/<nombre de la persona que acepta>
+			// Recibe: 5/<id de partida>/<acepta o no>/<nombre de la persona que acepta>
 			case 5:{
 				pthread_mutex_lock(&mutex);
-				
+				p = strtok(NULL, "/");
+				int id_partida = atoi(p);
+				p = strtok(NULL, "/");
+				int aceptado = atoi(p);
+				p = strtok(NULL, "/");
+				char persona[Max];
+				strcpy(persona, p);
+
+				int res = AceptarPartida(id_partida, aceptado, persona, &Partidas);
 				pthread_mutex_unlock(&mutex);
+				if (res == 0)
+				{
+					sprintf(respuesta, "5/%s no ha aceptado la partida.", persona);
+					printf("Respuesta: %s\n", respuesta);
+					write(Partidas.partidas[id_partida].jugadores[0].Socket,
+							respuesta, strlen(respuesta));
+				}
+				else if(res == 1)
+				{
+					sprintf(respuesta, "5/%s ha aceptado la partida.", persona);
+					printf("Respuesta: %s\n", respuesta);
+					write(Partidas.partidas[id_partida].jugadores[0].Socket,
+							respuesta, strlen(respuesta));
+				}
+				break;
 
 			}
 			// Mensaje de desconexion
 			case 0:{
+				printf("Se ha desconectado.\n");
 				terminar = 1;
 				break;
 			}
@@ -542,7 +594,7 @@ int main(int argc, char *argv[]){
 		exit (1);
 	}
 	//inicializar la conexion
-	conn = mysql_real_connect (conn, "localhost","root", "mysql", "db",0, NULL, 0);
+	conn = mysql_real_connect (conn, "shiva2.upc.es","root", "mysql", "TG3_BDDJuego",0, NULL, 0);
 	if (conn==NULL) {
 		printf ("Error al inicializar la conexion: %u %s\n", 
 				mysql_errno(conn), mysql_error(conn));

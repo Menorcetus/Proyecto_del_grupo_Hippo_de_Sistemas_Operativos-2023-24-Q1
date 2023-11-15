@@ -129,7 +129,7 @@ namespace ProyectoSO
                 else
                 { // Ahora si podemos invitar a un jugador: partida 1vs1
                     string mensaje = "3/1/" + this.user.Name + "/" + Jugador1ComboBox.Text;
-                    byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
+                    byte[] msg = Encoding.ASCII.GetBytes(mensaje);
                     server.Send(msg);
                     MessageBox.Show("Se ha enviado la invitacion.");
                 }
@@ -151,7 +151,7 @@ namespace ProyectoSO
                 else
                 { //  Ahora si podemos invitar a tres jugadores: partida 2vs2
                     string mensaje = "3/3/" + this.user.Name + "/" + Jugador1ComboBox.Text + "/" + Jugador2ComboBox.Text + "/" + Jugador3ComboBox.Text;
-                    byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
+                    byte[] msg = Encoding.ASCII.GetBytes(mensaje);
                     server.Send(msg);
                     MessageBox.Show("Se ha enviado la invitacion.");
                 }
@@ -170,16 +170,22 @@ namespace ProyectoSO
             {
                 // Enviar mensaje de aceptar partida
                 string respuesta = "5/" + partida + "/1/" + user.Name;
-                byte[] msg = System.Text.Encoding.ASCII.GetBytes(respuesta);
+                byte[] msg = Encoding.ASCII.GetBytes(respuesta);
                 server.Send(msg);
             }
             else
             {
                 // Enviar mensaje de NO aceptar partida
                 string respuesta = "5/" + partida + "/0/" + user.Name;
-                byte[] msg = System.Text.Encoding.ASCII.GetBytes(respuesta);
+                byte[] msg = Encoding.ASCII.GetBytes(respuesta);
                 server.Send(msg);
             }
+
+        }
+
+        internal void MostrarRespuesta(string mensaje)
+        {
+            MessageBox.Show(mensaje);
 
         }
     }
