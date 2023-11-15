@@ -37,11 +37,11 @@ CREATE TABLE Partidas (
 
 
 CREATE TABLE Cartas (
-    ID_carta INT NOT NULL PRIMARY KEY, 
+    ID INT NOT NULL PRIMARY KEY, 
     Nombre VARCHAR(30),
     Fuerza INT,
     Posicion INT,   /*1 es cuerpo a cuerpo, 2 distancia, 3 artilleria, 4 cualquiera*/
-    Repetible INT,  /*1 si, 0 no*/
+    Repetible INT  /*1 si, 0 no*/
 )ENGINE = InnoDB;
 
 INSERT INTO Usuarios(Nombre, Correo, Password) 
