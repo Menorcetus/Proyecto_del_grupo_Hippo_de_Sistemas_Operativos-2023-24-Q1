@@ -82,10 +82,20 @@ namespace ProyectoSO
 
         public void Connector_button_Click(object sender, EventArgs e)
         {
-            if (this.BackColor != Color.Green)
+
+            if (IP_Box.Text == "")
+            {
+                MessageBox.Show("Selecciona un servidor, por favor.");
+            }
+
+
+            if (this.BackColor != Color.Green && IP_Box.Text != "")
             {
                 //Creamos un IPEndPoint con el ip del servidor y puerto del servidor 
                 //al que deseamos conectarnos
+
+          
+
                 IPAddress direc = IPAddress.Parse(IP_Box.Text);
                 IPEndPoint ipep = new IPEndPoint(direc, 50060);
 
@@ -117,7 +127,7 @@ namespace ProyectoSO
                 atender = new Thread(ts);
                 atender.Start();
             }
-            else
+            else if (IP_Box.Text != "" && this.BackColor == Color.Green)
                 MessageBox.Show("Ya estas conectado");
         }
 
