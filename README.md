@@ -1,3 +1,4 @@
+
 Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1
 Dungengineers (Joc de cartes)
 
@@ -17,3 +18,4 @@ Version 3 comunicada por Miguel Martínez Martínez
 URL https://youtu.be/Jzf8gg6c8oo
 
 Version 4 generada por Jordi Gómez Yagual
+Versión 4 verificada por Miguel Martínez Martínez
