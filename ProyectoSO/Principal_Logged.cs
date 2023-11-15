@@ -132,6 +132,7 @@ namespace ProyectoSO
                     byte[] msg = Encoding.ASCII.GetBytes(mensaje);
                     server.Send(msg);
                     MessageBox.Show("Se ha enviado la invitacion.");
+
                 }
             }
             else if (ModeComboBox.Text == "4")

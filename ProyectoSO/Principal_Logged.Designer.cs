@@ -60,10 +60,14 @@
             this.Jugador2ComboBox = new System.Windows.Forms.ComboBox();
             this.Jugador1ComboBox = new System.Windows.Forms.ComboBox();
             this.ModeComboBox = new System.Windows.Forms.ComboBox();
+            this.DGVInvitados = new System.Windows.Forms.DataGridView();
+            this.Invitado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Accepted = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.BarraPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridConectados)).BeginInit();
             this.panelConectados.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVInvitados)).BeginInit();
             this.SuspendLayout();
             // 
             // BarraPrincipal
@@ -239,6 +243,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.DGVInvitados);
             this.panel1.Controls.Add(this.EnviarPartida);
             this.panel1.Controls.Add(this.LabelInvitado3);
             this.panel1.Controls.Add(this.LabelInvitado2);
@@ -377,6 +382,36 @@
             this.ModeComboBox.TabIndex = 0;
             this.ModeComboBox.TextChanged += new System.EventHandler(this.ModeComboBox_TextChanged);
             // 
+            // DGVInvitados
+            // 
+            this.DGVInvitados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVInvitados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Invitado,
+            this.Accepted});
+            this.DGVInvitados.Location = new System.Drawing.Point(405, 232);
+            this.DGVInvitados.Name = "DGVInvitados";
+            this.DGVInvitados.RowHeadersWidth = 51;
+            this.DGVInvitados.RowTemplate.Height = 24;
+            this.DGVInvitados.Size = new System.Drawing.Size(367, 203);
+            this.DGVInvitados.TabIndex = 6;
+            this.DGVInvitados.Visible = false;
+            // 
+            // Invitado
+            // 
+            this.Invitado.HeaderText = "Invitado";
+            this.Invitado.MinimumWidth = 6;
+            this.Invitado.Name = "Invitado";
+            this.Invitado.Width = 125;
+            // 
+            // Accepted
+            // 
+            this.Accepted.HeaderText = "Accepted?";
+            this.Accepted.MinimumWidth = 6;
+            this.Accepted.Name = "Accepted";
+            this.Accepted.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Accepted.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Accepted.Width = 125;
+            // 
             // Principal_Logged
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -404,6 +439,7 @@
             this.panelConectados.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVInvitados)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -443,5 +479,8 @@
         private System.Windows.Forms.Label LabelInvitado3;
         private System.Windows.Forms.ComboBox Jugador3ComboBox;
         private System.Windows.Forms.Button EnviarPartida;
+        private System.Windows.Forms.DataGridView DGVInvitados;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Invitado;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Accepted;
     }
 }
