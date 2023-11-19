@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <mysql.h>
 #include <pthread.h>
-#include <my_global.h>
+//#include <my_global.h>
 
 #define Max 30
 #define Max2 100
@@ -332,12 +332,16 @@ int CrearPartida(char *p, ListaPartidas *partidas, ListaUsuarios *usuarios){
 int AceptarPartida(int id_partida, int aceptado, char persona[Max], ListaPartidas *Partidas){
 	// El mensaje de respuesta a una  invitacion devolvera una referencia 
 	// a la partida para identifiacarla, el nombre de la persona que a 
-	// responde i un booleano indicando si acepta (1) o no (0)
+	// responde y indicando si acepta (1) o no (-1). 
+	// Nota: fuera de ListaPartidas, la negacion sera un 0 pero, por evitar 
+	// errores con posibles valores null entendidos como un 0, preferimos hacer 
+	// esta distincion.
 
 
 	int num_jugador = 0;
 	int i = 0;
 	int encontrado  = 0;
+	// Busco posicion del jugador que ha contestado
 	while((i <= strlen(Partidas->partidas[id_partida].jugadores)) && (encontrado == 0)){
 		if(strcmp(Partidas->partidas[id_partida].jugadores[i].Nombre, persona) == 0)
 			num_jugador = i;
@@ -345,18 +349,53 @@ int AceptarPartida(int id_partida, int aceptado, char persona[Max], ListaPartida
 		i++;
 	}
 
-
+	// Asigno al jugador si ha aceptado o no la invitacion
 	if (aceptado == 1){
 		Partidas->partidas[id_partida].confirmaciones[num_jugador] = 1;
 		return 1;
 	} 
 	else if(aceptado == 0){
-		Partidas->partidas[id_partida].confirmaciones[num_jugador] = 0;
+		Partidas->partidas[id_partida].confirmaciones[num_jugador] = -1;
+		Partidas->partidas[id_partida].init = -1;
 		return 0;
 	}
 
 }
 
+int ComprovarInicioPartida(int id_partida, ListaPartidas *Partidas){
+	// Esta funcion tiene que buscar una paritda segun su id i comprobar que todos los jugadores
+	// segun el mode (1 o 3) hayan aceptado la partida (1) o no (-1) en la lista de confirmaciones
+	// (sin responder 0). Devuelve 1 si se empieza la partida, 0 si todavia no y -1 si se ha cancelado
+	if (Partidas->partidas[id_partida].init == -1){
+		// Ya se habia cancelado antes
+		return -1;
+	}
+	else
+	{
+		int mode = Partidas->partidas[id_partida].mode;
+		int initCount = 0;
+		for (int i = 0; i <= mode; i++){
+			if(Partidas->partidas[id_partida].confirmaciones[i] == 1)
+				initCount++;
+			else if(Partidas->partidas[id_partida].confirmaciones[i] == -1)
+			{
+				Partidas->partidas[i].init = -1;
+				return -1;
+			}
+		}
+		if (initCount == mode)
+		{
+			Partidas->partidas[id_partida].init = 1;
+			return 1;
+		}
+		else	
+			return 0;
+	}
+}
+
+int CancelarPartida(int id_partida, ListaPartidas *Partidas){
+
+}
 void *AtenderCliente(void *socket){
 	// Iniciamos el socket dentro del thread
 	int sock_conn;
@@ -384,7 +423,7 @@ void *AtenderCliente(void *socket){
 			exit (1);
 		}
 		//inicializar la conexion
-		conn = mysql_real_connect (conn, "shiva2.upc.es","root", "mysql", "TG3_BDDJuego",0, NULL, 0);
+		conn = mysql_real_connect (conn, "localhost","root", "mysql", "TG3_BDDJuego",0, NULL, 0);
 		if (conn==NULL) {
 			printf ("Error al inicializar la conexion: %u %s\n", 
 					mysql_errno(conn), mysql_error(conn));
@@ -507,20 +546,51 @@ void *AtenderCliente(void *socket){
 				pthread_mutex_unlock(&mutex);
 				if (res == 0)
 				{
-					sprintf(respuesta, "5/%s no ha aceptado la partida.", persona);
+					sprintf(respuesta, "5/0/%s", persona);
 					printf("Respuesta: %s\n", respuesta);
 					write(Partidas.partidas[id_partida].jugadores[0].Socket,
 							respuesta, strlen(respuesta));
+					// Funcion para cancelar la partida y notificar a los jugadores.
 				}
 				else if(res == 1)
 				{
-					sprintf(respuesta, "5/%s ha aceptado la partida.", persona);
+					sprintf(respuesta, "5/1/%s", persona);
 					printf("Respuesta: %s\n", respuesta);
 					write(Partidas.partidas[id_partida].jugadores[0].Socket,
 							respuesta, strlen(respuesta));
+					// Funcion para comprovar si la partida esta lista + enviar notificacion para
+					// empezar a jugar a todos los jugadores.
+					pthread_mutex_lock(&mutex);
+					int res2 = ComprovarInicioPartida(id_partida, &Partidas);
+					pthread_mutex_unlock(&mutex);
+					if (res2 == 1){
+						// Inicar partida
+						sprintf(respuesta, "6/%i/Se va a iniciar la partida %i.", id_partida, id_partida);
+						printf("Respuesta: %s\n", respuesta);
+						for (int i=0;i<= Partidas.partidas[id_partida].mode; i++)
+						write(Partidas.partidas[id_partida].jugadores[i].Socket,
+							respuesta, strlen(respuesta));
+					}
+					// Si se cancela solo lo sabra el que ha creado la partida.
 				}
 				break;
+			}
+			case 6:{
+				p = strtok(NULL, "/");
+				int id_partida = atoi(p);
+				p = strtok(NULL, "/");
+				char persona[Max];
+				strcpy(persona, p);
+				p = strtok(NULL, "/");
+				char mensaje[Max2];
+				strcpy(mensaje, p);
 
+				sprintf(respuesta, "7/%i/%s/%s", id_partida,persona, mensaje);
+				printf("Respuesta: %s\n", respuesta);
+				for (int i=0;i<= Partidas.partidas[id_partida].mode; i++)
+				write(Partidas.partidas[id_partida].jugadores[i].Socket,
+					respuesta, strlen(respuesta));
+				break;
 			}
 			// Mensaje de desconexion
 			case 0:{
@@ -531,7 +601,7 @@ void *AtenderCliente(void *socket){
 		}
 		// Si el mensaje no es de desconexion, cerramos la conexion a mysql y enviamos 
 		// la respuesta al cliente
-		if ((codigo != 0) && (codigo != 3) && (codigo != 4) && (codigo != 5)){
+		if ((codigo != 0) && (codigo != 3) && (codigo != 4) && (codigo != 5) && (codigo != 6)){
 			mysql_close(conn);
 			printf("Respuesta: %s\n", respuesta);
 			write(sock_conn, respuesta, strlen(respuesta));
@@ -594,7 +664,7 @@ int main(int argc, char *argv[]){
 		exit (1);
 	}
 	//inicializar la conexion
-	conn = mysql_real_connect (conn, "shiva2.upc.es","root", "mysql", "TG3_BDDJuego",0, NULL, 0);
+	conn = mysql_real_connect (conn, "localhost","root", "mysql", "TG3_BDDJuego",0, NULL, 0);
 	if (conn==NULL) {
 		printf ("Error al inicializar la conexion: %u %s\n", 
 				mysql_errno(conn), mysql_error(conn));

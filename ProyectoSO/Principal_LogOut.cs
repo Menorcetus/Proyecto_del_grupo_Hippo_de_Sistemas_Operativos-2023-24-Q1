@@ -18,10 +18,11 @@ namespace ProyectoSO
     {
         Socket server;
         User user = new User();
-        Thread atender; Thread ThreadLogged;
+        Thread atender; Thread ThreadLogged; Thread ThreadJuego;
         Principal_Logged logged_form;
         login_form lform;
         register_form rform;
+        Interfaz_juego juego;
         int Entry = 1;
 
         public Principal_LogOut()
@@ -62,6 +63,7 @@ namespace ProyectoSO
                         if (res == 0)
                         {
                             logged_form = new Principal_Logged(lform.GetUser(), server);
+                            this.user = lform.GetUser();
                             lform.Close();
 
                             ThreadStart ts = delegate { logged_form.ShowDialog();};
@@ -77,6 +79,19 @@ namespace ProyectoSO
                         break;
                     case 5:
                         logged_form.MostrarRespuesta(mensaje);
+                        break;
+                    case 6:
+                        string[] trozosMsg = mensaje.Split('/');
+                        int id_partida = Convert.ToInt32(trozosMsg[0]);
+
+                        juego = new Interfaz_juego(user, server, id_partida);
+                        ThreadStart tsJuego = delegate { juego.ShowDialog();};
+                        ThreadJuego = new Thread(tsJuego);
+                        ThreadJuego.Start();
+                        
+                        break;
+                    case 7:
+                        juego.RecibirChat(mensaje);
                         break;
                 }
             }

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,6 +16,7 @@ namespace ProyectoSO
     {
         User user;
         Socket server;
+        Thread Esperar;
         public Principal_Logged(User user, Socket server)
         {
             InitializeComponent();
@@ -105,6 +107,10 @@ namespace ProyectoSO
             }
 
         }
+        public void EsperarInvitados()
+        {
+
+        }
 
         private void EnviarPartida_Click(object sender, EventArgs e)
         {
@@ -131,7 +137,18 @@ namespace ProyectoSO
                     string mensaje = "3/1/" + this.user.Name + "/" + Jugador1ComboBox.Text;
                     byte[] msg = Encoding.ASCII.GetBytes(mensaje);
                     server.Send(msg);
+                    EnviarPartida.Enabled = false;
+                    EnviarPartida.Text = "Esperando jugadores";
                     MessageBox.Show("Se ha enviado la invitacion.");
+                    // Possible forma de hacer una lobby?
+                    //ThreadStart ts = delegate { EsperarInvitados(); };
+                    //Esperar = new Thread(ts);
+                    //Esperar.Start();
+
+                    DGVInvitados.RowCount = 1;
+                    DGVInvitados.Rows[0].Cells[0].Value = Jugador1ComboBox.Text;
+                    ModeComboBox.Enabled = false;
+                    Jugador1ComboBox.Enabled = false;
 
                 }
             }
@@ -153,8 +170,19 @@ namespace ProyectoSO
                 { //  Ahora si podemos invitar a tres jugadores: partida 2vs2
                     string mensaje = "3/3/" + this.user.Name + "/" + Jugador1ComboBox.Text + "/" + Jugador2ComboBox.Text + "/" + Jugador3ComboBox.Text;
                     byte[] msg = Encoding.ASCII.GetBytes(mensaje);
-                    server.Send(msg);
                     MessageBox.Show("Se ha enviado la invitacion.");
+                    server.Send(msg);
+                    EnviarPartida.Enabled = false;
+                    EnviarPartida.Text = "Esperando jugadores";
+
+                    DGVInvitados.RowCount = 3;
+                    DGVInvitados.Rows[0].Cells[0].Value = Jugador1ComboBox.Text;
+                    DGVInvitados.Rows[1].Cells[0].Value = Jugador2ComboBox.Text;
+                    DGVInvitados.Rows[2].Cells[0].Value = Jugador3ComboBox.Text;
+                    ModeComboBox.Enabled = false;
+                    Jugador1ComboBox.Enabled = false;
+                    Jugador2ComboBox.Enabled = false;
+                    Jugador3ComboBox.Enabled = false;
                 }
             }
         }
@@ -186,8 +214,43 @@ namespace ProyectoSO
 
         internal void MostrarRespuesta(string mensaje)
         {
-            MessageBox.Show(mensaje);
+            string[] trozos = mensaje.Split('/');
+            string respuesta = trozos[0];
+            string jugador = trozos[1];
+            if (respuesta == "1")
+            {
+                // MessageBox.Show("%s ha aceptado la partida", jugador);
+                int i = 0;
+                bool encontrado = false;
+                while(i < DGVInvitados.RowCount && encontrado == false)
+                {
+                    if (Convert.ToString(DGVInvitados.Rows[i].Cells[0].Value) == jugador)
+                        encontrado = true;
+                    else
+                        i++;
+                }
+                DGVInvitados.Rows[i].Cells[1].Value = true;
+            }
+            else if(respuesta == "0")
+            {
+                MessageBox.Show("%s No ha aceptado la partida, la partida se va a cancelar.", jugador);
+                DGVInvitados.RowCount = 0;
+                EnviarPartida.Text = "Invitar";
+                EnviarPartida.Enabled = true;
+                ModeComboBox.Enabled = true;
+                Jugador1ComboBox.Enabled = false;
+                Jugador2ComboBox.Enabled = false;
+                Jugador3ComboBox.Enabled = false;
+            }
 
+        }
+
+        private void crearPartidaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (crearPartidaToolStripMenuItem.Checked == false)
+                CrearPartida.Visible = false;
+            else if (crearPartidaToolStripMenuItem.Checked == true)
+                CrearPartida.Visible = true;
         }
     }
 }

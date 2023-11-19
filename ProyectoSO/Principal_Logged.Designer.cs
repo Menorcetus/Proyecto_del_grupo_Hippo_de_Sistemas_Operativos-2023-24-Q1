@@ -48,7 +48,10 @@
             this.Jugando_column = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panelConectados = new System.Windows.Forms.Panel();
             this.TituloConectados = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.CrearPartida = new System.Windows.Forms.Panel();
+            this.DGVInvitados = new System.Windows.Forms.DataGridView();
+            this.Invitado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Accepted = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.EnviarPartida = new System.Windows.Forms.Button();
             this.LabelInvitado3 = new System.Windows.Forms.Label();
             this.LabelInvitado2 = new System.Windows.Forms.Label();
@@ -60,13 +63,10 @@
             this.Jugador2ComboBox = new System.Windows.Forms.ComboBox();
             this.Jugador1ComboBox = new System.Windows.Forms.ComboBox();
             this.ModeComboBox = new System.Windows.Forms.ComboBox();
-            this.DGVInvitados = new System.Windows.Forms.DataGridView();
-            this.Invitado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Accepted = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.BarraPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridConectados)).BeginInit();
             this.panelConectados.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.CrearPartida.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVInvitados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,7 +79,7 @@
             this.jugarToolStripMenuItem});
             this.BarraPrincipal.Location = new System.Drawing.Point(0, 0);
             this.BarraPrincipal.Name = "BarraPrincipal";
-            this.BarraPrincipal.Size = new System.Drawing.Size(1920, 28);
+            this.BarraPrincipal.Size = new System.Drawing.Size(2400, 28);
             this.BarraPrincipal.TabIndex = 0;
             this.BarraPrincipal.Text = "menuStrip1";
             this.BarraPrincipal.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -124,6 +124,7 @@
             // 
             // jugarToolStripMenuItem
             // 
+            this.jugarToolStripMenuItem.CheckOnClick = true;
             this.jugarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.crearPartidaToolStripMenuItem});
             this.jugarToolStripMenuItem.Name = "jugarToolStripMenuItem";
@@ -132,9 +133,11 @@
             // 
             // crearPartidaToolStripMenuItem
             // 
+            this.crearPartidaToolStripMenuItem.CheckOnClick = true;
             this.crearPartidaToolStripMenuItem.Name = "crearPartidaToolStripMenuItem";
             this.crearPartidaToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
             this.crearPartidaToolStripMenuItem.Text = "Crear partida";
+            this.crearPartidaToolStripMenuItem.Click += new System.EventHandler(this.crearPartidaToolStripMenuItem_Click);
             // 
             // cuentaToolStripMenuItem
             // 
@@ -200,7 +203,7 @@
             this.dataGridConectados.Name = "dataGridConectados";
             this.dataGridConectados.RowHeadersWidth = 62;
             this.dataGridConectados.RowTemplate.Height = 24;
-            this.dataGridConectados.Size = new System.Drawing.Size(362, 238);
+            this.dataGridConectados.Size = new System.Drawing.Size(484, 318);
             this.dataGridConectados.TabIndex = 2;
             // 
             // User_column
@@ -221,13 +224,16 @@
             // 
             // panelConectados
             // 
+            this.panelConectados.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelConectados.AutoSize = true;
             this.panelConectados.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panelConectados.Controls.Add(this.TituloConectados);
             this.panelConectados.Controls.Add(this.dataGridConectados);
             this.panelConectados.Cursor = System.Windows.Forms.Cursors.Default;
-            this.panelConectados.Location = new System.Drawing.Point(49, 300);
+            this.panelConectados.Location = new System.Drawing.Point(55, 375);
             this.panelConectados.Name = "panelConectados";
-            this.panelConectados.Size = new System.Drawing.Size(392, 321);
+            this.panelConectados.Size = new System.Drawing.Size(514, 401);
             this.panelConectados.TabIndex = 3;
             this.panelConectados.Visible = false;
             // 
@@ -241,29 +247,70 @@
             this.TituloConectados.TabIndex = 3;
             this.TituloConectados.Text = "Lista de conectados";
             // 
-            // panel1
+            // CrearPartida
             // 
-            this.panel1.Controls.Add(this.DGVInvitados);
-            this.panel1.Controls.Add(this.EnviarPartida);
-            this.panel1.Controls.Add(this.LabelInvitado3);
-            this.panel1.Controls.Add(this.LabelInvitado2);
-            this.panel1.Controls.Add(this.LabelInvitado1);
-            this.panel1.Controls.Add(this.SelecctionarLablel);
-            this.panel1.Controls.Add(this.LabelMode);
-            this.panel1.Controls.Add(this.Titulo_invitar);
-            this.panel1.Controls.Add(this.Jugador3ComboBox);
-            this.panel1.Controls.Add(this.Jugador2ComboBox);
-            this.panel1.Controls.Add(this.Jugador1ComboBox);
-            this.panel1.Controls.Add(this.ModeComboBox);
-            this.panel1.Location = new System.Drawing.Point(691, 83);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(938, 522);
-            this.panel1.TabIndex = 4;
+            this.CrearPartida.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CrearPartida.AutoSize = true;
+            this.CrearPartida.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.CrearPartida.Controls.Add(this.DGVInvitados);
+            this.CrearPartida.Controls.Add(this.EnviarPartida);
+            this.CrearPartida.Controls.Add(this.LabelInvitado3);
+            this.CrearPartida.Controls.Add(this.LabelInvitado2);
+            this.CrearPartida.Controls.Add(this.LabelInvitado1);
+            this.CrearPartida.Controls.Add(this.SelecctionarLablel);
+            this.CrearPartida.Controls.Add(this.LabelMode);
+            this.CrearPartida.Controls.Add(this.Titulo_invitar);
+            this.CrearPartida.Controls.Add(this.Jugador3ComboBox);
+            this.CrearPartida.Controls.Add(this.Jugador2ComboBox);
+            this.CrearPartida.Controls.Add(this.Jugador1ComboBox);
+            this.CrearPartida.Controls.Add(this.ModeComboBox);
+            this.CrearPartida.Location = new System.Drawing.Point(1455, 83);
+            this.CrearPartida.Name = "CrearPartida";
+            this.CrearPartida.Size = new System.Drawing.Size(845, 551);
+            this.CrearPartida.TabIndex = 4;
+            this.CrearPartida.Visible = false;
+            // 
+            // DGVInvitados
+            // 
+            this.DGVInvitados.AllowUserToAddRows = false;
+            this.DGVInvitados.AllowUserToDeleteRows = false;
+            this.DGVInvitados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DGVInvitados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DGVInvitados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVInvitados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Invitado,
+            this.Accepted});
+            this.DGVInvitados.Location = new System.Drawing.Point(405, 232);
+            this.DGVInvitados.Name = "DGVInvitados";
+            this.DGVInvitados.ReadOnly = true;
+            this.DGVInvitados.RowHeadersWidth = 51;
+            this.DGVInvitados.RowTemplate.Height = 24;
+            this.DGVInvitados.Size = new System.Drawing.Size(387, 257);
+            this.DGVInvitados.TabIndex = 6;
+            // 
+            // Invitado
+            // 
+            this.Invitado.HeaderText = "Invitado";
+            this.Invitado.MinimumWidth = 6;
+            this.Invitado.Name = "Invitado";
+            this.Invitado.ReadOnly = true;
+            // 
+            // Accepted
+            // 
+            this.Accepted.HeaderText = "Accepted?";
+            this.Accepted.MinimumWidth = 6;
+            this.Accepted.Name = "Accepted";
+            this.Accepted.ReadOnly = true;
+            this.Accepted.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Accepted.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // EnviarPartida
             // 
+            this.EnviarPartida.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.EnviarPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EnviarPartida.Location = new System.Drawing.Point(497, 101);
+            this.EnviarPartida.Location = new System.Drawing.Point(479, 101);
             this.EnviarPartida.Name = "EnviarPartida";
             this.EnviarPartida.Size = new System.Drawing.Size(229, 95);
             this.EnviarPartida.TabIndex = 5;
@@ -382,36 +429,6 @@
             this.ModeComboBox.TabIndex = 0;
             this.ModeComboBox.TextChanged += new System.EventHandler(this.ModeComboBox_TextChanged);
             // 
-            // DGVInvitados
-            // 
-            this.DGVInvitados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGVInvitados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Invitado,
-            this.Accepted});
-            this.DGVInvitados.Location = new System.Drawing.Point(405, 232);
-            this.DGVInvitados.Name = "DGVInvitados";
-            this.DGVInvitados.RowHeadersWidth = 51;
-            this.DGVInvitados.RowTemplate.Height = 24;
-            this.DGVInvitados.Size = new System.Drawing.Size(367, 203);
-            this.DGVInvitados.TabIndex = 6;
-            this.DGVInvitados.Visible = false;
-            // 
-            // Invitado
-            // 
-            this.Invitado.HeaderText = "Invitado";
-            this.Invitado.MinimumWidth = 6;
-            this.Invitado.Name = "Invitado";
-            this.Invitado.Width = 125;
-            // 
-            // Accepted
-            // 
-            this.Accepted.HeaderText = "Accepted?";
-            this.Accepted.MinimumWidth = 6;
-            this.Accepted.Name = "Accepted";
-            this.Accepted.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Accepted.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Accepted.Width = 125;
-            // 
             // Principal_Logged
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -419,8 +436,8 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImage = global::ProyectoSO.Properties.Resources.fondo_gwent;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1920, 1080);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(2400, 1350);
+            this.Controls.Add(this.CrearPartida);
             this.Controls.Add(this.panelConectados);
             this.Controls.Add(this.Bienvenida);
             this.Controls.Add(this.BarraPrincipal);
@@ -437,8 +454,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridConectados)).EndInit();
             this.panelConectados.ResumeLayout(false);
             this.panelConectados.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.CrearPartida.ResumeLayout(false);
+            this.CrearPartida.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVInvitados)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -467,7 +484,7 @@
         public System.Windows.Forms.Panel panelConectados;
         private System.Windows.Forms.ToolStripMenuItem jugarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem crearPartidaToolStripMenuItem;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel CrearPartida;
         private System.Windows.Forms.ComboBox ModeComboBox;
         private System.Windows.Forms.Label LabelInvitado2;
         private System.Windows.Forms.Label LabelInvitado1;
