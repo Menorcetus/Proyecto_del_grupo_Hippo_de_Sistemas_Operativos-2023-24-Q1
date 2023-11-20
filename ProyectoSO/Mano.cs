@@ -29,7 +29,6 @@ namespace ProyectoSO
                 Todas[i].nombre = trozos[i+1];
                 Todas[i].fuerza = Convert.ToInt32(trozos[i+2]);
                 Todas[i].tipo = Convert.ToInt32(trozos[i+3]);
-                Todas[i].repetible = Convert.ToInt32(trozos[i+4]);
 
             }
 

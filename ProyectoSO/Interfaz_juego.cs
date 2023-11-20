@@ -55,13 +55,12 @@ namespace ProyectoSO
         {
             string[] trozos = mensaje.Split('/');
             Carta[] mano = new Carta[Convert.ToInt32(trozos[0])];
-            for (int i = 1; i < Convert.ToInt32(trozos[0]); i+=5)
+            for (int i = 1; i < Convert.ToInt32(trozos[0]); i+=4)
             {
                 mano[i - 1].id = Convert.ToInt32(trozos[i]);
                 mano[i - 1].nombre = trozos[i + 1];
                 mano[i - 1].fuerza = Convert.ToInt32(trozos[i + 2]);
                 mano[i - 1].tipo = Convert.ToInt32(trozos[i + 3]);
-                mano[i - 1].repetible = Convert.ToInt32(trozos[i + 4]);
             }
         }
     }

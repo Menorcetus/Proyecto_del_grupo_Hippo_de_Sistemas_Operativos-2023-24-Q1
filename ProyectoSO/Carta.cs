@@ -14,7 +14,6 @@ namespace ProyectoSO
         public string nombre { get; set; } 
         public int fuerza { get; set; }
         public int tipo { get; set; }
-        public int repetible { get; set; }
 
     }
 }

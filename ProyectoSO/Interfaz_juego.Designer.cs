@@ -34,6 +34,8 @@
             this.ChatEnviar = new System.Windows.Forms.Button();
             this.ChatOutput = new System.Windows.Forms.TextBox();
             this.ChatInput = new System.Windows.Forms.TextBox();
+            this.Mano1 = new System.Windows.Forms.Panel();
+            this.Mano2 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -98,6 +100,22 @@
             this.ChatInput.Size = new System.Drawing.Size(216, 20);
             this.ChatInput.TabIndex = 0;
             // 
+            // Mano1
+            // 
+            this.Mano1.BackColor = System.Drawing.Color.Transparent;
+            this.Mano1.Location = new System.Drawing.Point(28, 385);
+            this.Mano1.Name = "Mano1";
+            this.Mano1.Size = new System.Drawing.Size(62, 91);
+            this.Mano1.TabIndex = 1;
+            // 
+            // Mano2
+            // 
+            this.Mano2.BackColor = System.Drawing.Color.Transparent;
+            this.Mano2.Location = new System.Drawing.Point(96, 385);
+            this.Mano2.Name = "Mano2";
+            this.Mano2.Size = new System.Drawing.Size(62, 91);
+            this.Mano2.TabIndex = 2;
+            // 
             // Interfaz_juego
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -105,6 +123,8 @@
             this.BackgroundImage = global::ProyectoSO.Properties.Resources.fondo_gwent;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1293, 733);
+            this.Controls.Add(this.Mano2);
+            this.Controls.Add(this.Mano1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.A1);
             this.DoubleBuffered = true;
@@ -128,5 +148,7 @@
         private System.Windows.Forms.TextBox ChatOutput;
         private System.Windows.Forms.TextBox ChatInput;
         private System.Windows.Forms.Label Chatlabel;
+        private System.Windows.Forms.Panel Mano1;
+        private System.Windows.Forms.Panel Mano2;
     }
 }
