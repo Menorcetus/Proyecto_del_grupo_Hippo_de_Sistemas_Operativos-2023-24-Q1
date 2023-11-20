@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProyectoSO
 {
-    internal class Baraja : Carta //la baraja coje las cartas
+    internal class Mano : Carta //la baraja coje las cartas
     {
-        public int numero_cartas { get; set; } //esta será la mano del jugador
-        public int jugador { get; set; } //hay que asignar a la baraja su jugador o user
+        public Carta[] cartas;
 
         // 1) generar una lista entera con todas las cartas para cada jugador,
         //esas son todas las posibilidades dentro de la base de datos

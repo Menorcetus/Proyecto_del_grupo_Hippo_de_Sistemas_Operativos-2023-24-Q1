@@ -95,7 +95,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ChatInput.Location = new System.Drawing.Point(26, 287);
             this.ChatInput.Name = "ChatInput";
-            this.ChatInput.Size = new System.Drawing.Size(216, 26);
+            this.ChatInput.Size = new System.Drawing.Size(216, 20);
             this.ChatInput.TabIndex = 0;
             // 
             // Interfaz_juego
@@ -113,6 +113,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Interfaz_juego";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Interfaz_juego_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);

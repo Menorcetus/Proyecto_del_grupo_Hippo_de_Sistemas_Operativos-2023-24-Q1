@@ -72,7 +72,6 @@
             // 
             // BarraPrincipal
             // 
-            this.BarraPrincipal.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.BarraPrincipal.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.BarraPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usuarioToolStripMenuItem,
@@ -80,7 +79,7 @@
             this.jugarToolStripMenuItem});
             this.BarraPrincipal.Location = new System.Drawing.Point(0, 0);
             this.BarraPrincipal.Name = "BarraPrincipal";
-            this.BarraPrincipal.Size = new System.Drawing.Size(1946, 33);
+            this.BarraPrincipal.Size = new System.Drawing.Size(1940, 24);
             this.BarraPrincipal.TabIndex = 0;
             this.BarraPrincipal.Text = "menuStrip1";
             this.BarraPrincipal.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -90,13 +89,13 @@
             this.usuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.logOutToolStripMenuItem1});
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(88, 29);
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.usuarioToolStripMenuItem.Text = "Usuario";
             // 
             // logOutToolStripMenuItem1
             // 
             this.logOutToolStripMenuItem1.Name = "logOutToolStripMenuItem1";
-            this.logOutToolStripMenuItem1.Size = new System.Drawing.Size(174, 34);
+            this.logOutToolStripMenuItem1.Size = new System.Drawing.Size(114, 22);
             this.logOutToolStripMenuItem1.Text = "LogOut";
             this.logOutToolStripMenuItem1.Click += new System.EventHandler(this.logOutToolStripMenuItem1_Click);
             // 
@@ -106,21 +105,21 @@
             this.conectadosToolStripMenuItem,
             this.amigosToolStripMenuItem1});
             this.socialToolStripMenuItem.Name = "socialToolStripMenuItem";
-            this.socialToolStripMenuItem.Size = new System.Drawing.Size(74, 29);
+            this.socialToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.socialToolStripMenuItem.Text = "Social";
             // 
             // conectadosToolStripMenuItem
             // 
             this.conectadosToolStripMenuItem.CheckOnClick = true;
             this.conectadosToolStripMenuItem.Name = "conectadosToolStripMenuItem";
-            this.conectadosToolStripMenuItem.Size = new System.Drawing.Size(336, 34);
+            this.conectadosToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.conectadosToolStripMenuItem.Text = "Conectados";
             this.conectadosToolStripMenuItem.Click += new System.EventHandler(this.conectadosToolStripMenuItem_Click);
             // 
             // amigosToolStripMenuItem1
             // 
             this.amigosToolStripMenuItem1.Name = "amigosToolStripMenuItem1";
-            this.amigosToolStripMenuItem1.Size = new System.Drawing.Size(336, 34);
+            this.amigosToolStripMenuItem1.Size = new System.Drawing.Size(223, 22);
             this.amigosToolStripMenuItem1.Text = "Amigos (No implementado)";
             // 
             // jugarToolStripMenuItem
@@ -129,14 +128,14 @@
             this.jugarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.crearPartidaToolStripMenuItem});
             this.jugarToolStripMenuItem.Name = "jugarToolStripMenuItem";
-            this.jugarToolStripMenuItem.Size = new System.Drawing.Size(70, 29);
+            this.jugarToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.jugarToolStripMenuItem.Text = "Jugar";
             // 
             // crearPartidaToolStripMenuItem
             // 
             this.crearPartidaToolStripMenuItem.CheckOnClick = true;
             this.crearPartidaToolStripMenuItem.Name = "crearPartidaToolStripMenuItem";
-            this.crearPartidaToolStripMenuItem.Size = new System.Drawing.Size(216, 34);
+            this.crearPartidaToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.crearPartidaToolStripMenuItem.Text = "Crear partida";
             this.crearPartidaToolStripMenuItem.Click += new System.EventHandler(this.crearPartidaToolStripMenuItem_Click);
             // 
@@ -152,13 +151,13 @@
             // preferenciasToolStripMenuItem
             // 
             this.preferenciasToolStripMenuItem.Name = "preferenciasToolStripMenuItem";
-            this.preferenciasToolStripMenuItem.Size = new System.Drawing.Size(208, 34);
+            this.preferenciasToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.preferenciasToolStripMenuItem.Text = "Preferencias";
             // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(208, 34);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             // 
             // amigosToolStripMenuItem
             // 
@@ -183,7 +182,7 @@
             this.Bienvenida.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Bienvenida.Location = new System.Drawing.Point(141, 83);
             this.Bienvenida.Name = "Bienvenida";
-            this.Bienvenida.Size = new System.Drawing.Size(0, 45);
+            this.Bienvenida.Size = new System.Drawing.Size(0, 31);
             this.Bienvenida.TabIndex = 1;
             // 
             // dataGridConectados
@@ -244,7 +243,7 @@
             this.TituloConectados.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TituloConectados.Location = new System.Drawing.Point(12, 13);
             this.TituloConectados.Name = "TituloConectados";
-            this.TituloConectados.Size = new System.Drawing.Size(471, 55);
+            this.TituloConectados.Size = new System.Drawing.Size(321, 37);
             this.TituloConectados.TabIndex = 3;
             this.TituloConectados.Text = "Lista de conectados";
             // 
@@ -265,7 +264,7 @@
             this.CrearPartida.Controls.Add(this.Jugador2ComboBox);
             this.CrearPartida.Controls.Add(this.Jugador1ComboBox);
             this.CrearPartida.Controls.Add(this.ModeComboBox);
-            this.CrearPartida.Location = new System.Drawing.Point(1001, 83);
+            this.CrearPartida.Location = new System.Drawing.Point(995, 83);
             this.CrearPartida.Name = "CrearPartida";
             this.CrearPartida.Size = new System.Drawing.Size(845, 551);
             this.CrearPartida.TabIndex = 4;
@@ -325,7 +324,7 @@
             this.LabelInvitado3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelInvitado3.Location = new System.Drawing.Point(45, 374);
             this.LabelInvitado3.Name = "LabelInvitado3";
-            this.LabelInvitado3.Size = new System.Drawing.Size(115, 29);
+            this.LabelInvitado3.Size = new System.Drawing.Size(78, 20);
             this.LabelInvitado3.TabIndex = 4;
             this.LabelInvitado3.Text = "Invitado 3";
             this.LabelInvitado3.Visible = false;
@@ -336,7 +335,7 @@
             this.LabelInvitado2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelInvitado2.Location = new System.Drawing.Point(45, 292);
             this.LabelInvitado2.Name = "LabelInvitado2";
-            this.LabelInvitado2.Size = new System.Drawing.Size(115, 29);
+            this.LabelInvitado2.Size = new System.Drawing.Size(78, 20);
             this.LabelInvitado2.TabIndex = 4;
             this.LabelInvitado2.Text = "Invitado 2";
             this.LabelInvitado2.Visible = false;
@@ -347,7 +346,7 @@
             this.LabelInvitado1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelInvitado1.Location = new System.Drawing.Point(45, 214);
             this.LabelInvitado1.Name = "LabelInvitado1";
-            this.LabelInvitado1.Size = new System.Drawing.Size(115, 29);
+            this.LabelInvitado1.Size = new System.Drawing.Size(78, 20);
             this.LabelInvitado1.TabIndex = 4;
             this.LabelInvitado1.Text = "Invitado 1";
             this.LabelInvitado1.Visible = false;
@@ -358,7 +357,7 @@
             this.SelecctionarLablel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SelecctionarLablel.Location = new System.Drawing.Point(45, 171);
             this.SelecctionarLablel.Name = "SelecctionarLablel";
-            this.SelecctionarLablel.Size = new System.Drawing.Size(272, 29);
+            this.SelecctionarLablel.Size = new System.Drawing.Size(177, 20);
             this.SelecctionarLablel.TabIndex = 4;
             this.SelecctionarLablel.Text = "Selecciona los invitados";
             // 
@@ -368,7 +367,7 @@
             this.LabelMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelMode.Location = new System.Drawing.Point(45, 92);
             this.LabelMode.Name = "LabelMode";
-            this.LabelMode.Size = new System.Drawing.Size(423, 29);
+            this.LabelMode.Size = new System.Drawing.Size(278, 20);
             this.LabelMode.TabIndex = 4;
             this.LabelMode.Text = "Selecciona cuantos jugadores quieres";
             // 
@@ -378,7 +377,7 @@
             this.Titulo_invitar.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Titulo_invitar.Location = new System.Drawing.Point(42, 34);
             this.Titulo_invitar.Name = "Titulo_invitar";
-            this.Titulo_invitar.Size = new System.Drawing.Size(323, 55);
+            this.Titulo_invitar.Size = new System.Drawing.Size(221, 37);
             this.Titulo_invitar.TabIndex = 3;
             this.Titulo_invitar.Text = "Crear Partida";
             // 
@@ -390,7 +389,7 @@
             "4"});
             this.Jugador3ComboBox.Location = new System.Drawing.Point(50, 412);
             this.Jugador3ComboBox.Name = "Jugador3ComboBox";
-            this.Jugador3ComboBox.Size = new System.Drawing.Size(204, 28);
+            this.Jugador3ComboBox.Size = new System.Drawing.Size(204, 21);
             this.Jugador3ComboBox.TabIndex = 0;
             this.Jugador3ComboBox.Visible = false;
             // 
@@ -402,7 +401,7 @@
             "4"});
             this.Jugador2ComboBox.Location = new System.Drawing.Point(50, 330);
             this.Jugador2ComboBox.Name = "Jugador2ComboBox";
-            this.Jugador2ComboBox.Size = new System.Drawing.Size(204, 28);
+            this.Jugador2ComboBox.Size = new System.Drawing.Size(204, 21);
             this.Jugador2ComboBox.TabIndex = 0;
             this.Jugador2ComboBox.Visible = false;
             // 
@@ -414,7 +413,7 @@
             "4"});
             this.Jugador1ComboBox.Location = new System.Drawing.Point(50, 252);
             this.Jugador1ComboBox.Name = "Jugador1ComboBox";
-            this.Jugador1ComboBox.Size = new System.Drawing.Size(204, 28);
+            this.Jugador1ComboBox.Size = new System.Drawing.Size(204, 21);
             this.Jugador1ComboBox.TabIndex = 0;
             this.Jugador1ComboBox.Visible = false;
             // 
@@ -426,7 +425,7 @@
             "4"});
             this.ModeComboBox.Location = new System.Drawing.Point(50, 130);
             this.ModeComboBox.Name = "ModeComboBox";
-            this.ModeComboBox.Size = new System.Drawing.Size(204, 28);
+            this.ModeComboBox.Size = new System.Drawing.Size(204, 21);
             this.ModeComboBox.TabIndex = 0;
             this.ModeComboBox.TextChanged += new System.EventHandler(this.ModeComboBox_TextChanged);
             // 
@@ -437,7 +436,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImage = global::ProyectoSO.Properties.Resources.fondo_gwent;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1946, 1106);
+            this.ClientSize = new System.Drawing.Size(1940, 1100);
             this.Controls.Add(this.CrearPartida);
             this.Controls.Add(this.panelConectados);
             this.Controls.Add(this.Bienvenida);

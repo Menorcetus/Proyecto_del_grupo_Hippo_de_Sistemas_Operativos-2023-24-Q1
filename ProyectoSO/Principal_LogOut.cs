@@ -93,6 +93,10 @@ namespace ProyectoSO
                     case 7:
                         juego.RecibirChat(mensaje);
                         break;
+
+                    case 8:
+                        juego.RecibirMano(mensaje);
+                        break;
                 }
             }
 
