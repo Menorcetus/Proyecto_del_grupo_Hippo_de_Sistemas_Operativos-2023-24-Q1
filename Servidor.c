@@ -12,6 +12,7 @@
 #define Max 30
 #define Max2 100
 #define buffer 512
+#define
 // Variables para la implementacion de una lista de sockets
 int socket_num = 0;
 int sockets[100];
@@ -52,11 +53,25 @@ typedef struct {
 	int num;
 } ListaPartidas;
 
+typedef struct{
+	int id;
+	char nombre[MAX];
+	int fuerza;
+	int tipo;
+	//int repetible;
+} Carta;
+
+typedef struct {
+	Carta cartas[Max];
+	int num;
+} ListaCartas;
+
 ListaUsuarios Usuarios;
 ListaUsuarios Conectados;
 int  conectados_num;
 int Usuarios_num;
 ListaPartidas Partidas;
+ListaCartas Cartas;
 
 int GenerarListaUsuarios(ListaUsuarios *lista, MYSQL *conn){
 	// Esta funcion modifica la lista y devuelve el numero de usuarios en la base de datos
@@ -393,6 +408,133 @@ int ComprovarInicioPartida(int id_partida, ListaPartidas *Partidas){
 	}
 }
 
+
+int BuscarPartidaPorID(int id_partida,ListaPartidas *Partidas){ 
+	//funcion que retorna la posición de la partida -1 si hay error
+	int enc = 0;
+	for (int i=0; Partidas->num;1++)
+	{
+		if (strcmp(Partidas->partidasi[i].id,id_partida)==0)
+
+			return  i;
+
+	}
+	if (enc == 0)
+	return -1;
+}
+
+void GenerarListaCartas (MYSQL *conn, ListaCartas *listaCartas){
+
+	int err;
+		MYSQL_RES * resultado;
+		MYSQL_ROW * row;
+		char consulta[buffer];
+		strcpy(consulta, "SELECT ID,Nombre,Fuerza,Posicion FROM Cartas");
+
+		err=mysql_query (conn, consulta);
+		if (err!=0) {
+			printf ("Error al consultar datos de la base %u %s\n",
+					mysql_errno(conn), mysql_error(conn));
+			return -1;
+		}
+
+		resultado = mysql_store_result (conn);
+		row = mysql_fetch_row(resultado);
+		int num = 0;
+		while (row != NULL)
+		{
+			listaCartas->Cartas[num].ID =  row[0];
+			strcpy(listaCartas->Cartas[num].nombre, row[1]);
+			listaCartas->Cartas[num].fuerza = row[2];
+			listaCartas->Cartas[num].tipo = row[3];
+			//listaCartas->Cartas[num].repetible = row[4];
+			// printf("%s\n",lilistaCartassta->usuarios[num].Nombre);
+			num++;
+			row = mysql_fetch_row(resultado);
+
+		}
+
+}
+
+
+void DarCarta (ListaCartas *Cartas, int ID, Carta *carta){ 
+
+	for (int i = 0 ; Cartas->Cartas.num; i++)
+	{ 
+		if (ID == Cartas->Cartas[i].ID)
+		{
+			carta.ID = i;
+			strcpy(carta.nombre,Cartas->Cartas[i].nombre);
+			carta.fuerza = Cartas->Cartas[i].fuerza;
+			carta.tipo = Cartas->Cartas[i].tipo;
+			//carta.repetible = Cartas->Cartas[i].repetible;
+		}
+
+	}
+
+}
+
+
+
+void DarMano(char *respuesta, ListaCartas *Cartas, int numMano){ 
+//Da una mano a cada jugador de la partida que pide a partir de la lista de todas cartas
+//formato de respuesta: 8/numeroCartas/ID1/Carta_Nombre1/Cart_Fuerz1/Tipo1/Repetible1/.../
+	   
+	Carta carta;
+    int i = 0;
+	int num_ID; 
+	int enc1 = 0;
+	int enc29 = 0;
+	int enc10 =0; 
+	int enc5 =0; //para las no repetibles 
+	strcpy(respuesta, "8/");
+	sprintf(respuesta, "%s/%d" , respuesta, numMano);
+    printf (" Program to get the random number from 1 to 100 \n");  
+    while (i<=numMano)  
+    {  
+        num_ID = rand() % Cartas->Cartas.num + 1; // obtener num aleatorio entre 1 y 30
+		if (num_ID = 1 && enc1 == 0) //no repetir las no repetibles
+		{
+			DarCarta(&Cartas, num_ID, &carta);
+			sprintf(respuesta, "%s/%d/%s/%d/%d",respuesta,num_ID,carta.nombre,carta.fuerza,carta.tipo);
+			enc1 = 1;
+			i++;
+		}
+		else if (num_ID = 5 && enc5 == 0)
+		{
+			DarCarta(&Cartas, num_ID, &carta);
+			sprintf(respuesta, "%s/%d/%s/%d/%d",respuesta,num_ID,carta.nombre,carta.fuerza,carta.tipo);
+			enc5 = 1;
+			i++;
+		}
+		else if (num_ID = 10 && enc10 == 0)
+		{
+			DarCarta(&Cartas, num_ID, &carta);
+			sprintf(respuesta, "%s/%d/%s/%d/%d",respuesta,num_ID,carta.nombre,carta.fuerza,carta.tipo);
+			enc10 = 1;
+			i++;
+		}
+		else if (num_ID = 29 && enc29 == 0)
+		{
+			DarCarta(&Cartas, num_ID, &carta);
+			sprintf(respuesta, "%s/%d/%s/%d/%d",respuesta,num_ID,carta.nombre,carta.fuerza,carta.tipo);
+			enc29 = 1;
+			i++;
+		}
+
+		else
+		{
+			DarCarta(&Cartas, num_ID, &carta);
+			sprintf(respuesta, "%s/%d/%s/%d/%d",respuesta,num_ID,carta.nombre,carta.fuerza,carta.tipo);
+			i++;
+		}
+
+	 sprintf(respuesta, "%s/", respuesta); //cerrar mensaje
+
+	}
+
+}
+
 int CancelarPartida(int id_partida, ListaPartidas *Partidas){
 
 }
@@ -592,6 +734,23 @@ void *AtenderCliente(void *socket){
 					respuesta, strlen(respuesta));
 				break;
 			}
+				case 7:{ //Inicio de partida
+
+
+				p = strtok(NULL, "/");
+				int id_partida = atoi(p);
+				int posPartida = BuscarPartidaPorID(id_partida);
+				//p = strtok(NULL, "/");
+				//int numCartas = atoi(p);
+				int numCartas = 10; //arbitrario, se cambiará cuando haya lobby
+				for (int i=0;i<= Partidas.partidas[posPartida].jugadores[i]; i++){
+				DarMano(respuesta, ListaCartas *Cartas, numCartas);
+				write(Partidas.partidas[posPartida].jugadores[i].Socket,
+					respuesta, strlen(respuesta));
+				}
+				break;
+			}
+
 			// Mensaje de desconexion
 			case 0:{
 				printf("Se ha desconectado.\n");
@@ -673,6 +832,7 @@ int main(int argc, char *argv[]){
 
 	// Rellenamos la lista de usuarios en el servidor con la informacion del la BBDD
 	Usuarios_num = GenerarListaUsuarios(&Usuarios, conn);
+	GenerarListaCartas(conn, &Cartas);
 	mysql_close(conn);
 	// Cerramos conexion mysql para ahorrar recursos
 	
