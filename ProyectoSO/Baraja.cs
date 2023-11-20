@@ -41,8 +41,8 @@ namespace ProyectoSO
         public void Generar_Mano()
         {
 
-
             Random random = new Random();
+            HashSet<int> ID = new HashSet<int>();
 
 
 

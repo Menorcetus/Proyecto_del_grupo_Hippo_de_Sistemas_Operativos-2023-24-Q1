@@ -36,8 +36,12 @@ namespace ProyectoSO
         private void ChatEnviar_Click(object sender, EventArgs e)
         {
             string mensaje = "6/" + this.ID_partida + "/" + this.user.Name + "/" + ChatInput.Text;
-            byte[] msg = Encoding.ASCII.GetBytes(mensaje);
-            server.Send(msg);
+            if (ChatInput.Text != "")
+            {
+                byte[] msg = Encoding.ASCII.GetBytes(mensaje);
+                server.Send(msg);
+            }
+            ChatInput.Text = "";
         }
     }
 }
