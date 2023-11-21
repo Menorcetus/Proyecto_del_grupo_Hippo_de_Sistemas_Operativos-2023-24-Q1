@@ -58,7 +58,7 @@ typedef struct{
 	char nombre[MAX];
 	int fuerza;
 	int tipo;
-	//int repetible;
+	//int repetible; es trivial si trabajamos con ID
 } Carta;
 
 typedef struct {
@@ -424,6 +424,7 @@ int BuscarPartidaPorID(int id_partida,ListaPartidas *Partidas){
 }
 
 void GenerarListaCartas (MYSQL *conn, ListaCartas *listaCartas){
+	//Generar lista de todas cartas al iniciar servidor en el main
 
 	int err;
 		MYSQL_RES * resultado;
@@ -458,6 +459,7 @@ void GenerarListaCartas (MYSQL *conn, ListaCartas *listaCartas){
 
 
 void DarCarta (ListaCartas *Cartas, int ID, Carta *carta){ 
+	//meter en carta su informacion en funcion de ID
 
 	for (int i = 0 ; Cartas->Cartas.num; i++)
 	{ 
@@ -478,7 +480,9 @@ void DarCarta (ListaCartas *Cartas, int ID, Carta *carta){
 
 void DarMano(char *respuesta, ListaCartas *Cartas, int numMano){ 
 //Da una mano a cada jugador de la partida que pide a partir de la lista de todas cartas
+// Opcion 1): mas ancho de banda
 //formato de respuesta: 8/numeroCartas/ID1/Carta_Nombre1/Cart_Fuerz1/Tipo1/Repetible1/.../
+//Opcion 2): base de datos en cliente tambien
 	   
 	Carta carta;
     int i = 0;
@@ -489,35 +493,47 @@ void DarMano(char *respuesta, ListaCartas *Cartas, int numMano){
 	int enc5 =0; //para las no repetibles 
 	strcpy(respuesta, "8/");
 	sprintf(respuesta, "%s/%d" , respuesta, numMano);
-    printf (" Program to get the random number from 1 to 100 \n");  
+    //printf (" Rand de 1 a 30 \n");  
     while (i<=numMano)  
     {  
         num_ID = rand() % Cartas->Cartas.num + 1; // obtener num aleatorio entre 1 y 30
 		if (num_ID = 1 && enc1 == 0) //no repetir las no repetibles
 		{
 			DarCarta(&Cartas, num_ID, &carta);
-			sprintf(respuesta, "%s/%d/%s/%d/%d",respuesta,num_ID,carta.nombre,carta.fuerza,carta.tipo);
+			//1) 
+			//sprintf(respuesta, "%s/%d/%s/%d/%d",respuesta,num_ID,carta.nombre,carta.fuerza,carta.tipo);
+			//2)
+			sprintf(respuesta, "%s/%d/",respuesta,num_ID); //opcion en la que el cliente tiene toda la info
 			enc1 = 1;
 			i++;
 		}
 		else if (num_ID = 5 && enc5 == 0)
 		{
 			DarCarta(&Cartas, num_ID, &carta);
-			sprintf(respuesta, "%s/%d/%s/%d/%d",respuesta,num_ID,carta.nombre,carta.fuerza,carta.tipo);
+			//1) 
+			// sprintf(respuesta, "%s/%d/%s/%d/%d",respuesta,num_ID,carta.nombre,carta.fuerza,carta.tipo);
+			//2)
+			sprintf(respuesta, "%s/%d/",respuesta,num_ID);
 			enc5 = 1;
 			i++;
 		}
 		else if (num_ID = 10 && enc10 == 0)
 		{
 			DarCarta(&Cartas, num_ID, &carta);
-			sprintf(respuesta, "%s/%d/%s/%d/%d",respuesta,num_ID,carta.nombre,carta.fuerza,carta.tipo);
+			//1) 
+			//sprintf(respuesta, "%s/%d/%s/%d/%d",respuesta,num_ID,carta.nombre,carta.fuerza,carta.tipo);
+			//2)
+			sprintf(respuesta, "%s/%d/",respuesta,num_ID);
 			enc10 = 1;
 			i++;
 		}
 		else if (num_ID = 29 && enc29 == 0)
 		{
 			DarCarta(&Cartas, num_ID, &carta);
-			sprintf(respuesta, "%s/%d/%s/%d/%d",respuesta,num_ID,carta.nombre,carta.fuerza,carta.tipo);
+			//1) 
+			//sprintf(respuesta, "%s/%d/%s/%d/%d",respuesta,num_ID,carta.nombre,carta.fuerza,carta.tipo);
+			//2)
+			sprintf(respuesta, "%s/%d/",respuesta,num_ID);
 			enc29 = 1;
 			i++;
 		}
@@ -525,7 +541,10 @@ void DarMano(char *respuesta, ListaCartas *Cartas, int numMano){
 		else
 		{
 			DarCarta(&Cartas, num_ID, &carta);
-			sprintf(respuesta, "%s/%d/%s/%d/%d",respuesta,num_ID,carta.nombre,carta.fuerza,carta.tipo);
+			//1) 
+			//sprintf(respuesta, "%s/%d/%s/%d/%d",respuesta,num_ID,carta.nombre,carta.fuerza,carta.tipo);
+			//2)
+			sprintf(respuesta, "%s/%d/",respuesta,num_ID);
 			i++;
 		}
 
@@ -706,7 +725,7 @@ void *AtenderCliente(void *socket){
 					int res2 = ComprovarInicioPartida(id_partida, &Partidas);
 					pthread_mutex_unlock(&mutex);
 					if (res2 == 1){
-						// Inicar partida
+						// Iniciar partida
 						sprintf(respuesta, "6/%i/Se va a iniciar la partida %i.", id_partida, id_partida);
 						printf("Respuesta: %s\n", respuesta);
 						for (int i=0;i<= Partidas.partidas[id_partida].mode; i++)
@@ -734,7 +753,7 @@ void *AtenderCliente(void *socket){
 					respuesta, strlen(respuesta));
 				break;
 			}
-				case 7:{ //Inicio de partida
+				case 7:{ //Inicio de partida, desde lobby
 
 
 				p = strtok(NULL, "/");
@@ -742,14 +761,46 @@ void *AtenderCliente(void *socket){
 				int posPartida = BuscarPartidaPorID(id_partida);
 				//p = strtok(NULL, "/");
 				//int numCartas = atoi(p);
-				int numCartas = 10; //arbitrario, se cambiará cuando haya lobby
-				for (int i=0;i<= Partidas.partidas[posPartida].jugadores[i]; i++){
-				DarMano(respuesta, ListaCartas *Cartas, numCartas);
-				write(Partidas.partidas[posPartida].jugadores[i].Socket,
-					respuesta, strlen(respuesta));
+				int numCartas = 10; //arbitrario, se cambiara cuando haya lobby
+				for (int i=0;i<= 4; i++)
+				{
+					if (Partidas.partidas[posPartida].jugadores[i].jugando =1) //damos mano a jugador que juega
+					{
+						DarMano(respuesta, ListaCartas *Cartas, numCartas);
+						write(Partidas.partidas[posPartida].jugadores[i].Socket,
+						respuesta, strlen(respuesta));
+					}
 				}
 				break;
 			}
+
+			case 8:{ //Accion en turno->poner carta en tablero debe ser visible para todos
+
+			//el turno puede acabar de distintas formas, cuando todos jugadores han pasado 
+			//y/o cuando ya no pueden poner cartas de su mano o cuando el tiempo de turno acabe
+			// se recibe el estado a final de turno del tablero->invocamos una funcion de recuento desarrollada mas arriba
+
+				printf("Se ha desconectado.\n");
+				terminar = 1;
+				break;
+			}
+
+			case 9:{ //Fin turno y fin partida
+
+			//el turno puede acabar de distintas formas, cuando todos jugadores han pasado 
+			//y/o cuando ya no pueden poner cartas de su mano o cuando el tiempo de turno acabe
+			// se recibe el estado a final de turno del tablero->invocamos una funcion de recuento desarrollada mas arriba
+
+				printf("Se ha desconectado.\n");
+				terminar = 1;
+				break;
+			}
+
+			//case 9:{ //Fin partida
+			//	printf("Se ha desconectado.\n");
+			//	terminar = 1;
+			//	break;
+			//}
 
 			// Mensaje de desconexion
 			case 0:{
