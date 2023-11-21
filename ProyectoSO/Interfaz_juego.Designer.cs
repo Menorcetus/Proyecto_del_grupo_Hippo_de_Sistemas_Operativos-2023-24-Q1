@@ -54,14 +54,11 @@
             // 
             // A1
             // 
-            this.A1.AllowDrop = true;
             this.A1.BackColor = System.Drawing.Color.Transparent;
             this.A1.Location = new System.Drawing.Point(409, 587);
             this.A1.Name = "A1";
             this.A1.Size = new System.Drawing.Size(62, 91);
             this.A1.TabIndex = 0;
-            this.A1.DragEnter += new System.Windows.Forms.DragEventHandler(this.A1_DragEnter);
-            this.A1.DragLeave += new System.EventHandler(this.A1_DragLeave);
             // 
             // panel2
             // 
@@ -113,7 +110,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ChatInput.Location = new System.Drawing.Point(26, 287);
             this.ChatInput.Name = "ChatInput";
-            this.ChatInput.Size = new System.Drawing.Size(216, 20);
+            this.ChatInput.Size = new System.Drawing.Size(216, 26);
             this.ChatInput.TabIndex = 0;
             // 
             // Mano1

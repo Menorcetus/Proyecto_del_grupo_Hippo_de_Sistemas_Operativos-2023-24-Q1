@@ -148,5 +148,37 @@
   <ItemGroup>
     <None Include="Resources\fondo_gwent.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\1.png" />
+    <Content Include="Resources\10.png" />
+    <Content Include="Resources\11.png" />
+    <Content Include="Resources\12.png" />
+    <Content Include="Resources\13.png" />
+    <Content Include="Resources\14.png" />
+    <Content Include="Resources\15.png" />
+    <Content Include="Resources\16.png" />
+    <Content Include="Resources\17.png" />
+    <Content Include="Resources\18.png" />
+    <Content Include="Resources\19.png" />
+    <Content Include="Resources\2.png" />
+    <Content Include="Resources\20.png" />
+    <Content Include="Resources\21.png" />
+    <Content Include="Resources\22.png" />
+    <Content Include="Resources\23.png" />
+    <Content Include="Resources\24.png" />
+    <Content Include="Resources\25.png" />
+    <Content Include="Resources\26.png" />
+    <Content Include="Resources\27.png" />
+    <Content Include="Resources\28.png" />
+    <Content Include="Resources\29.png" />
+    <Content Include="Resources\3.png" />
+    <Content Include="Resources\30.png" />
+    <Content Include="Resources\4.png" />
+    <Content Include="Resources\5.png" />
+    <Content Include="Resources\6.png" />
+    <Content Include="Resources\7.png" />
+    <Content Include="Resources\8.png" />
+    <Content Include="Resources\9.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -12,7 +12,7 @@
 #define Max 30
 #define Max2 100
 #define buffer 512
-#define
+#define MAX 100
 // Variables para la implementacion de una lista de sockets
 int socket_num = 0;
 int sockets[100];
@@ -412,9 +412,9 @@ int ComprovarInicioPartida(int id_partida, ListaPartidas *Partidas){
 int BuscarPartidaPorID(int id_partida,ListaPartidas *Partidas){ 
 	//funcion que retorna la posición de la partida -1 si hay error
 	int enc = 0;
-	for (int i=0; Partidas->num;1++)
+	for (int i=0; Partidas->num;i++)
 	{
-		if (strcmp(Partidas->partidasi[i].id,id_partida)==0)
+		if (strcmp(Partidas->partidas[i].id,id_partida)==0)
 
 			return  i;
 
@@ -444,10 +444,10 @@ void GenerarListaCartas (MYSQL *conn, ListaCartas *listaCartas){
 		int num = 0;
 		while (row != NULL)
 		{
-			listaCartas->Cartas[num].ID =  row[0];
-			strcpy(listaCartas->Cartas[num].nombre, row[1]);
-			listaCartas->Cartas[num].fuerza = row[2];
-			listaCartas->Cartas[num].tipo = row[3];
+			listaCartas->cartas[num].id =  row[0];
+			strcpy(listaCartas->cartas[num].nombre, row[1]);
+			listaCartas->cartas[num].fuerza = row[2];
+			listaCartas->cartas[num].tipo = row[3];
 			//listaCartas->Cartas[num].repetible = row[4];
 			// printf("%s\n",lilistaCartassta->usuarios[num].Nombre);
 			num++;
@@ -461,14 +461,14 @@ void GenerarListaCartas (MYSQL *conn, ListaCartas *listaCartas){
 void DarCarta (ListaCartas *Cartas, int ID, Carta *carta){ 
 	//meter en carta su informacion en funcion de ID
 
-	for (int i = 0 ; Cartas->Cartas.num; i++)
+	for (int i = 0 ; Cartas->num; i++)
 	{ 
-		if (ID == Cartas->Cartas[i].ID)
+		if (ID == Cartas->cartas[i].id)
 		{
-			carta.ID = i;
-			strcpy(carta.nombre,Cartas->Cartas[i].nombre);
-			carta.fuerza = Cartas->Cartas[i].fuerza;
-			carta.tipo = Cartas->Cartas[i].tipo;
+			carta->id = i;
+			strcpy(carta->nombre,Cartas->cartas[i].nombre);
+			carta->fuerza = Cartas->cartas[i].fuerza;
+			carta->tipo = Cartas->cartas[i].tipo;
 			//carta.repetible = Cartas->Cartas[i].repetible;
 		}
 
@@ -496,7 +496,7 @@ void DarMano(char *respuesta, ListaCartas *Cartas, int numMano){
     //printf (" Rand de 1 a 30 \n");  
     while (i<=numMano)  
     {  
-        num_ID = rand() % Cartas->Cartas.num + 1; // obtener num aleatorio entre 1 y 30
+        num_ID = rand() % Cartas->num + 1; // obtener num aleatorio entre 1 y 30
 		if (num_ID = 1 && enc1 == 0) //no repetir las no repetibles
 		{
 			DarCarta(&Cartas, num_ID, &carta);
@@ -758,7 +758,7 @@ void *AtenderCliente(void *socket){
 
 				p = strtok(NULL, "/");
 				int id_partida = atoi(p);
-				int posPartida = BuscarPartidaPorID(id_partida);
+				int posPartida = BuscarPartidaPorID(id_partida, &Partidas);
 				//p = strtok(NULL, "/");
 				//int numCartas = atoi(p);
 				int numCartas = 10; //arbitrario, se cambiara cuando haya lobby
@@ -766,7 +766,7 @@ void *AtenderCliente(void *socket){
 				{
 					if (Partidas.partidas[posPartida].jugadores[i].jugando =1) //damos mano a jugador que juega
 					{
-						DarMano(respuesta, ListaCartas *Cartas, numCartas);
+						DarMano(respuesta, &Cartas, numCartas);
 						write(Partidas.partidas[posPartida].jugadores[i].Socket,
 						respuesta, strlen(respuesta));
 					}
