@@ -412,9 +412,9 @@ int ComprovarInicioPartida(int id_partida, ListaPartidas *Partidas){
 int BuscarPartidaPorID(int id_partida,ListaPartidas *Partidas){ 
 	//funcion que retorna la posición de la partida -1 si hay error
 	int enc = 0;
-	for (int i=0; Partidas->num;i++)
+	for (int i=0; i <= Partidas->num;i++)
 	{
-		if (strcmp(Partidas->partidas[i].id,id_partida)==0)
+		if (Partidas->partidas[i].id == id_partida)
 
 			return  i;
 
@@ -548,7 +548,8 @@ void DarMano(char *respuesta, ListaCartas *Cartas, int numMano){
 			i++;
 		}
 
-	 sprintf(respuesta, "%s/", respuesta); //cerrar mensaje
+		sprintf(respuesta, "%s/", respuesta); //cerrar mensaje
+		printf("Mano: %s\n",respuesta);
 
 	}
 
@@ -762,15 +763,20 @@ void *AtenderCliente(void *socket){
 				//p = strtok(NULL, "/");
 				//int numCartas = atoi(p);
 				int numCartas = 10; //arbitrario, se cambiara cuando haya lobby
-				for (int i=0;i<= 4; i++)
+				if (posPartida != -1)
 				{
-					if (Partidas.partidas[posPartida].jugadores[i].jugando =1) //damos mano a jugador que juega
+					for (int i=0;i<= 4; i++)
 					{
-						DarMano(respuesta, &Cartas, numCartas);
-						write(Partidas.partidas[posPartida].jugadores[i].Socket,
-						respuesta, strlen(respuesta));
+						if (Partidas.partidas[posPartida].jugadores[i].jugando == 1) //damos mano a jugador que juega
+						{
+							DarMano(respuesta, &Cartas, numCartas);
+							write(Partidas.partidas[posPartida].jugadores[i].Socket,
+							respuesta, strlen(respuesta));
+						}
 					}
 				}
+				else if (posPartida == -1)
+					printf("Partida no encontrada.\n");
 				break;
 			}
 
@@ -811,7 +817,7 @@ void *AtenderCliente(void *socket){
 		}
 		// Si el mensaje no es de desconexion, cerramos la conexion a mysql y enviamos 
 		// la respuesta al cliente
-		if ((codigo != 0) && (codigo != 3) && (codigo != 4) && (codigo != 5) && (codigo != 6)){
+		if ((codigo != 0) && (codigo != 3) && (codigo != 4) && (codigo != 5) && (codigo != 6) && (codigo != 7)){
 			mysql_close(conn);
 			printf("Respuesta: %s\n", respuesta);
 			write(sock_conn, respuesta, strlen(respuesta));

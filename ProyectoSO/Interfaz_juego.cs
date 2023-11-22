@@ -73,13 +73,13 @@ namespace ProyectoSO
 
             string[] trozos = mensaje.Split('/');
             Carta[] mano = new Carta[Convert.ToInt32(trozos[0])];
-            for (int i = 1; i < Convert.ToInt32(trozos[0]); i += 4)
+            for (int i = 1; i < Convert.ToInt32(trozos[0]); i ++)
             {
                 mano[i - 1].id = Convert.ToInt32(trozos[i]);
-                mano[i - 1].nombre = trozos[i + 1];
-                mano[i - 1].fuerza = Convert.ToInt32(trozos[i + 2]);
-                mano[i - 1].tipo = Convert.ToInt32(trozos[i + 3]);
-                string resourceName = $"ProyectoSO.Properties.Resources.{mano[i - 1].id}";
+                //mano[i - 1].nombre = trozos[i + 1];
+                //mano[i - 1].fuerza = Convert.ToInt32(trozos[i + 2]);
+                //mano[i - 1].tipo = Convert.ToInt32(trozos[i + 3]);
+                string resourceName = $"ProyectoSO.Properties.Resources." + Convert.ToString(mano[i-1].id) + ".png";
                 ManoCartas[i - 1].BackgroundImage = (System.Drawing.Image)Properties.Resources.ResourceManager.GetObject(resourceName);
 
             }
