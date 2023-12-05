@@ -137,9 +137,10 @@ namespace ProyectoSO
                     string mensaje = "3/1/" + this.user.Name + "/" + Jugador1ComboBox.Text;
                     byte[] msg = Encoding.ASCII.GetBytes(mensaje);
                     server.Send(msg);
+
+                    EnviadoLbl.Text = "Se ha enviado la invitacion";
                     EnviarPartida.Enabled = false;
                     EnviarPartida.Text = "Esperando jugadores";
-                    MessageBox.Show("Se ha enviado la invitacion.");
                     // Possible forma de hacer una lobby?
                     //ThreadStart ts = delegate { EsperarInvitados(); };
                     //Esperar = new Thread(ts);
@@ -170,8 +171,9 @@ namespace ProyectoSO
                 { //  Ahora si podemos invitar a tres jugadores: partida 2vs2
                     string mensaje = "3/3/" + this.user.Name + "/" + Jugador1ComboBox.Text + "/" + Jugador2ComboBox.Text + "/" + Jugador3ComboBox.Text;
                     byte[] msg = Encoding.ASCII.GetBytes(mensaje);
-                    MessageBox.Show("Se ha enviado la invitacion.");
                     server.Send(msg);
+
+                    EnviadoLbl.Text = "Se ha enviado la invitacion";
                     EnviarPartida.Enabled = false;
                     EnviarPartida.Text = "Esperando jugadores";
 

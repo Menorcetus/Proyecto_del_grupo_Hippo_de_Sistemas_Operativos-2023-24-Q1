@@ -12,6 +12,7 @@
 #define Max 30
 #define Max2 100
 #define buffer 512
+#define MaxBuffer 1490
 #define MAX 100
 // Variables para la implementacion de una lista de sockets
 int socket_num = 0;
@@ -139,7 +140,7 @@ int DarConectados(ListaUsuarios *lista, ListaUsuarios *conectados){
 	int j=0;
 	for(int i=0; i <= lista->num; i++)
 	{
-		if(lista->usuarios[i].con == 1)
+		if((lista->usuarios[i].con == 1) && (lista->usuarios[i].Nombre != NULL))
 		{	// no se si funciona jajajaj
 			strcpy(conectados->usuarios[j].Nombre,lista->usuarios[i].Nombre);
 			conectados->usuarios[j].con = lista->usuarios[i].con;
@@ -357,10 +358,11 @@ int AceptarPartida(int id_partida, int aceptado, char persona[Max], ListaPartida
 	int i = 0;
 	int encontrado  = 0;
 	// Busco posicion del jugador que ha contestado
-	while((i <= strlen(Partidas->partidas[id_partida].jugadores)) && (encontrado == 0)){
-		if(strcmp(Partidas->partidas[id_partida].jugadores[i].Nombre, persona) == 0)
+	while((i <= Partidas->partidas[id_partida].mode) && (encontrado == 0)){
+		if(strcmp(Partidas->partidas[id_partida].jugadores[i].Nombre, persona) == 0){
 			num_jugador = i;
 			encontrado = 1;
+		}
 		i++;
 	}
 
@@ -410,7 +412,7 @@ int ComprovarInicioPartida(int id_partida, ListaPartidas *Partidas){
 
 
 int BuscarPartidaPorID(int id_partida,ListaPartidas *Partidas){ 
-	//funcion que retorna la posición de la partida -1 si hay error
+	//funcion que retorna la posicion de la partida o -1 si hay error
 	int enc = 0;
 	for (int i=0; i <= Partidas->num;i++)
 	{
@@ -450,7 +452,7 @@ void GenerarListaCartas (MYSQL *conn, ListaCartas *listaCartas){
 			listaCartas->cartas[num].tipo = row[3];
 			//listaCartas->Cartas[num].repetible = row[4];
 			// printf("%s\n",lilistaCartassta->usuarios[num].Nombre);
-			num++;
+			listaCartas->num++;
 			row = mysql_fetch_row(resultado);
 
 		}
@@ -461,7 +463,7 @@ void GenerarListaCartas (MYSQL *conn, ListaCartas *listaCartas){
 void DarCarta (ListaCartas *Cartas, int ID, Carta *carta){ 
 	//meter en carta su informacion en funcion de ID
 
-	for (int i = 0 ; Cartas->num; i++)
+	for (int i = 0 ; i<Cartas->num; i++)
 	{ 
 		if (ID == Cartas->cartas[i].id)
 		{
@@ -491,49 +493,51 @@ void DarMano(char *respuesta, ListaCartas *Cartas, int numMano){
 	int enc29 = 0;
 	int enc10 =0; 
 	int enc5 =0; //para las no repetibles 
-	strcpy(respuesta, "8/");
+	strcpy(respuesta, "8");
 	sprintf(respuesta, "%s/%d" , respuesta, numMano);
+	srand(time(NULL));
+	int num = Cartas->num;
     //printf (" Rand de 1 a 30 \n");  
     while (i<=numMano)  
     {  
-        num_ID = rand() % Cartas->num + 1; // obtener num aleatorio entre 1 y 30
-		if (num_ID = 1 && enc1 == 0) //no repetir las no repetibles
+        num_ID = (rand()%num) + 1; // obtener num aleatorio entre 1 y 30
+		if (num_ID == 1 && enc1 == 0) //no repetir las no repetibles
 		{
 			DarCarta(&Cartas, num_ID, &carta);
 			//1) 
 			//sprintf(respuesta, "%s/%d/%s/%d/%d",respuesta,num_ID,carta.nombre,carta.fuerza,carta.tipo);
 			//2)
-			sprintf(respuesta, "%s/%d/",respuesta,num_ID); //opcion en la que el cliente tiene toda la info
+			sprintf(respuesta, "%s/%d",respuesta,num_ID); //opcion en la que el cliente tiene toda la info
 			enc1 = 1;
 			i++;
 		}
-		else if (num_ID = 5 && enc5 == 0)
+		else if (num_ID == 5 && enc5 == 0)
 		{
 			DarCarta(&Cartas, num_ID, &carta);
 			//1) 
 			// sprintf(respuesta, "%s/%d/%s/%d/%d",respuesta,num_ID,carta.nombre,carta.fuerza,carta.tipo);
 			//2)
-			sprintf(respuesta, "%s/%d/",respuesta,num_ID);
+			sprintf(respuesta, "%s/%d",respuesta,num_ID);
 			enc5 = 1;
 			i++;
 		}
-		else if (num_ID = 10 && enc10 == 0)
+		else if (num_ID == 10 && enc10 == 0)
 		{
 			DarCarta(&Cartas, num_ID, &carta);
 			//1) 
 			//sprintf(respuesta, "%s/%d/%s/%d/%d",respuesta,num_ID,carta.nombre,carta.fuerza,carta.tipo);
 			//2)
-			sprintf(respuesta, "%s/%d/",respuesta,num_ID);
+			sprintf(respuesta, "%s/%d",respuesta,num_ID);
 			enc10 = 1;
 			i++;
 		}
-		else if (num_ID = 29 && enc29 == 0)
+		else if (num_ID == 29 && enc29 == 0)
 		{
 			DarCarta(&Cartas, num_ID, &carta);
 			//1) 
 			//sprintf(respuesta, "%s/%d/%s/%d/%d",respuesta,num_ID,carta.nombre,carta.fuerza,carta.tipo);
 			//2)
-			sprintf(respuesta, "%s/%d/",respuesta,num_ID);
+			sprintf(respuesta, "%s/%d",respuesta,num_ID);
 			enc29 = 1;
 			i++;
 		}
@@ -544,11 +548,11 @@ void DarMano(char *respuesta, ListaCartas *Cartas, int numMano){
 			//1) 
 			//sprintf(respuesta, "%s/%d/%s/%d/%d",respuesta,num_ID,carta.nombre,carta.fuerza,carta.tipo);
 			//2)
-			sprintf(respuesta, "%s/%d/",respuesta,num_ID);
+			sprintf(respuesta, "%s/%d",respuesta,num_ID);
 			i++;
 		}
 
-		sprintf(respuesta, "%s/", respuesta); //cerrar mensaje
+		//sprintf(respuesta, "%s/", respuesta); //cerrar mensaje
 		printf("Mano: %s\n",respuesta);
 
 	}
@@ -630,7 +634,7 @@ void *AtenderCliente(void *socket){
 					// ya no tendria que ocurrir nunca
 					sprintf(respuesta,"1/Este usuario ya estaba registrado");
 				}
-								break;
+				break;
 			}
 			// Inicio de sesion
 			// Recibe: 2/<Nombre>/<Password>
@@ -658,7 +662,7 @@ void *AtenderCliente(void *socket){
 				{
 					sprintf(respuesta,"2/La password es incorrecta");
 				}	
-								break;
+				break;
 			}
 			// Crear partida
 			// Recibe: 3
@@ -695,7 +699,6 @@ void *AtenderCliente(void *socket){
 			// Aceptar partida
 			// Recibe: 5/<id de partida>/<acepta o no>/<nombre de la persona que acepta>
 			case 5:{
-				pthread_mutex_lock(&mutex);
 				p = strtok(NULL, "/");
 				int id_partida = atoi(p);
 				p = strtok(NULL, "/");
@@ -704,6 +707,7 @@ void *AtenderCliente(void *socket){
 				char persona[Max];
 				strcpy(persona, p);
 
+				pthread_mutex_lock(&mutex);
 				int res = AceptarPartida(id_partida, aceptado, persona, &Partidas);
 				pthread_mutex_unlock(&mutex);
 				if (res == 0)
@@ -727,8 +731,8 @@ void *AtenderCliente(void *socket){
 					pthread_mutex_unlock(&mutex);
 					if (res2 == 1){
 						// Iniciar partida
-						sprintf(respuesta, "6/%i/Se va a iniciar la partida %i.", id_partida, id_partida);
-						printf("Respuesta: %s\n", respuesta);
+						sprintf(respuesta, "6/%i", id_partida);
+						printf("Se va a iniciar partida: %s\n", respuesta);
 						for (int i=0;i<= Partidas.partidas[id_partida].mode; i++)
 						write(Partidas.partidas[id_partida].jugadores[i].Socket,
 							respuesta, strlen(respuesta));
@@ -756,7 +760,7 @@ void *AtenderCliente(void *socket){
 			}
 				case 7:{ //Inicio de partida, desde lobby
 
-
+				char mazo[MaxBuffer];
 				p = strtok(NULL, "/");
 				int id_partida = atoi(p);
 				int posPartida = BuscarPartidaPorID(id_partida, &Partidas);
@@ -765,15 +769,9 @@ void *AtenderCliente(void *socket){
 				int numCartas = 10; //arbitrario, se cambiara cuando haya lobby
 				if (posPartida != -1)
 				{
-					for (int i=0;i<= 4; i++)
-					{
-						if (Partidas.partidas[posPartida].jugadores[i].jugando == 1) //damos mano a jugador que juega
-						{
-							DarMano(respuesta, &Cartas, numCartas);
-							write(Partidas.partidas[posPartida].jugadores[i].Socket,
-							respuesta, strlen(respuesta));
-						}
-					}
+					DarMano(&mazo, &Cartas, numCartas);
+					printf("Cartas: %s\n", mazo);
+					write(sock_conn, mazo, strlen(mazo));
 				}
 				else if (posPartida == -1)
 					printf("Partida no encontrada.\n");
@@ -825,22 +823,24 @@ void *AtenderCliente(void *socket){
 		// Generacion de la notificacion de conectados
 		if ((codigo == 1) || (codigo == 2) || (codigo == 4)){
 			pthread_mutex_lock(&mutex);
-
 			conectados_num = DarConectados(&Usuarios, &Conectados);
 			if(conectados_num != 0){
 				sprintf(notificacion,"3/%d",conectados_num);
 				for(int i = 0; i < conectados_num; i++ ){
-					sprintf(notificacion,"%s/%s",notificacion,Conectados.usuarios[i].Nombre);
-					// Debugg para consola
-					printf("Conectado: %s\n", Conectados.usuarios[i].Nombre);
+					if(Conectados.usuarios[i].Nombre != NULL){
+						sprintf(notificacion,"%s/%s",notificacion,Conectados.usuarios[i].Nombre);
+						// Debugg para consola
+						printf("Conectado: %s\n", Conectados.usuarios[i].Nombre);
+					}
 				}	
 			}
 			else if(conectados_num == 0)
 				strcpy(notificacion,"3/0/");
 			pthread_mutex_unlock(&mutex);
 			printf("Notificacion: %s\n", notificacion);
-			for (int j = 0; j < conectados_num; j++)
-				write(sockets[j], notificacion, strlen(notificacion));
+			for (int j = 0; j < Conectados.num; j++)
+				if(Conectados.usuarios[j].Nombre != NULL)
+					write(Conectados.usuarios[j].Socket, notificacion, strlen(notificacion));
 		}
 	}
 	close(sock_conn);

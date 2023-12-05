@@ -40,7 +40,7 @@ namespace ProyectoSO
         {
             while (true)
             {
-                byte[] msg2 = new byte[512];
+                byte[] msg2 = new byte[1500];
                 server.Receive(msg2);
 
                 string clean_ms = Encoding.ASCII.GetString(msg2).Split('\0')[0];
@@ -95,6 +95,7 @@ namespace ProyectoSO
                         break;
 
                     case 8:
+                        // Aplicar Thread-Cross
                         juego.RecibirMano(mensaje);
                         break;
                 }

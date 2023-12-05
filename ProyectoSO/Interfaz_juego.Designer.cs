@@ -34,22 +34,37 @@
             this.ChatEnviar = new System.Windows.Forms.Button();
             this.ChatOutput = new System.Windows.Forms.TextBox();
             this.ChatInput = new System.Windows.Forms.TextBox();
-            this.Mano1 = new System.Windows.Forms.Panel();
-            this.Mano2 = new System.Windows.Forms.Panel();
-            this.Mano3 = new System.Windows.Forms.Panel();
-            this.Mano4 = new System.Windows.Forms.Panel();
-            this.Mano5 = new System.Windows.Forms.Panel();
-            this.Mano6 = new System.Windows.Forms.Panel();
-            this.Mano7 = new System.Windows.Forms.Panel();
-            this.Mano8 = new System.Windows.Forms.Panel();
-            this.Mano9 = new System.Windows.Forms.Panel();
-            this.Mano10 = new System.Windows.Forms.Panel();
-            this.Mano11 = new System.Windows.Forms.Panel();
-            this.Mano12 = new System.Windows.Forms.Panel();
-            this.Mano13 = new System.Windows.Forms.Panel();
-            this.Mano14 = new System.Windows.Forms.Panel();
-            this.Mano15 = new System.Windows.Forms.Panel();
+            this.Mano1 = new System.Windows.Forms.PictureBox();
+            this.Mano2 = new System.Windows.Forms.PictureBox();
+            this.Mano3 = new System.Windows.Forms.PictureBox();
+            this.Mano4 = new System.Windows.Forms.PictureBox();
+            this.Mano5 = new System.Windows.Forms.PictureBox();
+            this.Mano6 = new System.Windows.Forms.PictureBox();
+            this.Mano7 = new System.Windows.Forms.PictureBox();
+            this.Mano8 = new System.Windows.Forms.PictureBox();
+            this.Mano9 = new System.Windows.Forms.PictureBox();
+            this.Mano10 = new System.Windows.Forms.PictureBox();
+            this.Mano11 = new System.Windows.Forms.PictureBox();
+            this.Mano12 = new System.Windows.Forms.PictureBox();
+            this.Mano13 = new System.Windows.Forms.PictureBox();
+            this.Mano14 = new System.Windows.Forms.PictureBox();
+            this.Mano15 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Mano1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mano2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mano3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mano4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mano5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mano6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mano7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mano8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mano9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mano10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mano11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mano12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mano13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mano14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mano15)).BeginInit();
             this.SuspendLayout();
             // 
             // A1
@@ -110,128 +125,143 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ChatInput.Location = new System.Drawing.Point(26, 287);
             this.ChatInput.Name = "ChatInput";
-            this.ChatInput.Size = new System.Drawing.Size(216, 26);
+            this.ChatInput.Size = new System.Drawing.Size(216, 22);
             this.ChatInput.TabIndex = 0;
             // 
             // Mano1
             // 
-            this.Mano1.BackColor = System.Drawing.Color.Transparent;
             this.Mano1.Location = new System.Drawing.Point(28, 385);
             this.Mano1.Name = "Mano1";
             this.Mano1.Size = new System.Drawing.Size(62, 91);
-            this.Mano1.TabIndex = 1;
+            this.Mano1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Mano1.TabIndex = 4;
+            this.Mano1.TabStop = false;
             // 
             // Mano2
             // 
-            this.Mano2.BackColor = System.Drawing.Color.Transparent;
             this.Mano2.Location = new System.Drawing.Point(96, 385);
             this.Mano2.Name = "Mano2";
             this.Mano2.Size = new System.Drawing.Size(62, 91);
-            this.Mano2.TabIndex = 2;
+            this.Mano2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Mano2.TabIndex = 4;
+            this.Mano2.TabStop = false;
             // 
             // Mano3
             // 
-            this.Mano3.BackColor = System.Drawing.Color.Transparent;
             this.Mano3.Location = new System.Drawing.Point(164, 385);
             this.Mano3.Name = "Mano3";
             this.Mano3.Size = new System.Drawing.Size(62, 91);
-            this.Mano3.TabIndex = 3;
+            this.Mano3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Mano3.TabIndex = 4;
+            this.Mano3.TabStop = false;
             // 
             // Mano4
             // 
-            this.Mano4.BackColor = System.Drawing.Color.Transparent;
             this.Mano4.Location = new System.Drawing.Point(232, 385);
             this.Mano4.Name = "Mano4";
             this.Mano4.Size = new System.Drawing.Size(62, 91);
-            this.Mano4.TabIndex = 3;
+            this.Mano4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Mano4.TabIndex = 4;
+            this.Mano4.TabStop = false;
             // 
             // Mano5
             // 
-            this.Mano5.BackColor = System.Drawing.Color.Transparent;
             this.Mano5.Location = new System.Drawing.Point(300, 385);
             this.Mano5.Name = "Mano5";
             this.Mano5.Size = new System.Drawing.Size(62, 91);
-            this.Mano5.TabIndex = 3;
+            this.Mano5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Mano5.TabIndex = 4;
+            this.Mano5.TabStop = false;
             // 
             // Mano6
             // 
-            this.Mano6.BackColor = System.Drawing.Color.Transparent;
             this.Mano6.Location = new System.Drawing.Point(28, 482);
             this.Mano6.Name = "Mano6";
             this.Mano6.Size = new System.Drawing.Size(62, 91);
-            this.Mano6.TabIndex = 3;
+            this.Mano6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Mano6.TabIndex = 4;
+            this.Mano6.TabStop = false;
             // 
             // Mano7
             // 
-            this.Mano7.BackColor = System.Drawing.Color.Transparent;
             this.Mano7.Location = new System.Drawing.Point(96, 482);
             this.Mano7.Name = "Mano7";
             this.Mano7.Size = new System.Drawing.Size(62, 91);
-            this.Mano7.TabIndex = 3;
+            this.Mano7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Mano7.TabIndex = 4;
+            this.Mano7.TabStop = false;
             // 
             // Mano8
             // 
-            this.Mano8.BackColor = System.Drawing.Color.Transparent;
             this.Mano8.Location = new System.Drawing.Point(164, 482);
             this.Mano8.Name = "Mano8";
             this.Mano8.Size = new System.Drawing.Size(62, 91);
-            this.Mano8.TabIndex = 3;
+            this.Mano8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Mano8.TabIndex = 4;
+            this.Mano8.TabStop = false;
             // 
             // Mano9
             // 
-            this.Mano9.BackColor = System.Drawing.Color.Transparent;
             this.Mano9.Location = new System.Drawing.Point(232, 482);
             this.Mano9.Name = "Mano9";
             this.Mano9.Size = new System.Drawing.Size(62, 91);
-            this.Mano9.TabIndex = 3;
+            this.Mano9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Mano9.TabIndex = 4;
+            this.Mano9.TabStop = false;
             // 
             // Mano10
             // 
-            this.Mano10.BackColor = System.Drawing.Color.Transparent;
             this.Mano10.Location = new System.Drawing.Point(300, 482);
             this.Mano10.Name = "Mano10";
             this.Mano10.Size = new System.Drawing.Size(62, 91);
-            this.Mano10.TabIndex = 3;
+            this.Mano10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Mano10.TabIndex = 4;
+            this.Mano10.TabStop = false;
             // 
             // Mano11
             // 
-            this.Mano11.BackColor = System.Drawing.Color.Transparent;
             this.Mano11.Location = new System.Drawing.Point(28, 579);
             this.Mano11.Name = "Mano11";
             this.Mano11.Size = new System.Drawing.Size(62, 91);
-            this.Mano11.TabIndex = 3;
+            this.Mano11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Mano11.TabIndex = 4;
+            this.Mano11.TabStop = false;
             // 
             // Mano12
             // 
-            this.Mano12.BackColor = System.Drawing.Color.Transparent;
             this.Mano12.Location = new System.Drawing.Point(96, 579);
             this.Mano12.Name = "Mano12";
             this.Mano12.Size = new System.Drawing.Size(62, 91);
-            this.Mano12.TabIndex = 3;
+            this.Mano12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Mano12.TabIndex = 4;
+            this.Mano12.TabStop = false;
             // 
             // Mano13
             // 
-            this.Mano13.BackColor = System.Drawing.Color.Transparent;
             this.Mano13.Location = new System.Drawing.Point(164, 579);
             this.Mano13.Name = "Mano13";
             this.Mano13.Size = new System.Drawing.Size(62, 91);
-            this.Mano13.TabIndex = 3;
+            this.Mano13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Mano13.TabIndex = 4;
+            this.Mano13.TabStop = false;
             // 
             // Mano14
             // 
-            this.Mano14.BackColor = System.Drawing.Color.Transparent;
             this.Mano14.Location = new System.Drawing.Point(232, 579);
             this.Mano14.Name = "Mano14";
             this.Mano14.Size = new System.Drawing.Size(62, 91);
-            this.Mano14.TabIndex = 3;
+            this.Mano14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Mano14.TabIndex = 4;
+            this.Mano14.TabStop = false;
             // 
             // Mano15
             // 
-            this.Mano15.BackColor = System.Drawing.Color.Transparent;
             this.Mano15.Location = new System.Drawing.Point(300, 579);
             this.Mano15.Name = "Mano15";
             this.Mano15.Size = new System.Drawing.Size(62, 91);
-            this.Mano15.TabIndex = 3;
+            this.Mano15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Mano15.TabIndex = 4;
+            this.Mano15.TabStop = false;
             // 
             // Interfaz_juego
             // 
@@ -241,18 +271,18 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1293, 733);
             this.Controls.Add(this.Mano15);
-            this.Controls.Add(this.Mano14);
-            this.Controls.Add(this.Mano13);
-            this.Controls.Add(this.Mano12);
-            this.Controls.Add(this.Mano11);
             this.Controls.Add(this.Mano10);
-            this.Controls.Add(this.Mano9);
-            this.Controls.Add(this.Mano8);
-            this.Controls.Add(this.Mano7);
-            this.Controls.Add(this.Mano6);
             this.Controls.Add(this.Mano5);
+            this.Controls.Add(this.Mano14);
+            this.Controls.Add(this.Mano9);
             this.Controls.Add(this.Mano4);
+            this.Controls.Add(this.Mano13);
+            this.Controls.Add(this.Mano8);
             this.Controls.Add(this.Mano3);
+            this.Controls.Add(this.Mano12);
+            this.Controls.Add(this.Mano7);
+            this.Controls.Add(this.Mano11);
+            this.Controls.Add(this.Mano6);
             this.Controls.Add(this.Mano2);
             this.Controls.Add(this.Mano1);
             this.Controls.Add(this.panel2);
@@ -266,32 +296,46 @@
             this.Load += new System.EventHandler(this.Interfaz_juego_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Mano1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mano2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mano3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mano4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mano5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mano6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mano7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mano8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mano9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mano10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mano11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mano12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mano13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mano14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mano15)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel A1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button ChatEnviar;
         private System.Windows.Forms.TextBox ChatOutput;
         private System.Windows.Forms.TextBox ChatInput;
         private System.Windows.Forms.Label Chatlabel;
-        private System.Windows.Forms.Panel Mano1;
-        private System.Windows.Forms.Panel Mano2;
-        private System.Windows.Forms.Panel Mano3;
-        private System.Windows.Forms.Panel Mano4;
-        private System.Windows.Forms.Panel Mano5;
-        private System.Windows.Forms.Panel Mano6;
-        private System.Windows.Forms.Panel Mano7;
-        private System.Windows.Forms.Panel Mano8;
-        private System.Windows.Forms.Panel Mano9;
-        private System.Windows.Forms.Panel Mano10;
-        private System.Windows.Forms.Panel Mano11;
-        private System.Windows.Forms.Panel Mano12;
-        private System.Windows.Forms.Panel Mano13;
-        private System.Windows.Forms.Panel Mano14;
-        private System.Windows.Forms.Panel Mano15;
+        public System.Windows.Forms.Panel A1;
+        private System.Windows.Forms.PictureBox Mano1;
+        private System.Windows.Forms.PictureBox Mano2;
+        private System.Windows.Forms.PictureBox Mano3;
+        private System.Windows.Forms.PictureBox Mano4;
+        private System.Windows.Forms.PictureBox Mano5;
+        private System.Windows.Forms.PictureBox Mano6;
+        private System.Windows.Forms.PictureBox Mano7;
+        private System.Windows.Forms.PictureBox Mano8;
+        private System.Windows.Forms.PictureBox Mano9;
+        private System.Windows.Forms.PictureBox Mano10;
+        private System.Windows.Forms.PictureBox Mano11;
+        private System.Windows.Forms.PictureBox Mano12;
+        private System.Windows.Forms.PictureBox Mano13;
+        private System.Windows.Forms.PictureBox Mano14;
+        private System.Windows.Forms.PictureBox Mano15;
     }
 }

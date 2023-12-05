@@ -63,6 +63,7 @@
             this.Jugador2ComboBox = new System.Windows.Forms.ComboBox();
             this.Jugador1ComboBox = new System.Windows.Forms.ComboBox();
             this.ModeComboBox = new System.Windows.Forms.ComboBox();
+            this.EnviadoLbl = new System.Windows.Forms.Label();
             this.BarraPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridConectados)).BeginInit();
             this.panelConectados.SuspendLayout();
@@ -252,6 +253,7 @@
             this.CrearPartida.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CrearPartida.AutoSize = true;
             this.CrearPartida.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.CrearPartida.Controls.Add(this.EnviadoLbl);
             this.CrearPartida.Controls.Add(this.DGVInvitados);
             this.CrearPartida.Controls.Add(this.EnviarPartida);
             this.CrearPartida.Controls.Add(this.LabelInvitado3);
@@ -389,7 +391,7 @@
             "4"});
             this.Jugador3ComboBox.Location = new System.Drawing.Point(50, 412);
             this.Jugador3ComboBox.Name = "Jugador3ComboBox";
-            this.Jugador3ComboBox.Size = new System.Drawing.Size(204, 21);
+            this.Jugador3ComboBox.Size = new System.Drawing.Size(204, 24);
             this.Jugador3ComboBox.TabIndex = 0;
             this.Jugador3ComboBox.Visible = false;
             // 
@@ -401,7 +403,7 @@
             "4"});
             this.Jugador2ComboBox.Location = new System.Drawing.Point(50, 330);
             this.Jugador2ComboBox.Name = "Jugador2ComboBox";
-            this.Jugador2ComboBox.Size = new System.Drawing.Size(204, 21);
+            this.Jugador2ComboBox.Size = new System.Drawing.Size(204, 24);
             this.Jugador2ComboBox.TabIndex = 0;
             this.Jugador2ComboBox.Visible = false;
             // 
@@ -413,7 +415,7 @@
             "4"});
             this.Jugador1ComboBox.Location = new System.Drawing.Point(50, 252);
             this.Jugador1ComboBox.Name = "Jugador1ComboBox";
-            this.Jugador1ComboBox.Size = new System.Drawing.Size(204, 21);
+            this.Jugador1ComboBox.Size = new System.Drawing.Size(204, 24);
             this.Jugador1ComboBox.TabIndex = 0;
             this.Jugador1ComboBox.Visible = false;
             // 
@@ -425,9 +427,17 @@
             "4"});
             this.ModeComboBox.Location = new System.Drawing.Point(50, 130);
             this.ModeComboBox.Name = "ModeComboBox";
-            this.ModeComboBox.Size = new System.Drawing.Size(204, 21);
+            this.ModeComboBox.Size = new System.Drawing.Size(204, 24);
             this.ModeComboBox.TabIndex = 0;
             this.ModeComboBox.TextChanged += new System.EventHandler(this.ModeComboBox_TextChanged);
+            // 
+            // EnviadoLbl
+            // 
+            this.EnviadoLbl.AutoSize = true;
+            this.EnviadoLbl.Location = new System.Drawing.Point(476, 199);
+            this.EnviadoLbl.Name = "EnviadoLbl";
+            this.EnviadoLbl.Size = new System.Drawing.Size(0, 16);
+            this.EnviadoLbl.TabIndex = 7;
             // 
             // Principal_Logged
             // 
@@ -499,5 +509,6 @@
         private System.Windows.Forms.DataGridView DGVInvitados;
         private System.Windows.Forms.DataGridViewTextBoxColumn Invitado;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Accepted;
+        private System.Windows.Forms.Label EnviadoLbl;
     }
 }

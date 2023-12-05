@@ -17,7 +17,7 @@ namespace ProyectoSO
         User user;
         Socket server;
         int ID_partida;
-        public Panel[] ManoCartas = new Panel[15];
+        public PictureBox[] ManoCartas = new PictureBox[15];
         public Interfaz_juego(User user, Socket server, int ID_partida)
         {
             InitializeComponent();
@@ -75,12 +75,14 @@ namespace ProyectoSO
             Carta[] mano = new Carta[Convert.ToInt32(trozos[0])];
             for (int i = 1; i < Convert.ToInt32(trozos[0]); i ++)
             {
+                mano[i - 1] = new Carta();
                 mano[i - 1].id = Convert.ToInt32(trozos[i]);
                 //mano[i - 1].nombre = trozos[i + 1];
                 //mano[i - 1].fuerza = Convert.ToInt32(trozos[i + 2]);
                 //mano[i - 1].tipo = Convert.ToInt32(trozos[i + 3]);
-                string resourceName = $"ProyectoSO.Properties.Resources." + Convert.ToString(mano[i-1].id) + ".png";
-                ManoCartas[i - 1].BackgroundImage = (System.Drawing.Image)Properties.Resources.ResourceManager.GetObject(resourceName);
+                string resourceName = "_" + Convert.ToString(mano[i-1].id);
+                //ManoCartas[i - 1].BackgroundImage = resourceName;
+                ManoCartas[i - 1].Image = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject(resourceName);
 
             }
         }
