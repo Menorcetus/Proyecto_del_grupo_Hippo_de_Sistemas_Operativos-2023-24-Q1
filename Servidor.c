@@ -456,7 +456,7 @@ void GenerarListaCartas (MYSQL *conn, ListaCartas *listaCartas){
 			row = mysql_fetch_row(resultado);
 
 		}
-
+	
 }
 
 
@@ -501,54 +501,58 @@ void DarMano(char *respuesta, ListaCartas *Cartas, int numMano){
     while (i<numMano)  
     {  
 
-        num_ID = rand()%num; // obtener num aleatorio entre 1 y 30
+        num_ID = rand()%num; // obtener num aleatorio entre 0 y 29
 		if (num_ID == 0 && enc0 == 0) //no repetir las no repetibles
 		{
-			DarCarta(&Cartas, num_ID, &carta);
-			//1) 
-			//sprintf(respuesta, "%s/%d/%s/%d/%d",respuesta,num_ID,carta.nombre,carta.fuerza,carta.tipo);
-			//2)
-			sprintf(respuesta, "%s/%d",respuesta,num_ID); //opcion en la que el cliente tiene toda la info
-			enc0 = 1;
-			i++;
+			if (enc0 == 0)
+			{
+				DarCarta(&Cartas, num_ID, &carta);
+				sprintf(respuesta, "%s/%d",respuesta,num_ID);
+				enc0 = 1;
+				i++;
+			}
 		}
 		else if (num_ID == 4 && enc4 == 0)
 		{
-			DarCarta(&Cartas, num_ID, &carta);
-			//1) 
-			// sprintf(respuesta, "%s/%d/%s/%d/%d",respuesta,num_ID,carta.nombre,carta.fuerza,carta.tipo);
-			//2)
-			sprintf(respuesta, "%s/%d",respuesta,num_ID);
-			enc4 = 1;
-			i++;
+			if (enc4 == 0)
+			{
+				DarCarta(&Cartas, num_ID, &carta);
+				sprintf(respuesta, "%s/%d",respuesta,num_ID);
+				enc4 = 1;
+				i++;
+			}
 		}
-		else if (num_ID == 9 && enc9 == 0)
+		else if (num_ID == 9) 
 		{
-			DarCarta(&Cartas, num_ID, &carta);
-			//1) 
-			//sprintf(respuesta, "%s/%d/%s/%d/%d",respuesta,num_ID,carta.nombre,carta.fuerza,carta.tipo);
-			//2)
-			sprintf(respuesta, "%s/%d",respuesta,num_ID);
-			enc9 = 1;
-			i++;
+			
+			if (enc9 == 0)
+			{
+				DarCarta(&Cartas, num_ID, &carta);
+				sprintf(respuesta, "%s/%d",respuesta,num_ID);
+				enc9 = 1;
+				i++;
+			}
 		}
-		else if (num_ID == 28 && enc28 == 0)
+		
+		
+		
+		else if (num_ID == 28) 
 		{
-			DarCarta(&Cartas, num_ID, &carta);
-			//1) 
-			//sprintf(respuesta, "%s/%d/%s/%d/%d",respuesta,num_ID,carta.nombre,carta.fuerza,carta.tipo);
-			//2)
-			sprintf(respuesta, "%s/%d",respuesta,num_ID);
-			enc28 = 1;
-			i++;
+			
+				if (enc28 == 0)
+				{
+				DarCarta(&Cartas, num_ID, &carta);
+				sprintf(respuesta, "%s/%d",respuesta,num_ID);
+				enc28 = 1;
+				i++;
+				}
+			
+			
 		}
 
 		else
 		{
 			DarCarta(&Cartas, num_ID, &carta);
-			//1) 
-			//sprintf(respuesta, "%s/%d/%s/%d/%d",respuesta,num_ID,carta.nombre,carta.fuerza,carta.tipo);
-			//2)
 			sprintf(respuesta, "%s/%d",respuesta,num_ID);
 			i++;
 		}

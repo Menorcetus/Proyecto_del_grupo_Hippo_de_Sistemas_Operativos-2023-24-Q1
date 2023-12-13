@@ -65,11 +65,7 @@ namespace ProyectoSO
             ManoCartas[7] = Mano8;
             ManoCartas[8] = Mano9;
             ManoCartas[9] = Mano10;
-            ManoCartas[10] = Mano11;
-            ManoCartas[11] = Mano12;
-            ManoCartas[12] = Mano13;
-            ManoCartas[13] = Mano14;
-            ManoCartas[14] = Mano15;
+
 
             string[] trozos = mensaje.Split('/');
             Carta[] mano = new Carta[Convert.ToInt32(trozos[0])];
@@ -92,6 +88,13 @@ namespace ProyectoSO
             string mensaje = "7/" + this.ID_partida + "/" + this.user.Name;
             byte[] msg = Encoding.ASCII.GetBytes(mensaje);
             server.Send(msg);
+
+            //PedirMazo_btn.Enabled = false;
+        }
+
+        private void Mano10_MouseEnter(object sender, EventArgs e)
+        {
+           // this.Mano10.Size = ;        }
         }
     }
 }
