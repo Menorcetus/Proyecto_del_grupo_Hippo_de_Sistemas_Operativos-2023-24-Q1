@@ -92,9 +92,114 @@ namespace ProyectoSO
             //PedirMazo_btn.Enabled = false;
         }
 
-        private void Mano10_MouseEnter(object sender, EventArgs e)
+        private void Mano10_MouseMove(object sender, MouseEventArgs e)
         {
-           // this.Mano10.Size = ;        }
+            this.Mano10.Size = new System.Drawing.Size(80, 160);
+            this.Mano10.BringToFront();
+        }
+
+        private void Mano10_MouseLeave(object sender, EventArgs e)
+        {
+            this.Mano10.Size = new System.Drawing.Size(48, 96);
+        }
+
+        private void Mano5_MouseMove(object sender, MouseEventArgs e)
+        {
+            this.Mano5.Size = new System.Drawing.Size(80, 160);
+            this.Mano5.BringToFront();
+        }
+
+        private void Mano5_MouseLeave(object sender, EventArgs e)
+        {
+            this.Mano5.Size = new System.Drawing.Size(48, 96);
+        }
+
+        private void Mano9_MouseMove(object sender, MouseEventArgs e)
+        {
+            this.Mano9.Size = new System.Drawing.Size(80, 160);
+            this.Mano9.BringToFront();
+        }
+
+        private void Mano9_MouseLeave(object sender, EventArgs e)
+        {
+            this.Mano9.Size = new System.Drawing.Size(48, 96);
+        }
+
+        private void Mano8_MouseMove(object sender, MouseEventArgs e)
+        {
+            this.Mano8.Size = new System.Drawing.Size(80, 160);
+            this.Mano8.BringToFront();
+        }
+
+        private void Mano8_MouseLeave(object sender, EventArgs e)
+        {
+            this.Mano8.Size = new System.Drawing.Size(48, 96);
+        }
+
+        private void Mano7_MouseLeave(object sender, EventArgs e)
+        {
+            this.Mano7.Size = new System.Drawing.Size(48, 96);
+        }
+
+        private void Mano7_MouseMove(object sender, MouseEventArgs e)
+        {
+            this.Mano7.Size = new System.Drawing.Size(80, 160);
+            this.Mano7.BringToFront();
+        }
+
+        private void Mano6_MouseMove(object sender, MouseEventArgs e)
+        {
+            this.Mano6.Size = new System.Drawing.Size(80, 160);
+            this.Mano6.BringToFront();
+        }
+
+        private void Mano6_MouseLeave(object sender, EventArgs e)
+        {
+            this.Mano6.Size = new System.Drawing.Size(48, 96);
+        }
+
+        private void Mano4_MouseMove(object sender, MouseEventArgs e)
+        {
+            this.Mano4.Size = new System.Drawing.Size(80, 160);
+            this.Mano4.BringToFront();
+        }
+
+        private void Mano4_MouseLeave(object sender, EventArgs e)
+        {
+            this.Mano4.Size = new System.Drawing.Size(48, 96);
+        }
+
+        private void Mano3_MouseMove(object sender, MouseEventArgs e)
+        {
+            this.Mano3.Size = new System.Drawing.Size(80, 160);
+            this.Mano3.BringToFront();
+        }
+
+        private void Mano3_MouseLeave(object sender, EventArgs e)
+        {
+            this.Mano3.Size = new System.Drawing.Size(48, 96);
+        }
+
+        private void Mano2_MouseMove(object sender, MouseEventArgs e)
+        {
+            this.Mano2.Size = new System.Drawing.Size(80, 160);
+            this.Mano2.BringToFront();
+        }
+
+        private void Mano2_MouseLeave(object sender, EventArgs e)
+        {
+            this.Mano2.Size = new System.Drawing.Size(48, 96);
+        }
+
+        private void Mano1_MouseLeave(object sender, EventArgs e)
+        {
+            this.Mano1.Size = new System.Drawing.Size(48, 96);
+        }
+
+        private void Mano1_MouseMove(object sender, MouseEventArgs e)
+        {
+            this.Mano1.Size = new System.Drawing.Size(80, 160);
+            this.Mano1.BringToFront();
         }
     }
 }
