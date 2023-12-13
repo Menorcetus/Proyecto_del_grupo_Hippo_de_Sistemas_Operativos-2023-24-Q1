@@ -529,3 +529,5 @@ mono_crash.*.json
 # All binary
 *.bin
 .vscode/tasks.json
+Resources/Ranged.kra
+Resources/Ranged.kra
