@@ -489,56 +489,57 @@ void DarMano(char *respuesta, ListaCartas *Cartas, int numMano){
 	Carta carta;
     int i = 0;
 	int num_ID; 
-	int enc1 = 0;
-	int enc29 = 0;
-	int enc10 =0; 
-	int enc5 =0; //para las no repetibles 
+	int enc0 = 0;
+	int enc28 = 0;
+	int enc9 =0; 
+	int enc4 =0; //para las no repetibles 
 	strcpy(respuesta, "8");
 	sprintf(respuesta, "%s/%d" , respuesta, numMano);
+	int num = Cartas->num;		
 	srand(time(NULL));
-	int num = Cartas->num;
-    //printf (" Rand de 1 a 30 \n");  
-    while (i<=numMano)  
+    //printf (" Rand de 0 a 29 \n");  
+    while (i<numMano)  
     {  
-        num_ID = (rand()%num) + 1; // obtener num aleatorio entre 1 y 30
-		if (num_ID == 1 && enc1 == 0) //no repetir las no repetibles
+
+        num_ID = rand()%num; // obtener num aleatorio entre 1 y 30
+		if (num_ID == 0 && enc0 == 0) //no repetir las no repetibles
 		{
 			DarCarta(&Cartas, num_ID, &carta);
 			//1) 
 			//sprintf(respuesta, "%s/%d/%s/%d/%d",respuesta,num_ID,carta.nombre,carta.fuerza,carta.tipo);
 			//2)
 			sprintf(respuesta, "%s/%d",respuesta,num_ID); //opcion en la que el cliente tiene toda la info
-			enc1 = 1;
+			enc0 = 1;
 			i++;
 		}
-		else if (num_ID == 5 && enc5 == 0)
+		else if (num_ID == 4 && enc4 == 0)
 		{
 			DarCarta(&Cartas, num_ID, &carta);
 			//1) 
 			// sprintf(respuesta, "%s/%d/%s/%d/%d",respuesta,num_ID,carta.nombre,carta.fuerza,carta.tipo);
 			//2)
 			sprintf(respuesta, "%s/%d",respuesta,num_ID);
-			enc5 = 1;
+			enc4 = 1;
 			i++;
 		}
-		else if (num_ID == 10 && enc10 == 0)
+		else if (num_ID == 9 && enc9 == 0)
 		{
 			DarCarta(&Cartas, num_ID, &carta);
 			//1) 
 			//sprintf(respuesta, "%s/%d/%s/%d/%d",respuesta,num_ID,carta.nombre,carta.fuerza,carta.tipo);
 			//2)
 			sprintf(respuesta, "%s/%d",respuesta,num_ID);
-			enc10 = 1;
+			enc9 = 1;
 			i++;
 		}
-		else if (num_ID == 29 && enc29 == 0)
+		else if (num_ID == 28 && enc28 == 0)
 		{
 			DarCarta(&Cartas, num_ID, &carta);
 			//1) 
 			//sprintf(respuesta, "%s/%d/%s/%d/%d",respuesta,num_ID,carta.nombre,carta.fuerza,carta.tipo);
 			//2)
 			sprintf(respuesta, "%s/%d",respuesta,num_ID);
-			enc29 = 1;
+			enc28 = 1;
 			i++;
 		}
 
@@ -736,6 +737,7 @@ void *AtenderCliente(void *socket){
 						for (int i=0;i<= Partidas.partidas[id_partida].mode; i++)
 						write(Partidas.partidas[id_partida].jugadores[i].Socket,
 							respuesta, strlen(respuesta));
+
 					}
 					// Si se cancela solo lo sabra el que ha creado la partida.
 				}

@@ -48,9 +48,9 @@ namespace ProyectoSO
 
         private void Interfaz_juego_Load(object sender, EventArgs e)
         {
-            string mensaje = "7/" + this.ID_partida + "/" + this.user.Name;
-            byte[] msg = Encoding.ASCII.GetBytes(mensaje);
-            server.Send(msg);
+            
+            
+            
         }
 
         internal void RecibirMano(string mensaje)
@@ -73,18 +73,25 @@ namespace ProyectoSO
 
             string[] trozos = mensaje.Split('/');
             Carta[] mano = new Carta[Convert.ToInt32(trozos[0])];
-            for (int i = 1; i < Convert.ToInt32(trozos[0]); i ++)
+            for (int i = 0; i < Convert.ToInt32(trozos[0]); i ++)
             {
-                mano[i - 1] = new Carta();
-                mano[i - 1].id = Convert.ToInt32(trozos[i]);
+                mano[i] = new Carta();
+                mano[i].id = Convert.ToInt32(trozos[i+1]);
                 //mano[i - 1].nombre = trozos[i + 1];
                 //mano[i - 1].fuerza = Convert.ToInt32(trozos[i + 2]);
                 //mano[i - 1].tipo = Convert.ToInt32(trozos[i + 3]);
-                string resourceName = "_" + Convert.ToString(mano[i-1].id);
+                string resourceName = "_" + Convert.ToString(mano[i].id);
                 //ManoCartas[i - 1].BackgroundImage = resourceName;
-                ManoCartas[i - 1].Image = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject(resourceName);
+                ManoCartas[i].Image = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject(resourceName);
 
             }
+        }
+
+        private void PedirMazo_btn_Click(object sender, EventArgs e)
+        {
+            string mensaje = "7/" + this.ID_partida + "/" + this.user.Name;
+            byte[] msg = Encoding.ASCII.GetBytes(mensaje);
+            server.Send(msg);
         }
     }
 }
