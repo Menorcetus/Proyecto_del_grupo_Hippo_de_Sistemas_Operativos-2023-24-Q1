@@ -121,6 +121,7 @@
             // 
             // Mano1
             // 
+            this.Mano1.BackColor = System.Drawing.Color.Transparent;
             this.Mano1.Location = new System.Drawing.Point(54, 482);
             this.Mano1.Name = "Mano1";
             this.Mano1.Size = new System.Drawing.Size(60, 120);
@@ -132,6 +133,7 @@
             // 
             // Mano2
             // 
+            this.Mano2.BackColor = System.Drawing.Color.Transparent;
             this.Mano2.Location = new System.Drawing.Point(142, 482);
             this.Mano2.Name = "Mano2";
             this.Mano2.Size = new System.Drawing.Size(60, 120);
@@ -143,6 +145,7 @@
             // 
             // Mano3
             // 
+            this.Mano3.BackColor = System.Drawing.Color.Transparent;
             this.Mano3.Location = new System.Drawing.Point(237, 482);
             this.Mano3.Name = "Mano3";
             this.Mano3.Size = new System.Drawing.Size(60, 120);
@@ -154,6 +157,7 @@
             // 
             // Mano4
             // 
+            this.Mano4.BackColor = System.Drawing.Color.Transparent;
             this.Mano4.Location = new System.Drawing.Point(333, 482);
             this.Mano4.Name = "Mano4";
             this.Mano4.Size = new System.Drawing.Size(60, 120);
@@ -165,6 +169,7 @@
             // 
             // Mano5
             // 
+            this.Mano5.BackColor = System.Drawing.Color.Transparent;
             this.Mano5.Location = new System.Drawing.Point(73, 720);
             this.Mano5.Name = "Mano5";
             this.Mano5.Size = new System.Drawing.Size(60, 120);
@@ -176,6 +181,7 @@
             // 
             // Mano6
             // 
+            this.Mano6.BackColor = System.Drawing.Color.Transparent;
             this.Mano6.Location = new System.Drawing.Point(63, 601);
             this.Mano6.Name = "Mano6";
             this.Mano6.Size = new System.Drawing.Size(60, 120);
@@ -187,6 +193,7 @@
             // 
             // Mano7
             // 
+            this.Mano7.BackColor = System.Drawing.Color.Transparent;
             this.Mano7.Location = new System.Drawing.Point(157, 601);
             this.Mano7.Name = "Mano7";
             this.Mano7.Size = new System.Drawing.Size(60, 120);
@@ -198,6 +205,7 @@
             // 
             // Mano8
             // 
+            this.Mano8.BackColor = System.Drawing.Color.Transparent;
             this.Mano8.Location = new System.Drawing.Point(252, 601);
             this.Mano8.Name = "Mano8";
             this.Mano8.Size = new System.Drawing.Size(60, 120);
@@ -209,6 +217,7 @@
             // 
             // Mano9
             // 
+            this.Mano9.BackColor = System.Drawing.Color.Transparent;
             this.Mano9.Location = new System.Drawing.Point(345, 601);
             this.Mano9.Name = "Mano9";
             this.Mano9.Size = new System.Drawing.Size(60, 120);
@@ -220,6 +229,7 @@
             // 
             // Mano10
             // 
+            this.Mano10.BackColor = System.Drawing.Color.Transparent;
             this.Mano10.Location = new System.Drawing.Point(169, 720);
             this.Mano10.Name = "Mano10";
             this.Mano10.Size = new System.Drawing.Size(60, 120);
