@@ -18,6 +18,7 @@ namespace ProyectoSO
         Socket server;
         int ID_partida;
         public PictureBox[] ManoCartas = new PictureBox[15];
+        public Color borderColor;
         public Interfaz_juego(User user, Socket server, int ID_partida)
         {
             InitializeComponent();
@@ -96,110 +97,148 @@ namespace ProyectoSO
         {
             this.Mano10.Size = new System.Drawing.Size(80, 160);
             this.Mano10.BringToFront();
+            ChangePictureBoxBorderColor(Mano10, Color.Yellow);
         }
 
         private void Mano10_MouseLeave(object sender, EventArgs e)
         {
             this.Mano10.Size = new System.Drawing.Size(48, 96);
+            ClearPictureBoxBorderColor(Mano10);
         }
 
         private void Mano5_MouseMove(object sender, MouseEventArgs e)
         {
             this.Mano5.Size = new System.Drawing.Size(80, 160);
             this.Mano5.BringToFront();
+            ChangePictureBoxBorderColor(Mano5, Color.Yellow);
         }
 
         private void Mano5_MouseLeave(object sender, EventArgs e)
         {
             this.Mano5.Size = new System.Drawing.Size(48, 96);
+            ClearPictureBoxBorderColor(Mano5);
         }
 
         private void Mano9_MouseMove(object sender, MouseEventArgs e)
         {
             this.Mano9.Size = new System.Drawing.Size(80, 160);
             this.Mano9.BringToFront();
+            ChangePictureBoxBorderColor(Mano9, Color.Yellow);
         }
 
         private void Mano9_MouseLeave(object sender, EventArgs e)
         {
             this.Mano9.Size = new System.Drawing.Size(48, 96);
+            ClearPictureBoxBorderColor(Mano9);
         }
 
         private void Mano8_MouseMove(object sender, MouseEventArgs e)
         {
             this.Mano8.Size = new System.Drawing.Size(80, 160);
             this.Mano8.BringToFront();
+            ChangePictureBoxBorderColor(Mano8, Color.Yellow);
         }
 
         private void Mano8_MouseLeave(object sender, EventArgs e)
         {
             this.Mano8.Size = new System.Drawing.Size(48, 96);
+            ClearPictureBoxBorderColor(Mano8);
         }
 
         private void Mano7_MouseLeave(object sender, EventArgs e)
         {
             this.Mano7.Size = new System.Drawing.Size(48, 96);
+            ClearPictureBoxBorderColor(Mano7);
+
         }
 
         private void Mano7_MouseMove(object sender, MouseEventArgs e)
         {
             this.Mano7.Size = new System.Drawing.Size(80, 160);
             this.Mano7.BringToFront();
+            ChangePictureBoxBorderColor(Mano7, Color.Yellow);
         }
 
         private void Mano6_MouseMove(object sender, MouseEventArgs e)
         {
             this.Mano6.Size = new System.Drawing.Size(80, 160);
             this.Mano6.BringToFront();
+            ChangePictureBoxBorderColor(Mano6, Color.Yellow);
         }
 
         private void Mano6_MouseLeave(object sender, EventArgs e)
         {
             this.Mano6.Size = new System.Drawing.Size(48, 96);
+            ClearPictureBoxBorderColor(Mano6);
         }
 
         private void Mano4_MouseMove(object sender, MouseEventArgs e)
         {
             this.Mano4.Size = new System.Drawing.Size(80, 160);
             this.Mano4.BringToFront();
+            ChangePictureBoxBorderColor(Mano4, Color.Yellow);
         }
 
         private void Mano4_MouseLeave(object sender, EventArgs e)
         {
             this.Mano4.Size = new System.Drawing.Size(48, 96);
+            ClearPictureBoxBorderColor(Mano4);
         }
 
         private void Mano3_MouseMove(object sender, MouseEventArgs e)
         {
             this.Mano3.Size = new System.Drawing.Size(80, 160);
             this.Mano3.BringToFront();
+            ChangePictureBoxBorderColor(Mano3, Color.Yellow);
         }
 
         private void Mano3_MouseLeave(object sender, EventArgs e)
         {
             this.Mano3.Size = new System.Drawing.Size(48, 96);
+            ClearPictureBoxBorderColor(Mano3);
         }
 
         private void Mano2_MouseMove(object sender, MouseEventArgs e)
         {
             this.Mano2.Size = new System.Drawing.Size(80, 160);
             this.Mano2.BringToFront();
+            ChangePictureBoxBorderColor(Mano2, Color.Yellow);
         }
 
         private void Mano2_MouseLeave(object sender, EventArgs e)
         {
             this.Mano2.Size = new System.Drawing.Size(48, 96);
+            ClearPictureBoxBorderColor(Mano2);
         }
 
         private void Mano1_MouseLeave(object sender, EventArgs e)
         {
             this.Mano1.Size = new System.Drawing.Size(48, 96);
+            ClearPictureBoxBorderColor(Mano1);
         }
 
         private void Mano1_MouseMove(object sender, MouseEventArgs e)
         {
             this.Mano1.Size = new System.Drawing.Size(80, 160);
             this.Mano1.BringToFront();
+            ChangePictureBoxBorderColor(Mano1, Color.Yellow);
+        }
+        private void ChangePictureBoxBorderColor(PictureBox pictureBox, Color color)
+        {
+            borderColor = color;
+            pictureBox.Paint += PictureBox_Paint;
+        }
+
+        private void ClearPictureBoxBorderColor(PictureBox pictureBox)
+        {
+            borderColor = Color.Transparent;
+            pictureBox.Paint -= PictureBox_Paint; // Unsubscribe from the Paint event
+            pictureBox.Invalidate(); // Refresh the PictureBox
+        }
+        private void PictureBox_Paint(object sender, PaintEventArgs e)
+        {
+            PictureBox pictureBox = (PictureBox)sender;
+            ControlPaint.DrawBorder(e.Graphics, pictureBox.ClientRectangle, borderColor, ButtonBorderStyle.Solid);
         }
     }
 }
