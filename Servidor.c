@@ -444,43 +444,53 @@ void GenerarListaCartas (MYSQL *conn, ListaCartas *listaCartas){
 		resultado = mysql_store_result (conn);
 		row = mysql_fetch_row(resultado);
 		int num = 0;
+		pthread_mutex_lock(&mutex);
 		while (row != NULL)
 		{
 			listaCartas->cartas[num].id =  row[0];
+			//printf("%s\n",listaCartas->cartas[num].id);
 			strcpy(listaCartas->cartas[num].nombre, row[1]);
+			//printf("%s\n",listaCartas->cartas[num].nombre);
 			listaCartas->cartas[num].fuerza = row[2];
+			//printf("%s\n",listaCartas->cartas[num].fuerza);
 			listaCartas->cartas[num].tipo = row[3];
+			//printf("%s\n\n",listaCartas->cartas[num].tipo);
 			//listaCartas->Cartas[num].repetible = row[4];
 			// printf("%s\n",lilistaCartassta->usuarios[num].Nombre);
+			num++;
 			listaCartas->num++;
 			row = mysql_fetch_row(resultado);
-
 		}
+		pthread_mutex_unlock(&mutex);
 	
 }
 
 
-void DarCarta (ListaCartas *Cartas, int ID, Carta *carta){ 
+void DarCarta (ListaCartas *CARTAS, int ID, Carta *carta, int fuerza, int tipo)
+{ 
 	//meter en carta su informacion en funcion de ID
-
-	for (int i = 0 ; i<Cartas->num; i++)
-	{ 
-		if (ID == Cartas->cartas[i].id)
+	for (int i = 0 ; i<CARTAS->num; i++)
+	{ 	
+		printf("ID que itera: %d\n", CARTAS->cartas[i].id);
+		printf("ID que buscamos: %d\n\n", ID);
+		if (ID == CARTAS->cartas[i].id)
 		{
 			carta->id = i;
-			strcpy(carta->nombre,Cartas->cartas[i].nombre);
-			carta->fuerza = Cartas->cartas[i].fuerza;
-			carta->tipo = Cartas->cartas[i].tipo;
+			strcpy(carta->nombre, CARTAS->cartas[i].nombre);
+			carta->fuerza =  CARTAS->cartas[i].fuerza;
+			carta->tipo =  CARTAS->cartas[i].tipo;
+			fuerza = CARTAS->cartas[i].fuerza;
+			tipo = CARTAS->cartas[i].tipo;
+			printf("La fuerza es %d y el tipo es %d \n",fuerza, tipo);
 			//carta.repetible = Cartas->Cartas[i].repetible;
 		}
-
 	}
 
 }
 
 
 
-void DarMano(char *respuesta, ListaCartas *Cartas, int numMano){ 
+void DarMano(char *respuesta, ListaCartas *cartas, int numMano){ 
 //Da una mano a cada jugador de la partida que pide a partir de la lista de todas cartas
 // Opcion 1): mas ancho de banda
 //formato de respuesta: 8/numeroCartas/ID1/Carta_Nombre1/Cart_Fuerz1/Tipo1/Repetible1/.../
@@ -488,14 +498,16 @@ void DarMano(char *respuesta, ListaCartas *Cartas, int numMano){
 	   
 	Carta carta;
     int i = 0;
-	int num_ID; 
+	int num_ID;
+	int fuerza;
+	int tipo;
 	int enc0 = 0;
 	int enc28 = 0;
 	int enc9 =0; 
 	int enc4 =0; //para las no repetibles 
 	strcpy(respuesta, "8");
 	sprintf(respuesta, "%s/%d" , respuesta, numMano);
-	int num = Cartas->num;		
+	int num = cartas->num;
 	srand(time(NULL));
     //printf (" Rand de 0 a 29 \n");  
     while (i<numMano)  
@@ -506,8 +518,8 @@ void DarMano(char *respuesta, ListaCartas *Cartas, int numMano){
 		{
 			if (enc0 == 0)
 			{
-				DarCarta(&Cartas, num_ID, &carta);
-				sprintf(respuesta, "%s/%d",respuesta,num_ID);
+				DarCarta(cartas, num_ID, &carta, fuerza, tipo);
+				sprintf(respuesta, "%s/%d/%d/%d",respuesta,num_ID,fuerza,tipo);   //Formato final: 8/numCartas/ID1/Fuerza1/Tipo1/ID2/Fuerza2/...
 				enc0 = 1;
 				i++;
 			}
@@ -516,8 +528,8 @@ void DarMano(char *respuesta, ListaCartas *Cartas, int numMano){
 		{
 			if (enc4 == 0)
 			{
-				DarCarta(&Cartas, num_ID, &carta);
-				sprintf(respuesta, "%s/%d",respuesta,num_ID);
+				DarCarta(cartas, num_ID, &carta, fuerza, tipo);
+				sprintf(respuesta, "%s/%d/%d/%d",respuesta,num_ID,fuerza,tipo); 
 				enc4 = 1;
 				i++;
 			}
@@ -527,8 +539,8 @@ void DarMano(char *respuesta, ListaCartas *Cartas, int numMano){
 			
 			if (enc9 == 0)
 			{
-				DarCarta(&Cartas, num_ID, &carta);
-				sprintf(respuesta, "%s/%d",respuesta,num_ID);
+				DarCarta(cartas, num_ID, &carta, fuerza, tipo);
+				sprintf(respuesta, "%s/%d/%d/%d",respuesta,num_ID,fuerza,tipo); 
 				enc9 = 1;
 				i++;
 			}
@@ -541,8 +553,8 @@ void DarMano(char *respuesta, ListaCartas *Cartas, int numMano){
 			
 				if (enc28 == 0)
 				{
-				DarCarta(&Cartas, num_ID, &carta);
-				sprintf(respuesta, "%s/%d",respuesta,num_ID);
+				DarCarta(cartas, num_ID, &carta, fuerza, tipo);
+				sprintf(respuesta, "%s/%d/%d/%d",respuesta,num_ID,fuerza,tipo); 
 				enc28 = 1;
 				i++;
 				}
@@ -552,8 +564,8 @@ void DarMano(char *respuesta, ListaCartas *Cartas, int numMano){
 
 		else
 		{
-			DarCarta(&Cartas, num_ID, &carta);
-			sprintf(respuesta, "%s/%d",respuesta,num_ID);
+			DarCarta(cartas, num_ID, &carta, fuerza, tipo);
+			sprintf(respuesta, "%s/%d/%d/%d",respuesta,num_ID,fuerza,tipo); 
 			i++;
 		}
 
@@ -772,10 +784,12 @@ void *AtenderCliente(void *socket){
 				int posPartida = BuscarPartidaPorID(id_partida, &Partidas);
 				//p = strtok(NULL, "/");
 				//int numCartas = atoi(p);
-				int numCartas = 10; //arbitrario, se cambiara cuando haya lobby
+				int numCartas = 5; //arbitrario, se cambiara cuando haya lobby
 				if (posPartida != -1)
 				{
+					pthread_mutex_lock(&mutex);
 					DarMano(&mazo, &Cartas, numCartas);
+					pthread_mutex_unlock(&mutex);
 					printf("Cartas: %s\n", mazo);
 					write(sock_conn, mazo, strlen(mazo));
 				}

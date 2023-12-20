@@ -37,11 +37,11 @@
             this.Mano2 = new System.Windows.Forms.PictureBox();
             this.Mano3 = new System.Windows.Forms.PictureBox();
             this.Mano4 = new System.Windows.Forms.PictureBox();
+            this.Mano9 = new System.Windows.Forms.PictureBox();
             this.Mano5 = new System.Windows.Forms.PictureBox();
             this.Mano6 = new System.Windows.Forms.PictureBox();
             this.Mano7 = new System.Windows.Forms.PictureBox();
             this.Mano8 = new System.Windows.Forms.PictureBox();
-            this.Mano9 = new System.Windows.Forms.PictureBox();
             this.Mano10 = new System.Windows.Forms.PictureBox();
             this.PedirMazo_btn = new System.Windows.Forms.Button();
             this.Art1 = new System.Windows.Forms.PictureBox();
@@ -76,11 +76,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.Mano2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Mano3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Mano4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mano9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Mano5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Mano6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Mano7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Mano8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Mano9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Mano10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Art1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Art2)).BeginInit();
@@ -221,70 +221,70 @@
             this.Mano4.MouseLeave += new System.EventHandler(this.Mano4_MouseLeave);
             this.Mano4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mano4_MouseMove);
             // 
-            // Mano5
-            // 
-            this.Mano5.BackColor = System.Drawing.Color.Transparent;
-            this.Mano5.Location = new System.Drawing.Point(88, 864);
-            this.Mano5.Margin = new System.Windows.Forms.Padding(4);
-            this.Mano5.Name = "Mano5";
-            this.Mano5.Size = new System.Drawing.Size(72, 144);
-            this.Mano5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Mano5.TabIndex = 4;
-            this.Mano5.TabStop = false;
-            this.Mano5.MouseLeave += new System.EventHandler(this.Mano5_MouseLeave);
-            this.Mano5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mano5_MouseMove);
-            // 
-            // Mano6
-            // 
-            this.Mano6.BackColor = System.Drawing.Color.Transparent;
-            this.Mano6.Location = new System.Drawing.Point(76, 721);
-            this.Mano6.Margin = new System.Windows.Forms.Padding(4);
-            this.Mano6.Name = "Mano6";
-            this.Mano6.Size = new System.Drawing.Size(72, 144);
-            this.Mano6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Mano6.TabIndex = 4;
-            this.Mano6.TabStop = false;
-            this.Mano6.MouseLeave += new System.EventHandler(this.Mano6_MouseLeave);
-            this.Mano6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mano6_MouseMove);
-            // 
-            // Mano7
-            // 
-            this.Mano7.BackColor = System.Drawing.Color.Transparent;
-            this.Mano7.Location = new System.Drawing.Point(188, 721);
-            this.Mano7.Margin = new System.Windows.Forms.Padding(4);
-            this.Mano7.Name = "Mano7";
-            this.Mano7.Size = new System.Drawing.Size(72, 144);
-            this.Mano7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Mano7.TabIndex = 4;
-            this.Mano7.TabStop = false;
-            this.Mano7.MouseLeave += new System.EventHandler(this.Mano7_MouseLeave);
-            this.Mano7.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mano7_MouseMove);
-            // 
-            // Mano8
-            // 
-            this.Mano8.BackColor = System.Drawing.Color.Transparent;
-            this.Mano8.Location = new System.Drawing.Point(302, 721);
-            this.Mano8.Margin = new System.Windows.Forms.Padding(4);
-            this.Mano8.Name = "Mano8";
-            this.Mano8.Size = new System.Drawing.Size(72, 144);
-            this.Mano8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Mano8.TabIndex = 4;
-            this.Mano8.TabStop = false;
-            this.Mano8.MouseLeave += new System.EventHandler(this.Mano8_MouseLeave);
-            this.Mano8.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mano8_MouseMove);
-            // 
             // Mano9
             // 
             this.Mano9.BackColor = System.Drawing.Color.Transparent;
-            this.Mano9.Location = new System.Drawing.Point(414, 721);
+            this.Mano9.Location = new System.Drawing.Point(88, 864);
             this.Mano9.Margin = new System.Windows.Forms.Padding(4);
             this.Mano9.Name = "Mano9";
             this.Mano9.Size = new System.Drawing.Size(72, 144);
             this.Mano9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Mano9.TabIndex = 4;
             this.Mano9.TabStop = false;
-            this.Mano9.MouseLeave += new System.EventHandler(this.Mano9_MouseLeave);
-            this.Mano9.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mano9_MouseMove);
+            this.Mano9.MouseLeave += new System.EventHandler(this.Mano5_MouseLeave);
+            this.Mano9.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mano5_MouseMove);
+            // 
+            // Mano5
+            // 
+            this.Mano5.BackColor = System.Drawing.Color.Transparent;
+            this.Mano5.Location = new System.Drawing.Point(76, 721);
+            this.Mano5.Margin = new System.Windows.Forms.Padding(4);
+            this.Mano5.Name = "Mano5";
+            this.Mano5.Size = new System.Drawing.Size(72, 144);
+            this.Mano5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Mano5.TabIndex = 4;
+            this.Mano5.TabStop = false;
+            this.Mano5.MouseLeave += new System.EventHandler(this.Mano6_MouseLeave);
+            this.Mano5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mano6_MouseMove);
+            // 
+            // Mano6
+            // 
+            this.Mano6.BackColor = System.Drawing.Color.Transparent;
+            this.Mano6.Location = new System.Drawing.Point(188, 721);
+            this.Mano6.Margin = new System.Windows.Forms.Padding(4);
+            this.Mano6.Name = "Mano6";
+            this.Mano6.Size = new System.Drawing.Size(72, 144);
+            this.Mano6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Mano6.TabIndex = 4;
+            this.Mano6.TabStop = false;
+            this.Mano6.MouseLeave += new System.EventHandler(this.Mano7_MouseLeave);
+            this.Mano6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mano7_MouseMove);
+            // 
+            // Mano7
+            // 
+            this.Mano7.BackColor = System.Drawing.Color.Transparent;
+            this.Mano7.Location = new System.Drawing.Point(302, 721);
+            this.Mano7.Margin = new System.Windows.Forms.Padding(4);
+            this.Mano7.Name = "Mano7";
+            this.Mano7.Size = new System.Drawing.Size(72, 144);
+            this.Mano7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Mano7.TabIndex = 4;
+            this.Mano7.TabStop = false;
+            this.Mano7.MouseLeave += new System.EventHandler(this.Mano8_MouseLeave);
+            this.Mano7.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mano8_MouseMove);
+            // 
+            // Mano8
+            // 
+            this.Mano8.BackColor = System.Drawing.Color.Transparent;
+            this.Mano8.Location = new System.Drawing.Point(414, 721);
+            this.Mano8.Margin = new System.Windows.Forms.Padding(4);
+            this.Mano8.Name = "Mano8";
+            this.Mano8.Size = new System.Drawing.Size(72, 144);
+            this.Mano8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Mano8.TabIndex = 4;
+            this.Mano8.TabStop = false;
+            this.Mano8.MouseLeave += new System.EventHandler(this.Mano9_MouseLeave);
+            this.Mano8.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mano9_MouseMove);
             // 
             // Mano10
             // 
@@ -319,6 +319,8 @@
             this.Art1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Art1.TabIndex = 6;
             this.Art1.TabStop = false;
+            this.Art1.Click += new System.EventHandler(this.Art1_Click);
+            this.Art1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art1_MouseMove);
             // 
             // Art2
             // 
@@ -329,6 +331,8 @@
             this.Art2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Art2.TabIndex = 7;
             this.Art2.TabStop = false;
+            this.Art2.Click += new System.EventHandler(this.Art2_Click);
+            this.Art2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art2_MouseMove);
             // 
             // Art3
             // 
@@ -339,6 +343,8 @@
             this.Art3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Art3.TabIndex = 8;
             this.Art3.TabStop = false;
+            this.Art3.Click += new System.EventHandler(this.Art3_Click);
+            this.Art3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art3_MouseMove);
             // 
             // Art4
             // 
@@ -349,6 +355,8 @@
             this.Art4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Art4.TabIndex = 9;
             this.Art4.TabStop = false;
+            this.Art4.Click += new System.EventHandler(this.Art4_Click);
+            this.Art4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art4_MouseMove);
             // 
             // Art5
             // 
@@ -359,6 +367,8 @@
             this.Art5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Art5.TabIndex = 10;
             this.Art5.TabStop = false;
+            this.Art5.Click += new System.EventHandler(this.Art5_Click);
+            this.Art5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art5_MouseMove);
             // 
             // Art6
             // 
@@ -369,6 +379,8 @@
             this.Art6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Art6.TabIndex = 11;
             this.Art6.TabStop = false;
+            this.Art6.Click += new System.EventHandler(this.Art6_Click);
+            this.Art6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art6_MouseMove);
             // 
             // Art7
             // 
@@ -379,6 +391,8 @@
             this.Art7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Art7.TabIndex = 12;
             this.Art7.TabStop = false;
+            this.Art7.Click += new System.EventHandler(this.Art7_Click);
+            this.Art7.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art7_MouseMove);
             // 
             // Art8
             // 
@@ -389,6 +403,8 @@
             this.Art8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Art8.TabIndex = 13;
             this.Art8.TabStop = false;
+            this.Art8.Click += new System.EventHandler(this.Art8_Click);
+            this.Art8.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art8_MouseMove);
             // 
             // Art9
             // 
@@ -399,6 +415,8 @@
             this.Art9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Art9.TabIndex = 14;
             this.Art9.TabStop = false;
+            this.Art9.Click += new System.EventHandler(this.Art9_Click);
+            this.Art9.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art9_MouseMove);
             // 
             // Ran1
             // 
@@ -409,6 +427,8 @@
             this.Ran1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Ran1.TabIndex = 15;
             this.Ran1.TabStop = false;
+            this.Ran1.Click += new System.EventHandler(this.Ran1_Click);
+            this.Ran1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran1_MouseMove);
             // 
             // Ran2
             // 
@@ -419,6 +439,8 @@
             this.Ran2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Ran2.TabIndex = 16;
             this.Ran2.TabStop = false;
+            this.Ran2.Click += new System.EventHandler(this.Ran2_Click);
+            this.Ran2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran2_MouseMove);
             // 
             // Ran3
             // 
@@ -429,6 +451,8 @@
             this.Ran3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Ran3.TabIndex = 17;
             this.Ran3.TabStop = false;
+            this.Ran3.Click += new System.EventHandler(this.Ran3_Click);
+            this.Ran3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran3_MouseMove);
             // 
             // Ran4
             // 
@@ -439,6 +463,8 @@
             this.Ran4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Ran4.TabIndex = 18;
             this.Ran4.TabStop = false;
+            this.Ran4.Click += new System.EventHandler(this.Ran4_Click);
+            this.Ran4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran4_MouseMove);
             // 
             // Ran5
             // 
@@ -449,6 +475,8 @@
             this.Ran5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Ran5.TabIndex = 19;
             this.Ran5.TabStop = false;
+            this.Ran5.Click += new System.EventHandler(this.Ran5_Click);
+            this.Ran5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran5_MouseMove);
             // 
             // Ran6
             // 
@@ -459,6 +487,8 @@
             this.Ran6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Ran6.TabIndex = 20;
             this.Ran6.TabStop = false;
+            this.Ran6.Click += new System.EventHandler(this.Ran6_Click);
+            this.Ran6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran6_MouseMove);
             // 
             // Ran7
             // 
@@ -469,6 +499,8 @@
             this.Ran7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Ran7.TabIndex = 21;
             this.Ran7.TabStop = false;
+            this.Ran7.Click += new System.EventHandler(this.Ran7_Click);
+            this.Ran7.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran7_MouseMove);
             // 
             // Ran8
             // 
@@ -479,6 +511,8 @@
             this.Ran8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Ran8.TabIndex = 22;
             this.Ran8.TabStop = false;
+            this.Ran8.Click += new System.EventHandler(this.Ran8_Click);
+            this.Ran8.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran8_MouseMove);
             // 
             // Ran9
             // 
@@ -489,6 +523,8 @@
             this.Ran9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Ran9.TabIndex = 23;
             this.Ran9.TabStop = false;
+            this.Ran9.Click += new System.EventHandler(this.Ran9_Click);
+            this.Ran9.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran9_MouseMove);
             // 
             // Mel1
             // 
@@ -499,6 +535,8 @@
             this.Mel1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Mel1.TabIndex = 24;
             this.Mel1.TabStop = false;
+            this.Mel1.Click += new System.EventHandler(this.Mel1_Click);
+            this.Mel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel1_MouseMove);
             // 
             // Mel2
             // 
@@ -509,6 +547,8 @@
             this.Mel2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Mel2.TabIndex = 25;
             this.Mel2.TabStop = false;
+            this.Mel2.Click += new System.EventHandler(this.Mel2_Click);
+            this.Mel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel2_MouseMove);
             // 
             // Mel3
             // 
@@ -519,6 +559,8 @@
             this.Mel3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Mel3.TabIndex = 26;
             this.Mel3.TabStop = false;
+            this.Mel3.Click += new System.EventHandler(this.Mel3_Click);
+            this.Mel3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel3_MouseMove);
             // 
             // Mel4
             // 
@@ -529,6 +571,8 @@
             this.Mel4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Mel4.TabIndex = 27;
             this.Mel4.TabStop = false;
+            this.Mel4.Click += new System.EventHandler(this.Mel4_Click);
+            this.Mel4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel4_MouseMove);
             // 
             // Mel5
             // 
@@ -539,6 +583,8 @@
             this.Mel5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Mel5.TabIndex = 28;
             this.Mel5.TabStop = false;
+            this.Mel5.Click += new System.EventHandler(this.Mel5_Click);
+            this.Mel5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel5_MouseMove);
             // 
             // Mel6
             // 
@@ -549,6 +595,8 @@
             this.Mel6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Mel6.TabIndex = 29;
             this.Mel6.TabStop = false;
+            this.Mel6.Click += new System.EventHandler(this.Mel6_Click);
+            this.Mel6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel6_MouseMove);
             // 
             // Mel7
             // 
@@ -559,6 +607,8 @@
             this.Mel7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Mel7.TabIndex = 30;
             this.Mel7.TabStop = false;
+            this.Mel7.Click += new System.EventHandler(this.Mel7_Click);
+            this.Mel7.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel7_MouseMove);
             // 
             // Mel8
             // 
@@ -569,6 +619,8 @@
             this.Mel8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Mel8.TabIndex = 31;
             this.Mel8.TabStop = false;
+            this.Mel8.Click += new System.EventHandler(this.Mel8_Click);
+            this.Mel8.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel8_MouseMove);
             // 
             // Mel9
             // 
@@ -579,6 +631,8 @@
             this.Mel9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Mel9.TabIndex = 32;
             this.Mel9.TabStop = false;
+            this.Mel9.Click += new System.EventHandler(this.Mel9_Click);
+            this.Mel9.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel9_MouseMove);
             // 
             // Interfaz_juego
             // 
@@ -616,13 +670,13 @@
             this.Controls.Add(this.Art1);
             this.Controls.Add(this.PedirMazo_btn);
             this.Controls.Add(this.Mano10);
-            this.Controls.Add(this.Mano5);
             this.Controls.Add(this.Mano9);
-            this.Controls.Add(this.Mano4);
             this.Controls.Add(this.Mano8);
-            this.Controls.Add(this.Mano3);
+            this.Controls.Add(this.Mano4);
             this.Controls.Add(this.Mano7);
+            this.Controls.Add(this.Mano3);
             this.Controls.Add(this.Mano6);
+            this.Controls.Add(this.Mano5);
             this.Controls.Add(this.Mano2);
             this.Controls.Add(this.Mano1);
             this.Controls.Add(this.panel2);
@@ -640,11 +694,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.Mano2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Mano3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Mano4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mano9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Mano5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Mano6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Mano7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Mano8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Mano9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Mano10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Art1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Art2)).EndInit();
@@ -687,11 +741,11 @@
         private System.Windows.Forms.PictureBox Mano2;
         private System.Windows.Forms.PictureBox Mano3;
         private System.Windows.Forms.PictureBox Mano4;
+        private System.Windows.Forms.PictureBox Mano9;
         private System.Windows.Forms.PictureBox Mano5;
         private System.Windows.Forms.PictureBox Mano6;
         private System.Windows.Forms.PictureBox Mano7;
         private System.Windows.Forms.PictureBox Mano8;
-        private System.Windows.Forms.PictureBox Mano9;
         private System.Windows.Forms.PictureBox Mano10;
         private System.Windows.Forms.Button PedirMazo_btn;
         private System.Windows.Forms.PictureBox Art1;

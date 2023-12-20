@@ -17,8 +17,14 @@ namespace ProyectoSO
         User user;
         Socket server;
         int ID_partida;
-        public PictureBox[] ManoCartas = new PictureBox[15];
+        public PictureBox[] Mano = new PictureBox[10];
+        public Carta[] ManoCartas = new Carta[10];
+        public Carta[] CartasArt = new Carta[9];
+        public Carta[] CartasRan = new Carta[9];
+        public Carta[] CartasMel = new Carta[9];
         public Color borderColor;
+        public Carta cartaselecc;
+        int numCartas;
         public Interfaz_juego(User user, Socket server, int ID_partida)
         {
             InitializeComponent();
@@ -56,31 +62,33 @@ namespace ProyectoSO
 
         internal void RecibirMano(string mensaje)
         {
-            ManoCartas[0] = Mano1;
-            ManoCartas[1] = Mano2;
-            ManoCartas[2] = Mano3;
-            ManoCartas[3] = Mano4;
-            ManoCartas[4] = Mano5;
-            ManoCartas[5] = Mano6;
-            ManoCartas[6] = Mano7;
-            ManoCartas[7] = Mano8;
-            ManoCartas[8] = Mano9;
-            ManoCartas[9] = Mano10;
-
+            Mano[0] = Mano1;
+            Mano[1] = Mano2;
+            Mano[2] = Mano3;
+            Mano[3] = Mano4;
+            Mano[4] = Mano5;
+            Mano[5] = Mano6;
+            Mano[6] = Mano7;
+            Mano[7] = Mano8;
+            Mano[8] = Mano9;
+            Mano[9] = Mano10;
 
             string[] trozos = mensaje.Split('/');
-            Carta[] mano = new Carta[Convert.ToInt32(trozos[0])];
+            numCartas = Convert.ToInt32(trozos[0]);
+            Carta[] mano = new Carta[numCartas];  //Formato: numCartas/ID1/Fuerza1/Tipo1/ID2/Fuerza2/Tipo2/ID3/...
+           
             for (int i = 0; i < Convert.ToInt32(trozos[0]); i ++)
             {
                 mano[i] = new Carta();
-                mano[i].id = Convert.ToInt32(trozos[i+1]);
+                mano[i].id = Convert.ToInt32(trozos[3*i+1]);
                 //mano[i - 1].nombre = trozos[i + 1];
-                //mano[i - 1].fuerza = Convert.ToInt32(trozos[i + 2]);
-                //mano[i - 1].tipo = Convert.ToInt32(trozos[i + 3]);
+                mano[i].fuerza = Convert.ToInt32(trozos[3*i + 2]);
+                mano[i].tipo = Convert.ToInt32(trozos[3*i + 3]);
                 string resourceName = "_" + Convert.ToString(mano[i].id);
                 //ManoCartas[i - 1].BackgroundImage = resourceName;
-                ManoCartas[i].Image = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject(resourceName);
-
+                mano[i].picture = Mano[i];
+                mano[i].picture.Image = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject(resourceName);
+                ManoCartas[i] = mano[i];
             }
         }
 
@@ -108,68 +116,68 @@ namespace ProyectoSO
 
         private void Mano5_MouseMove(object sender, MouseEventArgs e)
         {
-            this.Mano5.Size = new System.Drawing.Size(80, 160);
-            this.Mano5.BringToFront();
-            ChangePictureBoxBorderColor(Mano5, Color.Yellow);
-        }
-
-        private void Mano5_MouseLeave(object sender, EventArgs e)
-        {
-            this.Mano5.Size = new System.Drawing.Size(48, 96);
-            ClearPictureBoxBorderColor(Mano5);
-        }
-
-        private void Mano9_MouseMove(object sender, MouseEventArgs e)
-        {
             this.Mano9.Size = new System.Drawing.Size(80, 160);
             this.Mano9.BringToFront();
             ChangePictureBoxBorderColor(Mano9, Color.Yellow);
         }
 
-        private void Mano9_MouseLeave(object sender, EventArgs e)
+        private void Mano5_MouseLeave(object sender, EventArgs e)
         {
             this.Mano9.Size = new System.Drawing.Size(48, 96);
             ClearPictureBoxBorderColor(Mano9);
         }
 
-        private void Mano8_MouseMove(object sender, MouseEventArgs e)
+        private void Mano9_MouseMove(object sender, MouseEventArgs e)
         {
             this.Mano8.Size = new System.Drawing.Size(80, 160);
             this.Mano8.BringToFront();
             ChangePictureBoxBorderColor(Mano8, Color.Yellow);
         }
 
-        private void Mano8_MouseLeave(object sender, EventArgs e)
+        private void Mano9_MouseLeave(object sender, EventArgs e)
         {
             this.Mano8.Size = new System.Drawing.Size(48, 96);
             ClearPictureBoxBorderColor(Mano8);
         }
 
-        private void Mano7_MouseLeave(object sender, EventArgs e)
-        {
-            this.Mano7.Size = new System.Drawing.Size(48, 96);
-            ClearPictureBoxBorderColor(Mano7);
-
-        }
-
-        private void Mano7_MouseMove(object sender, MouseEventArgs e)
+        private void Mano8_MouseMove(object sender, MouseEventArgs e)
         {
             this.Mano7.Size = new System.Drawing.Size(80, 160);
             this.Mano7.BringToFront();
             ChangePictureBoxBorderColor(Mano7, Color.Yellow);
         }
 
-        private void Mano6_MouseMove(object sender, MouseEventArgs e)
+        private void Mano8_MouseLeave(object sender, EventArgs e)
+        {
+            this.Mano7.Size = new System.Drawing.Size(48, 96);
+            ClearPictureBoxBorderColor(Mano7);
+        }
+
+        private void Mano7_MouseLeave(object sender, EventArgs e)
+        {
+            this.Mano6.Size = new System.Drawing.Size(48, 96);
+            ClearPictureBoxBorderColor(Mano6);
+
+        }
+
+        private void Mano7_MouseMove(object sender, MouseEventArgs e)
         {
             this.Mano6.Size = new System.Drawing.Size(80, 160);
             this.Mano6.BringToFront();
             ChangePictureBoxBorderColor(Mano6, Color.Yellow);
         }
 
+        private void Mano6_MouseMove(object sender, MouseEventArgs e)
+        {
+            this.Mano5.Size = new System.Drawing.Size(80, 160);
+            this.Mano5.BringToFront();
+            ChangePictureBoxBorderColor(Mano5, Color.Yellow);
+        }
+
         private void Mano6_MouseLeave(object sender, EventArgs e)
         {
-            this.Mano6.Size = new System.Drawing.Size(48, 96);
-            ClearPictureBoxBorderColor(Mano6);
+            this.Mano5.Size = new System.Drawing.Size(48, 96);
+            ClearPictureBoxBorderColor(Mano5);
         }
 
         private void Mano4_MouseMove(object sender, MouseEventArgs e)
@@ -239,6 +247,590 @@ namespace ProyectoSO
         {
             PictureBox pictureBox = (PictureBox)sender;
             ControlPaint.DrawBorder(e.Graphics, pictureBox.ClientRectangle, borderColor, ButtonBorderStyle.Solid);
+        }
+
+        private void M_PictureBox_Click(object sender, EventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            ChangePictureBoxBorderColor(picturebox, Color.Red);
+            if (DameCartaMano(picturebox) != -1)
+                cartaselecc = ManoCartas[DameCartaMano(picturebox)];
+            else
+                MessageBox.Show("Error");
+        }
+
+        private void T_PictureBox_MouseOverCorrect(object sender, EventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            picturebox.BackColor = Color.FromArgb(128, Color.Yellow);
+        }
+        private void T_PictureBox_MouseOverIncorrect(object sender, EventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            picturebox.BackColor = Color.FromArgb(128, Color.Red);
+        }
+
+        private void T_PictureBox_Click(object sender, EventArgs e)
+        {
+            PictureBox picBox = (PictureBox)sender;
+            ManoCartas[DameCartaMano(cartaselecc.picture)].picture.Visible = false;
+            picBox.BackColor = Color.Transparent;
+            picBox.BackgroundImage = ManoCartas[DameCartaMano(cartaselecc.picture)].picture.Image;
+            
+        }
+
+        private int DameCartaMano(PictureBox picturebox)
+        {
+            int i = 0;
+            while (i<numCartas)
+            {
+                if (ManoCartas[i].picture == picturebox)
+                {
+                    return i;
+                }
+                i++;
+            }
+            return -1;
+        }
+
+        private void Art1_Click(object sender, EventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    T_PictureBox_Click(sender, e);
+            }
+        }
+
+        private void Art2_Click(object sender, EventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    T_PictureBox_Click(sender, e);
+            }
+        }
+
+        private void Art3_Click(object sender, EventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    T_PictureBox_Click(sender, e);
+            }
+        }
+
+        private void Art4_Click(object sender, EventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    T_PictureBox_Click(sender, e);
+            }
+        }
+
+        private void Art5_Click(object sender, EventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    T_PictureBox_Click(sender, e);
+            }
+        }
+
+        private void Art6_Click(object sender, EventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    T_PictureBox_Click(sender, e);
+            }
+        }
+
+        private void Art7_Click(object sender, EventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    T_PictureBox_Click(sender, e);
+            }
+        }
+
+        private void Art8_Click(object sender, EventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    T_PictureBox_Click(sender, e);
+            }
+        }
+
+        private void Art9_Click(object sender, EventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    T_PictureBox_Click(sender, e);
+            }
+        }
+
+        private void Ran1_Click(object sender, EventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                    T_PictureBox_Click(sender, e);
+            }
+        }
+
+        private void Ran2_Click(object sender, EventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                    T_PictureBox_Click(sender, e);
+            }
+        }
+
+        private void Ran3_Click(object sender, EventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                    T_PictureBox_Click(sender, e);
+            }
+        }
+
+        private void Ran4_Click(object sender, EventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                    T_PictureBox_Click(sender, e);
+            }
+        }
+
+        private void Ran5_Click(object sender, EventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                    T_PictureBox_Click(sender, e);
+            }
+        }
+
+        private void Ran6_Click(object sender, EventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                    T_PictureBox_Click(sender, e);
+            }
+        }
+
+        private void Ran7_Click(object sender, EventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                    T_PictureBox_Click(sender, e);
+            }
+        }
+
+        private void Ran8_Click(object sender, EventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                    T_PictureBox_Click(sender, e);
+            }
+        }
+
+        private void Ran9_Click(object sender, EventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                    T_PictureBox_Click(sender, e);
+            }
+        }
+
+        private void Mel1_Click(object sender, EventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    T_PictureBox_Click(sender, e);
+            }
+        }
+
+        private void Mel2_Click(object sender, EventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    T_PictureBox_Click(sender, e);
+            }
+        }
+
+        private void Mel3_Click(object sender, EventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    T_PictureBox_Click(sender, e);
+            }
+        }
+
+        private void Mel4_Click(object sender, EventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    T_PictureBox_Click(sender, e);
+            }
+        }
+
+        private void Mel5_Click(object sender, EventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    T_PictureBox_Click(sender, e);
+            }
+        }
+
+        private void Mel6_Click(object sender, EventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    T_PictureBox_Click(sender, e);
+            }
+        }
+
+        private void Mel7_Click(object sender, EventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    T_PictureBox_Click(sender, e);
+            }
+        }
+
+        private void Mel8_Click(object sender, EventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    T_PictureBox_Click(sender, e);
+            }
+        }
+
+        private void Mel9_Click(object sender, EventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    T_PictureBox_Click(sender, e);
+            }
+        }
+
+        private void Art1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                    T_PictureBox_MouseOverCorrect(sender, e);
+                else
+                    T_PictureBox_MouseOverIncorrect(sender, e);
+            }
+        }
+
+        private void Art2_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                    T_PictureBox_MouseOverCorrect(sender, e);
+                else
+                    T_PictureBox_MouseOverIncorrect(sender, e);
+            }
+        }
+
+        private void Art3_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                    T_PictureBox_MouseOverCorrect(sender, e);
+                else
+                    T_PictureBox_MouseOverIncorrect(sender, e);
+            }
+        }
+
+        private void Art4_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                    T_PictureBox_MouseOverCorrect(sender, e);
+                else
+                    T_PictureBox_MouseOverIncorrect(sender, e);
+            }
+        }
+
+        private void Art5_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                    T_PictureBox_MouseOverCorrect(sender, e);
+                else
+                    T_PictureBox_MouseOverIncorrect(sender, e);
+            }
+        }
+
+        private void Art6_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                    T_PictureBox_MouseOverCorrect(sender, e);
+                else
+                    T_PictureBox_MouseOverIncorrect(sender, e);
+            }
+        }
+
+        private void Art7_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                    T_PictureBox_MouseOverCorrect(sender, e);
+                else
+                    T_PictureBox_MouseOverIncorrect(sender, e);
+            }
+        }
+
+        private void Art8_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                    T_PictureBox_MouseOverCorrect(sender, e);
+                else
+                    T_PictureBox_MouseOverIncorrect(sender, e);
+            }
+        }
+
+        private void Art9_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                    T_PictureBox_MouseOverCorrect(sender, e);
+                else
+                    T_PictureBox_MouseOverIncorrect(sender, e);
+            }
+        }
+
+        private void Ran1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                    T_PictureBox_MouseOverCorrect(sender, e);
+                else
+                    T_PictureBox_MouseOverIncorrect(sender, e);
+            }
+        }
+
+        private void Ran2_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                    T_PictureBox_MouseOverCorrect(sender, e);
+                else
+                    T_PictureBox_MouseOverIncorrect(sender, e);
+            }
+        }
+
+        private void Ran3_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                    T_PictureBox_MouseOverCorrect(sender, e);
+                else
+                    T_PictureBox_MouseOverIncorrect(sender, e);
+            }
+        }
+
+        private void Ran4_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                    T_PictureBox_MouseOverCorrect(sender, e);
+                else
+                    T_PictureBox_MouseOverIncorrect(sender, e);
+            }
+        }
+
+        private void Ran5_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                    T_PictureBox_MouseOverCorrect(sender, e);
+                else
+                    T_PictureBox_MouseOverIncorrect(sender, e);
+            }
+        }
+
+        private void Ran6_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                    T_PictureBox_MouseOverCorrect(sender, e);
+                else
+                    T_PictureBox_MouseOverIncorrect(sender, e);
+            }
+        }
+
+        private void Ran7_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                    T_PictureBox_MouseOverCorrect(sender, e);
+                else
+                    T_PictureBox_MouseOverIncorrect(sender, e);
+            }
+        }
+
+        private void Ran8_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                    T_PictureBox_MouseOverCorrect(sender, e);
+                else
+                    T_PictureBox_MouseOverIncorrect(sender, e);
+            }
+        }
+
+        private void Ran9_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                    T_PictureBox_MouseOverCorrect(sender, e);
+                else
+                    T_PictureBox_MouseOverIncorrect(sender, e);
+            }
+        }
+
+        private void Mel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    T_PictureBox_MouseOverCorrect(sender, e);
+                else
+                    T_PictureBox_MouseOverIncorrect(sender, e);
+            }
+        }
+
+        private void Mel2_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    T_PictureBox_MouseOverCorrect(sender, e);
+                else
+                    T_PictureBox_MouseOverIncorrect(sender, e);
+            }
+        }
+
+        private void Mel3_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    T_PictureBox_MouseOverCorrect(sender, e);
+                else
+                    T_PictureBox_MouseOverIncorrect(sender, e);
+            }
+        }
+
+        private void Mel4_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    T_PictureBox_MouseOverCorrect(sender, e);
+                else
+                    T_PictureBox_MouseOverIncorrect(sender, e);
+            }
+        }
+
+        private void Mel5_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    T_PictureBox_MouseOverCorrect(sender, e);
+                else
+                    T_PictureBox_MouseOverIncorrect(sender, e);
+            }
+        }
+
+        private void Mel6_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    T_PictureBox_MouseOverCorrect(sender, e);
+                else
+                    T_PictureBox_MouseOverIncorrect(sender, e);
+            }
+        }
+
+        private void Mel7_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    T_PictureBox_MouseOverCorrect(sender, e);
+                else
+                    T_PictureBox_MouseOverIncorrect(sender, e);
+            }
+        }
+
+        private void Mel8_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    T_PictureBox_MouseOverCorrect(sender, e);
+                else
+                    T_PictureBox_MouseOverIncorrect(sender, e);
+            }
+        }
+
+        private void Mel9_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (cartaselecc != null)
+            {
+                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    T_PictureBox_MouseOverCorrect(sender, e);
+                else
+                    T_PictureBox_MouseOverIncorrect(sender, e);
+            }
         }
     }
 }
