@@ -429,44 +429,42 @@ void GenerarListaCartas (MYSQL *conn, ListaCartas *listaCartas){
 	//Generar lista de todas cartas al iniciar servidor en el main
 
 	int err;
-		MYSQL_RES * resultado;
-		MYSQL_ROW * row;
-		char consulta[buffer];
-		strcpy(consulta, "SELECT ID,Nombre,Fuerza,Posicion FROM Cartas");
+	MYSQL_RES * resultado;
+	MYSQL_ROW * row;
+	char consulta[buffer];
+	strcpy(consulta, "SELECT ID,Nombre,Fuerza,Posicion FROM Cartas");
 
-		err=mysql_query (conn, consulta);
-		if (err!=0) {
-			printf ("Error al consultar datos de la base %u %s\n",
-					mysql_errno(conn), mysql_error(conn));
-			return -1;
-		}
+	err=mysql_query (conn, consulta);
+	if (err!=0) {
+		printf ("Error al consultar datos de la base %u %s\n",
+				mysql_errno(conn), mysql_error(conn));
+		return -1;
+	}
 
-		resultado = mysql_store_result (conn);
+	resultado = mysql_store_result (conn);
+	row = mysql_fetch_row(resultado);
+	int num = 0;
+	pthread_mutex_lock(&mutex);
+	while (row != NULL)
+	{
+		listaCartas->cartas[num].id =  atoi(row[0]);
+		//printf("%s\n",listaCartas->cartas[num].id);
+		strcpy(listaCartas->cartas[num].nombre, row[1]);
+		//printf("%s\n",listaCartas->cartas[num].nombre);
+		listaCartas->cartas[num].fuerza = atoi(row[2]);
+		//printf("%s\n",listaCartas->cartas[num].fuerza);
+		listaCartas->cartas[num].tipo = atoi(row[3]);
+		//printf("%s\n\n",listaCartas->cartas[num].tipo);
+		num++;
+		listaCartas->num++;
 		row = mysql_fetch_row(resultado);
-		int num = 0;
-		pthread_mutex_lock(&mutex);
-		while (row != NULL)
-		{
-			listaCartas->cartas[num].id =  row[0];
-			//printf("%s\n",listaCartas->cartas[num].id);
-			strcpy(listaCartas->cartas[num].nombre, row[1]);
-			//printf("%s\n",listaCartas->cartas[num].nombre);
-			listaCartas->cartas[num].fuerza = row[2];
-			//printf("%s\n",listaCartas->cartas[num].fuerza);
-			listaCartas->cartas[num].tipo = row[3];
-			//printf("%s\n\n",listaCartas->cartas[num].tipo);
-			//listaCartas->Cartas[num].repetible = row[4];
-			// printf("%s\n",lilistaCartassta->usuarios[num].Nombre);
-			num++;
-			listaCartas->num++;
-			row = mysql_fetch_row(resultado);
-		}
-		pthread_mutex_unlock(&mutex);
+	}
+	pthread_mutex_unlock(&mutex);
 	
 }
 
 
-void DarCarta (ListaCartas *CARTAS, int ID, Carta *carta, int fuerza, int tipo)
+void DarCarta (ListaCartas *CARTAS, int ID, Carta *carta)
 { 
 	//meter en carta su informacion en funcion de ID
 	for (int i = 0 ; i<CARTAS->num; i++)
@@ -479,13 +477,9 @@ void DarCarta (ListaCartas *CARTAS, int ID, Carta *carta, int fuerza, int tipo)
 			strcpy(carta->nombre, CARTAS->cartas[i].nombre);
 			carta->fuerza =  CARTAS->cartas[i].fuerza;
 			carta->tipo =  CARTAS->cartas[i].tipo;
-			fuerza = CARTAS->cartas[i].fuerza;
-			tipo = CARTAS->cartas[i].tipo;
-			printf("La fuerza es %d y el tipo es %d \n",fuerza, tipo);
-			//carta.repetible = Cartas->Cartas[i].repetible;
+			printf("La fuerza es %d y el tipo es %d \n",carta->fuerza, carta->tipo);
 		}
 	}
-
 }
 
 
@@ -508,8 +502,7 @@ void DarMano(char *respuesta, ListaCartas *cartas, int numMano){
 	strcpy(respuesta, "8");
 	sprintf(respuesta, "%s/%d" , respuesta, numMano);
 	int num = cartas->num;
-	srand(time(NULL));
-    //printf (" Rand de 0 a 29 \n");  
+	srand(time(NULL)); 
     while (i<numMano)  
     {  
 
@@ -518,8 +511,8 @@ void DarMano(char *respuesta, ListaCartas *cartas, int numMano){
 		{
 			if (enc0 == 0)
 			{
-				DarCarta(cartas, num_ID, &carta, fuerza, tipo);
-				sprintf(respuesta, "%s/%d/%d/%d",respuesta,num_ID,fuerza,tipo);   //Formato final: 8/numCartas/ID1/Fuerza1/Tipo1/ID2/Fuerza2/...
+				DarCarta(cartas, num_ID, &carta);
+				sprintf(respuesta, "%s/%d/%d/%d",respuesta,carta.id,carta.fuerza,carta.tipo);   //Formato final: 8/numCartas/ID1/Fuerza1/Tipo1/ID2/Fuerza2/...
 				enc0 = 1;
 				i++;
 			}
@@ -528,57 +521,49 @@ void DarMano(char *respuesta, ListaCartas *cartas, int numMano){
 		{
 			if (enc4 == 0)
 			{
-				DarCarta(cartas, num_ID, &carta, fuerza, tipo);
-				sprintf(respuesta, "%s/%d/%d/%d",respuesta,num_ID,fuerza,tipo); 
+				DarCarta(cartas, num_ID, &carta);
+				sprintf(respuesta, "%s/%d/%d/%d",respuesta,carta.id,carta.fuerza,carta.tipo); 
 				enc4 = 1;
 				i++;
 			}
 		}
-		else if (num_ID == 9) 
+		else if (num_ID == 9 && enc9 == 0) 
 		{
 			
 			if (enc9 == 0)
 			{
-				DarCarta(cartas, num_ID, &carta, fuerza, tipo);
-				sprintf(respuesta, "%s/%d/%d/%d",respuesta,num_ID,fuerza,tipo); 
+				DarCarta(cartas, num_ID, &carta);
+				sprintf(respuesta, "%s/%d/%d/%d",respuesta,carta.id,carta.fuerza,carta.tipo); 
 				enc9 = 1;
 				i++;
 			}
 		}
-		
-		
-		
-		else if (num_ID == 28) 
+		else if (num_ID == 28 && enc28 == 0) 
 		{
 			
 				if (enc28 == 0)
 				{
-				DarCarta(cartas, num_ID, &carta, fuerza, tipo);
-				sprintf(respuesta, "%s/%d/%d/%d",respuesta,num_ID,fuerza,tipo); 
+				DarCarta(cartas, num_ID, &carta);
+				sprintf(respuesta, "%s/%d/%d/%d",respuesta,carta.id,carta.fuerza,carta.tipo); 
 				enc28 = 1;
 				i++;
 				}
 			
 			
 		}
-
 		else
 		{
-			DarCarta(cartas, num_ID, &carta, fuerza, tipo);
-			sprintf(respuesta, "%s/%d/%d/%d",respuesta,num_ID,fuerza,tipo); 
+			DarCarta(cartas, num_ID, &carta);
+			sprintf(respuesta, "%s/%d/%d/%d",respuesta,carta.id,carta.fuerza,carta.tipo); 
 			i++;
 		}
-
-		//sprintf(respuesta, "%s/", respuesta); //cerrar mensaje
 		printf("Mano: %s\n",respuesta);
 
 	}
 
 }
 
-int CancelarPartida(int id_partida, ListaPartidas *Partidas){
 
-}
 void *AtenderCliente(void *socket){
 	// Iniciamos el socket dentro del thread
 	int sock_conn;
@@ -759,6 +744,7 @@ void *AtenderCliente(void *socket){
 				}
 				break;
 			}
+			// Chat, reenvia mensaje xd
 			case 6:{
 				p = strtok(NULL, "/");
 				int id_partida = atoi(p);
@@ -776,7 +762,8 @@ void *AtenderCliente(void *socket){
 					respuesta, strlen(respuesta));
 				break;
 			}
-				case 7:{ //Inicio de partida, desde lobby
+			//Pedir cartas, desde lobby
+			case 7:{ 
 
 				char mazo[MaxBuffer];
 				p = strtok(NULL, "/");
@@ -912,7 +899,7 @@ int main(int argc, char *argv[]){
 	GenerarListaCartas(conn, &Cartas);
 	mysql_close(conn);
 	// Cerramos conexion mysql para ahorrar recursos
-	
+
 	// Generamos las variables necesarias para la utilizacion de threads para cada cliente
 	pthread_t thread;
 	// Atenderemos a infinitas peticiones
