@@ -46,6 +46,7 @@ namespace ProyectoSO
                 string clean_ms = Encoding.ASCII.GetString(msg2).Split('\0')[0];
                 string[] trozos = clean_ms.Split(new[] {'/'}, 2);
 
+                
                 int codigo = Convert.ToInt32(trozos[0]);
                 string mensaje = trozos[1];
 

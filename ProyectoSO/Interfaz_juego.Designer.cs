@@ -71,6 +71,33 @@
             this.Mel7 = new System.Windows.Forms.PictureBox();
             this.Mel8 = new System.Windows.Forms.PictureBox();
             this.Mel9 = new System.Windows.Forms.PictureBox();
+            this.Mel1_M = new System.Windows.Forms.PictureBox();
+            this.Mel2_M = new System.Windows.Forms.PictureBox();
+            this.Mel3_M = new System.Windows.Forms.PictureBox();
+            this.Mel4_M = new System.Windows.Forms.PictureBox();
+            this.Mel5_M = new System.Windows.Forms.PictureBox();
+            this.Mel6_M = new System.Windows.Forms.PictureBox();
+            this.Mel7_M = new System.Windows.Forms.PictureBox();
+            this.Mel8_M = new System.Windows.Forms.PictureBox();
+            this.Mel9_M = new System.Windows.Forms.PictureBox();
+            this.Ran1_M = new System.Windows.Forms.PictureBox();
+            this.Ran2_M = new System.Windows.Forms.PictureBox();
+            this.Ran3_M = new System.Windows.Forms.PictureBox();
+            this.Ran4_M = new System.Windows.Forms.PictureBox();
+            this.Ran5_M = new System.Windows.Forms.PictureBox();
+            this.Ran6_M = new System.Windows.Forms.PictureBox();
+            this.Ran7_M = new System.Windows.Forms.PictureBox();
+            this.Ran8_M = new System.Windows.Forms.PictureBox();
+            this.Ran9_M = new System.Windows.Forms.PictureBox();
+            this.Art1_M = new System.Windows.Forms.PictureBox();
+            this.Art2_M = new System.Windows.Forms.PictureBox();
+            this.Art3_M = new System.Windows.Forms.PictureBox();
+            this.Art4_M = new System.Windows.Forms.PictureBox();
+            this.Art5_M = new System.Windows.Forms.PictureBox();
+            this.Art6_M = new System.Windows.Forms.PictureBox();
+            this.Art7_M = new System.Windows.Forms.PictureBox();
+            this.Art8_M = new System.Windows.Forms.PictureBox();
+            this.Art9_M = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Mano1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Mano2)).BeginInit();
@@ -109,6 +136,33 @@
             ((System.ComponentModel.ISupportInitialize)(this.Mel7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Mel8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Mel9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mel1_M)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mel2_M)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mel3_M)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mel4_M)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mel5_M)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mel6_M)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mel7_M)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mel8_M)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mel9_M)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ran1_M)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ran2_M)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ran3_M)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ran4_M)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ran5_M)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ran6_M)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ran7_M)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ran8_M)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ran9_M)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Art1_M)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Art2_M)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Art3_M)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Art4_M)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Art5_M)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Art6_M)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Art7_M)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Art8_M)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Art9_M)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -656,6 +710,357 @@
             this.Mel9.Click += new System.EventHandler(this.Mel9_Click);
             this.Mel9.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel9_MouseMove);
             // 
+            // Mel1_M
+            // 
+            this.Mel1_M.BackColor = System.Drawing.Color.White;
+            this.Mel1_M.Location = new System.Drawing.Point(825, 487);
+            this.Mel1_M.Margin = new System.Windows.Forms.Padding(2);
+            this.Mel1_M.Name = "Mel1_M";
+            this.Mel1_M.Size = new System.Drawing.Size(75, 150);
+            this.Mel1_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Mel1_M.TabIndex = 6;
+            this.Mel1_M.TabStop = false;
+            this.Mel1_M.Click += new System.EventHandler(this.Art1_Click);
+            this.Mel1_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art1_MouseMove);
+            // 
+            // Mel2_M
+            // 
+            this.Mel2_M.BackColor = System.Drawing.Color.White;
+            this.Mel2_M.Location = new System.Drawing.Point(993, 487);
+            this.Mel2_M.Margin = new System.Windows.Forms.Padding(2);
+            this.Mel2_M.Name = "Mel2_M";
+            this.Mel2_M.Size = new System.Drawing.Size(75, 150);
+            this.Mel2_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Mel2_M.TabIndex = 7;
+            this.Mel2_M.TabStop = false;
+            this.Mel2_M.Click += new System.EventHandler(this.Art2_Click);
+            this.Mel2_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art2_MouseMove);
+            // 
+            // Mel3_M
+            // 
+            this.Mel3_M.BackColor = System.Drawing.Color.White;
+            this.Mel3_M.Location = new System.Drawing.Point(1139, 487);
+            this.Mel3_M.Margin = new System.Windows.Forms.Padding(2);
+            this.Mel3_M.Name = "Mel3_M";
+            this.Mel3_M.Size = new System.Drawing.Size(75, 150);
+            this.Mel3_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Mel3_M.TabIndex = 8;
+            this.Mel3_M.TabStop = false;
+            this.Mel3_M.Click += new System.EventHandler(this.Art3_Click);
+            this.Mel3_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art3_MouseMove);
+            // 
+            // Mel4_M
+            // 
+            this.Mel4_M.BackColor = System.Drawing.Color.White;
+            this.Mel4_M.Location = new System.Drawing.Point(1306, 487);
+            this.Mel4_M.Margin = new System.Windows.Forms.Padding(2);
+            this.Mel4_M.Name = "Mel4_M";
+            this.Mel4_M.Size = new System.Drawing.Size(75, 150);
+            this.Mel4_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Mel4_M.TabIndex = 9;
+            this.Mel4_M.TabStop = false;
+            this.Mel4_M.Click += new System.EventHandler(this.Art4_Click);
+            this.Mel4_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art4_MouseMove);
+            // 
+            // Mel5_M
+            // 
+            this.Mel5_M.BackColor = System.Drawing.Color.White;
+            this.Mel5_M.Location = new System.Drawing.Point(1502, 487);
+            this.Mel5_M.Margin = new System.Windows.Forms.Padding(2);
+            this.Mel5_M.Name = "Mel5_M";
+            this.Mel5_M.Size = new System.Drawing.Size(75, 150);
+            this.Mel5_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Mel5_M.TabIndex = 10;
+            this.Mel5_M.TabStop = false;
+            this.Mel5_M.Click += new System.EventHandler(this.Art5_Click);
+            this.Mel5_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art5_MouseMove);
+            // 
+            // Mel6_M
+            // 
+            this.Mel6_M.BackColor = System.Drawing.Color.White;
+            this.Mel6_M.Location = new System.Drawing.Point(1667, 487);
+            this.Mel6_M.Margin = new System.Windows.Forms.Padding(2);
+            this.Mel6_M.Name = "Mel6_M";
+            this.Mel6_M.Size = new System.Drawing.Size(75, 150);
+            this.Mel6_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Mel6_M.TabIndex = 11;
+            this.Mel6_M.TabStop = false;
+            this.Mel6_M.Click += new System.EventHandler(this.Art6_Click);
+            this.Mel6_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art6_MouseMove);
+            // 
+            // Mel7_M
+            // 
+            this.Mel7_M.BackColor = System.Drawing.Color.White;
+            this.Mel7_M.Location = new System.Drawing.Point(1835, 487);
+            this.Mel7_M.Margin = new System.Windows.Forms.Padding(2);
+            this.Mel7_M.Name = "Mel7_M";
+            this.Mel7_M.Size = new System.Drawing.Size(75, 150);
+            this.Mel7_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Mel7_M.TabIndex = 12;
+            this.Mel7_M.TabStop = false;
+            this.Mel7_M.Click += new System.EventHandler(this.Art7_Click);
+            this.Mel7_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art7_MouseMove);
+            // 
+            // Mel8_M
+            // 
+            this.Mel8_M.BackColor = System.Drawing.Color.White;
+            this.Mel8_M.Location = new System.Drawing.Point(2020, 487);
+            this.Mel8_M.Margin = new System.Windows.Forms.Padding(2);
+            this.Mel8_M.Name = "Mel8_M";
+            this.Mel8_M.Size = new System.Drawing.Size(75, 150);
+            this.Mel8_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Mel8_M.TabIndex = 13;
+            this.Mel8_M.TabStop = false;
+            this.Mel8_M.Click += new System.EventHandler(this.Art8_Click);
+            this.Mel8_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art8_MouseMove);
+            // 
+            // Mel9_M
+            // 
+            this.Mel9_M.BackColor = System.Drawing.Color.White;
+            this.Mel9_M.Location = new System.Drawing.Point(2206, 487);
+            this.Mel9_M.Margin = new System.Windows.Forms.Padding(2);
+            this.Mel9_M.Name = "Mel9_M";
+            this.Mel9_M.Size = new System.Drawing.Size(75, 150);
+            this.Mel9_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Mel9_M.TabIndex = 14;
+            this.Mel9_M.TabStop = false;
+            this.Mel9_M.Click += new System.EventHandler(this.Art9_Click);
+            this.Mel9_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art9_MouseMove);
+            // 
+            // Ran1_M
+            // 
+            this.Ran1_M.BackColor = System.Drawing.Color.White;
+            this.Ran1_M.Location = new System.Drawing.Point(825, 292);
+            this.Ran1_M.Margin = new System.Windows.Forms.Padding(2);
+            this.Ran1_M.Name = "Ran1_M";
+            this.Ran1_M.Size = new System.Drawing.Size(75, 150);
+            this.Ran1_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Ran1_M.TabIndex = 15;
+            this.Ran1_M.TabStop = false;
+            this.Ran1_M.Click += new System.EventHandler(this.Ran1_Click);
+            this.Ran1_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran1_MouseMove);
+            // 
+            // Ran2_M
+            // 
+            this.Ran2_M.BackColor = System.Drawing.Color.White;
+            this.Ran2_M.Location = new System.Drawing.Point(993, 292);
+            this.Ran2_M.Margin = new System.Windows.Forms.Padding(2);
+            this.Ran2_M.Name = "Ran2_M";
+            this.Ran2_M.Size = new System.Drawing.Size(75, 150);
+            this.Ran2_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Ran2_M.TabIndex = 16;
+            this.Ran2_M.TabStop = false;
+            this.Ran2_M.Click += new System.EventHandler(this.Ran2_Click);
+            this.Ran2_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran2_MouseMove);
+            // 
+            // Ran3_M
+            // 
+            this.Ran3_M.BackColor = System.Drawing.Color.White;
+            this.Ran3_M.Location = new System.Drawing.Point(1139, 292);
+            this.Ran3_M.Margin = new System.Windows.Forms.Padding(2);
+            this.Ran3_M.Name = "Ran3_M";
+            this.Ran3_M.Size = new System.Drawing.Size(75, 150);
+            this.Ran3_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Ran3_M.TabIndex = 17;
+            this.Ran3_M.TabStop = false;
+            this.Ran3_M.Click += new System.EventHandler(this.Ran3_Click);
+            this.Ran3_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran3_MouseMove);
+            // 
+            // Ran4_M
+            // 
+            this.Ran4_M.BackColor = System.Drawing.Color.White;
+            this.Ran4_M.Location = new System.Drawing.Point(1306, 292);
+            this.Ran4_M.Margin = new System.Windows.Forms.Padding(2);
+            this.Ran4_M.Name = "Ran4_M";
+            this.Ran4_M.Size = new System.Drawing.Size(75, 150);
+            this.Ran4_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Ran4_M.TabIndex = 18;
+            this.Ran4_M.TabStop = false;
+            this.Ran4_M.Click += new System.EventHandler(this.Ran4_Click);
+            this.Ran4_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran4_MouseMove);
+            // 
+            // Ran5_M
+            // 
+            this.Ran5_M.BackColor = System.Drawing.Color.White;
+            this.Ran5_M.Location = new System.Drawing.Point(1502, 292);
+            this.Ran5_M.Margin = new System.Windows.Forms.Padding(2);
+            this.Ran5_M.Name = "Ran5_M";
+            this.Ran5_M.Size = new System.Drawing.Size(75, 150);
+            this.Ran5_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Ran5_M.TabIndex = 19;
+            this.Ran5_M.TabStop = false;
+            this.Ran5_M.Click += new System.EventHandler(this.Ran5_Click);
+            this.Ran5_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran5_MouseMove);
+            // 
+            // Ran6_M
+            // 
+            this.Ran6_M.BackColor = System.Drawing.Color.White;
+            this.Ran6_M.Location = new System.Drawing.Point(1667, 292);
+            this.Ran6_M.Margin = new System.Windows.Forms.Padding(2);
+            this.Ran6_M.Name = "Ran6_M";
+            this.Ran6_M.Size = new System.Drawing.Size(75, 150);
+            this.Ran6_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Ran6_M.TabIndex = 20;
+            this.Ran6_M.TabStop = false;
+            this.Ran6_M.Click += new System.EventHandler(this.Ran6_Click);
+            this.Ran6_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran6_MouseMove);
+            // 
+            // Ran7_M
+            // 
+            this.Ran7_M.BackColor = System.Drawing.Color.White;
+            this.Ran7_M.Location = new System.Drawing.Point(1835, 292);
+            this.Ran7_M.Margin = new System.Windows.Forms.Padding(2);
+            this.Ran7_M.Name = "Ran7_M";
+            this.Ran7_M.Size = new System.Drawing.Size(75, 150);
+            this.Ran7_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Ran7_M.TabIndex = 21;
+            this.Ran7_M.TabStop = false;
+            this.Ran7_M.Click += new System.EventHandler(this.Ran7_Click);
+            this.Ran7_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran7_MouseMove);
+            // 
+            // Ran8_M
+            // 
+            this.Ran8_M.BackColor = System.Drawing.Color.White;
+            this.Ran8_M.Location = new System.Drawing.Point(2020, 292);
+            this.Ran8_M.Margin = new System.Windows.Forms.Padding(2);
+            this.Ran8_M.Name = "Ran8_M";
+            this.Ran8_M.Size = new System.Drawing.Size(75, 150);
+            this.Ran8_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Ran8_M.TabIndex = 22;
+            this.Ran8_M.TabStop = false;
+            this.Ran8_M.Click += new System.EventHandler(this.Ran8_Click);
+            this.Ran8_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran8_MouseMove);
+            // 
+            // Ran9_M
+            // 
+            this.Ran9_M.BackColor = System.Drawing.Color.White;
+            this.Ran9_M.Location = new System.Drawing.Point(2206, 292);
+            this.Ran9_M.Margin = new System.Windows.Forms.Padding(2);
+            this.Ran9_M.Name = "Ran9_M";
+            this.Ran9_M.Size = new System.Drawing.Size(75, 150);
+            this.Ran9_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Ran9_M.TabIndex = 23;
+            this.Ran9_M.TabStop = false;
+            this.Ran9_M.Click += new System.EventHandler(this.Ran9_Click);
+            this.Ran9_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran9_MouseMove);
+            // 
+            // Art1_M
+            // 
+            this.Art1_M.BackColor = System.Drawing.Color.White;
+            this.Art1_M.Location = new System.Drawing.Point(825, 103);
+            this.Art1_M.Margin = new System.Windows.Forms.Padding(2);
+            this.Art1_M.Name = "Art1_M";
+            this.Art1_M.Size = new System.Drawing.Size(75, 150);
+            this.Art1_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Art1_M.TabIndex = 24;
+            this.Art1_M.TabStop = false;
+            this.Art1_M.Click += new System.EventHandler(this.Mel1_Click);
+            this.Art1_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel1_MouseMove);
+            // 
+            // Art2_M
+            // 
+            this.Art2_M.BackColor = System.Drawing.Color.White;
+            this.Art2_M.Location = new System.Drawing.Point(993, 103);
+            this.Art2_M.Margin = new System.Windows.Forms.Padding(2);
+            this.Art2_M.Name = "Art2_M";
+            this.Art2_M.Size = new System.Drawing.Size(75, 150);
+            this.Art2_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Art2_M.TabIndex = 25;
+            this.Art2_M.TabStop = false;
+            this.Art2_M.Click += new System.EventHandler(this.Mel2_Click);
+            this.Art2_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel2_MouseMove);
+            // 
+            // Art3_M
+            // 
+            this.Art3_M.BackColor = System.Drawing.Color.White;
+            this.Art3_M.Location = new System.Drawing.Point(1139, 103);
+            this.Art3_M.Margin = new System.Windows.Forms.Padding(2);
+            this.Art3_M.Name = "Art3_M";
+            this.Art3_M.Size = new System.Drawing.Size(75, 150);
+            this.Art3_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Art3_M.TabIndex = 26;
+            this.Art3_M.TabStop = false;
+            this.Art3_M.Click += new System.EventHandler(this.Mel3_Click);
+            this.Art3_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel3_MouseMove);
+            // 
+            // Art4_M
+            // 
+            this.Art4_M.BackColor = System.Drawing.Color.White;
+            this.Art4_M.Location = new System.Drawing.Point(1306, 103);
+            this.Art4_M.Margin = new System.Windows.Forms.Padding(2);
+            this.Art4_M.Name = "Art4_M";
+            this.Art4_M.Size = new System.Drawing.Size(75, 150);
+            this.Art4_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Art4_M.TabIndex = 27;
+            this.Art4_M.TabStop = false;
+            this.Art4_M.Click += new System.EventHandler(this.Mel4_Click);
+            this.Art4_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel4_MouseMove);
+            // 
+            // Art5_M
+            // 
+            this.Art5_M.BackColor = System.Drawing.Color.White;
+            this.Art5_M.Location = new System.Drawing.Point(1502, 103);
+            this.Art5_M.Margin = new System.Windows.Forms.Padding(2);
+            this.Art5_M.Name = "Art5_M";
+            this.Art5_M.Size = new System.Drawing.Size(75, 150);
+            this.Art5_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Art5_M.TabIndex = 28;
+            this.Art5_M.TabStop = false;
+            this.Art5_M.Click += new System.EventHandler(this.Mel5_Click);
+            this.Art5_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel5_MouseMove);
+            // 
+            // Art6_M
+            // 
+            this.Art6_M.BackColor = System.Drawing.Color.White;
+            this.Art6_M.Location = new System.Drawing.Point(1667, 103);
+            this.Art6_M.Margin = new System.Windows.Forms.Padding(2);
+            this.Art6_M.Name = "Art6_M";
+            this.Art6_M.Size = new System.Drawing.Size(75, 150);
+            this.Art6_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Art6_M.TabIndex = 29;
+            this.Art6_M.TabStop = false;
+            this.Art6_M.Click += new System.EventHandler(this.Mel6_Click);
+            this.Art6_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel6_MouseMove);
+            // 
+            // Art7_M
+            // 
+            this.Art7_M.BackColor = System.Drawing.Color.White;
+            this.Art7_M.Location = new System.Drawing.Point(1835, 103);
+            this.Art7_M.Margin = new System.Windows.Forms.Padding(2);
+            this.Art7_M.Name = "Art7_M";
+            this.Art7_M.Size = new System.Drawing.Size(75, 150);
+            this.Art7_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Art7_M.TabIndex = 30;
+            this.Art7_M.TabStop = false;
+            this.Art7_M.Click += new System.EventHandler(this.Mel7_Click);
+            this.Art7_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel7_MouseMove);
+            // 
+            // Art8_M
+            // 
+            this.Art8_M.BackColor = System.Drawing.Color.White;
+            this.Art8_M.Location = new System.Drawing.Point(2020, 103);
+            this.Art8_M.Margin = new System.Windows.Forms.Padding(2);
+            this.Art8_M.Name = "Art8_M";
+            this.Art8_M.Size = new System.Drawing.Size(75, 150);
+            this.Art8_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Art8_M.TabIndex = 31;
+            this.Art8_M.TabStop = false;
+            this.Art8_M.Click += new System.EventHandler(this.Mel8_Click);
+            this.Art8_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel8_MouseMove);
+            // 
+            // Art9_M
+            // 
+            this.Art9_M.BackColor = System.Drawing.Color.White;
+            this.Art9_M.Location = new System.Drawing.Point(2206, 103);
+            this.Art9_M.Margin = new System.Windows.Forms.Padding(2);
+            this.Art9_M.Name = "Art9_M";
+            this.Art9_M.Size = new System.Drawing.Size(75, 150);
+            this.Art9_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Art9_M.TabIndex = 32;
+            this.Art9_M.TabStop = false;
+            this.Art9_M.Click += new System.EventHandler(this.Mel9_Click);
+            this.Art9_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel9_MouseMove);
+            // 
             // Interfaz_juego
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -664,31 +1069,58 @@
             this.BackgroundImage = global::ProyectoSO.Properties.Resources.fondo_gwent;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(2428, 1378);
+            this.Controls.Add(this.Art9_M);
             this.Controls.Add(this.Mel9);
+            this.Controls.Add(this.Art8_M);
             this.Controls.Add(this.Mel8);
+            this.Controls.Add(this.Art7_M);
+            this.Controls.Add(this.Art6_M);
             this.Controls.Add(this.Mel7);
+            this.Controls.Add(this.Art5_M);
             this.Controls.Add(this.Mel6);
+            this.Controls.Add(this.Art4_M);
             this.Controls.Add(this.Mel5);
+            this.Controls.Add(this.Art3_M);
             this.Controls.Add(this.Mel4);
+            this.Controls.Add(this.Art2_M);
             this.Controls.Add(this.Mel3);
+            this.Controls.Add(this.Art1_M);
             this.Controls.Add(this.Mel2);
+            this.Controls.Add(this.Ran9_M);
             this.Controls.Add(this.Mel1);
+            this.Controls.Add(this.Ran8_M);
             this.Controls.Add(this.Ran9);
+            this.Controls.Add(this.Ran7_M);
             this.Controls.Add(this.Ran8);
+            this.Controls.Add(this.Ran6_M);
             this.Controls.Add(this.Ran7);
+            this.Controls.Add(this.Ran5_M);
             this.Controls.Add(this.Ran6);
+            this.Controls.Add(this.Ran4_M);
             this.Controls.Add(this.Ran5);
+            this.Controls.Add(this.Ran3_M);
             this.Controls.Add(this.Ran4);
+            this.Controls.Add(this.Ran2_M);
             this.Controls.Add(this.Ran3);
+            this.Controls.Add(this.Ran1_M);
             this.Controls.Add(this.Ran2);
+            this.Controls.Add(this.Mel9_M);
             this.Controls.Add(this.Ran1);
+            this.Controls.Add(this.Mel8_M);
             this.Controls.Add(this.Art9);
+            this.Controls.Add(this.Mel7_M);
             this.Controls.Add(this.Art8);
+            this.Controls.Add(this.Mel6_M);
             this.Controls.Add(this.Art7);
+            this.Controls.Add(this.Mel5_M);
             this.Controls.Add(this.Art6);
+            this.Controls.Add(this.Mel4_M);
             this.Controls.Add(this.Art5);
+            this.Controls.Add(this.Mel3_M);
             this.Controls.Add(this.Art4);
+            this.Controls.Add(this.Mel2_M);
             this.Controls.Add(this.Art3);
+            this.Controls.Add(this.Mel1_M);
             this.Controls.Add(this.Art2);
             this.Controls.Add(this.Art1);
             this.Controls.Add(this.PedirMazo_btn);
@@ -749,6 +1181,33 @@
             ((System.ComponentModel.ISupportInitialize)(this.Mel7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Mel8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Mel9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mel1_M)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mel2_M)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mel3_M)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mel4_M)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mel5_M)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mel6_M)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mel7_M)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mel8_M)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Mel9_M)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ran1_M)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ran2_M)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ran3_M)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ran4_M)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ran5_M)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ran6_M)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ran7_M)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ran8_M)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ran9_M)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Art1_M)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Art2_M)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Art3_M)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Art4_M)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Art5_M)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Art6_M)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Art7_M)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Art8_M)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Art9_M)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -797,5 +1256,32 @@
         private System.Windows.Forms.PictureBox Mel7;
         private System.Windows.Forms.PictureBox Mel8;
         private System.Windows.Forms.PictureBox Mel9;
+        private System.Windows.Forms.PictureBox Mel1_M;
+        private System.Windows.Forms.PictureBox Mel2_M;
+        private System.Windows.Forms.PictureBox Mel3_M;
+        private System.Windows.Forms.PictureBox Mel4_M;
+        private System.Windows.Forms.PictureBox Mel5_M;
+        private System.Windows.Forms.PictureBox Mel6_M;
+        private System.Windows.Forms.PictureBox Mel7_M;
+        private System.Windows.Forms.PictureBox Mel8_M;
+        private System.Windows.Forms.PictureBox Mel9_M;
+        private System.Windows.Forms.PictureBox Ran1_M;
+        private System.Windows.Forms.PictureBox Ran2_M;
+        private System.Windows.Forms.PictureBox Ran3_M;
+        private System.Windows.Forms.PictureBox Ran4_M;
+        private System.Windows.Forms.PictureBox Ran5_M;
+        private System.Windows.Forms.PictureBox Ran6_M;
+        private System.Windows.Forms.PictureBox Ran7_M;
+        private System.Windows.Forms.PictureBox Ran8_M;
+        private System.Windows.Forms.PictureBox Ran9_M;
+        private System.Windows.Forms.PictureBox Art1_M;
+        private System.Windows.Forms.PictureBox Art2_M;
+        private System.Windows.Forms.PictureBox Art3_M;
+        private System.Windows.Forms.PictureBox Art4_M;
+        private System.Windows.Forms.PictureBox Art5_M;
+        private System.Windows.Forms.PictureBox Art6_M;
+        private System.Windows.Forms.PictureBox Art7_M;
+        private System.Windows.Forms.PictureBox Art8_M;
+        private System.Windows.Forms.PictureBox Art9_M;
     }
 }

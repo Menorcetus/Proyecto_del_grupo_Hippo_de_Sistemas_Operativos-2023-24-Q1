@@ -22,6 +22,11 @@ namespace ProyectoSO
         public Carta[] CartasArt = new Carta[9];
         public Carta[] CartasRan = new Carta[9];
         public Carta[] CartasMel = new Carta[9];
+
+        public Carta[] CartasArt_M = new Carta[9];
+        public Carta[] CartasRan_M = new Carta[9];
+        public Carta[] CartasMel_M = new Carta[9];
+
         public Color borderColor;
         public Carta cartaselecc;
         int numCartas;
@@ -84,6 +89,38 @@ namespace ProyectoSO
                 //mano[i - 1].nombre = trozos[i + 1];
                 mano[i].fuerza = Convert.ToInt32(trozos[3*i + 2]);
                 mano[i].tipo = Convert.ToInt32(trozos[3*i + 3]);
+                string resourceName = "_" + Convert.ToString(mano[i].id);
+                //ManoCartas[i - 1].BackgroundImage = resourceName;
+                mano[i].picture = Mano[i];
+                mano[i].picture.Image = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject(resourceName);
+                ManoCartas[i] = mano[i];
+            }
+        }
+
+        internal void RecibirManoEnemiga(string mensaje)
+        {
+            Mano[0] = Mano1;
+            Mano[1] = Mano2;
+            Mano[2] = Mano3;
+            Mano[3] = Mano4;
+            Mano[4] = Mano5;
+            Mano[5] = Mano6;
+            Mano[6] = Mano7;
+            Mano[7] = Mano8;
+            Mano[8] = Mano9;
+            Mano[9] = Mano10;
+
+            string[] trozos = mensaje.Split('/');
+            numCartas = Convert.ToInt32(trozos[0]);
+            Carta[] mano = new Carta[numCartas];  //Formato: numCartas/ID1/Fuerza1/Tipo1/ID2/Fuerza2/Tipo2/ID3/...
+
+            for (int i = 0; i < Convert.ToInt32(trozos[0]); i++)
+            {
+                mano[i] = new Carta();
+                mano[i].id = Convert.ToInt32(trozos[3 * i + 1]);
+                //mano[i - 1].nombre = trozos[i + 1];
+                mano[i].fuerza = Convert.ToInt32(trozos[3 * i + 2]);
+                mano[i].tipo = Convert.ToInt32(trozos[3 * i + 3]);
                 string resourceName = "_" + Convert.ToString(mano[i].id);
                 //ManoCartas[i - 1].BackgroundImage = resourceName;
                 mano[i].picture = Mano[i];
