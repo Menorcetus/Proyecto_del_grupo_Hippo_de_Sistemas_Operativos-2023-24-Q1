@@ -117,7 +117,7 @@
             this.panel2.Controls.Add(this.ChatEnviar);
             this.panel2.Controls.Add(this.ChatOutput);
             this.panel2.Controls.Add(this.ChatInput);
-            this.panel2.Location = new System.Drawing.Point(35, 32);
+            this.panel2.Location = new System.Drawing.Point(87, 117);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(427, 405);
             this.panel2.TabIndex = 1;
@@ -167,7 +167,7 @@
             // Mano1
             // 
             this.Mano1.BackColor = System.Drawing.Color.Transparent;
-            this.Mano1.Location = new System.Drawing.Point(54, 482);
+            this.Mano1.Location = new System.Drawing.Point(145, 774);
             this.Mano1.Name = "Mano1";
             this.Mano1.Size = new System.Drawing.Size(60, 120);
             this.Mano1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -180,7 +180,7 @@
             // Mano2
             // 
             this.Mano2.BackColor = System.Drawing.Color.Transparent;
-            this.Mano2.Location = new System.Drawing.Point(142, 482);
+            this.Mano2.Location = new System.Drawing.Point(233, 774);
             this.Mano2.Name = "Mano2";
             this.Mano2.Size = new System.Drawing.Size(60, 120);
             this.Mano2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -193,7 +193,7 @@
             // Mano3
             // 
             this.Mano3.BackColor = System.Drawing.Color.Transparent;
-            this.Mano3.Location = new System.Drawing.Point(237, 482);
+            this.Mano3.Location = new System.Drawing.Point(328, 774);
             this.Mano3.Name = "Mano3";
             this.Mano3.Size = new System.Drawing.Size(60, 120);
             this.Mano3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -206,7 +206,7 @@
             // Mano4
             // 
             this.Mano4.BackColor = System.Drawing.Color.Transparent;
-            this.Mano4.Location = new System.Drawing.Point(333, 482);
+            this.Mano4.Location = new System.Drawing.Point(424, 774);
             this.Mano4.Name = "Mano4";
             this.Mano4.Size = new System.Drawing.Size(60, 120);
             this.Mano4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -219,7 +219,7 @@
             // Mano9
             // 
             this.Mano9.BackColor = System.Drawing.Color.Transparent;
-            this.Mano9.Location = new System.Drawing.Point(73, 720);
+            this.Mano9.Location = new System.Drawing.Point(164, 1072);
             this.Mano9.Name = "Mano9";
             this.Mano9.Size = new System.Drawing.Size(60, 120);
             this.Mano9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -232,7 +232,7 @@
             // Mano5
             // 
             this.Mano5.BackColor = System.Drawing.Color.Transparent;
-            this.Mano5.Location = new System.Drawing.Point(63, 601);
+            this.Mano5.Location = new System.Drawing.Point(154, 923);
             this.Mano5.Name = "Mano5";
             this.Mano5.Size = new System.Drawing.Size(60, 120);
             this.Mano5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -245,7 +245,7 @@
             // Mano6
             // 
             this.Mano6.BackColor = System.Drawing.Color.Transparent;
-            this.Mano6.Location = new System.Drawing.Point(157, 601);
+            this.Mano6.Location = new System.Drawing.Point(248, 923);
             this.Mano6.Name = "Mano6";
             this.Mano6.Size = new System.Drawing.Size(60, 120);
             this.Mano6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -258,7 +258,7 @@
             // Mano7
             // 
             this.Mano7.BackColor = System.Drawing.Color.Transparent;
-            this.Mano7.Location = new System.Drawing.Point(252, 601);
+            this.Mano7.Location = new System.Drawing.Point(343, 923);
             this.Mano7.Name = "Mano7";
             this.Mano7.Size = new System.Drawing.Size(60, 120);
             this.Mano7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -271,7 +271,7 @@
             // Mano8
             // 
             this.Mano8.BackColor = System.Drawing.Color.Transparent;
-            this.Mano8.Location = new System.Drawing.Point(345, 601);
+            this.Mano8.Location = new System.Drawing.Point(436, 923);
             this.Mano8.Name = "Mano8";
             this.Mano8.Size = new System.Drawing.Size(60, 120);
             this.Mano8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -284,7 +284,7 @@
             // Mano10
             // 
             this.Mano10.BackColor = System.Drawing.Color.Transparent;
-            this.Mano10.Location = new System.Drawing.Point(169, 720);
+            this.Mano10.Location = new System.Drawing.Point(260, 1072);
             this.Mano10.Name = "Mano10";
             this.Mano10.Size = new System.Drawing.Size(60, 120);
             this.Mano10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -296,7 +296,7 @@
             // 
             // PedirMazo_btn
             // 
-            this.PedirMazo_btn.Location = new System.Drawing.Point(726, 863);
+            this.PedirMazo_btn.Location = new System.Drawing.Point(1099, 1282);
             this.PedirMazo_btn.Margin = new System.Windows.Forms.Padding(2);
             this.PedirMazo_btn.Name = "PedirMazo_btn";
             this.PedirMazo_btn.Size = new System.Drawing.Size(181, 36);
@@ -308,10 +308,10 @@
             // Art1
             // 
             this.Art1.BackColor = System.Drawing.Color.White;
-            this.Art1.Location = new System.Drawing.Point(520, 720);
+            this.Art1.Location = new System.Drawing.Point(825, 1104);
             this.Art1.Margin = new System.Windows.Forms.Padding(2);
             this.Art1.Name = "Art1";
-            this.Art1.Size = new System.Drawing.Size(60, 120);
+            this.Art1.Size = new System.Drawing.Size(75, 150);
             this.Art1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Art1.TabIndex = 6;
             this.Art1.TabStop = false;
@@ -321,10 +321,10 @@
             // Art2
             // 
             this.Art2.BackColor = System.Drawing.Color.White;
-            this.Art2.Location = new System.Drawing.Point(629, 720);
+            this.Art2.Location = new System.Drawing.Point(993, 1104);
             this.Art2.Margin = new System.Windows.Forms.Padding(2);
             this.Art2.Name = "Art2";
-            this.Art2.Size = new System.Drawing.Size(60, 120);
+            this.Art2.Size = new System.Drawing.Size(75, 150);
             this.Art2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Art2.TabIndex = 7;
             this.Art2.TabStop = false;
@@ -334,10 +334,10 @@
             // Art3
             // 
             this.Art3.BackColor = System.Drawing.Color.White;
-            this.Art3.Location = new System.Drawing.Point(743, 720);
+            this.Art3.Location = new System.Drawing.Point(1139, 1104);
             this.Art3.Margin = new System.Windows.Forms.Padding(2);
             this.Art3.Name = "Art3";
-            this.Art3.Size = new System.Drawing.Size(60, 120);
+            this.Art3.Size = new System.Drawing.Size(75, 150);
             this.Art3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Art3.TabIndex = 8;
             this.Art3.TabStop = false;
@@ -347,10 +347,10 @@
             // Art4
             // 
             this.Art4.BackColor = System.Drawing.Color.White;
-            this.Art4.Location = new System.Drawing.Point(860, 720);
+            this.Art4.Location = new System.Drawing.Point(1306, 1104);
             this.Art4.Margin = new System.Windows.Forms.Padding(2);
             this.Art4.Name = "Art4";
-            this.Art4.Size = new System.Drawing.Size(60, 120);
+            this.Art4.Size = new System.Drawing.Size(75, 150);
             this.Art4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Art4.TabIndex = 9;
             this.Art4.TabStop = false;
@@ -360,10 +360,10 @@
             // Art5
             // 
             this.Art5.BackColor = System.Drawing.Color.White;
-            this.Art5.Location = new System.Drawing.Point(981, 720);
+            this.Art5.Location = new System.Drawing.Point(1502, 1104);
             this.Art5.Margin = new System.Windows.Forms.Padding(2);
             this.Art5.Name = "Art5";
-            this.Art5.Size = new System.Drawing.Size(60, 120);
+            this.Art5.Size = new System.Drawing.Size(75, 150);
             this.Art5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Art5.TabIndex = 10;
             this.Art5.TabStop = false;
@@ -373,10 +373,10 @@
             // Art6
             // 
             this.Art6.BackColor = System.Drawing.Color.White;
-            this.Art6.Location = new System.Drawing.Point(1104, 720);
+            this.Art6.Location = new System.Drawing.Point(1667, 1104);
             this.Art6.Margin = new System.Windows.Forms.Padding(2);
             this.Art6.Name = "Art6";
-            this.Art6.Size = new System.Drawing.Size(60, 120);
+            this.Art6.Size = new System.Drawing.Size(75, 150);
             this.Art6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Art6.TabIndex = 11;
             this.Art6.TabStop = false;
@@ -386,10 +386,10 @@
             // Art7
             // 
             this.Art7.BackColor = System.Drawing.Color.White;
-            this.Art7.Location = new System.Drawing.Point(1222, 720);
+            this.Art7.Location = new System.Drawing.Point(1835, 1104);
             this.Art7.Margin = new System.Windows.Forms.Padding(2);
             this.Art7.Name = "Art7";
-            this.Art7.Size = new System.Drawing.Size(60, 120);
+            this.Art7.Size = new System.Drawing.Size(75, 150);
             this.Art7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Art7.TabIndex = 12;
             this.Art7.TabStop = false;
@@ -399,10 +399,10 @@
             // Art8
             // 
             this.Art8.BackColor = System.Drawing.Color.White;
-            this.Art8.Location = new System.Drawing.Point(1344, 720);
+            this.Art8.Location = new System.Drawing.Point(2020, 1104);
             this.Art8.Margin = new System.Windows.Forms.Padding(2);
             this.Art8.Name = "Art8";
-            this.Art8.Size = new System.Drawing.Size(60, 120);
+            this.Art8.Size = new System.Drawing.Size(75, 150);
             this.Art8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Art8.TabIndex = 13;
             this.Art8.TabStop = false;
@@ -412,10 +412,10 @@
             // Art9
             // 
             this.Art9.BackColor = System.Drawing.Color.White;
-            this.Art9.Location = new System.Drawing.Point(1462, 720);
+            this.Art9.Location = new System.Drawing.Point(2206, 1104);
             this.Art9.Margin = new System.Windows.Forms.Padding(2);
             this.Art9.Name = "Art9";
-            this.Art9.Size = new System.Drawing.Size(60, 120);
+            this.Art9.Size = new System.Drawing.Size(75, 150);
             this.Art9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Art9.TabIndex = 14;
             this.Art9.TabStop = false;
@@ -425,10 +425,10 @@
             // Ran1
             // 
             this.Ran1.BackColor = System.Drawing.Color.White;
-            this.Ran1.Location = new System.Drawing.Point(520, 588);
+            this.Ran1.Location = new System.Drawing.Point(825, 909);
             this.Ran1.Margin = new System.Windows.Forms.Padding(2);
             this.Ran1.Name = "Ran1";
-            this.Ran1.Size = new System.Drawing.Size(60, 120);
+            this.Ran1.Size = new System.Drawing.Size(75, 150);
             this.Ran1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Ran1.TabIndex = 15;
             this.Ran1.TabStop = false;
@@ -438,10 +438,10 @@
             // Ran2
             // 
             this.Ran2.BackColor = System.Drawing.Color.White;
-            this.Ran2.Location = new System.Drawing.Point(629, 588);
+            this.Ran2.Location = new System.Drawing.Point(993, 909);
             this.Ran2.Margin = new System.Windows.Forms.Padding(2);
             this.Ran2.Name = "Ran2";
-            this.Ran2.Size = new System.Drawing.Size(60, 120);
+            this.Ran2.Size = new System.Drawing.Size(75, 150);
             this.Ran2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Ran2.TabIndex = 16;
             this.Ran2.TabStop = false;
@@ -451,10 +451,10 @@
             // Ran3
             // 
             this.Ran3.BackColor = System.Drawing.Color.White;
-            this.Ran3.Location = new System.Drawing.Point(743, 588);
+            this.Ran3.Location = new System.Drawing.Point(1139, 909);
             this.Ran3.Margin = new System.Windows.Forms.Padding(2);
             this.Ran3.Name = "Ran3";
-            this.Ran3.Size = new System.Drawing.Size(60, 120);
+            this.Ran3.Size = new System.Drawing.Size(75, 150);
             this.Ran3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Ran3.TabIndex = 17;
             this.Ran3.TabStop = false;
@@ -464,10 +464,10 @@
             // Ran4
             // 
             this.Ran4.BackColor = System.Drawing.Color.White;
-            this.Ran4.Location = new System.Drawing.Point(860, 588);
+            this.Ran4.Location = new System.Drawing.Point(1306, 909);
             this.Ran4.Margin = new System.Windows.Forms.Padding(2);
             this.Ran4.Name = "Ran4";
-            this.Ran4.Size = new System.Drawing.Size(60, 120);
+            this.Ran4.Size = new System.Drawing.Size(75, 150);
             this.Ran4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Ran4.TabIndex = 18;
             this.Ran4.TabStop = false;
@@ -477,10 +477,10 @@
             // Ran5
             // 
             this.Ran5.BackColor = System.Drawing.Color.White;
-            this.Ran5.Location = new System.Drawing.Point(981, 588);
+            this.Ran5.Location = new System.Drawing.Point(1502, 909);
             this.Ran5.Margin = new System.Windows.Forms.Padding(2);
             this.Ran5.Name = "Ran5";
-            this.Ran5.Size = new System.Drawing.Size(60, 120);
+            this.Ran5.Size = new System.Drawing.Size(75, 150);
             this.Ran5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Ran5.TabIndex = 19;
             this.Ran5.TabStop = false;
@@ -490,10 +490,10 @@
             // Ran6
             // 
             this.Ran6.BackColor = System.Drawing.Color.White;
-            this.Ran6.Location = new System.Drawing.Point(1104, 588);
+            this.Ran6.Location = new System.Drawing.Point(1667, 909);
             this.Ran6.Margin = new System.Windows.Forms.Padding(2);
             this.Ran6.Name = "Ran6";
-            this.Ran6.Size = new System.Drawing.Size(60, 120);
+            this.Ran6.Size = new System.Drawing.Size(75, 150);
             this.Ran6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Ran6.TabIndex = 20;
             this.Ran6.TabStop = false;
@@ -503,10 +503,10 @@
             // Ran7
             // 
             this.Ran7.BackColor = System.Drawing.Color.White;
-            this.Ran7.Location = new System.Drawing.Point(1222, 588);
+            this.Ran7.Location = new System.Drawing.Point(1835, 909);
             this.Ran7.Margin = new System.Windows.Forms.Padding(2);
             this.Ran7.Name = "Ran7";
-            this.Ran7.Size = new System.Drawing.Size(60, 120);
+            this.Ran7.Size = new System.Drawing.Size(75, 150);
             this.Ran7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Ran7.TabIndex = 21;
             this.Ran7.TabStop = false;
@@ -516,10 +516,10 @@
             // Ran8
             // 
             this.Ran8.BackColor = System.Drawing.Color.White;
-            this.Ran8.Location = new System.Drawing.Point(1344, 588);
+            this.Ran8.Location = new System.Drawing.Point(2020, 909);
             this.Ran8.Margin = new System.Windows.Forms.Padding(2);
             this.Ran8.Name = "Ran8";
-            this.Ran8.Size = new System.Drawing.Size(60, 120);
+            this.Ran8.Size = new System.Drawing.Size(75, 150);
             this.Ran8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Ran8.TabIndex = 22;
             this.Ran8.TabStop = false;
@@ -529,10 +529,10 @@
             // Ran9
             // 
             this.Ran9.BackColor = System.Drawing.Color.White;
-            this.Ran9.Location = new System.Drawing.Point(1462, 588);
+            this.Ran9.Location = new System.Drawing.Point(2206, 909);
             this.Ran9.Margin = new System.Windows.Forms.Padding(2);
             this.Ran9.Name = "Ran9";
-            this.Ran9.Size = new System.Drawing.Size(60, 120);
+            this.Ran9.Size = new System.Drawing.Size(75, 150);
             this.Ran9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Ran9.TabIndex = 23;
             this.Ran9.TabStop = false;
@@ -542,10 +542,10 @@
             // Mel1
             // 
             this.Mel1.BackColor = System.Drawing.Color.White;
-            this.Mel1.Location = new System.Drawing.Point(520, 451);
+            this.Mel1.Location = new System.Drawing.Point(825, 720);
             this.Mel1.Margin = new System.Windows.Forms.Padding(2);
             this.Mel1.Name = "Mel1";
-            this.Mel1.Size = new System.Drawing.Size(60, 120);
+            this.Mel1.Size = new System.Drawing.Size(75, 150);
             this.Mel1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Mel1.TabIndex = 24;
             this.Mel1.TabStop = false;
@@ -555,10 +555,10 @@
             // Mel2
             // 
             this.Mel2.BackColor = System.Drawing.Color.White;
-            this.Mel2.Location = new System.Drawing.Point(629, 451);
+            this.Mel2.Location = new System.Drawing.Point(993, 720);
             this.Mel2.Margin = new System.Windows.Forms.Padding(2);
             this.Mel2.Name = "Mel2";
-            this.Mel2.Size = new System.Drawing.Size(60, 120);
+            this.Mel2.Size = new System.Drawing.Size(75, 150);
             this.Mel2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Mel2.TabIndex = 25;
             this.Mel2.TabStop = false;
@@ -568,10 +568,10 @@
             // Mel3
             // 
             this.Mel3.BackColor = System.Drawing.Color.White;
-            this.Mel3.Location = new System.Drawing.Point(743, 451);
+            this.Mel3.Location = new System.Drawing.Point(1139, 720);
             this.Mel3.Margin = new System.Windows.Forms.Padding(2);
             this.Mel3.Name = "Mel3";
-            this.Mel3.Size = new System.Drawing.Size(60, 120);
+            this.Mel3.Size = new System.Drawing.Size(75, 150);
             this.Mel3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Mel3.TabIndex = 26;
             this.Mel3.TabStop = false;
@@ -581,10 +581,10 @@
             // Mel4
             // 
             this.Mel4.BackColor = System.Drawing.Color.White;
-            this.Mel4.Location = new System.Drawing.Point(860, 451);
+            this.Mel4.Location = new System.Drawing.Point(1306, 720);
             this.Mel4.Margin = new System.Windows.Forms.Padding(2);
             this.Mel4.Name = "Mel4";
-            this.Mel4.Size = new System.Drawing.Size(60, 120);
+            this.Mel4.Size = new System.Drawing.Size(75, 150);
             this.Mel4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Mel4.TabIndex = 27;
             this.Mel4.TabStop = false;
@@ -594,10 +594,10 @@
             // Mel5
             // 
             this.Mel5.BackColor = System.Drawing.Color.White;
-            this.Mel5.Location = new System.Drawing.Point(981, 451);
+            this.Mel5.Location = new System.Drawing.Point(1502, 720);
             this.Mel5.Margin = new System.Windows.Forms.Padding(2);
             this.Mel5.Name = "Mel5";
-            this.Mel5.Size = new System.Drawing.Size(60, 120);
+            this.Mel5.Size = new System.Drawing.Size(75, 150);
             this.Mel5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Mel5.TabIndex = 28;
             this.Mel5.TabStop = false;
@@ -607,10 +607,10 @@
             // Mel6
             // 
             this.Mel6.BackColor = System.Drawing.Color.White;
-            this.Mel6.Location = new System.Drawing.Point(1104, 451);
+            this.Mel6.Location = new System.Drawing.Point(1667, 720);
             this.Mel6.Margin = new System.Windows.Forms.Padding(2);
             this.Mel6.Name = "Mel6";
-            this.Mel6.Size = new System.Drawing.Size(60, 120);
+            this.Mel6.Size = new System.Drawing.Size(75, 150);
             this.Mel6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Mel6.TabIndex = 29;
             this.Mel6.TabStop = false;
@@ -620,10 +620,10 @@
             // Mel7
             // 
             this.Mel7.BackColor = System.Drawing.Color.White;
-            this.Mel7.Location = new System.Drawing.Point(1222, 451);
+            this.Mel7.Location = new System.Drawing.Point(1835, 720);
             this.Mel7.Margin = new System.Windows.Forms.Padding(2);
             this.Mel7.Name = "Mel7";
-            this.Mel7.Size = new System.Drawing.Size(60, 120);
+            this.Mel7.Size = new System.Drawing.Size(75, 150);
             this.Mel7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Mel7.TabIndex = 30;
             this.Mel7.TabStop = false;
@@ -633,10 +633,10 @@
             // Mel8
             // 
             this.Mel8.BackColor = System.Drawing.Color.White;
-            this.Mel8.Location = new System.Drawing.Point(1344, 451);
+            this.Mel8.Location = new System.Drawing.Point(2020, 720);
             this.Mel8.Margin = new System.Windows.Forms.Padding(2);
             this.Mel8.Name = "Mel8";
-            this.Mel8.Size = new System.Drawing.Size(60, 120);
+            this.Mel8.Size = new System.Drawing.Size(75, 150);
             this.Mel8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Mel8.TabIndex = 31;
             this.Mel8.TabStop = false;
@@ -646,10 +646,10 @@
             // Mel9
             // 
             this.Mel9.BackColor = System.Drawing.Color.White;
-            this.Mel9.Location = new System.Drawing.Point(1462, 451);
+            this.Mel9.Location = new System.Drawing.Point(2206, 720);
             this.Mel9.Margin = new System.Windows.Forms.Padding(2);
             this.Mel9.Name = "Mel9";
-            this.Mel9.Size = new System.Drawing.Size(60, 120);
+            this.Mel9.Size = new System.Drawing.Size(75, 150);
             this.Mel9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Mel9.TabIndex = 32;
             this.Mel9.TabStop = false;
@@ -660,9 +660,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImage = global::ProyectoSO.Properties.Resources.fondo_gwent;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1617, 917);
+            this.ClientSize = new System.Drawing.Size(2428, 1378);
             this.Controls.Add(this.Mel9);
             this.Controls.Add(this.Mel8);
             this.Controls.Add(this.Mel7);
@@ -705,7 +706,7 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Interfaz_juego";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Interfaz_juego";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Interfaz_juego_Load);

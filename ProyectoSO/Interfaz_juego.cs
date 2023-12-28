@@ -101,6 +101,86 @@ namespace ProyectoSO
             //PedirMazo_btn.Enabled = false;
         }
 
+
+        //=============================================================================================================
+        // Funciones de auxiliares para cartas
+        private void ChangePictureBoxBorderColor(PictureBox pictureBox, Color color)
+        {
+            borderColor = color;
+            pictureBox.Paint += PictureBox_Paint;
+        }
+
+        private void ClearPictureBoxBorderColor(PictureBox pictureBox)
+        {
+            borderColor = Color.Transparent;
+            pictureBox.Paint -= PictureBox_Paint; // Unsubscribe from the Paint event
+            pictureBox.Refresh(); // Refresh the PictureBox
+        }
+
+        private void PictureBox_Paint(object sender, PaintEventArgs e)
+        {
+            PictureBox pictureBox = (PictureBox)sender;
+            ControlPaint.DrawBorder(e.Graphics, pictureBox.ClientRectangle, borderColor, ButtonBorderStyle.Solid);
+        }
+
+        private void M_PictureBox_Click(object sender, EventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            ChangePictureBoxBorderColor(picturebox, Color.Red);
+            if (DameCartaMano(picturebox) != -1)
+                cartaselecc = ManoCartas[DameCartaMano(picturebox)];
+            else
+                MessageBox.Show("Error");
+        }
+
+        private void T_PictureBox_MouseOverCorrect(object sender, EventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            picturebox.BackColor = Color.FromArgb(128, Color.Yellow);
+        }
+
+        private void T_PictureBox_MouseOverIncorrect(object sender, EventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            picturebox.BackColor = Color.FromArgb(128, Color.Red);
+        }
+
+        private void T_PictureBox_MouseLeaving(object sender, EventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            picturebox.BackColor = Color.FromArgb(128, Color.White);
+        }
+
+        private void T_PictureBox_Click(object sender, EventArgs e)
+        {
+            PictureBox picBox = (PictureBox)sender;
+            ManoCartas[DameCartaMano(cartaselecc.picture)].picture.Visible = false;
+            picBox.BackColor = Color.Transparent;
+            picBox.BackgroundImage = ManoCartas[DameCartaMano(cartaselecc.picture)].picture.Image;
+            cartaselecc = null;
+
+        }
+
+        private int DameCartaMano(PictureBox picturebox)
+        {
+            int i = 0;
+            while (i < numCartas)
+            {
+                if (ManoCartas[i].picture == picturebox)
+                {
+                    return i;
+                }
+                i++;
+            }
+            return -1;
+        }
+
+
+
+
+        //=============================================================================================================
+        // Acciones pasar por encima de carta
+
         private void Mano10_MouseMove(object sender, MouseEventArgs e)
         {
             this.Mano10.Size = new System.Drawing.Size(80, 160);
@@ -112,19 +192,6 @@ namespace ProyectoSO
         {
             this.Mano10.Size = new System.Drawing.Size(48, 96);
             ClearPictureBoxBorderColor(Mano10);
-        }
-
-        private void Mano5_MouseMove(object sender, MouseEventArgs e)
-        {
-            this.Mano9.Size = new System.Drawing.Size(80, 160);
-            this.Mano9.BringToFront();
-            ChangePictureBoxBorderColor(Mano9, Color.Yellow);
-        }
-
-        private void Mano5_MouseLeave(object sender, EventArgs e)
-        {
-            this.Mano9.Size = new System.Drawing.Size(48, 96);
-            ClearPictureBoxBorderColor(Mano9);
         }
 
         private void Mano9_MouseMove(object sender, MouseEventArgs e)
@@ -180,6 +247,18 @@ namespace ProyectoSO
             ClearPictureBoxBorderColor(Mano5);
         }
 
+        private void Mano5_MouseMove(object sender, MouseEventArgs e)
+        {
+            this.Mano9.Size = new System.Drawing.Size(80, 160);
+            this.Mano9.BringToFront();
+            ChangePictureBoxBorderColor(Mano9, Color.Yellow);
+        }
+
+        private void Mano5_MouseLeave(object sender, EventArgs e)
+        {
+            this.Mano9.Size = new System.Drawing.Size(48, 96);
+            ClearPictureBoxBorderColor(Mano9);
+        }
         private void Mano4_MouseMove(object sender, MouseEventArgs e)
         {
             this.Mano4.Size = new System.Drawing.Size(80, 160);
@@ -232,75 +311,9 @@ namespace ProyectoSO
             ChangePictureBoxBorderColor(Mano1, Color.Yellow);
         }
 
-        private void ChangePictureBoxBorderColor(PictureBox pictureBox, Color color)
-        {
-            borderColor = color;
-            pictureBox.Paint += PictureBox_Paint;
-        }
-
-        private void ClearPictureBoxBorderColor(PictureBox pictureBox)
-        {
-            borderColor = Color.Transparent;
-            pictureBox.Paint -= PictureBox_Paint; // Unsubscribe from the Paint event
-            pictureBox.Refresh(); // Refresh the PictureBox
-        }
-
-        private void PictureBox_Paint(object sender, PaintEventArgs e)
-        {
-            PictureBox pictureBox = (PictureBox)sender;
-            ControlPaint.DrawBorder(e.Graphics, pictureBox.ClientRectangle, borderColor, ButtonBorderStyle.Solid);
-        }
-
-        private void M_PictureBox_Click(object sender, EventArgs e)
-        {
-            PictureBox picturebox = (PictureBox)sender;
-            ChangePictureBoxBorderColor(picturebox, Color.Red);
-            if (DameCartaMano(picturebox) != -1)
-                cartaselecc = ManoCartas[DameCartaMano(picturebox)];
-            else
-                MessageBox.Show("Error");
-        }
-
-        private void T_PictureBox_MouseOverCorrect(object sender, EventArgs e)
-        {
-            PictureBox picturebox = (PictureBox)sender;
-            picturebox.BackColor = Color.FromArgb(128, Color.Yellow);
-        }
-        private void T_PictureBox_MouseOverIncorrect(object sender, EventArgs e)
-        {
-            PictureBox picturebox = (PictureBox)sender;
-            picturebox.BackColor = Color.FromArgb(128, Color.Red);
-        }
-
-        private void T_PictureBox_MouseLeaving(object sender, EventArgs e)
-        {
-            PictureBox picturebox = (PictureBox)sender;
-            picturebox.BackColor = Color.FromArgb(128, Color.White);
-        }
-
-        private void T_PictureBox_Click(object sender, EventArgs e)
-        {
-            PictureBox picBox = (PictureBox)sender;
-            ManoCartas[DameCartaMano(cartaselecc.picture)].picture.Visible = false;
-            picBox.BackColor = Color.Transparent;
-            picBox.BackgroundImage = ManoCartas[DameCartaMano(cartaselecc.picture)].picture.Image;
-            cartaselecc = null;
-            
-        }
-
-        private int DameCartaMano(PictureBox picturebox)
-        {
-            int i = 0;
-            while (i<numCartas)
-            {
-                if (ManoCartas[i].picture == picturebox)
-                {
-                    return i;
-                }
-                i++;
-            }
-            return -1;
-        }
+        //=============================================================================================================
+        // Click en carta del tablero
+        // Artilleria:
 
         private void Art1_Click(object sender, EventArgs e)
         {
@@ -383,6 +396,8 @@ namespace ProyectoSO
             }
         }
 
+        // Rango:
+
         private void Ran1_Click(object sender, EventArgs e)
         {
             if (cartaselecc != null)
@@ -464,6 +479,8 @@ namespace ProyectoSO
             }
         }
 
+        // Melee:
+
         private void Mel1_Click(object sender, EventArgs e)
         {
             if (cartaselecc != null)
@@ -544,6 +561,10 @@ namespace ProyectoSO
                     T_PictureBox_Click(sender, e);
             }
         }
+
+        //=============================================================================================================
+        // Mostrar disponibilidad
+        // Artilleria:
 
         private void Art1_MouseMove(object sender, MouseEventArgs e)
         {
@@ -725,6 +746,7 @@ namespace ProyectoSO
             }
         }
 
+        // Rango:
 
         private void Ran1_MouseMove(object sender, MouseEventArgs e)
         {
@@ -906,6 +928,8 @@ namespace ProyectoSO
             }
         }
 
+        // Melee:
+
         private void Mel1_MouseMove(object sender, MouseEventArgs e)
         {
             if (cartaselecc != null)
@@ -1085,6 +1109,9 @@ namespace ProyectoSO
                 T_PictureBox_MouseLeaving(sender, e);
             }
         }
+
+        //=============================================================================================================
+        // Seleccionar carta del mazo
 
         private void Mano1_Click(object sender, EventArgs e)
         {
