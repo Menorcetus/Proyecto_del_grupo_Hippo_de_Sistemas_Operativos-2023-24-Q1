@@ -410,16 +410,13 @@ int ComprovarInicioPartida(int id_partida, ListaPartidas *Partidas){
 	}
 }
 
-
 int BuscarPartidaPorID(int id_partida,ListaPartidas *Partidas){ 
 	//funcion que retorna la posicion de la partida o -1 si hay error
 	int enc = 0;
 	for (int i=0; i <= Partidas->num;i++)
 	{
 		if (Partidas->partidas[i].id == id_partida)
-
 			return  i;
-
 	}
 	if (enc == 0)
 	return -1;
@@ -463,7 +460,6 @@ void GenerarListaCartas (MYSQL *conn, ListaCartas *listaCartas){
 	
 }
 
-
 void DarCarta (ListaCartas *CARTAS, int ID, Carta *carta)
 { 
 	//meter en carta su informacion en funcion de ID
@@ -481,8 +477,6 @@ void DarCarta (ListaCartas *CARTAS, int ID, Carta *carta)
 		}
 	}
 }
-
-
 
 void DarMano(char *respuesta, ListaCartas *cartas, int numMano){ 
 //Da una mano a cada jugador de la partida que pide a partir de la lista de todas cartas
@@ -548,8 +542,6 @@ void DarMano(char *respuesta, ListaCartas *cartas, int numMano){
 				enc28 = 1;
 				i++;
 				}
-			
-			
 		}
 		else
 		{
@@ -562,7 +554,6 @@ void DarMano(char *respuesta, ListaCartas *cartas, int numMano){
 	}
 
 }
-
 
 void *AtenderCliente(void *socket){
 	// Iniciamos el socket dentro del thread

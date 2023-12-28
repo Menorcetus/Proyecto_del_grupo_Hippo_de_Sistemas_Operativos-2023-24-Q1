@@ -158,8 +158,6 @@ namespace ProyectoSO
         {
             lform = new login_form(server);
             lform.ShowDialog();
-            
-
         }
 
         public void registroToolStripMenuItem_Click(object sender, EventArgs e)

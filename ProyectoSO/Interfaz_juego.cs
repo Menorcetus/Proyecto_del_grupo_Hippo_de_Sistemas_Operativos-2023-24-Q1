@@ -231,6 +231,7 @@ namespace ProyectoSO
             this.Mano1.BringToFront();
             ChangePictureBoxBorderColor(Mano1, Color.Yellow);
         }
+
         private void ChangePictureBoxBorderColor(PictureBox pictureBox, Color color)
         {
             borderColor = color;
@@ -241,8 +242,9 @@ namespace ProyectoSO
         {
             borderColor = Color.Transparent;
             pictureBox.Paint -= PictureBox_Paint; // Unsubscribe from the Paint event
-            pictureBox.Invalidate(); // Refresh the PictureBox
+            pictureBox.Refresh(); // Refresh the PictureBox
         }
+
         private void PictureBox_Paint(object sender, PaintEventArgs e)
         {
             PictureBox pictureBox = (PictureBox)sender;
@@ -270,12 +272,19 @@ namespace ProyectoSO
             picturebox.BackColor = Color.FromArgb(128, Color.Red);
         }
 
+        private void T_PictureBox_MouseLeaving(object sender, EventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            picturebox.BackColor = Color.FromArgb(128, Color.White);
+        }
+
         private void T_PictureBox_Click(object sender, EventArgs e)
         {
             PictureBox picBox = (PictureBox)sender;
             ManoCartas[DameCartaMano(cartaselecc.picture)].picture.Visible = false;
             picBox.BackColor = Color.Transparent;
             picBox.BackgroundImage = ManoCartas[DameCartaMano(cartaselecc.picture)].picture.Image;
+            cartaselecc = null;
             
         }
 
@@ -297,7 +306,7 @@ namespace ProyectoSO
         {
             if (cartaselecc != null)
             {
-                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
                     T_PictureBox_Click(sender, e);
             }
         }
@@ -306,7 +315,7 @@ namespace ProyectoSO
         {
             if (cartaselecc != null)
             {
-                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
                     T_PictureBox_Click(sender, e);
             }
         }
@@ -315,7 +324,7 @@ namespace ProyectoSO
         {
             if (cartaselecc != null)
             {
-                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
                     T_PictureBox_Click(sender, e);
             }
         }
@@ -324,7 +333,7 @@ namespace ProyectoSO
         {
             if (cartaselecc != null)
             {
-                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
                     T_PictureBox_Click(sender, e);
             }
         }
@@ -333,7 +342,7 @@ namespace ProyectoSO
         {
             if (cartaselecc != null)
             {
-                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
                     T_PictureBox_Click(sender, e);
             }
         }
@@ -342,7 +351,7 @@ namespace ProyectoSO
         {
             if (cartaselecc != null)
             {
-                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
                     T_PictureBox_Click(sender, e);
             }
         }
@@ -351,7 +360,7 @@ namespace ProyectoSO
         {
             if (cartaselecc != null)
             {
-                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
                     T_PictureBox_Click(sender, e);
             }
         }
@@ -360,7 +369,7 @@ namespace ProyectoSO
         {
             if (cartaselecc != null)
             {
-                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
                     T_PictureBox_Click(sender, e);
             }
         }
@@ -369,7 +378,7 @@ namespace ProyectoSO
         {
             if (cartaselecc != null)
             {
-                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
                     T_PictureBox_Click(sender, e);
             }
         }
@@ -635,6 +644,88 @@ namespace ProyectoSO
             }
         }
 
+        private void Art1_MouseLeave(object sender, MouseEventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            if (picturebox.BackgroundImage == null)
+            {
+                T_PictureBox_MouseLeaving(sender, e);
+            }
+        }
+
+        private void Art2_MouseLeave(object sender, MouseEventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            if (picturebox.BackgroundImage == null)
+            {
+                T_PictureBox_MouseLeaving(sender, e);
+            }
+        }
+
+        private void Art3_MouseLeave(object sender, MouseEventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            if (picturebox.BackgroundImage == null)
+            {
+                T_PictureBox_MouseLeaving(sender, e);
+            }
+        }
+
+        private void Art4_MouseLeave(object sender, MouseEventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            if (picturebox.BackgroundImage == null)
+            {
+                T_PictureBox_MouseLeaving(sender, e);
+            }
+        }
+
+        private void Art5_MouseLeave(object sender, MouseEventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            if (picturebox.BackgroundImage == null)
+            {
+                T_PictureBox_MouseLeaving(sender, e);
+            }
+        }
+
+        private void Art6_MouseLeave(object sender, MouseEventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            if (picturebox.BackgroundImage == null)
+            {
+                T_PictureBox_MouseLeaving(sender, e);
+            }
+        }
+
+        private void Art7_MouseLeave(object sender, MouseEventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            if (picturebox.BackgroundImage == null)
+            {
+                T_PictureBox_MouseLeaving(sender, e);
+            }
+        }
+
+        private void Art8_MouseLeave(object sender, MouseEventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            if (picturebox.BackgroundImage == null)
+            {
+                T_PictureBox_MouseLeaving(sender, e);
+            }
+        }
+
+        private void Art9_MouseLeave(object sender, MouseEventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            if (picturebox.BackgroundImage == null)
+            {
+                T_PictureBox_MouseLeaving(sender, e);
+            }
+        }
+
+
         private void Ran1_MouseMove(object sender, MouseEventArgs e)
         {
             if (cartaselecc != null)
@@ -731,6 +822,87 @@ namespace ProyectoSO
                     T_PictureBox_MouseOverCorrect(sender, e);
                 else
                     T_PictureBox_MouseOverIncorrect(sender, e);
+            }
+        }
+
+        private void Ran1_MouseLeave(object sender, MouseEventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            if (picturebox.BackgroundImage == null)
+            {
+                T_PictureBox_MouseLeaving(sender, e);
+            }
+        }
+
+        private void Ran2_MouseLeave(object sender, MouseEventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            if (picturebox.BackgroundImage == null)
+            {
+                T_PictureBox_MouseLeaving(sender, e);
+            }
+        }
+
+        private void Ran3_MouseLeave(object sender, MouseEventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            if (picturebox.BackgroundImage == null)
+            {
+                T_PictureBox_MouseLeaving(sender, e);
+            }
+        }
+
+        private void Ran4_MouseLeave(object sender, MouseEventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            if (picturebox.BackgroundImage == null)
+            {
+                T_PictureBox_MouseLeaving(sender, e);
+            }
+        }
+
+        private void Ran5_MouseLeave(object sender, MouseEventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            if (picturebox.BackgroundImage == null)
+            {
+                T_PictureBox_MouseLeaving(sender, e);
+            }
+        }
+
+        private void Ran6_MouseLeave(object sender, MouseEventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            if (picturebox.BackgroundImage == null)
+            {
+                T_PictureBox_MouseLeaving(sender, e);
+            }
+        }
+
+        private void Ran7_MouseLeave(object sender, MouseEventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            if (picturebox.BackgroundImage == null)
+            {
+                T_PictureBox_MouseLeaving(sender, e);
+            }
+        }
+
+        private void Ran8_MouseLeave(object sender, MouseEventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            if (picturebox.BackgroundImage == null)
+            {
+                T_PictureBox_MouseLeaving(sender, e);
+            }
+        }
+
+        private void Ran9_MouseLeave(object sender, MouseEventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            if (picturebox.BackgroundImage == null)
+            {
+                T_PictureBox_MouseLeaving(sender, e);
             }
         }
 
@@ -831,6 +1003,137 @@ namespace ProyectoSO
                 else
                     T_PictureBox_MouseOverIncorrect(sender, e);
             }
+        }
+
+        private void Mel1_MouseLeave(object sender, MouseEventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            if (picturebox.BackgroundImage == null)
+            {
+                T_PictureBox_MouseLeaving(sender, e);
+            }
+        }
+
+        private void Mel2_MouseLeave(object sender, MouseEventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            if (picturebox.BackgroundImage == null)
+            {
+                T_PictureBox_MouseLeaving(sender, e);
+            }
+        }
+
+        private void Mel3_MouseLeave(object sender, MouseEventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            if (picturebox.BackgroundImage == null)
+            {
+                T_PictureBox_MouseLeaving(sender, e);
+            }
+        }
+
+        private void Mel4_MouseLeave(object sender, MouseEventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            if (picturebox.BackgroundImage == null)
+            {
+                T_PictureBox_MouseLeaving(sender, e);
+            }
+        }
+
+        private void Mel5_MouseLeave(object sender, MouseEventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            if (picturebox.BackgroundImage == null)
+            {
+                T_PictureBox_MouseLeaving(sender, e);
+            }
+        }
+
+        private void Mel6_MouseLeave(object sender, MouseEventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            if (picturebox.BackgroundImage == null)
+            {
+                T_PictureBox_MouseLeaving(sender, e);
+            }
+        }
+
+        private void Mel7_MouseLeave(object sender, MouseEventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            if (picturebox.BackgroundImage == null)
+            {
+                T_PictureBox_MouseLeaving(sender, e);
+            }
+        }
+
+        private void Mel8_MouseLeave(object sender, MouseEventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            if (picturebox.BackgroundImage == null)
+            {
+                T_PictureBox_MouseLeaving(sender, e);
+            }
+        }
+
+        private void Mel9_MouseLeave(object sender, MouseEventArgs e)
+        {
+            PictureBox picturebox = (PictureBox)sender;
+            if (picturebox.BackgroundImage == null)
+            {
+                T_PictureBox_MouseLeaving(sender, e);
+            }
+        }
+
+        private void Mano1_Click(object sender, EventArgs e)
+        {
+            M_PictureBox_Click(sender,e);
+        }
+
+        private void Mano2_Click(object sender, EventArgs e)
+        {
+            M_PictureBox_Click(sender, e);
+        }
+
+        private void Mano3_Click(object sender, EventArgs e)
+        {
+            M_PictureBox_Click(sender, e);
+        }
+
+        private void Mano4_Click(object sender, EventArgs e)
+        {
+            M_PictureBox_Click(sender, e);
+        }
+
+        private void Mano5_Click(object sender, EventArgs e)
+        {
+            M_PictureBox_Click(sender, e);
+        }
+
+        private void Mano6_Click(object sender, EventArgs e)
+        {
+            M_PictureBox_Click(sender, e);
+        }
+
+        private void Mano7_Click(object sender, EventArgs e)
+        {
+            M_PictureBox_Click(sender, e);
+        }
+
+        private void Mano8_Click(object sender, EventArgs e)
+        {
+            M_PictureBox_Click(sender, e);
+        }
+
+        private void Mano9_Click(object sender, EventArgs e)
+        {
+            M_PictureBox_Click(sender, e);
+        }
+
+        private void Mano10_Click(object sender, EventArgs e)
+        {
+            M_PictureBox_Click(sender, e);
         }
     }
 }
