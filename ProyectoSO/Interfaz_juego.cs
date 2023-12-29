@@ -118,6 +118,19 @@ namespace ProyectoSO
 
         internal void RecibirManoEnemiga(string mensaje)
         {
+            // Falta implementar
+            string[] trozos = mensaje.Split(new[] { '/' }, 7);
+
+            int FuerzaArt_M = Convert.ToInt32(trozos[0]);
+            int FuerzaRan_M = Convert.ToInt32(trozos[1]);
+            int FuerzaMel_M = Convert.ToInt32(trozos[2]);
+
+            int FuerzaArt  = Convert.ToInt32(trozos[3]);
+            int FuerzaRan  = Convert.ToInt32(trozos[4]);
+            int FuerzaMel  = Convert.ToInt32(trozos[5]);
+
+            string posiciones = trozos[6];
+
             Mano[0] = Mano1;
             Mano[1] = Mano2;
             Mano[2] = Mano3;
