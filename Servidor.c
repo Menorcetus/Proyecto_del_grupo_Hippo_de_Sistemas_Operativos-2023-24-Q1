@@ -555,6 +555,41 @@ void DarMano(char *respuesta, ListaCartas *cartas, int numMano){
 
 }
 
+int AnalizarTurno(int id_partida, ListaPartidas *Partidas, char *jugador, char *p, char *Reenvio){
+	// Hay que acabar
+	int num_jugador = 0;
+	int i = 0;
+	int encontrado  = 0;
+	// Busco posicion del jugador que ha acabado el turno
+	while((i <= Partidas->partidas[id_partida].mode) && (encontrado == 0)){
+		if(strcmp(Partidas->partidas[id_partida].jugadores[i].Nombre, jugador) == 0){
+			num_jugador = i;
+			encontrado = 1;
+		}
+		i++;
+	}
+	// Descomponemos el resto del mensaje
+	p = strtok(NULL, "/");
+	int FuerzaMel = atoi(p);
+	p = strtok(NULL, "/");
+	int FueraRan = atoi(p);
+	p = strtok(NULL, "/");
+	int FuerzaArt = atoi(p);
+	p = strtok(NULL, "/");
+	int FuerzaMel_M = atoi(p);
+	p = strtok(NULL, "/");
+	int FueraRan_M = atoi(p);
+	p = strtok(NULL, "/");
+	int FuerzaArt_M = atoi(p);
+	// Ahora hay que comprobar que pasa con la ronda
+
+	// Creamos mensaje para enviar a los jugadores
+	p = strtok(NULL, "/");
+	sprintf(Reenvio,"9/%i/%i/%i/%i/%i/%i/%i",id_partida,
+			FuerzaArt,FueraRan,FuerzaMel,FuerzaArt_M,FueraRan_M,FuerzaMel_M);
+	return i;
+}
+
 void *AtenderCliente(void *socket){
 	// Iniciamos el socket dentro del thread
 	int sock_conn;
@@ -775,15 +810,27 @@ void *AtenderCliente(void *socket){
 					printf("Partida no encontrada.\n");
 				break;
 			}
-
-			case 8:{ //Accion en turno->poner carta en tablero debe ser visible para todos
-
+			//Accion en turno->poner carta en tablero debe ser visible para todos
+			case 8:{ 
 			//el turno puede acabar de distintas formas, cuando todos jugadores han pasado 
 			//y/o cuando ya no pueden poner cartas de su mano o cuando el tiempo de turno acabe
 			// se recibe el estado a final de turno del tablero->invocamos una funcion de recuento desarrollada mas arriba
+				p = strtok(NULL, "/");
+				int id_partida = atoi(p);
+				p = strtok(NULL, "/");
+				char jugador[Max];
+				strcpy(jugador,p);
 
-				printf("Se ha desconectado.\n");
-				terminar = 1;
+				char Reenvio[Max];
+				pthread_mutex_lock(&mutex);
+				int res = AnalizarTurno(id_partida, &Partidas, &jugador, p, &Reenvio);
+				pthread_mutex_unlock(&mutex);
+
+				for (int i=0;i<= Partidas.partidas[id_partida].mode; i++)
+				if(strcmp(Partidas.partidas[id_partida].jugadores[i].Nombre,jugador) != 0)
+				write(Partidas.partidas[id_partida].jugadores[i].Socket,
+					Reenvio, strlen(Reenvio));
+
 				break;
 			}
 

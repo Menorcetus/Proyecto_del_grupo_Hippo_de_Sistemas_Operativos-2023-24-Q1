@@ -99,6 +99,9 @@ namespace ProyectoSO
                         // Aplicar Thread-Cross
                         juego.RecibirMano(mensaje);
                         break;
+                    case 9:
+                        juego.RecibirManoEnemiga(mensaje);
+                        break;
                 }
             }
 

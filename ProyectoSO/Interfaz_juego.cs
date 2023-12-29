@@ -19,13 +19,14 @@ namespace ProyectoSO
         int ID_partida;
         public PictureBox[] Mano = new PictureBox[10];
         public Carta[] ManoCartas = new Carta[10];
-        public Carta[] CartasArt = new Carta[9];
-        public Carta[] CartasRan = new Carta[9];
-        public Carta[] CartasMel = new Carta[9];
 
-        public Carta[] CartasArt_M = new Carta[9];
-        public Carta[] CartasRan_M = new Carta[9];
-        public Carta[] CartasMel_M = new Carta[9];
+        public Carta[] CartasArt = new Carta[9]; int FuerzaArt = 0;
+        public Carta[] CartasRan = new Carta[9]; int FuerzaRan = 0;
+        public Carta[] CartasMel = new Carta[9]; int FuerzaMel = 0;
+
+        public Carta[] CartasArt_M = new Carta[9]; int FuerzaArt_M = 0;
+        public Carta[] CartasRan_M = new Carta[9]; int FuerzaRan_M = 0;
+        public Carta[] CartasMel_M = new Carta[9]; int FuerzaMel_M = 0;
 
         public Color borderColor;
         public Carta cartaselecc;
@@ -60,9 +61,27 @@ namespace ProyectoSO
 
         private void Interfaz_juego_Load(object sender, EventArgs e)
         {
-            
-            
-            
+            CartasArt[0] = new Carta(); CartasRan[0] = new Carta(); CartasMel[0] = new Carta(); CartasArt_M[0] = new Carta(); CartasRan_M[0] = new Carta(); CartasMel_M[0] = new Carta();
+            CartasArt[1] = new Carta(); CartasRan[1] = new Carta(); CartasMel[1] = new Carta(); CartasArt_M[1] = new Carta(); CartasRan_M[1] = new Carta(); CartasMel_M[1] = new Carta();
+            CartasArt[2] = new Carta(); CartasRan[2] = new Carta(); CartasMel[2] = new Carta(); CartasArt_M[2] = new Carta(); CartasRan_M[2] = new Carta(); CartasMel_M[2] = new Carta();
+            CartasArt[3] = new Carta(); CartasRan[3] = new Carta(); CartasMel[3] = new Carta(); CartasArt_M[3] = new Carta(); CartasRan_M[3] = new Carta(); CartasMel_M[3] = new Carta();
+            CartasArt[4] = new Carta(); CartasRan[4] = new Carta(); CartasMel[4] = new Carta(); CartasArt_M[4] = new Carta(); CartasRan_M[4] = new Carta(); CartasMel_M[4] = new Carta();
+            CartasArt[5] = new Carta(); CartasRan[5] = new Carta(); CartasMel[5] = new Carta(); CartasArt_M[5] = new Carta(); CartasRan_M[5] = new Carta(); CartasMel_M[5] = new Carta();
+            CartasArt[6] = new Carta(); CartasRan[6] = new Carta(); CartasMel[6] = new Carta(); CartasArt_M[6] = new Carta(); CartasRan_M[6] = new Carta(); CartasMel_M[6] = new Carta();
+            CartasArt[7] = new Carta(); CartasRan[7] = new Carta(); CartasMel[7] = new Carta(); CartasArt_M[7] = new Carta(); CartasRan_M[7] = new Carta(); CartasMel_M[7] = new Carta();
+            CartasArt[8] = new Carta(); CartasRan[8] = new Carta(); CartasMel[8] = new Carta(); CartasArt_M[8] = new Carta(); CartasRan_M[8] = new Carta(); CartasMel_M[8] = new Carta();
+
+
+
+            CartasArt[0].id = -1; CartasRan[0].id = -1; CartasMel[0].id = -1;   CartasArt_M[0].id = -1; CartasRan_M[0].id = -1; CartasMel_M[0].id = -1;
+            CartasArt[1].id = -1; CartasRan[1].id = -1; CartasMel[1].id = -1;   CartasArt_M[1].id = -1; CartasRan_M[1].id = -1; CartasMel_M[1].id = -1;
+            CartasArt[2].id = -1; CartasRan[2].id = -1; CartasMel[2].id = -1;   CartasArt_M[2].id = -1; CartasRan_M[2].id = -1; CartasMel_M[2].id = -1;
+            CartasArt[3].id = -1; CartasRan[3].id = -1; CartasMel[3].id = -1;   CartasArt_M[3].id = -1; CartasRan_M[3].id = -1; CartasMel_M[3].id = -1;
+            CartasArt[4].id = -1; CartasRan[4].id = -1; CartasMel[4].id = -1;   CartasArt_M[4].id = -1; CartasRan_M[4].id = -1; CartasMel_M[4].id = -1;
+            CartasArt[5].id = -1; CartasRan[5].id = -1; CartasMel[5].id = -1;   CartasArt_M[5].id = -1; CartasRan_M[5].id = -1; CartasMel_M[5].id = -1;
+            CartasArt[6].id = -1; CartasRan[6].id = -1; CartasMel[6].id = -1;   CartasArt_M[6].id = -1; CartasRan_M[6].id = -1; CartasMel_M[6].id = -1;
+            CartasArt[7].id = -1; CartasRan[7].id = -1; CartasMel[7].id = -1;   CartasArt_M[7].id = -1; CartasRan_M[7].id = -1; CartasMel_M[7].id = -1;
+            CartasArt[8].id = -1; CartasRan[8].id = -1; CartasMel[8].id = -1;   CartasArt_M[8].id = -1; CartasRan_M[8].id = -1; CartasMel_M[8].id = -1;
         }
 
         internal void RecibirMano(string mensaje)
@@ -139,6 +158,8 @@ namespace ProyectoSO
         }
 
 
+
+
         //=============================================================================================================
         // Funciones de auxiliares para cartas
         private void ChangePictureBoxBorderColor(PictureBox pictureBox, Color color)
@@ -194,8 +215,6 @@ namespace ProyectoSO
             ManoCartas[DameCartaMano(cartaselecc.picture)].picture.Visible = false;
             picBox.BackColor = Color.Transparent;
             picBox.BackgroundImage = ManoCartas[DameCartaMano(cartaselecc.picture)].picture.Image;
-            cartaselecc = null;
-
         }
 
         private int DameCartaMano(PictureBox picturebox)
@@ -212,8 +231,43 @@ namespace ProyectoSO
             return -1;
         }
 
+        private string DistribuirCartas(Carta[] Artilleria, Carta[] Rango, Carta[] Melee)
+        {
+            // Genera un vector de string guardando las id de las cartas segun la distribucion en el tablero
+            // Primero coloca la fila de melee, luego rango i luego artilleria
+            // Si no hay carta en la posicion se envia un -1
+            string matriz ="/";
+            for (int i = 0; i < Melee.Length; i++)
+                matriz = matriz + Melee[i].id + "/";
+            for (int i = 0; i < Rango.Length; i++)
+                matriz = matriz + Rango[i].id + "/";
+            for (int i = 0; i < Artilleria.Length; i++)
+                matriz = matriz + Artilleria[i].id + "/";
+            return matriz;
+        }
 
 
+        private void PasarTurnoBtn_Click(object sender, EventArgs e)
+        {
+
+            string DistribucionCartas = DistribuirCartas(CartasArt, CartasRan, CartasMel);
+            string mensaje = "8/" + this.ID_partida + "/" + this.user.Name + "/" + this.FuerzaMel + "/" + this.FuerzaRan + "/" + this.FuerzaArt
+                                                    + "/" + this.FuerzaMel_M + "/" + this.FuerzaRan_M + "/" + this.FuerzaArt_M + DistribucionCartas;
+
+            byte[] msg = Encoding.ASCII.GetBytes(mensaje);
+            server.Send(msg);
+        }
+
+        private int ContarFuerza(Carta[] Cartas)
+        {
+            int total = 0;
+            for (int i=0; i < Cartas.Length; i++)
+            {
+                if (Cartas[i].id != -1)
+                    total += Cartas[i].fuerza;
+            }
+            return total;
+        }
 
         //=============================================================================================================
         // Acciones pasar por encima de carta
@@ -357,7 +411,13 @@ namespace ProyectoSO
             if (cartaselecc != null)
             {
                 if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                {
                     T_PictureBox_Click(sender, e);
+                    CartasArt[0] = cartaselecc;
+                    FuerzaArt = ContarFuerza(CartasArt);
+                    cartaselecc = null;
+                }
+                    
             }
         }
 
@@ -366,7 +426,12 @@ namespace ProyectoSO
             if (cartaselecc != null)
             {
                 if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                {
                     T_PictureBox_Click(sender, e);
+                    CartasArt[1] = cartaselecc;
+                    FuerzaArt = ContarFuerza(CartasArt);
+                    cartaselecc = null;
+                }
             }
         }
 
@@ -375,7 +440,12 @@ namespace ProyectoSO
             if (cartaselecc != null)
             {
                 if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                {
                     T_PictureBox_Click(sender, e);
+                    CartasArt[2] = cartaselecc;
+                    FuerzaArt = ContarFuerza(CartasArt);
+                    cartaselecc = null;
+                }
             }
         }
 
@@ -384,7 +454,12 @@ namespace ProyectoSO
             if (cartaselecc != null)
             {
                 if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                {
                     T_PictureBox_Click(sender, e);
+                    CartasArt[3] = cartaselecc;
+                    FuerzaArt = ContarFuerza(CartasArt);
+                    cartaselecc = null;
+                }
             }
         }
 
@@ -393,7 +468,12 @@ namespace ProyectoSO
             if (cartaselecc != null)
             {
                 if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                {
                     T_PictureBox_Click(sender, e);
+                    CartasArt[4] = cartaselecc;
+                    FuerzaArt = ContarFuerza(CartasArt);
+                    cartaselecc = null;
+                }
             }
         }
 
@@ -402,7 +482,12 @@ namespace ProyectoSO
             if (cartaselecc != null)
             {
                 if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                {
                     T_PictureBox_Click(sender, e);
+                    CartasArt[5] = cartaselecc;
+                    FuerzaArt = ContarFuerza(CartasArt);
+                    cartaselecc = null;
+                }
             }
         }
 
@@ -411,7 +496,12 @@ namespace ProyectoSO
             if (cartaselecc != null)
             {
                 if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                {
                     T_PictureBox_Click(sender, e);
+                    CartasArt[6] = cartaselecc;
+                    FuerzaArt = ContarFuerza(CartasArt);
+                    cartaselecc = null;
+                }
             }
         }
 
@@ -420,7 +510,12 @@ namespace ProyectoSO
             if (cartaselecc != null)
             {
                 if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                {
                     T_PictureBox_Click(sender, e);
+                    CartasArt[7] = cartaselecc;
+                    FuerzaArt = ContarFuerza(CartasArt);
+                    cartaselecc = null;
+                }
             }
         }
 
@@ -429,7 +524,12 @@ namespace ProyectoSO
             if (cartaselecc != null)
             {
                 if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                {
                     T_PictureBox_Click(sender, e);
+                    CartasArt[8] = cartaselecc;
+                    FuerzaArt = ContarFuerza(CartasArt);
+                    cartaselecc = null;
+                }
             }
         }
 
@@ -440,7 +540,12 @@ namespace ProyectoSO
             if (cartaselecc != null)
             {
                 if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                {
                     T_PictureBox_Click(sender, e);
+                    CartasRan[0] = cartaselecc;
+                    FuerzaRan = ContarFuerza(CartasRan);
+                    cartaselecc = null;
+                }
             }
         }
 
@@ -449,7 +554,12 @@ namespace ProyectoSO
             if (cartaselecc != null)
             {
                 if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                {
                     T_PictureBox_Click(sender, e);
+                    CartasRan[1] = cartaselecc;
+                    FuerzaRan = ContarFuerza(CartasRan);
+                    cartaselecc = null;
+                }
             }
         }
 
@@ -458,7 +568,12 @@ namespace ProyectoSO
             if (cartaselecc != null)
             {
                 if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                {
                     T_PictureBox_Click(sender, e);
+                    CartasRan[2] = cartaselecc;
+                    FuerzaRan = ContarFuerza(CartasRan);
+                    cartaselecc = null;
+                }
             }
         }
 
@@ -467,7 +582,12 @@ namespace ProyectoSO
             if (cartaselecc != null)
             {
                 if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                {
                     T_PictureBox_Click(sender, e);
+                    CartasRan[3] = cartaselecc;
+                    FuerzaRan = ContarFuerza(CartasRan);
+                    cartaselecc = null;
+                }
             }
         }
 
@@ -476,7 +596,12 @@ namespace ProyectoSO
             if (cartaselecc != null)
             {
                 if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                {
                     T_PictureBox_Click(sender, e);
+                    CartasRan[4] = cartaselecc;
+                    FuerzaRan = ContarFuerza(CartasRan);
+                    cartaselecc = null;
+                }
             }
         }
 
@@ -485,7 +610,12 @@ namespace ProyectoSO
             if (cartaselecc != null)
             {
                 if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                {
                     T_PictureBox_Click(sender, e);
+                    CartasRan[5] = cartaselecc;
+                    FuerzaRan = ContarFuerza(CartasRan);
+                    cartaselecc = null;
+                }
             }
         }
 
@@ -494,7 +624,12 @@ namespace ProyectoSO
             if (cartaselecc != null)
             {
                 if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                {
                     T_PictureBox_Click(sender, e);
+                    CartasRan[6] = cartaselecc;
+                    FuerzaRan = ContarFuerza(CartasRan);
+                    cartaselecc = null;
+                }
             }
         }
 
@@ -503,7 +638,12 @@ namespace ProyectoSO
             if (cartaselecc != null)
             {
                 if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                {
                     T_PictureBox_Click(sender, e);
+                    CartasRan[7] = cartaselecc;
+                    FuerzaRan = ContarFuerza(CartasRan);
+                    cartaselecc = null;
+                }
             }
         }
 
@@ -512,7 +652,12 @@ namespace ProyectoSO
             if (cartaselecc != null)
             {
                 if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                {
                     T_PictureBox_Click(sender, e);
+                    CartasRan[8] = cartaselecc;
+                    FuerzaRan = ContarFuerza(CartasRan);
+                    cartaselecc = null;
+                }
             }
         }
 
@@ -523,7 +668,12 @@ namespace ProyectoSO
             if (cartaselecc != null)
             {
                 if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                {
                     T_PictureBox_Click(sender, e);
+                    CartasMel[0] = cartaselecc;
+                    FuerzaMel = ContarFuerza(CartasMel);
+                    cartaselecc = null;
+                }
             }
         }
 
@@ -532,7 +682,12 @@ namespace ProyectoSO
             if (cartaselecc != null)
             {
                 if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                {
                     T_PictureBox_Click(sender, e);
+                    CartasMel[1] = cartaselecc;
+                    FuerzaMel = ContarFuerza(CartasMel);
+                    cartaselecc = null;
+                }
             }
         }
 
@@ -541,7 +696,12 @@ namespace ProyectoSO
             if (cartaselecc != null)
             {
                 if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                {
                     T_PictureBox_Click(sender, e);
+                    CartasMel[2] = cartaselecc;
+                    FuerzaMel = ContarFuerza(CartasMel);
+                    cartaselecc = null;
+                }
             }
         }
 
@@ -550,7 +710,12 @@ namespace ProyectoSO
             if (cartaselecc != null)
             {
                 if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                {
                     T_PictureBox_Click(sender, e);
+                    CartasMel[3] = cartaselecc;
+                    FuerzaMel = ContarFuerza(CartasMel);
+                    cartaselecc = null;
+                }
             }
         }
 
@@ -559,7 +724,12 @@ namespace ProyectoSO
             if (cartaselecc != null)
             {
                 if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                {
                     T_PictureBox_Click(sender, e);
+                    CartasMel[4] = cartaselecc;
+                    FuerzaMel = ContarFuerza(CartasMel);
+                    cartaselecc = null;
+                }
             }
         }
 
@@ -568,7 +738,12 @@ namespace ProyectoSO
             if (cartaselecc != null)
             {
                 if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                {
                     T_PictureBox_Click(sender, e);
+                    CartasMel[5] = cartaselecc;
+                    FuerzaMel = ContarFuerza(CartasMel);
+                    cartaselecc = null;
+                }
             }
         }
 
@@ -577,7 +752,12 @@ namespace ProyectoSO
             if (cartaselecc != null)
             {
                 if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                {
                     T_PictureBox_Click(sender, e);
+                    CartasMel[6] = cartaselecc;
+                    FuerzaMel = ContarFuerza(CartasMel);
+                    cartaselecc = null;
+                }
             }
         }
 
@@ -586,7 +766,12 @@ namespace ProyectoSO
             if (cartaselecc != null)
             {
                 if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                {
                     T_PictureBox_Click(sender, e);
+                    CartasMel[7] = cartaselecc;
+                    FuerzaMel = ContarFuerza(CartasMel);
+                    cartaselecc = null;
+                }
             }
         }
 
@@ -595,7 +780,12 @@ namespace ProyectoSO
             if (cartaselecc != null)
             {
                 if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                {
                     T_PictureBox_Click(sender, e);
+                    CartasMel[8] = cartaselecc;
+                    FuerzaMel = ContarFuerza(CartasMel);
+                    cartaselecc = null;
+                }
             }
         }
 
@@ -1199,5 +1389,6 @@ namespace ProyectoSO
         {
             M_PictureBox_Click(sender, e);
         }
+
     }
 }
