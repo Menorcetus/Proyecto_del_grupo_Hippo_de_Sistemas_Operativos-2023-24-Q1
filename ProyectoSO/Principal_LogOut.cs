@@ -81,11 +81,11 @@ namespace ProyectoSO
                     case 5:
                         logged_form.MostrarRespuesta(mensaje);
                         break;
-                    case 6:
+                    case 6: // iniciar partida y crear interfaz de juego nueva
                         string[] trozosMsg = mensaje.Split('/');
                         int id_partida = Convert.ToInt32(trozosMsg[0]);
-
-                        juego = new Interfaz_juego(user, server, id_partida);
+                        int accion = Convert.ToInt32(trozosMsg[1]);
+                        juego = new Interfaz_juego(user, server, id_partida, accion);
                         ThreadStart tsJuego = delegate { juego.ShowDialog();};
                         ThreadJuego = new Thread(tsJuego);
                         ThreadJuego.Start();

@@ -31,12 +31,16 @@ namespace ProyectoSO
         public Color borderColor;
         public Carta cartaselecc;
         int numCartas;
-        public Interfaz_juego(User user, Socket server, int ID_partida)
+        int accion;
+        
+
+        public Interfaz_juego(User user, Socket server, int ID_partida, int accion)
         {
             InitializeComponent();
             this.user = user;
             this.server = server;
             this.ID_partida = ID_partida;
+            this.accion = accion;
         }
 
         internal void RecibirChat(string mensaje)
@@ -82,6 +86,17 @@ namespace ProyectoSO
             CartasArt[6].id = -1; CartasRan[6].id = -1; CartasMel[6].id = -1;   CartasArt_M[6].id = -1; CartasRan_M[6].id = -1; CartasMel_M[6].id = -1;
             CartasArt[7].id = -1; CartasRan[7].id = -1; CartasMel[7].id = -1;   CartasArt_M[7].id = -1; CartasRan_M[7].id = -1; CartasMel_M[7].id = -1;
             CartasArt[8].id = -1; CartasRan[8].id = -1; CartasMel[8].id = -1;   CartasArt_M[8].id = -1; CartasRan_M[8].id = -1; CartasMel_M[8].id = -1;
+            
+            if (accion == 1)
+            {
+                turno.Text = "¡Tu turno!";
+            }
+
+            else
+            {
+                turno.Text = "¡Turno del contrincante!";
+            }
+
         }
 
         internal void RecibirMano(string mensaje)
@@ -419,129 +434,183 @@ namespace ProyectoSO
         // Click en carta del tablero
         // Artilleria:
 
+
+        
         private void Art1_Click(object sender, EventArgs e)
         {
-            if (cartaselecc != null)
-            {
-                if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
-                {
-                    T_PictureBox_Click(sender, e);
-                    CartasArt[0] = cartaselecc;
-                    FuerzaArt = ContarFuerza(CartasArt);
-                    cartaselecc = null;
-                }
+
+            if (accion == 1)
+            { 
+                    if (cartaselecc != null)
+                    {
+                        if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                        {
+                            T_PictureBox_Click(sender, e);
+                            CartasArt[0] = cartaselecc;
+                            FuerzaArt = ContarFuerza(CartasArt);
+                            cartaselecc = null;
+                            accion = 0;
+                            turno.Text = "¡Turno del contrincante!";
+
+                        }
                     
+                    }
             }
+        
         }
 
         private void Art2_Click(object sender, EventArgs e)
         {
-            if (cartaselecc != null)
+
+
+            if (accion == 1)
             {
-                if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                if (cartaselecc != null)
                 {
-                    T_PictureBox_Click(sender, e);
-                    CartasArt[1] = cartaselecc;
-                    FuerzaArt = ContarFuerza(CartasArt);
-                    cartaselecc = null;
+                     if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                     {
+                         T_PictureBox_Click(sender, e);
+                         CartasArt[1] = cartaselecc;
+                         FuerzaArt = ContarFuerza(CartasArt);
+                         cartaselecc = null;
+                        accion = 0;
+                        turno.Text = "¡Turno del contrincante!";
+                    }
                 }
             }
+        
         }
 
         private void Art3_Click(object sender, EventArgs e)
         {
-            if (cartaselecc != null)
+            if (accion == 1)
             {
-                if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                if (cartaselecc != null)
                 {
-                    T_PictureBox_Click(sender, e);
-                    CartasArt[2] = cartaselecc;
-                    FuerzaArt = ContarFuerza(CartasArt);
-                    cartaselecc = null;
+                    if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                    {
+                        T_PictureBox_Click(sender, e);
+                        CartasArt[2] = cartaselecc;
+                        FuerzaArt = ContarFuerza(CartasArt);
+                        cartaselecc = null;
+                        accion = 0;
+                        turno.Text = "¡Turno del contrincante!";
+                    }
                 }
             }
         }
 
         private void Art4_Click(object sender, EventArgs e)
         {
-            if (cartaselecc != null)
+            if (accion == 1)
             {
-                if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                if (cartaselecc != null)
                 {
-                    T_PictureBox_Click(sender, e);
-                    CartasArt[3] = cartaselecc;
-                    FuerzaArt = ContarFuerza(CartasArt);
-                    cartaselecc = null;
+                    if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                    {
+                        T_PictureBox_Click(sender, e);
+                        CartasArt[3] = cartaselecc;
+                        FuerzaArt = ContarFuerza(CartasArt);
+                        cartaselecc = null;
+                        accion = 0;
+                        turno.Text = "¡Turno del contrincante!";
+                    }
                 }
             }
         }
 
         private void Art5_Click(object sender, EventArgs e)
         {
-            if (cartaselecc != null)
+            if (accion == 1)
             {
-                if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                if (cartaselecc != null)
                 {
-                    T_PictureBox_Click(sender, e);
-                    CartasArt[4] = cartaselecc;
-                    FuerzaArt = ContarFuerza(CartasArt);
-                    cartaselecc = null;
+                    if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                    {
+                        T_PictureBox_Click(sender, e);
+                        CartasArt[4] = cartaselecc;
+                        FuerzaArt = ContarFuerza(CartasArt);
+                        cartaselecc = null;
+                        accion = 0;
+                        turno.Text = "¡Turno del contrincante!";
+                    }
                 }
             }
         }
 
         private void Art6_Click(object sender, EventArgs e)
         {
-            if (cartaselecc != null)
+            if (accion == 1)
             {
-                if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                if (cartaselecc != null)
                 {
-                    T_PictureBox_Click(sender, e);
-                    CartasArt[5] = cartaselecc;
-                    FuerzaArt = ContarFuerza(CartasArt);
-                    cartaselecc = null;
+                    if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                    {
+                        T_PictureBox_Click(sender, e);
+                        CartasArt[5] = cartaselecc;
+                        FuerzaArt = ContarFuerza(CartasArt);
+                        cartaselecc = null;
+                        accion = 0;
+                        turno.Text = "¡Turno del contrincante!";
+                    }
                 }
             }
         }
 
         private void Art7_Click(object sender, EventArgs e)
         {
-            if (cartaselecc != null)
+            if (accion == 1)
             {
-                if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                if (cartaselecc != null)
                 {
-                    T_PictureBox_Click(sender, e);
-                    CartasArt[6] = cartaselecc;
-                    FuerzaArt = ContarFuerza(CartasArt);
-                    cartaselecc = null;
+                    if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                    {
+                        T_PictureBox_Click(sender, e);
+                        CartasArt[6] = cartaselecc;
+                        FuerzaArt = ContarFuerza(CartasArt);
+                        cartaselecc = null;
+                        accion = 0;
+                        turno.Text = "¡Turno del contrincante!";
+                    }
                 }
             }
         }
 
         private void Art8_Click(object sender, EventArgs e)
         {
-            if (cartaselecc != null)
+            if (accion == 1)
             {
-                if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                if (cartaselecc != null)
                 {
-                    T_PictureBox_Click(sender, e);
-                    CartasArt[7] = cartaselecc;
-                    FuerzaArt = ContarFuerza(CartasArt);
-                    cartaselecc = null;
+                    if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                    {
+                        T_PictureBox_Click(sender, e);
+                        CartasArt[7] = cartaselecc;
+                        FuerzaArt = ContarFuerza(CartasArt);
+                        cartaselecc = null;
+                        accion = 0;
+                        turno.Text = "¡Turno del contrincante!";
+
+                    }
                 }
             }
         }
 
         private void Art9_Click(object sender, EventArgs e)
         {
-            if (cartaselecc != null)
+            if (accion == 1)
             {
-                if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                if (cartaselecc != null)
                 {
-                    T_PictureBox_Click(sender, e);
-                    CartasArt[8] = cartaselecc;
-                    FuerzaArt = ContarFuerza(CartasArt);
-                    cartaselecc = null;
+                    if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
+                    {
+                        T_PictureBox_Click(sender, e);
+                        CartasArt[8] = cartaselecc;
+                        FuerzaArt = ContarFuerza(CartasArt);
+                        cartaselecc = null;
+                        accion = 0;
+                        turno.Text = "¡Turno del contrincante!";
+                    }
                 }
             }
         }
@@ -550,126 +619,180 @@ namespace ProyectoSO
 
         private void Ran1_Click(object sender, EventArgs e)
         {
-            if (cartaselecc != null)
+            if (accion == 1)
             {
-                if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
-                {
-                    T_PictureBox_Click(sender, e);
-                    CartasRan[0] = cartaselecc;
-                    FuerzaRan = ContarFuerza(CartasRan);
-                    cartaselecc = null;
-                }
+
+               if (cartaselecc != null)
+               {
+                   if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                   {
+                       T_PictureBox_Click(sender, e);
+                       CartasRan[0] = cartaselecc;
+                       FuerzaRan = ContarFuerza(CartasRan);
+                       cartaselecc = null;
+                        accion = 0;
+                        turno.Text = "¡Turno del contrincante!";
+                    }
+               }
             }
         }
 
         private void Ran2_Click(object sender, EventArgs e)
         {
-            if (cartaselecc != null)
+            if (accion == 1)
             {
-                if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+
+                if (cartaselecc != null)
                 {
-                    T_PictureBox_Click(sender, e);
-                    CartasRan[1] = cartaselecc;
-                    FuerzaRan = ContarFuerza(CartasRan);
-                    cartaselecc = null;
+                    if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                    {
+                        T_PictureBox_Click(sender, e);
+                        CartasRan[1] = cartaselecc;
+                        FuerzaRan = ContarFuerza(CartasRan);
+                        cartaselecc = null;
+                        accion = 0;
+                        turno.Text = "¡Turno del contrincante!";
+                    }
                 }
             }
         }
 
         private void Ran3_Click(object sender, EventArgs e)
         {
-            if (cartaselecc != null)
+            if (accion == 1)
             {
-                if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+
+                if (cartaselecc != null)
                 {
-                    T_PictureBox_Click(sender, e);
-                    CartasRan[2] = cartaselecc;
-                    FuerzaRan = ContarFuerza(CartasRan);
-                    cartaselecc = null;
+                    if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                    {
+                        T_PictureBox_Click(sender, e);
+                        CartasRan[2] = cartaselecc;
+                        FuerzaRan = ContarFuerza(CartasRan);
+                        cartaselecc = null;
+                        accion = 0;
+                        turno.Text = "¡Turno del contrincante!";
+                    }
                 }
             }
         }
 
         private void Ran4_Click(object sender, EventArgs e)
         {
-            if (cartaselecc != null)
+            if (accion == 1)
             {
-                if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+
+                if (cartaselecc != null)
                 {
-                    T_PictureBox_Click(sender, e);
-                    CartasRan[3] = cartaselecc;
-                    FuerzaRan = ContarFuerza(CartasRan);
-                    cartaselecc = null;
+                    if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                    {
+                        T_PictureBox_Click(sender, e);
+                        CartasRan[3] = cartaselecc;
+                        FuerzaRan = ContarFuerza(CartasRan);
+                        cartaselecc = null;
+                        accion = 0;
+                        turno.Text = "¡Turno del contrincante!";
+                    }
                 }
             }
         }
 
         private void Ran5_Click(object sender, EventArgs e)
         {
-            if (cartaselecc != null)
+            if (accion == 1)
             {
-                if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+
+                if (cartaselecc != null)
                 {
-                    T_PictureBox_Click(sender, e);
-                    CartasRan[4] = cartaselecc;
-                    FuerzaRan = ContarFuerza(CartasRan);
-                    cartaselecc = null;
+                    if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                    {
+                        T_PictureBox_Click(sender, e);
+                        CartasRan[4] = cartaselecc;
+                        FuerzaRan = ContarFuerza(CartasRan);
+                        cartaselecc = null;
+                        accion = 0;
+                        turno.Text = "¡Turno del contrincante!";
+                    }
                 }
             }
         }
 
         private void Ran6_Click(object sender, EventArgs e)
         {
-            if (cartaselecc != null)
+            if (accion == 1)
             {
-                if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+
+                if (cartaselecc != null)
                 {
-                    T_PictureBox_Click(sender, e);
-                    CartasRan[5] = cartaselecc;
-                    FuerzaRan = ContarFuerza(CartasRan);
-                    cartaselecc = null;
+                    if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                    {
+                        T_PictureBox_Click(sender, e);
+                        CartasRan[5] = cartaselecc;
+                        FuerzaRan = ContarFuerza(CartasRan);
+                        cartaselecc = null;
+                        accion = 0;
+                        turno.Text = "¡Turno del contrincante!";
+                    }
                 }
             }
         }
 
         private void Ran7_Click(object sender, EventArgs e)
         {
-            if (cartaselecc != null)
+            if (accion == 1)
             {
-                if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+
+                if (cartaselecc != null)
                 {
-                    T_PictureBox_Click(sender, e);
-                    CartasRan[6] = cartaselecc;
-                    FuerzaRan = ContarFuerza(CartasRan);
-                    cartaselecc = null;
+                    if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                    {
+                        T_PictureBox_Click(sender, e);
+                        CartasRan[6] = cartaselecc;
+                        FuerzaRan = ContarFuerza(CartasRan);
+                        cartaselecc = null;
+                        accion = 0;
+                        turno.Text = "¡Turno del contrincante!";
+                    }
                 }
             }
         }
 
         private void Ran8_Click(object sender, EventArgs e)
         {
-            if (cartaselecc != null)
+            if (accion == 1)
             {
-                if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+
+                if (cartaselecc != null)
                 {
-                    T_PictureBox_Click(sender, e);
-                    CartasRan[7] = cartaselecc;
-                    FuerzaRan = ContarFuerza(CartasRan);
-                    cartaselecc = null;
+                    if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                    {
+                        T_PictureBox_Click(sender, e);
+                        CartasRan[7] = cartaselecc;
+                        FuerzaRan = ContarFuerza(CartasRan);
+                        cartaselecc = null;
+                        accion = 0;
+                        turno.Text = "¡Turno del contrincante!";
+                    }
                 }
             }
         }
 
         private void Ran9_Click(object sender, EventArgs e)
         {
-            if (cartaselecc != null)
+            if (accion == 1)
             {
-                if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+
+                if (cartaselecc != null)
                 {
-                    T_PictureBox_Click(sender, e);
-                    CartasRan[8] = cartaselecc;
-                    FuerzaRan = ContarFuerza(CartasRan);
-                    cartaselecc = null;
+                    if (cartaselecc.tipo == 2 || cartaselecc.tipo == 4)
+                    {
+                        T_PictureBox_Click(sender, e);
+                        CartasRan[8] = cartaselecc;
+                        FuerzaRan = ContarFuerza(CartasRan);
+                        cartaselecc = null;
+                        accion = 0;
+                        turno.Text = "¡Turno del contrincante!";
+                    }
                 }
             }
         }
@@ -678,126 +801,181 @@ namespace ProyectoSO
 
         private void Mel1_Click(object sender, EventArgs e)
         {
-            if (cartaselecc != null)
+            if (accion == 1)
             {
-                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+
+                if (cartaselecc != null)
                 {
-                    T_PictureBox_Click(sender, e);
-                    CartasMel[0] = cartaselecc;
-                    FuerzaMel = ContarFuerza(CartasMel);
-                    cartaselecc = null;
+                    if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    {
+                        T_PictureBox_Click(sender, e);
+                        CartasMel[0] = cartaselecc;
+                        FuerzaMel = ContarFuerza(CartasMel);
+                        cartaselecc = null;
+                        accion = 0;
+                        turno.Text = "¡Turno del contrincante!";
+                    }
                 }
             }
+
         }
 
         private void Mel2_Click(object sender, EventArgs e)
         {
-            if (cartaselecc != null)
+            if (accion == 1)
             {
-                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+
+                if (cartaselecc != null)
                 {
-                    T_PictureBox_Click(sender, e);
-                    CartasMel[1] = cartaselecc;
-                    FuerzaMel = ContarFuerza(CartasMel);
-                    cartaselecc = null;
+                    if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    {
+                        T_PictureBox_Click(sender, e);
+                        CartasMel[1] = cartaselecc;
+                        FuerzaMel = ContarFuerza(CartasMel);
+                        cartaselecc = null;
+                        accion = 0;
+                        turno.Text = "¡Turno del contrincante!";
+                    }
                 }
             }
         }
 
         private void Mel3_Click(object sender, EventArgs e)
         {
-            if (cartaselecc != null)
+            if (accion == 1)
             {
-                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+
+                if (cartaselecc != null)
                 {
-                    T_PictureBox_Click(sender, e);
-                    CartasMel[2] = cartaselecc;
-                    FuerzaMel = ContarFuerza(CartasMel);
-                    cartaselecc = null;
+                    if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    {
+                        T_PictureBox_Click(sender, e);
+                        CartasMel[2] = cartaselecc;
+                        FuerzaMel = ContarFuerza(CartasMel);
+                        cartaselecc = null;
+                        accion = 0;
+                        turno.Text = "¡Turno del contrincante!";
+                    }
                 }
             }
         }
 
         private void Mel4_Click(object sender, EventArgs e)
         {
-            if (cartaselecc != null)
+            if (accion == 1)
             {
-                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+
+                if (cartaselecc != null)
                 {
-                    T_PictureBox_Click(sender, e);
-                    CartasMel[3] = cartaselecc;
-                    FuerzaMel = ContarFuerza(CartasMel);
-                    cartaselecc = null;
+                    if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    {
+                        T_PictureBox_Click(sender, e);
+                        CartasMel[3] = cartaselecc;
+                        FuerzaMel = ContarFuerza(CartasMel);
+                        cartaselecc = null;
+                        accion = 0;
+                        turno.Text = "¡Turno del contrincante!";
+                    }
                 }
             }
         }
 
         private void Mel5_Click(object sender, EventArgs e)
         {
-            if (cartaselecc != null)
+            if (accion == 1)
             {
-                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+
+                if (cartaselecc != null)
                 {
-                    T_PictureBox_Click(sender, e);
-                    CartasMel[4] = cartaselecc;
-                    FuerzaMel = ContarFuerza(CartasMel);
-                    cartaselecc = null;
+                    if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    {
+                        T_PictureBox_Click(sender, e);
+                        CartasMel[4] = cartaselecc;
+                        FuerzaMel = ContarFuerza(CartasMel);
+                        cartaselecc = null;
+                        accion = 0;
+                        turno.Text = "¡Turno del contrincante!";
+                    }
                 }
             }
         }
 
         private void Mel6_Click(object sender, EventArgs e)
         {
-            if (cartaselecc != null)
+            if (accion == 1)
             {
-                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+
+                if (cartaselecc != null)
                 {
-                    T_PictureBox_Click(sender, e);
-                    CartasMel[5] = cartaselecc;
-                    FuerzaMel = ContarFuerza(CartasMel);
-                    cartaselecc = null;
+                    if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    {
+                        T_PictureBox_Click(sender, e);
+                        CartasMel[5] = cartaselecc;
+                        FuerzaMel = ContarFuerza(CartasMel);
+                        cartaselecc = null;
+                        accion = 0;
+                        turno.Text = "¡Turno del contrincante!";
+                    }
                 }
             }
         }
 
         private void Mel7_Click(object sender, EventArgs e)
         {
-            if (cartaselecc != null)
+            if (accion == 1)
             {
-                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+
+                if (cartaselecc != null)
                 {
-                    T_PictureBox_Click(sender, e);
-                    CartasMel[6] = cartaselecc;
-                    FuerzaMel = ContarFuerza(CartasMel);
-                    cartaselecc = null;
+                    if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    {
+                        T_PictureBox_Click(sender, e);
+                        CartasMel[6] = cartaselecc;
+                        FuerzaMel = ContarFuerza(CartasMel);
+                        cartaselecc = null;
+                        accion = 0;
+                        turno.Text = "¡Turno del contrincante!";
+                    }
                 }
             }
         }
 
         private void Mel8_Click(object sender, EventArgs e)
         {
-            if (cartaselecc != null)
+            if (accion == 1)
             {
-                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+
+                if (cartaselecc != null)
                 {
-                    T_PictureBox_Click(sender, e);
-                    CartasMel[7] = cartaselecc;
-                    FuerzaMel = ContarFuerza(CartasMel);
-                    cartaselecc = null;
+                    if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    {
+                        T_PictureBox_Click(sender, e);
+                        CartasMel[7] = cartaselecc;
+                        FuerzaMel = ContarFuerza(CartasMel);
+                        cartaselecc = null;
+                        accion = 0;
+                        turno.Text = "¡Turno del contrincante!";
+                    }
                 }
             }
         }
 
         private void Mel9_Click(object sender, EventArgs e)
         {
-            if (cartaselecc != null)
+            if (accion == 1)
             {
-                if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+
+                if (cartaselecc != null)
                 {
-                    T_PictureBox_Click(sender, e);
-                    CartasMel[8] = cartaselecc;
-                    FuerzaMel = ContarFuerza(CartasMel);
-                    cartaselecc = null;
+                    if (cartaselecc.tipo == 1 || cartaselecc.tipo == 4)
+                    {
+                        T_PictureBox_Click(sender, e);
+                        CartasMel[8] = cartaselecc;
+                        FuerzaMel = ContarFuerza(CartasMel);
+                        cartaselecc = null;
+                        accion = 0;
+                        turno.Text = "¡Turno del contrincante!";
+                    }
                 }
             }
         }
@@ -1358,52 +1536,82 @@ namespace ProyectoSO
 
         private void Mano1_Click(object sender, EventArgs e)
         {
-            M_PictureBox_Click(sender, e);
+            if (accion == 1)
+            {
+                M_PictureBox_Click(sender, e);
+            }   
         }
 
         private void Mano2_Click(object sender, EventArgs e)
         {
-            M_PictureBox_Click(sender, e);
+            if (accion == 1)
+            {
+                M_PictureBox_Click(sender, e);
+            }
         }
 
         private void Mano3_Click(object sender, EventArgs e)
         {
-            M_PictureBox_Click(sender, e);
+            if (accion == 1)
+            {
+                M_PictureBox_Click(sender, e);
+            }
         }
 
         private void Mano4_Click(object sender, EventArgs e)
         {
-            M_PictureBox_Click(sender, e);
+            if (accion == 1)
+            {
+                M_PictureBox_Click(sender, e);
+            }
         }
 
         private void Mano5_Click(object sender, EventArgs e)
         {
-            M_PictureBox_Click(sender, e);
+            if (accion == 1)
+            {
+                M_PictureBox_Click(sender, e);
+            }
         }
 
         private void Mano6_Click(object sender, EventArgs e)
         {
-            M_PictureBox_Click(sender, e);
+            if (accion == 1)
+            {
+                M_PictureBox_Click(sender, e);
+            }
         }
 
         private void Mano7_Click(object sender, EventArgs e)
         {
-            M_PictureBox_Click(sender, e);
+            if (accion == 1)
+            {
+                M_PictureBox_Click(sender, e);
+            }
         }
 
         private void Mano8_Click(object sender, EventArgs e)
         {
-            M_PictureBox_Click(sender, e);
+            if (accion == 1)
+            {
+                M_PictureBox_Click(sender, e);
+            }
         }
 
         private void Mano9_Click(object sender, EventArgs e)
         {
-            M_PictureBox_Click(sender, e);
+            if (accion == 1)
+            {
+                M_PictureBox_Click(sender, e);
+            }
         }
 
         private void Mano10_Click(object sender, EventArgs e)
         {
-            M_PictureBox_Click(sender, e);
+            if (accion == 1)
+            {
+                M_PictureBox_Click(sender, e);
+            }
         }
 
     }
