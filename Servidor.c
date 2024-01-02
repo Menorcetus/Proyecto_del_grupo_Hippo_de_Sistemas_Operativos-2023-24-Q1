@@ -507,6 +507,17 @@ int AnalizarTurno(int id_partida, ListaPartidas *Partidas, char *jugador, char *
 	return i;
 }
 
+
+int jugadorPrimero()
+// funcion que da 1 o 2 para decidir que jugador inicia el primer turno
+// --> Activa como true en cliente el booleano "accion", que por defecto es false para ambos
+{
+	srand(time(NULL)); 
+	int primero = rand()%2;
+	return primero;
+}
+	
+
 void *AtenderCliente(void *socket){
 	// Iniciamos el socket dentro del thread
 	int sock_conn;
@@ -674,6 +685,30 @@ void *AtenderCliente(void *socket){
 					printf("Respuesta: %s\n", respuesta);
 					write(Partidas.partidas[id_partida].jugadores[1].Socket,
 							respuesta, strlen(respuesta));
+
+// Hay que reeimplementar turno primero
+					//	int primero = jugadorPrimero();
+					//	
+					//	printf("Se va a iniciar partida: %s\n", respuesta);
+					//	for (int i=0;i<= Partidas.partidas[id_partida].mode; i++)
+					//		{
+					//			if (primero == i)
+					//			{
+					//				sprintf(respuesta, "6/%i/1", id_partida); // 1 para el que inicia la primera accion
+					//				write(Partidas.partidas[id_partida].jugadores[i].Socket,
+					//				respuesta, strlen(respuesta));
+//
+					//			}
+//
+					//			else
+					//			{
+//
+					//				sprintf(respuesta, "6/%i/0", id_partida);
+					//				write(Partidas.partidas[id_partida].jugadores[i].Socket,
+					//				respuesta, strlen(respuesta));
+					//			}
+//
+					//		}
 
 				}
 				break;
