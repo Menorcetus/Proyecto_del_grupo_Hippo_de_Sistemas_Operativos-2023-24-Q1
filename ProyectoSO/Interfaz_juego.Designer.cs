@@ -173,7 +173,7 @@
             this.panel2.Controls.Add(this.ChatOutput);
             this.panel2.Controls.Add(this.ChatInput);
             this.panel2.Location = new System.Drawing.Point(70, 94);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(342, 324);
             this.panel2.TabIndex = 1;
@@ -193,7 +193,7 @@
             // 
             this.ChatEnviar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ChatEnviar.Location = new System.Drawing.Point(248, 286);
-            this.ChatEnviar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ChatEnviar.Margin = new System.Windows.Forms.Padding(2);
             this.ChatEnviar.Name = "ChatEnviar";
             this.ChatEnviar.Size = new System.Drawing.Size(70, 26);
             this.ChatEnviar.TabIndex = 2;
@@ -207,7 +207,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ChatOutput.Enabled = false;
             this.ChatOutput.Location = new System.Drawing.Point(28, 40);
-            this.ChatOutput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ChatOutput.Margin = new System.Windows.Forms.Padding(2);
             this.ChatOutput.Multiline = true;
             this.ChatOutput.Name = "ChatOutput";
             this.ChatOutput.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -219,7 +219,7 @@
             this.ChatInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ChatInput.Location = new System.Drawing.Point(26, 286);
-            this.ChatInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ChatInput.Margin = new System.Windows.Forms.Padding(2);
             this.ChatInput.Name = "ChatInput";
             this.ChatInput.Size = new System.Drawing.Size(216, 22);
             this.ChatInput.TabIndex = 0;
@@ -228,7 +228,7 @@
             // 
             this.Mano1.BackColor = System.Drawing.Color.Transparent;
             this.Mano1.Location = new System.Drawing.Point(116, 619);
-            this.Mano1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Mano1.Margin = new System.Windows.Forms.Padding(2);
             this.Mano1.Name = "Mano1";
             this.Mano1.Size = new System.Drawing.Size(48, 96);
             this.Mano1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -242,7 +242,7 @@
             // 
             this.Mano2.BackColor = System.Drawing.Color.Transparent;
             this.Mano2.Location = new System.Drawing.Point(186, 619);
-            this.Mano2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Mano2.Margin = new System.Windows.Forms.Padding(2);
             this.Mano2.Name = "Mano2";
             this.Mano2.Size = new System.Drawing.Size(48, 96);
             this.Mano2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -256,7 +256,7 @@
             // 
             this.Mano3.BackColor = System.Drawing.Color.Transparent;
             this.Mano3.Location = new System.Drawing.Point(262, 619);
-            this.Mano3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Mano3.Margin = new System.Windows.Forms.Padding(2);
             this.Mano3.Name = "Mano3";
             this.Mano3.Size = new System.Drawing.Size(48, 96);
             this.Mano3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -270,7 +270,7 @@
             // 
             this.Mano4.BackColor = System.Drawing.Color.Transparent;
             this.Mano4.Location = new System.Drawing.Point(339, 619);
-            this.Mano4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Mano4.Margin = new System.Windows.Forms.Padding(2);
             this.Mano4.Name = "Mano4";
             this.Mano4.Size = new System.Drawing.Size(48, 96);
             this.Mano4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -284,7 +284,7 @@
             // 
             this.Mano9.BackColor = System.Drawing.Color.Transparent;
             this.Mano9.Location = new System.Drawing.Point(131, 858);
-            this.Mano9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Mano9.Margin = new System.Windows.Forms.Padding(2);
             this.Mano9.Name = "Mano9";
             this.Mano9.Size = new System.Drawing.Size(48, 96);
             this.Mano9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -298,7 +298,7 @@
             // 
             this.Mano5.BackColor = System.Drawing.Color.Transparent;
             this.Mano5.Location = new System.Drawing.Point(123, 738);
-            this.Mano5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Mano5.Margin = new System.Windows.Forms.Padding(2);
             this.Mano5.Name = "Mano5";
             this.Mano5.Size = new System.Drawing.Size(48, 96);
             this.Mano5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -312,7 +312,7 @@
             // 
             this.Mano6.BackColor = System.Drawing.Color.Transparent;
             this.Mano6.Location = new System.Drawing.Point(198, 738);
-            this.Mano6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Mano6.Margin = new System.Windows.Forms.Padding(2);
             this.Mano6.Name = "Mano6";
             this.Mano6.Size = new System.Drawing.Size(48, 96);
             this.Mano6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -326,7 +326,7 @@
             // 
             this.Mano7.BackColor = System.Drawing.Color.Transparent;
             this.Mano7.Location = new System.Drawing.Point(274, 738);
-            this.Mano7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Mano7.Margin = new System.Windows.Forms.Padding(2);
             this.Mano7.Name = "Mano7";
             this.Mano7.Size = new System.Drawing.Size(48, 96);
             this.Mano7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -340,7 +340,7 @@
             // 
             this.Mano8.BackColor = System.Drawing.Color.Transparent;
             this.Mano8.Location = new System.Drawing.Point(349, 738);
-            this.Mano8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Mano8.Margin = new System.Windows.Forms.Padding(2);
             this.Mano8.Name = "Mano8";
             this.Mano8.Size = new System.Drawing.Size(48, 96);
             this.Mano8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -354,7 +354,7 @@
             // 
             this.Mano10.BackColor = System.Drawing.Color.Transparent;
             this.Mano10.Location = new System.Drawing.Point(208, 858);
-            this.Mano10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Mano10.Margin = new System.Windows.Forms.Padding(2);
             this.Mano10.Name = "Mano10";
             this.Mano10.Size = new System.Drawing.Size(48, 96);
             this.Mano10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -377,7 +377,7 @@
             // 
             // Art1
             // 
-            this.Art1.BackColor = System.Drawing.Color.White;
+            this.Art1.BackColor = System.Drawing.Color.Transparent;
             this.Art1.Location = new System.Drawing.Point(660, 883);
             this.Art1.Margin = new System.Windows.Forms.Padding(2);
             this.Art1.Name = "Art1";
@@ -386,11 +386,12 @@
             this.Art1.TabIndex = 6;
             this.Art1.TabStop = false;
             this.Art1.Click += new System.EventHandler(this.Art1_Click);
+            this.Art1.MouseLeave += new System.EventHandler(this.Art1_MouseLeave);
             this.Art1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art1_MouseMove);
             // 
             // Art2
             // 
-            this.Art2.BackColor = System.Drawing.Color.White;
+            this.Art2.BackColor = System.Drawing.Color.Transparent;
             this.Art2.Location = new System.Drawing.Point(794, 883);
             this.Art2.Margin = new System.Windows.Forms.Padding(2);
             this.Art2.Name = "Art2";
@@ -399,11 +400,12 @@
             this.Art2.TabIndex = 7;
             this.Art2.TabStop = false;
             this.Art2.Click += new System.EventHandler(this.Art2_Click);
+            this.Art2.MouseLeave += new System.EventHandler(this.Art2_MouseLeave);
             this.Art2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art2_MouseMove);
             // 
             // Art3
             // 
-            this.Art3.BackColor = System.Drawing.Color.White;
+            this.Art3.BackColor = System.Drawing.Color.Transparent;
             this.Art3.Location = new System.Drawing.Point(911, 883);
             this.Art3.Margin = new System.Windows.Forms.Padding(2);
             this.Art3.Name = "Art3";
@@ -412,11 +414,12 @@
             this.Art3.TabIndex = 8;
             this.Art3.TabStop = false;
             this.Art3.Click += new System.EventHandler(this.Art3_Click);
+            this.Art3.MouseLeave += new System.EventHandler(this.Art3_MouseLeave);
             this.Art3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art3_MouseMove);
             // 
             // Art4
             // 
-            this.Art4.BackColor = System.Drawing.Color.White;
+            this.Art4.BackColor = System.Drawing.Color.Transparent;
             this.Art4.Location = new System.Drawing.Point(1045, 883);
             this.Art4.Margin = new System.Windows.Forms.Padding(2);
             this.Art4.Name = "Art4";
@@ -425,11 +428,12 @@
             this.Art4.TabIndex = 9;
             this.Art4.TabStop = false;
             this.Art4.Click += new System.EventHandler(this.Art4_Click);
+            this.Art4.MouseLeave += new System.EventHandler(this.Art4_MouseLeave);
             this.Art4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art4_MouseMove);
             // 
             // Art5
             // 
-            this.Art5.BackColor = System.Drawing.Color.White;
+            this.Art5.BackColor = System.Drawing.Color.Transparent;
             this.Art5.Location = new System.Drawing.Point(1202, 883);
             this.Art5.Margin = new System.Windows.Forms.Padding(2);
             this.Art5.Name = "Art5";
@@ -438,11 +442,12 @@
             this.Art5.TabIndex = 10;
             this.Art5.TabStop = false;
             this.Art5.Click += new System.EventHandler(this.Art5_Click);
+            this.Art5.MouseLeave += new System.EventHandler(this.Art5_MouseLeave);
             this.Art5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art5_MouseMove);
             // 
             // Art6
             // 
-            this.Art6.BackColor = System.Drawing.Color.White;
+            this.Art6.BackColor = System.Drawing.Color.Transparent;
             this.Art6.Location = new System.Drawing.Point(1334, 883);
             this.Art6.Margin = new System.Windows.Forms.Padding(2);
             this.Art6.Name = "Art6";
@@ -451,11 +456,12 @@
             this.Art6.TabIndex = 11;
             this.Art6.TabStop = false;
             this.Art6.Click += new System.EventHandler(this.Art6_Click);
+            this.Art6.MouseLeave += new System.EventHandler(this.Art6_MouseLeave);
             this.Art6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art6_MouseMove);
             // 
             // Art7
             // 
-            this.Art7.BackColor = System.Drawing.Color.White;
+            this.Art7.BackColor = System.Drawing.Color.Transparent;
             this.Art7.Location = new System.Drawing.Point(1468, 883);
             this.Art7.Margin = new System.Windows.Forms.Padding(2);
             this.Art7.Name = "Art7";
@@ -464,11 +470,12 @@
             this.Art7.TabIndex = 12;
             this.Art7.TabStop = false;
             this.Art7.Click += new System.EventHandler(this.Art7_Click);
+            this.Art7.MouseLeave += new System.EventHandler(this.Art7_MouseLeave);
             this.Art7.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art7_MouseMove);
             // 
             // Art8
             // 
-            this.Art8.BackColor = System.Drawing.Color.White;
+            this.Art8.BackColor = System.Drawing.Color.Transparent;
             this.Art8.Location = new System.Drawing.Point(1616, 883);
             this.Art8.Margin = new System.Windows.Forms.Padding(2);
             this.Art8.Name = "Art8";
@@ -477,11 +484,12 @@
             this.Art8.TabIndex = 13;
             this.Art8.TabStop = false;
             this.Art8.Click += new System.EventHandler(this.Art8_Click);
+            this.Art8.MouseLeave += new System.EventHandler(this.Art8_MouseLeave);
             this.Art8.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art8_MouseMove);
             // 
             // Art9
             // 
-            this.Art9.BackColor = System.Drawing.Color.White;
+            this.Art9.BackColor = System.Drawing.Color.Transparent;
             this.Art9.Location = new System.Drawing.Point(1765, 883);
             this.Art9.Margin = new System.Windows.Forms.Padding(2);
             this.Art9.Name = "Art9";
@@ -490,11 +498,12 @@
             this.Art9.TabIndex = 14;
             this.Art9.TabStop = false;
             this.Art9.Click += new System.EventHandler(this.Art9_Click);
+            this.Art9.MouseLeave += new System.EventHandler(this.Art9_MouseLeave);
             this.Art9.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art9_MouseMove);
             // 
             // Ran1
             // 
-            this.Ran1.BackColor = System.Drawing.Color.White;
+            this.Ran1.BackColor = System.Drawing.Color.Transparent;
             this.Ran1.Location = new System.Drawing.Point(660, 727);
             this.Ran1.Margin = new System.Windows.Forms.Padding(2);
             this.Ran1.Name = "Ran1";
@@ -503,11 +512,12 @@
             this.Ran1.TabIndex = 15;
             this.Ran1.TabStop = false;
             this.Ran1.Click += new System.EventHandler(this.Ran1_Click);
+            this.Ran1.MouseLeave += new System.EventHandler(this.Ran1_MouseLeave);
             this.Ran1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran1_MouseMove);
             // 
             // Ran2
             // 
-            this.Ran2.BackColor = System.Drawing.Color.White;
+            this.Ran2.BackColor = System.Drawing.Color.Transparent;
             this.Ran2.Location = new System.Drawing.Point(794, 727);
             this.Ran2.Margin = new System.Windows.Forms.Padding(2);
             this.Ran2.Name = "Ran2";
@@ -516,11 +526,12 @@
             this.Ran2.TabIndex = 16;
             this.Ran2.TabStop = false;
             this.Ran2.Click += new System.EventHandler(this.Ran2_Click);
+            this.Ran2.MouseLeave += new System.EventHandler(this.Ran2_MouseLeave);
             this.Ran2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran2_MouseMove);
             // 
             // Ran3
             // 
-            this.Ran3.BackColor = System.Drawing.Color.White;
+            this.Ran3.BackColor = System.Drawing.Color.Transparent;
             this.Ran3.Location = new System.Drawing.Point(911, 727);
             this.Ran3.Margin = new System.Windows.Forms.Padding(2);
             this.Ran3.Name = "Ran3";
@@ -529,11 +540,12 @@
             this.Ran3.TabIndex = 17;
             this.Ran3.TabStop = false;
             this.Ran3.Click += new System.EventHandler(this.Ran3_Click);
+            this.Ran3.MouseLeave += new System.EventHandler(this.Ran3_MouseLeave);
             this.Ran3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran3_MouseMove);
             // 
             // Ran4
             // 
-            this.Ran4.BackColor = System.Drawing.Color.White;
+            this.Ran4.BackColor = System.Drawing.Color.Transparent;
             this.Ran4.Location = new System.Drawing.Point(1045, 727);
             this.Ran4.Margin = new System.Windows.Forms.Padding(2);
             this.Ran4.Name = "Ran4";
@@ -542,11 +554,12 @@
             this.Ran4.TabIndex = 18;
             this.Ran4.TabStop = false;
             this.Ran4.Click += new System.EventHandler(this.Ran4_Click);
+            this.Ran4.MouseLeave += new System.EventHandler(this.Ran4_MouseLeave);
             this.Ran4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran4_MouseMove);
             // 
             // Ran5
             // 
-            this.Ran5.BackColor = System.Drawing.Color.White;
+            this.Ran5.BackColor = System.Drawing.Color.Transparent;
             this.Ran5.Location = new System.Drawing.Point(1202, 727);
             this.Ran5.Margin = new System.Windows.Forms.Padding(2);
             this.Ran5.Name = "Ran5";
@@ -555,11 +568,12 @@
             this.Ran5.TabIndex = 19;
             this.Ran5.TabStop = false;
             this.Ran5.Click += new System.EventHandler(this.Ran5_Click);
+            this.Ran5.MouseLeave += new System.EventHandler(this.Ran5_MouseLeave);
             this.Ran5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran5_MouseMove);
             // 
             // Ran6
             // 
-            this.Ran6.BackColor = System.Drawing.Color.White;
+            this.Ran6.BackColor = System.Drawing.Color.Transparent;
             this.Ran6.Location = new System.Drawing.Point(1334, 727);
             this.Ran6.Margin = new System.Windows.Forms.Padding(2);
             this.Ran6.Name = "Ran6";
@@ -568,11 +582,12 @@
             this.Ran6.TabIndex = 20;
             this.Ran6.TabStop = false;
             this.Ran6.Click += new System.EventHandler(this.Ran6_Click);
+            this.Ran6.MouseLeave += new System.EventHandler(this.Ran6_MouseLeave);
             this.Ran6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran6_MouseMove);
             // 
             // Ran7
             // 
-            this.Ran7.BackColor = System.Drawing.Color.White;
+            this.Ran7.BackColor = System.Drawing.Color.Transparent;
             this.Ran7.Location = new System.Drawing.Point(1468, 727);
             this.Ran7.Margin = new System.Windows.Forms.Padding(2);
             this.Ran7.Name = "Ran7";
@@ -581,11 +596,12 @@
             this.Ran7.TabIndex = 21;
             this.Ran7.TabStop = false;
             this.Ran7.Click += new System.EventHandler(this.Ran7_Click);
+            this.Ran7.MouseLeave += new System.EventHandler(this.Ran7_MouseLeave);
             this.Ran7.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran7_MouseMove);
             // 
             // Ran8
             // 
-            this.Ran8.BackColor = System.Drawing.Color.White;
+            this.Ran8.BackColor = System.Drawing.Color.Transparent;
             this.Ran8.Location = new System.Drawing.Point(1616, 727);
             this.Ran8.Margin = new System.Windows.Forms.Padding(2);
             this.Ran8.Name = "Ran8";
@@ -594,11 +610,12 @@
             this.Ran8.TabIndex = 22;
             this.Ran8.TabStop = false;
             this.Ran8.Click += new System.EventHandler(this.Ran8_Click);
+            this.Ran8.MouseLeave += new System.EventHandler(this.Ran8_MouseLeave);
             this.Ran8.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran8_MouseMove);
             // 
             // Ran9
             // 
-            this.Ran9.BackColor = System.Drawing.Color.White;
+            this.Ran9.BackColor = System.Drawing.Color.Transparent;
             this.Ran9.Location = new System.Drawing.Point(1765, 727);
             this.Ran9.Margin = new System.Windows.Forms.Padding(2);
             this.Ran9.Name = "Ran9";
@@ -607,11 +624,12 @@
             this.Ran9.TabIndex = 23;
             this.Ran9.TabStop = false;
             this.Ran9.Click += new System.EventHandler(this.Ran9_Click);
+            this.Ran9.MouseLeave += new System.EventHandler(this.Ran9_MouseLeave);
             this.Ran9.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran9_MouseMove);
             // 
             // Mel1
             // 
-            this.Mel1.BackColor = System.Drawing.Color.White;
+            this.Mel1.BackColor = System.Drawing.Color.Transparent;
             this.Mel1.Location = new System.Drawing.Point(660, 576);
             this.Mel1.Margin = new System.Windows.Forms.Padding(2);
             this.Mel1.Name = "Mel1";
@@ -620,11 +638,12 @@
             this.Mel1.TabIndex = 24;
             this.Mel1.TabStop = false;
             this.Mel1.Click += new System.EventHandler(this.Mel1_Click);
+            this.Mel1.MouseLeave += new System.EventHandler(this.Mel1_MouseLeave);
             this.Mel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel1_MouseMove);
             // 
             // Mel2
             // 
-            this.Mel2.BackColor = System.Drawing.Color.White;
+            this.Mel2.BackColor = System.Drawing.Color.Transparent;
             this.Mel2.Location = new System.Drawing.Point(794, 576);
             this.Mel2.Margin = new System.Windows.Forms.Padding(2);
             this.Mel2.Name = "Mel2";
@@ -633,11 +652,12 @@
             this.Mel2.TabIndex = 25;
             this.Mel2.TabStop = false;
             this.Mel2.Click += new System.EventHandler(this.Mel2_Click);
+            this.Mel2.MouseLeave += new System.EventHandler(this.Mel2_MouseLeave);
             this.Mel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel2_MouseMove);
             // 
             // Mel3
             // 
-            this.Mel3.BackColor = System.Drawing.Color.White;
+            this.Mel3.BackColor = System.Drawing.Color.Transparent;
             this.Mel3.Location = new System.Drawing.Point(911, 576);
             this.Mel3.Margin = new System.Windows.Forms.Padding(2);
             this.Mel3.Name = "Mel3";
@@ -646,11 +666,12 @@
             this.Mel3.TabIndex = 26;
             this.Mel3.TabStop = false;
             this.Mel3.Click += new System.EventHandler(this.Mel3_Click);
+            this.Mel3.MouseLeave += new System.EventHandler(this.Mel3_MouseLeave);
             this.Mel3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel3_MouseMove);
             // 
             // Mel4
             // 
-            this.Mel4.BackColor = System.Drawing.Color.White;
+            this.Mel4.BackColor = System.Drawing.Color.Transparent;
             this.Mel4.Location = new System.Drawing.Point(1045, 576);
             this.Mel4.Margin = new System.Windows.Forms.Padding(2);
             this.Mel4.Name = "Mel4";
@@ -659,11 +680,12 @@
             this.Mel4.TabIndex = 27;
             this.Mel4.TabStop = false;
             this.Mel4.Click += new System.EventHandler(this.Mel4_Click);
+            this.Mel4.MouseLeave += new System.EventHandler(this.Mel4_MouseLeave);
             this.Mel4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel4_MouseMove);
             // 
             // Mel5
             // 
-            this.Mel5.BackColor = System.Drawing.Color.White;
+            this.Mel5.BackColor = System.Drawing.Color.Transparent;
             this.Mel5.Location = new System.Drawing.Point(1202, 576);
             this.Mel5.Margin = new System.Windows.Forms.Padding(2);
             this.Mel5.Name = "Mel5";
@@ -672,11 +694,12 @@
             this.Mel5.TabIndex = 28;
             this.Mel5.TabStop = false;
             this.Mel5.Click += new System.EventHandler(this.Mel5_Click);
+            this.Mel5.MouseLeave += new System.EventHandler(this.Mel5_MouseLeave);
             this.Mel5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel5_MouseMove);
             // 
             // Mel6
             // 
-            this.Mel6.BackColor = System.Drawing.Color.White;
+            this.Mel6.BackColor = System.Drawing.Color.Transparent;
             this.Mel6.Location = new System.Drawing.Point(1334, 576);
             this.Mel6.Margin = new System.Windows.Forms.Padding(2);
             this.Mel6.Name = "Mel6";
@@ -685,11 +708,12 @@
             this.Mel6.TabIndex = 29;
             this.Mel6.TabStop = false;
             this.Mel6.Click += new System.EventHandler(this.Mel6_Click);
+            this.Mel6.MouseLeave += new System.EventHandler(this.Mel6_MouseLeave);
             this.Mel6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel6_MouseMove);
             // 
             // Mel7
             // 
-            this.Mel7.BackColor = System.Drawing.Color.White;
+            this.Mel7.BackColor = System.Drawing.Color.Transparent;
             this.Mel7.Location = new System.Drawing.Point(1468, 576);
             this.Mel7.Margin = new System.Windows.Forms.Padding(2);
             this.Mel7.Name = "Mel7";
@@ -698,11 +722,12 @@
             this.Mel7.TabIndex = 30;
             this.Mel7.TabStop = false;
             this.Mel7.Click += new System.EventHandler(this.Mel7_Click);
+            this.Mel7.MouseLeave += new System.EventHandler(this.Mel7_MouseLeave);
             this.Mel7.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel7_MouseMove);
             // 
             // Mel8
             // 
-            this.Mel8.BackColor = System.Drawing.Color.White;
+            this.Mel8.BackColor = System.Drawing.Color.Transparent;
             this.Mel8.Location = new System.Drawing.Point(1616, 576);
             this.Mel8.Margin = new System.Windows.Forms.Padding(2);
             this.Mel8.Name = "Mel8";
@@ -711,11 +736,12 @@
             this.Mel8.TabIndex = 31;
             this.Mel8.TabStop = false;
             this.Mel8.Click += new System.EventHandler(this.Mel8_Click);
+            this.Mel8.MouseLeave += new System.EventHandler(this.Mel8_MouseLeave);
             this.Mel8.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel8_MouseMove);
             // 
             // Mel9
             // 
-            this.Mel9.BackColor = System.Drawing.Color.White;
+            this.Mel9.BackColor = System.Drawing.Color.Transparent;
             this.Mel9.Location = new System.Drawing.Point(1765, 576);
             this.Mel9.Margin = new System.Windows.Forms.Padding(2);
             this.Mel9.Name = "Mel9";
@@ -724,11 +750,12 @@
             this.Mel9.TabIndex = 32;
             this.Mel9.TabStop = false;
             this.Mel9.Click += new System.EventHandler(this.Mel9_Click);
+            this.Mel9.MouseLeave += new System.EventHandler(this.Mel9_MouseLeave);
             this.Mel9.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel9_MouseMove);
             // 
             // Mel1_M
             // 
-            this.Mel1_M.BackColor = System.Drawing.Color.White;
+            this.Mel1_M.BackColor = System.Drawing.Color.Transparent;
             this.Mel1_M.Location = new System.Drawing.Point(660, 390);
             this.Mel1_M.Margin = new System.Windows.Forms.Padding(2);
             this.Mel1_M.Name = "Mel1_M";
@@ -736,12 +763,10 @@
             this.Mel1_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Mel1_M.TabIndex = 6;
             this.Mel1_M.TabStop = false;
-            this.Mel1_M.Click += new System.EventHandler(this.Art1_Click);
-            this.Mel1_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art1_MouseMove);
             // 
             // Mel2_M
             // 
-            this.Mel2_M.BackColor = System.Drawing.Color.White;
+            this.Mel2_M.BackColor = System.Drawing.Color.Transparent;
             this.Mel2_M.Location = new System.Drawing.Point(794, 390);
             this.Mel2_M.Margin = new System.Windows.Forms.Padding(2);
             this.Mel2_M.Name = "Mel2_M";
@@ -749,12 +774,10 @@
             this.Mel2_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Mel2_M.TabIndex = 7;
             this.Mel2_M.TabStop = false;
-            this.Mel2_M.Click += new System.EventHandler(this.Art2_Click);
-            this.Mel2_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art2_MouseMove);
             // 
             // Mel3_M
             // 
-            this.Mel3_M.BackColor = System.Drawing.Color.White;
+            this.Mel3_M.BackColor = System.Drawing.Color.Transparent;
             this.Mel3_M.Location = new System.Drawing.Point(911, 390);
             this.Mel3_M.Margin = new System.Windows.Forms.Padding(2);
             this.Mel3_M.Name = "Mel3_M";
@@ -762,12 +785,10 @@
             this.Mel3_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Mel3_M.TabIndex = 8;
             this.Mel3_M.TabStop = false;
-            this.Mel3_M.Click += new System.EventHandler(this.Art3_Click);
-            this.Mel3_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art3_MouseMove);
             // 
             // Mel4_M
             // 
-            this.Mel4_M.BackColor = System.Drawing.Color.White;
+            this.Mel4_M.BackColor = System.Drawing.Color.Transparent;
             this.Mel4_M.Location = new System.Drawing.Point(1045, 390);
             this.Mel4_M.Margin = new System.Windows.Forms.Padding(2);
             this.Mel4_M.Name = "Mel4_M";
@@ -775,12 +796,10 @@
             this.Mel4_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Mel4_M.TabIndex = 9;
             this.Mel4_M.TabStop = false;
-            this.Mel4_M.Click += new System.EventHandler(this.Art4_Click);
-            this.Mel4_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art4_MouseMove);
             // 
             // Mel5_M
             // 
-            this.Mel5_M.BackColor = System.Drawing.Color.White;
+            this.Mel5_M.BackColor = System.Drawing.Color.Transparent;
             this.Mel5_M.Location = new System.Drawing.Point(1202, 390);
             this.Mel5_M.Margin = new System.Windows.Forms.Padding(2);
             this.Mel5_M.Name = "Mel5_M";
@@ -788,12 +807,10 @@
             this.Mel5_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Mel5_M.TabIndex = 10;
             this.Mel5_M.TabStop = false;
-            this.Mel5_M.Click += new System.EventHandler(this.Art5_Click);
-            this.Mel5_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art5_MouseMove);
             // 
             // Mel6_M
             // 
-            this.Mel6_M.BackColor = System.Drawing.Color.White;
+            this.Mel6_M.BackColor = System.Drawing.Color.Transparent;
             this.Mel6_M.Location = new System.Drawing.Point(1334, 390);
             this.Mel6_M.Margin = new System.Windows.Forms.Padding(2);
             this.Mel6_M.Name = "Mel6_M";
@@ -801,12 +818,10 @@
             this.Mel6_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Mel6_M.TabIndex = 11;
             this.Mel6_M.TabStop = false;
-            this.Mel6_M.Click += new System.EventHandler(this.Art6_Click);
-            this.Mel6_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art6_MouseMove);
             // 
             // Mel7_M
             // 
-            this.Mel7_M.BackColor = System.Drawing.Color.White;
+            this.Mel7_M.BackColor = System.Drawing.Color.Transparent;
             this.Mel7_M.Location = new System.Drawing.Point(1468, 390);
             this.Mel7_M.Margin = new System.Windows.Forms.Padding(2);
             this.Mel7_M.Name = "Mel7_M";
@@ -814,12 +829,10 @@
             this.Mel7_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Mel7_M.TabIndex = 12;
             this.Mel7_M.TabStop = false;
-            this.Mel7_M.Click += new System.EventHandler(this.Art7_Click);
-            this.Mel7_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art7_MouseMove);
             // 
             // Mel8_M
             // 
-            this.Mel8_M.BackColor = System.Drawing.Color.White;
+            this.Mel8_M.BackColor = System.Drawing.Color.Transparent;
             this.Mel8_M.Location = new System.Drawing.Point(1616, 390);
             this.Mel8_M.Margin = new System.Windows.Forms.Padding(2);
             this.Mel8_M.Name = "Mel8_M";
@@ -827,12 +840,10 @@
             this.Mel8_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Mel8_M.TabIndex = 13;
             this.Mel8_M.TabStop = false;
-            this.Mel8_M.Click += new System.EventHandler(this.Art8_Click);
-            this.Mel8_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art8_MouseMove);
             // 
             // Mel9_M
             // 
-            this.Mel9_M.BackColor = System.Drawing.Color.White;
+            this.Mel9_M.BackColor = System.Drawing.Color.Transparent;
             this.Mel9_M.Location = new System.Drawing.Point(1765, 390);
             this.Mel9_M.Margin = new System.Windows.Forms.Padding(2);
             this.Mel9_M.Name = "Mel9_M";
@@ -840,12 +851,10 @@
             this.Mel9_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Mel9_M.TabIndex = 14;
             this.Mel9_M.TabStop = false;
-            this.Mel9_M.Click += new System.EventHandler(this.Art9_Click);
-            this.Mel9_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Art9_MouseMove);
             // 
             // Ran1_M
             // 
-            this.Ran1_M.BackColor = System.Drawing.Color.White;
+            this.Ran1_M.BackColor = System.Drawing.Color.Transparent;
             this.Ran1_M.Location = new System.Drawing.Point(660, 234);
             this.Ran1_M.Margin = new System.Windows.Forms.Padding(2);
             this.Ran1_M.Name = "Ran1_M";
@@ -853,12 +862,10 @@
             this.Ran1_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Ran1_M.TabIndex = 15;
             this.Ran1_M.TabStop = false;
-            this.Ran1_M.Click += new System.EventHandler(this.Ran1_Click);
-            this.Ran1_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran1_MouseMove);
             // 
             // Ran2_M
             // 
-            this.Ran2_M.BackColor = System.Drawing.Color.White;
+            this.Ran2_M.BackColor = System.Drawing.Color.Transparent;
             this.Ran2_M.Location = new System.Drawing.Point(794, 234);
             this.Ran2_M.Margin = new System.Windows.Forms.Padding(2);
             this.Ran2_M.Name = "Ran2_M";
@@ -866,12 +873,10 @@
             this.Ran2_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Ran2_M.TabIndex = 16;
             this.Ran2_M.TabStop = false;
-            this.Ran2_M.Click += new System.EventHandler(this.Ran2_Click);
-            this.Ran2_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran2_MouseMove);
             // 
             // Ran3_M
             // 
-            this.Ran3_M.BackColor = System.Drawing.Color.White;
+            this.Ran3_M.BackColor = System.Drawing.Color.Transparent;
             this.Ran3_M.Location = new System.Drawing.Point(911, 234);
             this.Ran3_M.Margin = new System.Windows.Forms.Padding(2);
             this.Ran3_M.Name = "Ran3_M";
@@ -879,12 +884,10 @@
             this.Ran3_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Ran3_M.TabIndex = 17;
             this.Ran3_M.TabStop = false;
-            this.Ran3_M.Click += new System.EventHandler(this.Ran3_Click);
-            this.Ran3_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran3_MouseMove);
             // 
             // Ran4_M
             // 
-            this.Ran4_M.BackColor = System.Drawing.Color.White;
+            this.Ran4_M.BackColor = System.Drawing.Color.Transparent;
             this.Ran4_M.Location = new System.Drawing.Point(1045, 234);
             this.Ran4_M.Margin = new System.Windows.Forms.Padding(2);
             this.Ran4_M.Name = "Ran4_M";
@@ -892,12 +895,10 @@
             this.Ran4_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Ran4_M.TabIndex = 18;
             this.Ran4_M.TabStop = false;
-            this.Ran4_M.Click += new System.EventHandler(this.Ran4_Click);
-            this.Ran4_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran4_MouseMove);
             // 
             // Ran5_M
             // 
-            this.Ran5_M.BackColor = System.Drawing.Color.White;
+            this.Ran5_M.BackColor = System.Drawing.Color.Transparent;
             this.Ran5_M.Location = new System.Drawing.Point(1202, 234);
             this.Ran5_M.Margin = new System.Windows.Forms.Padding(2);
             this.Ran5_M.Name = "Ran5_M";
@@ -905,12 +906,10 @@
             this.Ran5_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Ran5_M.TabIndex = 19;
             this.Ran5_M.TabStop = false;
-            this.Ran5_M.Click += new System.EventHandler(this.Ran5_Click);
-            this.Ran5_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran5_MouseMove);
             // 
             // Ran6_M
             // 
-            this.Ran6_M.BackColor = System.Drawing.Color.White;
+            this.Ran6_M.BackColor = System.Drawing.Color.Transparent;
             this.Ran6_M.Location = new System.Drawing.Point(1334, 234);
             this.Ran6_M.Margin = new System.Windows.Forms.Padding(2);
             this.Ran6_M.Name = "Ran6_M";
@@ -918,12 +917,10 @@
             this.Ran6_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Ran6_M.TabIndex = 20;
             this.Ran6_M.TabStop = false;
-            this.Ran6_M.Click += new System.EventHandler(this.Ran6_Click);
-            this.Ran6_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran6_MouseMove);
             // 
             // Ran7_M
             // 
-            this.Ran7_M.BackColor = System.Drawing.Color.White;
+            this.Ran7_M.BackColor = System.Drawing.Color.Transparent;
             this.Ran7_M.Location = new System.Drawing.Point(1468, 234);
             this.Ran7_M.Margin = new System.Windows.Forms.Padding(2);
             this.Ran7_M.Name = "Ran7_M";
@@ -931,12 +928,10 @@
             this.Ran7_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Ran7_M.TabIndex = 21;
             this.Ran7_M.TabStop = false;
-            this.Ran7_M.Click += new System.EventHandler(this.Ran7_Click);
-            this.Ran7_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran7_MouseMove);
             // 
             // Ran8_M
             // 
-            this.Ran8_M.BackColor = System.Drawing.Color.White;
+            this.Ran8_M.BackColor = System.Drawing.Color.Transparent;
             this.Ran8_M.Location = new System.Drawing.Point(1616, 234);
             this.Ran8_M.Margin = new System.Windows.Forms.Padding(2);
             this.Ran8_M.Name = "Ran8_M";
@@ -944,12 +939,10 @@
             this.Ran8_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Ran8_M.TabIndex = 22;
             this.Ran8_M.TabStop = false;
-            this.Ran8_M.Click += new System.EventHandler(this.Ran8_Click);
-            this.Ran8_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran8_MouseMove);
             // 
             // Ran9_M
             // 
-            this.Ran9_M.BackColor = System.Drawing.Color.White;
+            this.Ran9_M.BackColor = System.Drawing.Color.Transparent;
             this.Ran9_M.Location = new System.Drawing.Point(1765, 234);
             this.Ran9_M.Margin = new System.Windows.Forms.Padding(2);
             this.Ran9_M.Name = "Ran9_M";
@@ -957,12 +950,10 @@
             this.Ran9_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Ran9_M.TabIndex = 23;
             this.Ran9_M.TabStop = false;
-            this.Ran9_M.Click += new System.EventHandler(this.Ran9_Click);
-            this.Ran9_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ran9_MouseMove);
             // 
             // Art1_M
             // 
-            this.Art1_M.BackColor = System.Drawing.Color.White;
+            this.Art1_M.BackColor = System.Drawing.Color.Transparent;
             this.Art1_M.Location = new System.Drawing.Point(660, 82);
             this.Art1_M.Margin = new System.Windows.Forms.Padding(2);
             this.Art1_M.Name = "Art1_M";
@@ -970,12 +961,10 @@
             this.Art1_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Art1_M.TabIndex = 24;
             this.Art1_M.TabStop = false;
-            this.Art1_M.Click += new System.EventHandler(this.Mel1_Click);
-            this.Art1_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel1_MouseMove);
             // 
             // Art2_M
             // 
-            this.Art2_M.BackColor = System.Drawing.Color.White;
+            this.Art2_M.BackColor = System.Drawing.Color.Transparent;
             this.Art2_M.Location = new System.Drawing.Point(794, 82);
             this.Art2_M.Margin = new System.Windows.Forms.Padding(2);
             this.Art2_M.Name = "Art2_M";
@@ -983,12 +972,10 @@
             this.Art2_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Art2_M.TabIndex = 25;
             this.Art2_M.TabStop = false;
-            this.Art2_M.Click += new System.EventHandler(this.Mel2_Click);
-            this.Art2_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel2_MouseMove);
             // 
             // Art3_M
             // 
-            this.Art3_M.BackColor = System.Drawing.Color.White;
+            this.Art3_M.BackColor = System.Drawing.Color.Transparent;
             this.Art3_M.Location = new System.Drawing.Point(911, 82);
             this.Art3_M.Margin = new System.Windows.Forms.Padding(2);
             this.Art3_M.Name = "Art3_M";
@@ -996,12 +983,10 @@
             this.Art3_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Art3_M.TabIndex = 26;
             this.Art3_M.TabStop = false;
-            this.Art3_M.Click += new System.EventHandler(this.Mel3_Click);
-            this.Art3_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel3_MouseMove);
             // 
             // Art4_M
             // 
-            this.Art4_M.BackColor = System.Drawing.Color.White;
+            this.Art4_M.BackColor = System.Drawing.Color.Transparent;
             this.Art4_M.Location = new System.Drawing.Point(1045, 82);
             this.Art4_M.Margin = new System.Windows.Forms.Padding(2);
             this.Art4_M.Name = "Art4_M";
@@ -1009,12 +994,10 @@
             this.Art4_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Art4_M.TabIndex = 27;
             this.Art4_M.TabStop = false;
-            this.Art4_M.Click += new System.EventHandler(this.Mel4_Click);
-            this.Art4_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel4_MouseMove);
             // 
             // Art5_M
             // 
-            this.Art5_M.BackColor = System.Drawing.Color.White;
+            this.Art5_M.BackColor = System.Drawing.Color.Transparent;
             this.Art5_M.Location = new System.Drawing.Point(1202, 82);
             this.Art5_M.Margin = new System.Windows.Forms.Padding(2);
             this.Art5_M.Name = "Art5_M";
@@ -1022,12 +1005,10 @@
             this.Art5_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Art5_M.TabIndex = 28;
             this.Art5_M.TabStop = false;
-            this.Art5_M.Click += new System.EventHandler(this.Mel5_Click);
-            this.Art5_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel5_MouseMove);
             // 
             // Art6_M
             // 
-            this.Art6_M.BackColor = System.Drawing.Color.White;
+            this.Art6_M.BackColor = System.Drawing.Color.Transparent;
             this.Art6_M.Location = new System.Drawing.Point(1334, 82);
             this.Art6_M.Margin = new System.Windows.Forms.Padding(2);
             this.Art6_M.Name = "Art6_M";
@@ -1035,12 +1016,10 @@
             this.Art6_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Art6_M.TabIndex = 29;
             this.Art6_M.TabStop = false;
-            this.Art6_M.Click += new System.EventHandler(this.Mel6_Click);
-            this.Art6_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel6_MouseMove);
             // 
             // Art7_M
             // 
-            this.Art7_M.BackColor = System.Drawing.Color.White;
+            this.Art7_M.BackColor = System.Drawing.Color.Transparent;
             this.Art7_M.Location = new System.Drawing.Point(1468, 82);
             this.Art7_M.Margin = new System.Windows.Forms.Padding(2);
             this.Art7_M.Name = "Art7_M";
@@ -1048,12 +1027,10 @@
             this.Art7_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Art7_M.TabIndex = 30;
             this.Art7_M.TabStop = false;
-            this.Art7_M.Click += new System.EventHandler(this.Mel7_Click);
-            this.Art7_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel7_MouseMove);
             // 
             // Art8_M
             // 
-            this.Art8_M.BackColor = System.Drawing.Color.White;
+            this.Art8_M.BackColor = System.Drawing.Color.Transparent;
             this.Art8_M.Location = new System.Drawing.Point(1616, 82);
             this.Art8_M.Margin = new System.Windows.Forms.Padding(2);
             this.Art8_M.Name = "Art8_M";
@@ -1061,12 +1038,10 @@
             this.Art8_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Art8_M.TabIndex = 31;
             this.Art8_M.TabStop = false;
-            this.Art8_M.Click += new System.EventHandler(this.Mel8_Click);
-            this.Art8_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel8_MouseMove);
             // 
             // Art9_M
             // 
-            this.Art9_M.BackColor = System.Drawing.Color.White;
+            this.Art9_M.BackColor = System.Drawing.Color.Transparent;
             this.Art9_M.Location = new System.Drawing.Point(1765, 82);
             this.Art9_M.Margin = new System.Windows.Forms.Padding(2);
             this.Art9_M.Name = "Art9_M";
@@ -1074,8 +1049,6 @@
             this.Art9_M.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Art9_M.TabIndex = 32;
             this.Art9_M.TabStop = false;
-            this.Art9_M.Click += new System.EventHandler(this.Mel9_Click);
-            this.Art9_M.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mel9_MouseMove);
             // 
             // PasarTurnoBtn
             // 
@@ -1165,7 +1138,7 @@
             this.Controls.Add(this.panel2);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Interfaz_juego";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Interfaz_juego";

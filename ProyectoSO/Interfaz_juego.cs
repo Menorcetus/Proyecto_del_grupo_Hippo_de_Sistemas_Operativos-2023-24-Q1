@@ -131,34 +131,34 @@ namespace ProyectoSO
 
             string posiciones = trozos[6];
 
-            Mano[0] = Mano1;
-            Mano[1] = Mano2;
-            Mano[2] = Mano3;
-            Mano[3] = Mano4;
-            Mano[4] = Mano5;
-            Mano[5] = Mano6;
-            Mano[6] = Mano7;
-            Mano[7] = Mano8;
-            Mano[8] = Mano9;
-            Mano[9] = Mano10;
-
-            string[] trozos = mensaje.Split('/');
-            numCartas = Convert.ToInt32(trozos[0]);
-            Carta[] mano = new Carta[numCartas];  //Formato: numCartas/ID1/Fuerza1/Tipo1/ID2/Fuerza2/Tipo2/ID3/...
-
-            for (int i = 0; i < Convert.ToInt32(trozos[0]); i++)
-            {
-                mano[i] = new Carta();
-                mano[i].id = Convert.ToInt32(trozos[3 * i + 1]);
-                //mano[i - 1].nombre = trozos[i + 1];
-                mano[i].fuerza = Convert.ToInt32(trozos[3 * i + 2]);
-                mano[i].tipo = Convert.ToInt32(trozos[3 * i + 3]);
-                string resourceName = "_" + Convert.ToString(mano[i].id);
-                //ManoCartas[i - 1].BackgroundImage = resourceName;
-                mano[i].picture = Mano[i];
-                mano[i].picture.Image = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject(resourceName);
-                ManoCartas[i] = mano[i];
-            }
+           // Mano[0] = Mano1;
+           // Mano[1] = Mano2;
+           // Mano[2] = Mano3;
+           // Mano[3] = Mano4;
+           // Mano[4] = Mano5;
+           // Mano[5] = Mano6;
+           // Mano[6] = Mano7;
+           // Mano[7] = Mano8;
+           // Mano[8] = Mano9;
+           // Mano[9] = Mano10;
+           //
+           // //string[] trozos = mensaje.Split('/');
+           // numCartas = Convert.ToInt32(trozos[0]);
+           // Carta[] mano = new Carta[numCartas];  //Formato: numCartas/ID1/Fuerza1/Tipo1/ID2/Fuerza2/Tipo2/ID3/...
+           //
+           // for (int i = 0; i < Convert.ToInt32(trozos[0]); i++)
+           // {
+           //     mano[i] = new Carta();
+           //     mano[i].id = Convert.ToInt32(trozos[3 * i + 1]);
+           //     //mano[i - 1].nombre = trozos[i + 1];
+           //     mano[i].fuerza = Convert.ToInt32(trozos[3 * i + 2]);
+           //     mano[i].tipo = Convert.ToInt32(trozos[3 * i + 3]);
+           //     string resourceName = "_" + Convert.ToString(mano[i].id);
+           //     //ManoCartas[i - 1].BackgroundImage = resourceName;
+           //     mano[i].picture = Mano[i];
+           //     mano[i].picture.Image = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject(resourceName);
+           //     ManoCartas[i] = mano[i];
+           // }
         }
 
         private void PedirMazo_btn_Click(object sender, EventArgs e)
@@ -219,7 +219,7 @@ namespace ProyectoSO
         private void T_PictureBox_MouseLeaving(object sender, EventArgs e)
         {
             PictureBox picturebox = (PictureBox)sender;
-            picturebox.BackColor = Color.FromArgb(128, Color.White);
+            picturebox.BackColor = Color.Transparent;
         }
 
         private void T_PictureBox_Click(object sender, EventArgs e)
@@ -251,11 +251,11 @@ namespace ProyectoSO
             // Si no hay carta en la posicion se envia un -1
             string matriz ="/";
             for (int i = 0; i < Melee.Length; i++)
-                matriz = matriz + Melee[i].id + "/";
+                matriz = matriz + Melee[i].id + "/" + Melee[i].fuerza + "/";
             for (int i = 0; i < Rango.Length; i++)
-                matriz = matriz + Rango[i].id + "/";
+                matriz = matriz + Rango[i].id + "/" + Rango[i].fuerza + "/";
             for (int i = 0; i < Artilleria.Length; i++)
-                matriz = matriz + Artilleria[i].id + "/";
+                matriz = matriz + Artilleria[i].id + "/" + Artilleria[i].fuerza + "/";
             return matriz;
         }
 
@@ -905,7 +905,7 @@ namespace ProyectoSO
             }
         }
 
-        private void Art1_MouseLeave(object sender, MouseEventArgs e)
+        private void Art1_MouseLeave(object sender, EventArgs e)
         {
             PictureBox picturebox = (PictureBox)sender;
             if (picturebox.BackgroundImage == null)
@@ -914,7 +914,7 @@ namespace ProyectoSO
             }
         }
 
-        private void Art2_MouseLeave(object sender, MouseEventArgs e)
+        private void Art2_MouseLeave(object sender, EventArgs e)
         {
             PictureBox picturebox = (PictureBox)sender;
             if (picturebox.BackgroundImage == null)
@@ -923,7 +923,7 @@ namespace ProyectoSO
             }
         }
 
-        private void Art3_MouseLeave(object sender, MouseEventArgs e)
+        private void Art3_MouseLeave(object sender, EventArgs e)
         {
             PictureBox picturebox = (PictureBox)sender;
             if (picturebox.BackgroundImage == null)
@@ -932,7 +932,7 @@ namespace ProyectoSO
             }
         }
 
-        private void Art4_MouseLeave(object sender, MouseEventArgs e)
+        private void Art4_MouseLeave(object sender, EventArgs e)
         {
             PictureBox picturebox = (PictureBox)sender;
             if (picturebox.BackgroundImage == null)
@@ -941,7 +941,7 @@ namespace ProyectoSO
             }
         }
 
-        private void Art5_MouseLeave(object sender, MouseEventArgs e)
+        private void Art5_MouseLeave(object sender, EventArgs e)
         {
             PictureBox picturebox = (PictureBox)sender;
             if (picturebox.BackgroundImage == null)
@@ -950,7 +950,7 @@ namespace ProyectoSO
             }
         }
 
-        private void Art6_MouseLeave(object sender, MouseEventArgs e)
+        private void Art6_MouseLeave(object sender, EventArgs e)
         {
             PictureBox picturebox = (PictureBox)sender;
             if (picturebox.BackgroundImage == null)
@@ -959,7 +959,7 @@ namespace ProyectoSO
             }
         }
 
-        private void Art7_MouseLeave(object sender, MouseEventArgs e)
+        private void Art7_MouseLeave(object sender, EventArgs e)
         {
             PictureBox picturebox = (PictureBox)sender;
             if (picturebox.BackgroundImage == null)
@@ -968,7 +968,7 @@ namespace ProyectoSO
             }
         }
 
-        private void Art8_MouseLeave(object sender, MouseEventArgs e)
+        private void Art8_MouseLeave(object sender, EventArgs e)
         {
             PictureBox picturebox = (PictureBox)sender;
             if (picturebox.BackgroundImage == null)
@@ -977,7 +977,7 @@ namespace ProyectoSO
             }
         }
 
-        private void Art9_MouseLeave(object sender, MouseEventArgs e)
+        private void Art9_MouseLeave(object sender, EventArgs e)
         {
             PictureBox picturebox = (PictureBox)sender;
             if (picturebox.BackgroundImage == null)
@@ -985,6 +985,7 @@ namespace ProyectoSO
                 T_PictureBox_MouseLeaving(sender, e);
             }
         }
+
 
         // Rango:
 
@@ -1087,7 +1088,7 @@ namespace ProyectoSO
             }
         }
 
-        private void Ran1_MouseLeave(object sender, MouseEventArgs e)
+        private void Ran1_MouseLeave(object sender, EventArgs e)
         {
             PictureBox picturebox = (PictureBox)sender;
             if (picturebox.BackgroundImage == null)
@@ -1096,7 +1097,7 @@ namespace ProyectoSO
             }
         }
 
-        private void Ran2_MouseLeave(object sender, MouseEventArgs e)
+        private void Ran2_MouseLeave(object sender, EventArgs e)
         {
             PictureBox picturebox = (PictureBox)sender;
             if (picturebox.BackgroundImage == null)
@@ -1105,7 +1106,7 @@ namespace ProyectoSO
             }
         }
 
-        private void Ran3_MouseLeave(object sender, MouseEventArgs e)
+        private void Ran3_MouseLeave(object sender, EventArgs e)
         {
             PictureBox picturebox = (PictureBox)sender;
             if (picturebox.BackgroundImage == null)
@@ -1114,7 +1115,7 @@ namespace ProyectoSO
             }
         }
 
-        private void Ran4_MouseLeave(object sender, MouseEventArgs e)
+        private void Ran4_MouseLeave(object sender, EventArgs e)
         {
             PictureBox picturebox = (PictureBox)sender;
             if (picturebox.BackgroundImage == null)
@@ -1123,7 +1124,7 @@ namespace ProyectoSO
             }
         }
 
-        private void Ran5_MouseLeave(object sender, MouseEventArgs e)
+        private void Ran5_MouseLeave(object sender, EventArgs e)
         {
             PictureBox picturebox = (PictureBox)sender;
             if (picturebox.BackgroundImage == null)
@@ -1132,7 +1133,7 @@ namespace ProyectoSO
             }
         }
 
-        private void Ran6_MouseLeave(object sender, MouseEventArgs e)
+        private void Ran6_MouseLeave(object sender, EventArgs e)
         {
             PictureBox picturebox = (PictureBox)sender;
             if (picturebox.BackgroundImage == null)
@@ -1141,7 +1142,7 @@ namespace ProyectoSO
             }
         }
 
-        private void Ran7_MouseLeave(object sender, MouseEventArgs e)
+        private void Ran7_MouseLeave(object sender, EventArgs e)
         {
             PictureBox picturebox = (PictureBox)sender;
             if (picturebox.BackgroundImage == null)
@@ -1150,7 +1151,7 @@ namespace ProyectoSO
             }
         }
 
-        private void Ran8_MouseLeave(object sender, MouseEventArgs e)
+        private void Ran8_MouseLeave(object sender, EventArgs e)
         {
             PictureBox picturebox = (PictureBox)sender;
             if (picturebox.BackgroundImage == null)
@@ -1159,7 +1160,7 @@ namespace ProyectoSO
             }
         }
 
-        private void Ran9_MouseLeave(object sender, MouseEventArgs e)
+        private void Ran9_MouseLeave(object sender, EventArgs e)
         {
             PictureBox picturebox = (PictureBox)sender;
             if (picturebox.BackgroundImage == null)
@@ -1167,6 +1168,7 @@ namespace ProyectoSO
                 T_PictureBox_MouseLeaving(sender, e);
             }
         }
+
 
         // Melee:
 
@@ -1269,7 +1271,8 @@ namespace ProyectoSO
             }
         }
 
-        private void Mel1_MouseLeave(object sender, MouseEventArgs e)
+
+        private void Mel1_MouseLeave(object sender, EventArgs e)
         {
             PictureBox picturebox = (PictureBox)sender;
             if (picturebox.BackgroundImage == null)
@@ -1278,7 +1281,7 @@ namespace ProyectoSO
             }
         }
 
-        private void Mel2_MouseLeave(object sender, MouseEventArgs e)
+        private void Mel2_MouseLeave(object sender, EventArgs e)
         {
             PictureBox picturebox = (PictureBox)sender;
             if (picturebox.BackgroundImage == null)
@@ -1287,7 +1290,8 @@ namespace ProyectoSO
             }
         }
 
-        private void Mel3_MouseLeave(object sender, MouseEventArgs e)
+
+        private void Mel3_MouseLeave(object sender, EventArgs e)
         {
             PictureBox picturebox = (PictureBox)sender;
             if (picturebox.BackgroundImage == null)
@@ -1296,7 +1300,7 @@ namespace ProyectoSO
             }
         }
 
-        private void Mel4_MouseLeave(object sender, MouseEventArgs e)
+        private void Mel4_MouseLeave(object sender, EventArgs e)
         {
             PictureBox picturebox = (PictureBox)sender;
             if (picturebox.BackgroundImage == null)
@@ -1305,7 +1309,7 @@ namespace ProyectoSO
             }
         }
 
-        private void Mel5_MouseLeave(object sender, MouseEventArgs e)
+        private void Mel5_MouseLeave(object sender, EventArgs e)
         {
             PictureBox picturebox = (PictureBox)sender;
             if (picturebox.BackgroundImage == null)
@@ -1314,7 +1318,7 @@ namespace ProyectoSO
             }
         }
 
-        private void Mel6_MouseLeave(object sender, MouseEventArgs e)
+        private void Mel6_MouseLeave(object sender, EventArgs e)
         {
             PictureBox picturebox = (PictureBox)sender;
             if (picturebox.BackgroundImage == null)
@@ -1323,7 +1327,7 @@ namespace ProyectoSO
             }
         }
 
-        private void Mel7_MouseLeave(object sender, MouseEventArgs e)
+        private void Mel7_MouseLeave(object sender, EventArgs e)
         {
             PictureBox picturebox = (PictureBox)sender;
             if (picturebox.BackgroundImage == null)
@@ -1332,7 +1336,7 @@ namespace ProyectoSO
             }
         }
 
-        private void Mel8_MouseLeave(object sender, MouseEventArgs e)
+        private void Mel8_MouseLeave(object sender, EventArgs e)
         {
             PictureBox picturebox = (PictureBox)sender;
             if (picturebox.BackgroundImage == null)
@@ -1341,7 +1345,7 @@ namespace ProyectoSO
             }
         }
 
-        private void Mel9_MouseLeave(object sender, MouseEventArgs e)
+        private void Mel9_MouseLeave(object sender, EventArgs e)
         {
             PictureBox picturebox = (PictureBox)sender;
             if (picturebox.BackgroundImage == null)
@@ -1349,13 +1353,12 @@ namespace ProyectoSO
                 T_PictureBox_MouseLeaving(sender, e);
             }
         }
-
         //=============================================================================================================
         // Seleccionar carta del mazo
 
         private void Mano1_Click(object sender, EventArgs e)
         {
-            M_PictureBox_Click(sender,e);
+            M_PictureBox_Click(sender, e);
         }
 
         private void Mano2_Click(object sender, EventArgs e)
