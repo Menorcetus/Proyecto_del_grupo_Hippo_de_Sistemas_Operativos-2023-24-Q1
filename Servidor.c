@@ -35,17 +35,12 @@ typedef struct {
 // Estructura para almacenar partida:
 // -> un identifiacor
 // -> una lista de los jugadores
-// -> una lista de bools de los jugadores que han confirmado la participacion
-// -> un integer que tomara los valores de 1 o 3 en funcion de la cantidad de 
-//    jugadores que queramos que haya en la partida (ya que se puede jugar en 
-//	  individual o por parejas, es decir, 1vs1 o 2vs2 de esta manera tenemos un
-//	   "contador" maximo de la cantidad de gente que hay en la lista) 
+// -> una lista de bools de los jugadores que han confirmado la participacion 
 // -> un booleano sobre si la partida ha iniciado o no.
 typedef struct{
 	int id;
-	Usuario jugadores[4];
-	int confirmaciones[4];
-	int mode;
+	Usuario jugadores[2];
+	int confirmaciones[2];
 	int init;
 } Partida;
 // Estructura para almacenar las partidas activas
@@ -59,7 +54,6 @@ typedef struct{
 	char nombre[MAX];
 	int fuerza;
 	int tipo;
-	//int repetible; es trivial si trabajamos con ID
 } Carta;
 
 typedef struct {
@@ -311,7 +305,7 @@ int LogOUT(char *p, ListaUsuarios *lista){
 	return 0;
 }
 
-int CrearPartida(char *p, ListaPartidas *partidas, ListaUsuarios *usuarios){
+int CrearPartida(char *p, ListaPartidas *partidas, ListaUsuarios *usuarios, char jugador1[Max], char jugador2[Max]){
 	// Crearemos una nueva partida con los jugadores antes de invitarlos, 
 	// iniciaremos con confirmaciones a 0.
 	// Devuelve la id de la partida o -1 si no se puede agregar mas partidas
@@ -319,96 +313,26 @@ int CrearPartida(char *p, ListaPartidas *partidas, ListaUsuarios *usuarios){
 	if (num == Max2)
 		return -1;
 
-	p = strtok(NULL, "/");
-	int mode = atoi(p);
-	partidas->partidas[num].mode = mode;
-	int j = 0;
-
-	p = strtok(NULL, "/");
-	char jugador[Max];
-	while (p != NULL)
-	{
-		strcpy(jugador, p);
-		for (int i = 0; i < usuarios->num; i++){
-			if (strcmp(usuarios->usuarios[i].Nombre, jugador) == 0)
-			{
-				strcpy(partidas->partidas[num].jugadores[j].Nombre, usuarios->usuarios[i].Nombre);
-				partidas->partidas[num].jugadores[j].Socket = usuarios->usuarios[i].Socket;
-				partidas->partidas[num].jugadores[j].con = usuarios->usuarios[i].con;
-				partidas->partidas[num].jugadores[j].jugando = usuarios->usuarios[i].jugando;
-			}
+	for (int i = 0; i < usuarios->num; i++){
+		if (strcmp(usuarios->usuarios[i].Nombre, jugador1) == 0)
+		{
+			strcpy(partidas->partidas[num].jugadores[0].Nombre, usuarios->usuarios[i].Nombre);
+			partidas->partidas[num].jugadores[0].Socket = usuarios->usuarios[i].Socket;
+			partidas->partidas[num].jugadores[0].con = usuarios->usuarios[i].con;
+			partidas->partidas[num].jugadores[0].jugando = usuarios->usuarios[i].jugando;
 		}
-		p = strtok(NULL, "/");
-		j++;
+		else if (strcmp(usuarios->usuarios[i].Nombre, jugador2) == 0)
+		{
+			strcpy(partidas->partidas[num].jugadores[1].Nombre, usuarios->usuarios[i].Nombre);
+			partidas->partidas[num].jugadores[1].Socket = usuarios->usuarios[i].Socket;
+			partidas->partidas[num].jugadores[1].con = usuarios->usuarios[i].con;
+			partidas->partidas[num].jugadores[1].jugando = usuarios->usuarios[i].jugando;
+		}
 	}
 	partidas->num++;
 	return num;
 }
 
-int AceptarPartida(int id_partida, int aceptado, char persona[Max], ListaPartidas *Partidas){
-	// El mensaje de respuesta a una  invitacion devolvera una referencia 
-	// a la partida para identifiacarla, el nombre de la persona que a 
-	// responde y indicando si acepta (1) o no (-1). 
-	// Nota: fuera de ListaPartidas, la negacion sera un 0 pero, por evitar 
-	// errores con posibles valores null entendidos como un 0, preferimos hacer 
-	// esta distincion.
-
-
-	int num_jugador = 0;
-	int i = 0;
-	int encontrado  = 0;
-	// Busco posicion del jugador que ha contestado
-	while((i <= Partidas->partidas[id_partida].mode) && (encontrado == 0)){
-		if(strcmp(Partidas->partidas[id_partida].jugadores[i].Nombre, persona) == 0){
-			num_jugador = i;
-			encontrado = 1;
-		}
-		i++;
-	}
-
-	// Asigno al jugador si ha aceptado o no la invitacion
-	if (aceptado == 1){
-		Partidas->partidas[id_partida].confirmaciones[num_jugador] = 1;
-		return 1;
-	} 
-	else if(aceptado == 0){
-		Partidas->partidas[id_partida].confirmaciones[num_jugador] = -1;
-		Partidas->partidas[id_partida].init = -1;
-		return 0;
-	}
-
-}
-
-int ComprovarInicioPartida(int id_partida, ListaPartidas *Partidas){
-	// Esta funcion tiene que buscar una paritda segun su id i comprobar que todos los jugadores
-	// segun el mode (1 o 3) hayan aceptado la partida (1) o no (-1) en la lista de confirmaciones
-	// (sin responder 0). Devuelve 1 si se empieza la partida, 0 si todavia no y -1 si se ha cancelado
-	if (Partidas->partidas[id_partida].init == -1){
-		// Ya se habia cancelado antes
-		return -1;
-	}
-	else
-	{
-		int mode = Partidas->partidas[id_partida].mode;
-		int initCount = 0;
-		for (int i = 0; i <= mode; i++){
-			if(Partidas->partidas[id_partida].confirmaciones[i] == 1)
-				initCount++;
-			else if(Partidas->partidas[id_partida].confirmaciones[i] == -1)
-			{
-				Partidas->partidas[i].init = -1;
-				return -1;
-			}
-		}
-		if (initCount == mode)
-		{
-			Partidas->partidas[id_partida].init = 1;
-			return 1;
-		}
-		else	
-			return 0;
-	}
-}
 
 int BuscarPartidaPorID(int id_partida,ListaPartidas *Partidas){ 
 	//funcion que retorna la posicion de la partida o -1 si hay error
@@ -560,14 +484,7 @@ int AnalizarTurno(int id_partida, ListaPartidas *Partidas, char *jugador, char *
 	int num_jugador = 0;
 	int i = 0;
 	int encontrado  = 0;
-	// Busco posicion del jugador que ha acabado el turno
-	while((i <= Partidas->partidas[id_partida].mode) && (encontrado == 0)){
-		if(strcmp(Partidas->partidas[id_partida].jugadores[i].Nombre, jugador) == 0){
-			num_jugador = i;
-			encontrado = 1;
-		}
-		i++;
-	}
+
 	// Descomponemos el resto del mensaje
 	p = strtok(NULL, "/");
 	int FuerzaMel = atoi(p);
@@ -695,24 +612,21 @@ void *AtenderCliente(void *socket){
 			// Crear partida
 			// Recibe: 3
 			case 3:{
-				pthread_mutex_lock(&mutex);
-				int res = CrearPartida(p, &Partidas, &Conectados);
-				pthread_mutex_unlock(&mutex);
-				if (res  == -1){
-					// se va a tomar por culo.
-					strcpy(respuesta, "No se ha podido crear la partida");
-					write(sock_conn,respuesta, strlen(respuesta));
-				}
-				else {
-					// invitamos
 					char invitacion[buffer];
-					// 4/<id de partida>/<Persona que ha invitado>
-					sprintf(invitacion,"4/%i/%s", res, Partidas.partidas[res].jugadores[0].Nombre);
+					p = strtok(NULL, "/");
+					char jugador1[Max];
+					strcpy(jugador1,p);
+					p = strtok(NULL, "/");
+					char jugador2[Max];
+					strcpy(jugador2,p);
+
+					// 4/<Persona que ha invitado>
+					sprintf(invitacion,"4/%s", jugador1);
 					printf("Invitacion: %s \n", invitacion);
-					for(int i = 1; i <= Partidas.partidas[res].mode; i++){
-						write(Partidas.partidas[res].jugadores[i].Socket, invitacion, strlen(invitacion));
+					for(int i = 0; i < Conectados.num; i++){
+						if(strcmp(Conectados.usuarios[i].Nombre, jugador2) == 0)
+						write(Conectados.usuarios[i].Socket, invitacion, strlen(invitacion));
 					}
-				}
 
 				break;
 			}
@@ -728,45 +642,39 @@ void *AtenderCliente(void *socket){
 			// Recibe: 5/<id de partida>/<acepta o no>/<nombre de la persona que acepta>
 			case 5:{
 				p = strtok(NULL, "/");
-				int id_partida = atoi(p);
-				p = strtok(NULL, "/");
 				int aceptado = atoi(p);
 				p = strtok(NULL, "/");
-				char persona[Max];
-				strcpy(persona, p);
+				char jugador1[Max];
+				strcpy(jugador1, p);
 
-				pthread_mutex_lock(&mutex);
-				int res = AceptarPartida(id_partida, aceptado, persona, &Partidas);
-				pthread_mutex_unlock(&mutex);
-				if (res == 0)
+				p = strtok(NULL, "/");
+				char jugador2[Max];
+				strcpy(jugador2, p);
+
+				if (aceptado == 0)
 				{
-					sprintf(respuesta, "5/0/%s", persona);
-					printf("Respuesta: %s\n", respuesta);
-					write(Partidas.partidas[id_partida].jugadores[0].Socket,
-							respuesta, strlen(respuesta));
+					for(int i = 0; i < Conectados.num; i++){
+						if(strcmp(Conectados.usuarios[i].Nombre, jugador2) == 0){
+							sprintf(respuesta, "5/0/%s", jugador1);
+							printf("Respuesta: %s\n", respuesta);
+							write(Conectados.usuarios[i].Socket,
+									respuesta, strlen(respuesta));
+						}
+					}
 					// Funcion para cancelar la partida y notificar a los jugadores.
 				}
-				else if(res == 1)
+				else if(aceptado == 1)
 				{
-					sprintf(respuesta, "5/1/%s", persona);
-					printf("Respuesta: %s\n", respuesta);
-					write(Partidas.partidas[id_partida].jugadores[0].Socket,
-							respuesta, strlen(respuesta));
-					// Funcion para comprovar si la partida esta lista + enviar notificacion para
-					// empezar a jugar a todos los jugadores.
 					pthread_mutex_lock(&mutex);
-					int res2 = ComprovarInicioPartida(id_partida, &Partidas);
+					int id_partida = CrearPartida(p, &Partidas, &Conectados, jugador1,jugador2);
 					pthread_mutex_unlock(&mutex);
-					if (res2 == 1){
-						// Iniciar partida
-						sprintf(respuesta, "6/%i", id_partida);
-						printf("Se va a iniciar partida: %s\n", respuesta);
-						for (int i=0;i<= Partidas.partidas[id_partida].mode; i++)
-						write(Partidas.partidas[id_partida].jugadores[i].Socket,
+
+
+					sprintf(respuesta, "5/1/%s", jugador1);
+					printf("Respuesta: %s\n", respuesta);
+					write(Partidas.partidas[id_partida].jugadores[1].Socket,
 							respuesta, strlen(respuesta));
 
-					}
-					// Si se cancela solo lo sabra el que ha creado la partida.
 				}
 				break;
 			}
@@ -783,7 +691,7 @@ void *AtenderCliente(void *socket){
 
 				sprintf(respuesta, "7/%i/%s/%s", id_partida,persona, mensaje);
 				printf("Respuesta: %s\n", respuesta);
-				for (int i=0;i<= Partidas.partidas[id_partida].mode; i++)
+				for (int i=0;i<= 1; i++)
 				write(Partidas.partidas[id_partida].jugadores[i].Socket,
 					respuesta, strlen(respuesta));
 				break;
@@ -826,7 +734,7 @@ void *AtenderCliente(void *socket){
 				int res = AnalizarTurno(id_partida, &Partidas, &jugador, p, &Reenvio);
 				pthread_mutex_unlock(&mutex);
 
-				for (int i=0;i<= Partidas.partidas[id_partida].mode; i++)
+				for (int i=0;i <= 1; i++)
 				if(strcmp(Partidas.partidas[id_partida].jugadores[i].Nombre,jugador) != 0)
 				write(Partidas.partidas[id_partida].jugadores[i].Socket,
 					Reenvio, strlen(Reenvio));
