@@ -480,10 +480,6 @@ void DarMano(char *respuesta, ListaCartas *cartas, int numMano){
 }
 
 int AnalizarTurno(int id_partida, ListaPartidas *Partidas, char *jugador, char *p, char *Reenvio){
-	// Hay que acabar
-	int num_jugador = 0;
-	int i = 0;
-	int encontrado  = 0;
 
 	// Descomponemos el resto del mensaje
 	p = strtok(NULL, "/");
@@ -501,10 +497,18 @@ int AnalizarTurno(int id_partida, ListaPartidas *Partidas, char *jugador, char *
 	// Ahora hay que comprobar que pasa con la ronda
 
 	// Creamos mensaje para enviar a los jugadores
-	p = strtok(NULL, "/");
 	sprintf(Reenvio,"9/%i/%i/%i/%i/%i/%i/%i",id_partida,
 			FuerzaArt,FueraRan,FuerzaMel,FuerzaArt_M,FueraRan_M,FuerzaMel_M);
-	return i;
+
+	// Reensamblar vector de posiciones
+	for (int i = 0; i < 27; i++){
+		p = strtok(NULL, "/");
+		int posicion = atoi(p);
+		p = strtok(NULL, "/");
+		int fuerza = atoi(p);
+		sprintf(Reenvio, "%s/%i/%i", Reenvio, posicion, fuerza);
+	}
+	return 1;
 }
 
 
@@ -687,29 +691,24 @@ void *AtenderCliente(void *socket){
 							respuesta, strlen(respuesta));
 
 // Hay que reeimplementar turno primero
-					//	int primero = jugadorPrimero();
-					//	
-					//	printf("Se va a iniciar partida: %s\n", respuesta);
-					//	for (int i=0;i<= Partidas.partidas[id_partida].mode; i++)
-					//		{
-					//			if (primero == i)
-					//			{
-					//				sprintf(respuesta, "6/%i/1", id_partida); // 1 para el que inicia la primera accion
-					//				write(Partidas.partidas[id_partida].jugadores[i].Socket,
-					//				respuesta, strlen(respuesta));
-//
-					//			}
-//
-					//			else
-					//			{
-//
-					//				sprintf(respuesta, "6/%i/0", id_partida);
-					//				write(Partidas.partidas[id_partida].jugadores[i].Socket,
-					//				respuesta, strlen(respuesta));
-					//			}
-//
-					//		}
-
+					int primero = jugadorPrimero();
+						
+					printf("Se va a iniciar partida: %s\n", respuesta);
+					for (int i=0; i<= 1; i++)
+					{
+						if (primero == i)
+						{
+							sprintf(respuesta, "6/%i/1", id_partida); // 1 para el que inicia la primera accion
+							write(Partidas.partidas[id_partida].jugadores[i].Socket,
+							respuesta, strlen(respuesta));
+						}
+						else
+						{
+							sprintf(respuesta, "6/%i/0", id_partida);
+							write(Partidas.partidas[id_partida].jugadores[i].Socket,
+							respuesta, strlen(respuesta));
+						}
+					}
 				}
 				break;
 			}
@@ -764,13 +763,13 @@ void *AtenderCliente(void *socket){
 				char jugador[Max];
 				strcpy(jugador,p);
 
-				char Reenvio[Max];
+				char Reenvio[MaxBuffer];
 				pthread_mutex_lock(&mutex);
 				int res = AnalizarTurno(id_partida, &Partidas, &jugador, p, &Reenvio);
 				pthread_mutex_unlock(&mutex);
 
 				for (int i=0;i <= 1; i++)
-				if(strcmp(Partidas.partidas[id_partida].jugadores[i].Nombre,jugador) != 0)
+				if(strcmp(Partidas.partidas[id_partida].jugadores[i].Nombre, jugador) != 0)
 				write(Partidas.partidas[id_partida].jugadores[i].Socket,
 					Reenvio, strlen(Reenvio));
 
@@ -803,7 +802,7 @@ void *AtenderCliente(void *socket){
 		}
 		// Si el mensaje no es de desconexion, cerramos la conexion a mysql y enviamos 
 		// la respuesta al cliente
-		if ((codigo != 0) && (codigo != 3) && (codigo != 4) && (codigo != 5) && (codigo != 6) && (codigo != 7)){
+		if ((codigo != 0) && (codigo != 3) && (codigo != 4) && (codigo != 5) && (codigo != 6) && (codigo != 7) &&(codigo != 8)){
 			mysql_close(conn);
 			printf("Respuesta: %s\n", respuesta);
 			write(sock_conn, respuesta, strlen(respuesta));
