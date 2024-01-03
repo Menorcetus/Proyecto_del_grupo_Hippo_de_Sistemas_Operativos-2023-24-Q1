@@ -24,6 +24,9 @@ namespace ProyectoSO
         public Carta[] CartasRan = new Carta[9]; int FuerzaRan = 0;
         public Carta[] CartasMel = new Carta[9]; int FuerzaMel = 0;
 
+        public PictureBox[] Mano_Mel = new PictureBox[9];
+        public PictureBox[] Mano_Ran = new PictureBox[9];
+        public PictureBox[] Mano_Art = new PictureBox[9];
         public Carta[] CartasArt_M = new Carta[9]; int FuerzaArt_M = 0;
         public Carta[] CartasRan_M = new Carta[9]; int FuerzaRan_M = 0;
         public Carta[] CartasMel_M = new Carta[9]; int FuerzaMel_M = 0;
@@ -134,46 +137,77 @@ namespace ProyectoSO
         internal void RecibirManoEnemiga(string mensaje)
         {
             // Falta implementar
-            string[] trozos = mensaje.Split(new[] { '/' }, 7);
+            string[] trozos = mensaje.Split(new[] { '/' }, 8);
 
-            int FuerzaArt_M = Convert.ToInt32(trozos[0]);
-            int FuerzaRan_M = Convert.ToInt32(trozos[1]);
-            int FuerzaMel_M = Convert.ToInt32(trozos[2]);
+            FuerzaArt_M = Convert.ToInt32(trozos[1]);
+            FuerzaRan_M = Convert.ToInt32(trozos[2]);
+            FuerzaMel_M = Convert.ToInt32(trozos[3]);
 
-            int FuerzaArt  = Convert.ToInt32(trozos[3]);
-            int FuerzaRan  = Convert.ToInt32(trozos[4]);
-            int FuerzaMel  = Convert.ToInt32(trozos[5]);
+            FuerzaArt = Convert.ToInt32(trozos[4]);
+            FuerzaRan = Convert.ToInt32(trozos[5]);
+            FuerzaMel = Convert.ToInt32(trozos[6]);
 
-            string posiciones = trozos[6];
+            if(turno.Text == "¡Turno del contrincante!")
+            {
+                accion = 1;
+                turno.Text = "¡Tu turno!";
+            }
 
-           // Mano[0] = Mano1;
-           // Mano[1] = Mano2;
-           // Mano[2] = Mano3;
-           // Mano[3] = Mano4;
-           // Mano[4] = Mano5;
-           // Mano[5] = Mano6;
-           // Mano[6] = Mano7;
-           // Mano[7] = Mano8;
-           // Mano[8] = Mano9;
-           // Mano[9] = Mano10;
-           //
-           // //string[] trozos = mensaje.Split('/');
-           // numCartas = Convert.ToInt32(trozos[0]);
-           // Carta[] mano = new Carta[numCartas];  //Formato: numCartas/ID1/Fuerza1/Tipo1/ID2/Fuerza2/Tipo2/ID3/...
-           //
-           // for (int i = 0; i < Convert.ToInt32(trozos[0]); i++)
-           // {
-           //     mano[i] = new Carta();
-           //     mano[i].id = Convert.ToInt32(trozos[3 * i + 1]);
-           //     //mano[i - 1].nombre = trozos[i + 1];
-           //     mano[i].fuerza = Convert.ToInt32(trozos[3 * i + 2]);
-           //     mano[i].tipo = Convert.ToInt32(trozos[3 * i + 3]);
-           //     string resourceName = "_" + Convert.ToString(mano[i].id);
-           //     //ManoCartas[i - 1].BackgroundImage = resourceName;
-           //     mano[i].picture = Mano[i];
-           //     mano[i].picture.Image = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject(resourceName);
-           //     ManoCartas[i] = mano[i];
-           // }
+            FuerzaArt_lbl.Text = Convert.ToString(FuerzaArt);
+            FuerzaRan_lbl.Text = Convert.ToString(FuerzaRan);
+            FuerzaMel_lbl.Text = Convert.ToString(FuerzaMel);
+            FuerzaArt_M_lbl.Text = Convert.ToString(FuerzaArt_M);
+            FuerzaRan_M_lbl.Text = Convert.ToString(FuerzaRan_M);
+            FuerzaMel_M_lbl.Text = Convert.ToString(FuerzaMel_M);
+
+
+            Mano_Mel[0] = Mel1_M; Mano_Ran[0] = Ran1_M; Mano_Art[0] = Art1_M;
+            Mano_Mel[1] = Mel2_M; Mano_Ran[1] = Ran2_M; Mano_Art[1] = Art2_M;
+            Mano_Mel[2] = Mel3_M; Mano_Ran[2] = Ran3_M; Mano_Art[2] = Art3_M;
+            Mano_Mel[3] = Mel4_M; Mano_Ran[3] = Ran4_M; Mano_Art[3] = Art4_M;
+            Mano_Mel[4] = Mel5_M; Mano_Ran[4] = Ran5_M; Mano_Art[4] = Art5_M;
+            Mano_Mel[5] = Mel6_M; Mano_Ran[5] = Ran6_M; Mano_Art[5] = Art6_M;
+            Mano_Mel[6] = Mel7_M; Mano_Ran[6] = Ran7_M; Mano_Art[6] = Art7_M;
+            Mano_Mel[7] = Mel8_M; Mano_Ran[7] = Ran8_M; Mano_Art[7] = Art8_M;
+            Mano_Mel[8] = Mel9_M; Mano_Ran[8] = Ran9_M; Mano_Art[8] = Art9_M;
+
+            string posiciones = trozos[7];
+            string[] pos = posiciones.Split('/');
+            Carta[] mano = new Carta[9];
+
+            for (int i = 0; i < 9; i++)
+            {
+                mano[i] = new Carta();
+                mano[i].id = Convert.ToInt32(pos[2 * i]);
+                mano[i].fuerza = Convert.ToInt32(pos[2 * i + 1]);
+                string resourceName = "_" + Convert.ToString(mano[i].id);
+
+                mano[i].picture = Mano_Mel[i];
+                mano[i].picture.Image = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject(resourceName);
+                CartasMel_M[i] = mano[i];
+            }
+            for (int i = 0; i < 9; i++)
+            {
+                mano[i] = new Carta();
+                mano[i].id = Convert.ToInt32(pos[2 * i + 18]);
+                mano[i].fuerza = Convert.ToInt32(pos[2 * i + 1 + 18]);
+                string resourceName = "_" + Convert.ToString(mano[i].id);
+
+                mano[i].picture = Mano_Ran[i];
+                mano[i].picture.Image = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject(resourceName);
+                CartasRan_M[i] = mano[i];
+            }
+            for (int i = 0; i < 9; i++)
+            {
+                mano[i] = new Carta();
+                mano[i].id = Convert.ToInt32(pos[2 * i + 36]);
+                mano[i].fuerza = Convert.ToInt32(pos[2 * i + 1 + 36]);
+                string resourceName = "_" + Convert.ToString(mano[i].id);
+
+                mano[i].picture = Mano_Art[i];
+                mano[i].picture.Image = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject(resourceName);
+                CartasArt_M[i] = mano[i];
+            }
         }
 
         private void PedirMazo_btn_Click(object sender, EventArgs e)
@@ -295,6 +329,26 @@ namespace ProyectoSO
                     total += Cartas[i].fuerza;
             }
             return total;
+        }
+
+        private void turno_TextChanged(object sender, EventArgs e)
+        {
+            FuerzaArt_lbl.Text = Convert.ToString(FuerzaArt);
+            FuerzaRan_lbl.Text = Convert.ToString(FuerzaRan);
+            FuerzaMel_lbl.Text = Convert.ToString(FuerzaMel);
+            FuerzaArt_M_lbl.Text = Convert.ToString(FuerzaArt_M);
+            FuerzaRan_M_lbl.Text = Convert.ToString(FuerzaRan_M);
+            FuerzaMel_M_lbl.Text = Convert.ToString(FuerzaMel_M);
+            // Si se cambia el texto significa que se ha colocado una carta, para que se el contrincante sea consciente se auto envia un mensaje al servidor.
+            if (turno.Text == "¡Turno del contrincante!")
+            {
+                string DistribucionCartas = DistribuirCartas(CartasArt, CartasRan, CartasMel);
+                string mensaje = "8/" + this.ID_partida + "/" + this.user.Name + "/" + this.FuerzaMel + "/" + this.FuerzaRan + "/" + this.FuerzaArt
+                                                        + "/" + this.FuerzaMel_M + "/" + this.FuerzaRan_M + "/" + this.FuerzaArt_M + DistribucionCartas;
+
+                byte[] msg = Encoding.ASCII.GetBytes(mensaje);
+                server.Send(msg);
+            }
         }
 
         //=============================================================================================================
@@ -1613,6 +1667,5 @@ namespace ProyectoSO
                 M_PictureBox_Click(sender, e);
             }
         }
-
     }
 }
