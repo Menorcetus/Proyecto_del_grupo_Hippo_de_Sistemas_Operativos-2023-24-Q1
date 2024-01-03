@@ -35,6 +35,9 @@ namespace ProyectoSO
         public Carta cartaselecc;
         int numCartas;
         int accion;
+        int pasado;
+        int primero;
+        int turnosganados;
         
 
         public Interfaz_juego(User user, Socket server, int ID_partida, int accion)
@@ -93,11 +96,13 @@ namespace ProyectoSO
             if (accion == 1)
             {
                 turno.Text = "¡Tu turno!";
+                primero = 1;
             }
 
             else
             {
                 turno.Text = "¡Turno del contrincante!";
+                primero = 0;
             }
 
         }
@@ -208,6 +213,19 @@ namespace ProyectoSO
                 mano[i].picture.Image = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject(resourceName);
                 CartasArt_M[i] = mano[i];
             }
+
+            if (Convert.ToInt32(pos[53]) == 1 || pasado == 1)
+                pasado = 1;
+
+            if (turno.Text == "¡Has pasado!")
+            {
+                string DistribucionCartas = DistribuirCartas(CartasArt, CartasRan, CartasMel);
+                string mensaje2 = "8/" + this.ID_partida + "/" + this.user.Name + "/" + this.FuerzaMel + "/" + this.FuerzaRan + "/" + this.FuerzaArt
+                                                        + "/" + this.FuerzaMel_M + "/" + this.FuerzaRan_M + "/" + this.FuerzaArt_M + DistribucionCartas + "0";
+
+                byte[] msg = Encoding.ASCII.GetBytes(mensaje2);
+                server.Send(msg);
+            }
         }
 
         private void PedirMazo_btn_Click(object sender, EventArgs e)
@@ -215,10 +233,71 @@ namespace ProyectoSO
             string mensaje = "7/" + this.ID_partida + "/" + this.user.Name;
             byte[] msg = Encoding.ASCII.GetBytes(mensaje);
             server.Send(msg);
-
-            //PedirMazo_btn.Enabled = false;
+            PedirMazo_btn.Enabled = false;
         }
 
+        internal void ReiniciarTurno(string mensaje) // id_partida/FuerzaTotal/FuerzaTotal_M/resultado
+        {
+            pasado = 0;
+            if (primero == 1)
+            {
+                primero = 0;
+                accion = 0;
+                turno.Text = "¡Turno del contrincante!";
+            }
+            else if (primero == 0)
+            {
+                primero = 1;
+                accion = 1;
+                turno.Text = "¡Tu turno!";
+            }
+            FuerzaArt = 0;
+            FuerzaMel = 0;
+            FuerzaRan = 0;
+            FuerzaRan_M = 0;
+            FuerzaMel_M = 0;
+            FuerzaArt_M = 0;
+
+            for (int i = 0; i < 9; i++)
+            {
+                CartasArt[i].picture = null;
+                CartasMel[i].picture = null;
+                CartasRan[i].picture = null;
+                CartasArt_M[i].picture = null;
+                CartasMel_M[i].picture = null;
+                CartasRan_M[i].picture = null;
+            }
+
+            FuerzaArt_lbl.Text = "0";
+            FuerzaRan_lbl.Text = "0";
+            FuerzaMel_lbl.Text = "0";
+            FuerzaArt_M_lbl.Text = "0";
+            FuerzaRan_M_lbl.Text = "0";
+            FuerzaMel_M_lbl.Text = "0";
+
+            CartasArt[0] = new Carta(); CartasRan[0] = new Carta(); CartasMel[0] = new Carta(); CartasArt_M[0] = new Carta(); CartasRan_M[0] = new Carta(); CartasMel_M[0] = new Carta();
+            CartasArt[1] = new Carta(); CartasRan[1] = new Carta(); CartasMel[1] = new Carta(); CartasArt_M[1] = new Carta(); CartasRan_M[1] = new Carta(); CartasMel_M[1] = new Carta();
+            CartasArt[2] = new Carta(); CartasRan[2] = new Carta(); CartasMel[2] = new Carta(); CartasArt_M[2] = new Carta(); CartasRan_M[2] = new Carta(); CartasMel_M[2] = new Carta();
+            CartasArt[3] = new Carta(); CartasRan[3] = new Carta(); CartasMel[3] = new Carta(); CartasArt_M[3] = new Carta(); CartasRan_M[3] = new Carta(); CartasMel_M[3] = new Carta();
+            CartasArt[4] = new Carta(); CartasRan[4] = new Carta(); CartasMel[4] = new Carta(); CartasArt_M[4] = new Carta(); CartasRan_M[4] = new Carta(); CartasMel_M[4] = new Carta();
+            CartasArt[5] = new Carta(); CartasRan[5] = new Carta(); CartasMel[5] = new Carta(); CartasArt_M[5] = new Carta(); CartasRan_M[5] = new Carta(); CartasMel_M[5] = new Carta();
+            CartasArt[6] = new Carta(); CartasRan[6] = new Carta(); CartasMel[6] = new Carta(); CartasArt_M[6] = new Carta(); CartasRan_M[6] = new Carta(); CartasMel_M[6] = new Carta();
+            CartasArt[7] = new Carta(); CartasRan[7] = new Carta(); CartasMel[7] = new Carta(); CartasArt_M[7] = new Carta(); CartasRan_M[7] = new Carta(); CartasMel_M[7] = new Carta();
+            CartasArt[8] = new Carta(); CartasRan[8] = new Carta(); CartasMel[8] = new Carta(); CartasArt_M[8] = new Carta(); CartasRan_M[8] = new Carta(); CartasMel_M[8] = new Carta();
+
+
+            CartasArt[0].id = -1; CartasRan[0].id = -1; CartasMel[0].id = -1; CartasArt_M[0].id = -1; CartasRan_M[0].id = -1; CartasMel_M[0].id = -1;
+            CartasArt[1].id = -1; CartasRan[1].id = -1; CartasMel[1].id = -1; CartasArt_M[1].id = -1; CartasRan_M[1].id = -1; CartasMel_M[1].id = -1;
+            CartasArt[2].id = -1; CartasRan[2].id = -1; CartasMel[2].id = -1; CartasArt_M[2].id = -1; CartasRan_M[2].id = -1; CartasMel_M[2].id = -1;
+            CartasArt[3].id = -1; CartasRan[3].id = -1; CartasMel[3].id = -1; CartasArt_M[3].id = -1; CartasRan_M[3].id = -1; CartasMel_M[3].id = -1;
+            CartasArt[4].id = -1; CartasRan[4].id = -1; CartasMel[4].id = -1; CartasArt_M[4].id = -1; CartasRan_M[4].id = -1; CartasMel_M[4].id = -1;
+            CartasArt[5].id = -1; CartasRan[5].id = -1; CartasMel[5].id = -1; CartasArt_M[5].id = -1; CartasRan_M[5].id = -1; CartasMel_M[5].id = -1;
+            CartasArt[6].id = -1; CartasRan[6].id = -1; CartasMel[6].id = -1; CartasArt_M[6].id = -1; CartasRan_M[6].id = -1; CartasMel_M[6].id = -1;
+            CartasArt[7].id = -1; CartasRan[7].id = -1; CartasMel[7].id = -1; CartasArt_M[7].id = -1; CartasRan_M[7].id = -1; CartasMel_M[7].id = -1;
+            CartasArt[8].id = -1; CartasRan[8].id = -1; CartasMel[8].id = -1; CartasArt_M[8].id = -1; CartasRan_M[8].id = -1; CartasMel_M[8].id = -1;
+
+
+        }
 
 
 
@@ -314,10 +393,12 @@ namespace ProyectoSO
 
             string DistribucionCartas = DistribuirCartas(CartasArt, CartasRan, CartasMel);
             string mensaje = "8/" + this.ID_partida + "/" + this.user.Name + "/" + this.FuerzaMel + "/" + this.FuerzaRan + "/" + this.FuerzaArt
-                                                    + "/" + this.FuerzaMel_M + "/" + this.FuerzaRan_M + "/" + this.FuerzaArt_M + DistribucionCartas;
+                                                    + "/" + this.FuerzaMel_M + "/" + this.FuerzaRan_M + "/" + this.FuerzaArt_M + DistribucionCartas + "1";
 
             byte[] msg = Encoding.ASCII.GetBytes(mensaje);
             server.Send(msg);
+            turno.Text = "¡Has pasado!";
+            accion = 0;
         }
 
         private int ContarFuerza(Carta[] Cartas)
@@ -342,13 +423,16 @@ namespace ProyectoSO
             // Si se cambia el texto significa que se ha colocado una carta, para que se el contrincante sea consciente se auto envia un mensaje al servidor.
             if (turno.Text == "¡Turno del contrincante!")
             {
+                PasarTurnoBtn.Enabled = false;
                 string DistribucionCartas = DistribuirCartas(CartasArt, CartasRan, CartasMel);
                 string mensaje = "8/" + this.ID_partida + "/" + this.user.Name + "/" + this.FuerzaMel + "/" + this.FuerzaRan + "/" + this.FuerzaArt
-                                                        + "/" + this.FuerzaMel_M + "/" + this.FuerzaRan_M + "/" + this.FuerzaArt_M + DistribucionCartas;
+                                                        + "/" + this.FuerzaMel_M + "/" + this.FuerzaRan_M + "/" + this.FuerzaArt_M + DistribucionCartas + "0";
 
                 byte[] msg = Encoding.ASCII.GetBytes(mensaje);
                 server.Send(msg);
             }
+            else if (turno.Text == "¡Tu turno!")
+                PasarTurnoBtn.Enabled = true;
         }
 
         //=============================================================================================================
@@ -505,6 +589,7 @@ namespace ProyectoSO
                             cartaselecc = null;
                             accion = 0;
                             turno.Text = "¡Turno del contrincante!";
+                            
 
                         }
                     
@@ -527,9 +612,9 @@ namespace ProyectoSO
                          CartasArt[1] = cartaselecc;
                          FuerzaArt = ContarFuerza(CartasArt);
                          cartaselecc = null;
-                        accion = 0;
-                        turno.Text = "¡Turno del contrincante!";
-                    }
+                         accion = 0;
+                         turno.Text = "¡Turno del contrincante!";
+                     }
                 }
             }
         

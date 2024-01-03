@@ -42,6 +42,7 @@ typedef struct{
 	Usuario jugadores[2];
 	int confirmaciones[2];
 	int init;
+	int pasados;
 } Partida;
 // Estructura para almacenar las partidas activas
 typedef struct {
@@ -485,20 +486,20 @@ int AnalizarTurno(int id_partida, ListaPartidas *Partidas, char *jugador, char *
 	p = strtok(NULL, "/");
 	int FuerzaMel = atoi(p);
 	p = strtok(NULL, "/");
-	int FueraRan = atoi(p);
+	int FuerzaRan = atoi(p);
 	p = strtok(NULL, "/");
 	int FuerzaArt = atoi(p);
 	p = strtok(NULL, "/");
 	int FuerzaMel_M = atoi(p);
 	p = strtok(NULL, "/");
-	int FueraRan_M = atoi(p);
+	int FuerzaRan_M = atoi(p);
 	p = strtok(NULL, "/");
 	int FuerzaArt_M = atoi(p);
 	// Ahora hay que comprobar que pasa con la ronda
 
 	// Creamos mensaje para enviar a los jugadores
 	sprintf(Reenvio,"9/%i/%i/%i/%i/%i/%i/%i",id_partida,
-			FuerzaArt,FueraRan,FuerzaMel,FuerzaArt_M,FueraRan_M,FuerzaMel_M);
+			FuerzaArt,FuerzaRan,FuerzaMel,FuerzaArt_M,FuerzaRan_M,FuerzaMel_M);
 
 	// Reensamblar vector de posiciones
 	for (int i = 0; i < 27; i++){
@@ -508,7 +509,14 @@ int AnalizarTurno(int id_partida, ListaPartidas *Partidas, char *jugador, char *
 		int fuerza = atoi(p);
 		sprintf(Reenvio, "%s/%i/%i", Reenvio, posicion, fuerza);
 	}
-	return 1;
+	p = strtok(NULL, "/");
+	int pasarturno = atoi(p);
+	if (pasarturno == 1)
+	{
+		Partidas->partidas[id_partida].pasados++;
+		sprintf(Reenvio, "%s/%i",Reenvio, pasarturno);
+	}
+	return pasarturno;
 }
 
 
@@ -519,6 +527,36 @@ int jugadorPrimero()
 	srand(time(NULL)); 
 	int primero = rand()%2;
 	return primero;
+}
+
+int FinalizarTurno(int id_partida, ListaPartidas *Partidas, char *p, int *FuerzaTotal, int *FuerzaTotal_M)
+{
+	p = strtok(NULL, "/");
+	int FuerzaMel = atoi(p);
+	p = strtok(NULL, "/");
+	int FuerzaRan = atoi(p);
+	p = strtok(NULL, "/");
+	int FuerzaArt = atoi(p);
+	p = strtok(NULL, "/");
+	int FuerzaMel_M = atoi(p);
+	p = strtok(NULL, "/");
+	int FuerzaRan_M = atoi(p);
+	p = strtok(NULL, "/");
+	int FuerzaArt_M = atoi(p);
+	
+	FuerzaTotal = FuerzaMel + FuerzaArt + FuerzaRan;
+	FuerzaTotal_M = FuerzaMel_M + FuerzaRan_M + FuerzaArt_M;
+	
+	int resultado;
+	if (FuerzaTotal < FuerzaTotal_M)
+		resultado = 0; // El usuario pierde
+	else if (FuerzaTotal > FuerzaTotal_M)
+		resultado = 1;  // El usuario gana
+	else if (FuerzaTotal == FuerzaTotal_M)
+		resultado = 2;  // Empate
+	
+	return resultado;
+	
 }
 	
 
@@ -739,7 +777,7 @@ void *AtenderCliente(void *socket){
 				int posPartida = BuscarPartidaPorID(id_partida, &Partidas);
 				//p = strtok(NULL, "/");
 				//int numCartas = atoi(p);
-				int numCartas = 5; //arbitrario, se cambiara cuando haya lobby
+				int numCartas = 6; //arbitrario, se cambiara cuando haya lobby
 				if (posPartida != -1)
 				{
 					pthread_mutex_lock(&mutex);
@@ -765,13 +803,45 @@ void *AtenderCliente(void *socket){
 
 				char Reenvio[MaxBuffer];
 				pthread_mutex_lock(&mutex);
-				int res = AnalizarTurno(id_partida, &Partidas, &jugador, p, &Reenvio);
-				pthread_mutex_unlock(&mutex);
-
-				for (int i=0;i <= 1; i++)
-				if(strcmp(Partidas.partidas[id_partida].jugadores[i].Nombre, jugador) != 0)
-				write(Partidas.partidas[id_partida].jugadores[i].Socket,
-					Reenvio, strlen(Reenvio));
+				if (Partidas.partidas[id_partida].pasados == 2)
+				{
+					int FuerzaTotal;
+					int FuerzaTotal_M;
+					int resultado = FinalizarTurno(id_partida, &Partidas, p, &FuerzaTotal, &FuerzaTotal_M);
+					for (int i=0;i <= 1; i++)
+					{
+						if(strcmp(Partidas.partidas[id_partida].jugadores[i].Nombre, jugador) == 0)
+						{
+							sprintf(Reenvio, "10/%i/%i/%i/%i", id_partida,FuerzaTotal,FuerzaTotal_M, resultado);
+							write(Partidas.partidas[id_partida].jugadores[i].Socket,
+							  Reenvio, strlen(Reenvio));
+						}
+						else
+						{
+							int resultado_M;
+							if (resultado == 0)
+								resultado_M = 1;
+							else if (resultado == 1)
+								resultado_M = 0;
+							else if (resultado == 2)
+								resultado_M = 2;
+							sprintf(Reenvio, "10/%i/%i/%i/%i", id_partida,FuerzaTotal_M,FuerzaTotal, resultado_M);
+							write(Partidas.partidas[id_partida].jugadores[i].Socket,
+								  Reenvio, strlen(Reenvio));
+						}
+					}
+					
+				}
+				else
+				{
+					int res = AnalizarTurno(id_partida, &Partidas, &jugador, p, &Reenvio);
+					pthread_mutex_unlock(&mutex);
+					
+					for (int i=0;i <= 1; i++)
+						if(strcmp(Partidas.partidas[id_partida].jugadores[i].Nombre, jugador) != 0)
+						write(Partidas.partidas[id_partida].jugadores[i].Socket,
+							  Reenvio, strlen(Reenvio));
+				}
 
 				break;
 			}

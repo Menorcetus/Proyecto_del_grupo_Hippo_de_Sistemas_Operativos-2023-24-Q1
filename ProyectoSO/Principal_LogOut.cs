@@ -102,6 +102,10 @@ namespace ProyectoSO
                     case 9:
                         juego.RecibirManoEnemiga(mensaje);
                         break;
+                    case 10:
+                        juego.ReiniciarTurno(mensaje);
+                        break;
+
                 }
             }
 
