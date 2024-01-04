@@ -11,6 +11,7 @@ using System.Net.Sockets;
 using ProyectoSO;
 using System.Runtime.CompilerServices;
 using System.Threading;
+using System.Globalization;
 
 namespace ProyectoSO
 {
@@ -85,7 +86,10 @@ namespace ProyectoSO
                         string[] trozosMsg = mensaje.Split('/');
                         int id_partida = Convert.ToInt32(trozosMsg[0]);
                         int accion = Convert.ToInt32(trozosMsg[1]);
-                        juego = new Interfaz_juego(user, server, id_partida, accion);
+                        int num_cartas = Convert.ToInt32(trozosMsg[2]);
+                        string jugador1 = trozosMsg[3];
+                        string jugador2 = trozosMsg[4];
+                        juego = new Interfaz_juego(user, server, id_partida, accion, num_cartas, jugador1, jugador2);
                         ThreadStart tsJuego = delegate { juego.ShowDialog();};
                         ThreadJuego = new Thread(tsJuego);
                         ThreadJuego.Start();
@@ -104,6 +108,9 @@ namespace ProyectoSO
                         break;
                     case 10:
                         juego.ReiniciarTurno(mensaje);
+                        break;
+                    case 11:
+                        juego.EnviarResultados();
                         break;
 
                 }

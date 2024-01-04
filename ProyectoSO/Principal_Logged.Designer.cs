@@ -57,6 +57,8 @@
             this.SelecctionarLablel = new System.Windows.Forms.Label();
             this.Titulo_invitar = new System.Windows.Forms.Label();
             this.Jugador1ComboBox = new System.Windows.Forms.ComboBox();
+            this.CartasComboBox = new System.Windows.Forms.ComboBox();
+            this.CartasLbl = new System.Windows.Forms.Label();
             this.BarraPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridConectados)).BeginInit();
             this.panelConectados.SuspendLayout();
@@ -251,9 +253,11 @@
             this.CrearPartida.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CrearPartida.AutoSize = true;
             this.CrearPartida.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.CrearPartida.Controls.Add(this.CartasComboBox);
             this.CrearPartida.Controls.Add(this.EnviadoLbl);
             this.CrearPartida.Controls.Add(this.DGVInvitados);
             this.CrearPartida.Controls.Add(this.EnviarPartida);
+            this.CrearPartida.Controls.Add(this.CartasLbl);
             this.CrearPartida.Controls.Add(this.SelecctionarLablel);
             this.CrearPartida.Controls.Add(this.Titulo_invitar);
             this.CrearPartida.Controls.Add(this.Jugador1ComboBox);
@@ -270,7 +274,7 @@
             this.EnviadoLbl.Location = new System.Drawing.Point(381, 159);
             this.EnviadoLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.EnviadoLbl.Name = "EnviadoLbl";
-            this.EnviadoLbl.Size = new System.Drawing.Size(0, 16);
+            this.EnviadoLbl.Size = new System.Drawing.Size(0, 13);
             this.EnviadoLbl.TabIndex = 7;
             // 
             // DGVInvitados
@@ -348,14 +352,38 @@
             // Jugador1ComboBox
             // 
             this.Jugador1ComboBox.FormattingEnabled = true;
-            this.Jugador1ComboBox.Items.AddRange(new object[] {
-            "2",
-            "4"});
             this.Jugador1ComboBox.Location = new System.Drawing.Point(41, 114);
             this.Jugador1ComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.Jugador1ComboBox.Name = "Jugador1ComboBox";
-            this.Jugador1ComboBox.Size = new System.Drawing.Size(164, 24);
+            this.Jugador1ComboBox.Size = new System.Drawing.Size(164, 21);
             this.Jugador1ComboBox.TabIndex = 0;
+            this.Jugador1ComboBox.SelectedIndexChanged += new System.EventHandler(this.Jugador1ComboBox_SelectedIndexChanged);
+            // 
+            // CartasComboBox
+            // 
+            this.CartasComboBox.FormattingEnabled = true;
+            this.CartasComboBox.Items.AddRange(new object[] {
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.CartasComboBox.Location = new System.Drawing.Point(43, 195);
+            this.CartasComboBox.Name = "CartasComboBox";
+            this.CartasComboBox.Size = new System.Drawing.Size(162, 21);
+            this.CartasComboBox.TabIndex = 8;
+            this.CartasComboBox.SelectedIndexChanged += new System.EventHandler(this.TurnosComboBox_SelectedIndexChanged);
+            // 
+            // CartasLbl
+            // 
+            this.CartasLbl.AutoSize = true;
+            this.CartasLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CartasLbl.Location = new System.Drawing.Point(39, 159);
+            this.CartasLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.CartasLbl.Name = "CartasLbl";
+            this.CartasLbl.Size = new System.Drawing.Size(231, 20);
+            this.CartasLbl.TabIndex = 4;
+            this.CartasLbl.Text = "Selecciona el numero de cartas";
             // 
             // Principal_Logged
             // 
@@ -423,5 +451,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Invitado;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Accepted;
         private System.Windows.Forms.Label EnviadoLbl;
+        private System.Windows.Forms.ComboBox CartasComboBox;
+        private System.Windows.Forms.Label CartasLbl;
     }
 }

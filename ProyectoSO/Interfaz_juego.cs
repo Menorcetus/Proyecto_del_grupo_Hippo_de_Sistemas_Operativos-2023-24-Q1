@@ -15,6 +15,7 @@ namespace ProyectoSO
     public partial class Interfaz_juego : Form
     {
         User user;
+        string contrincante;
         Socket server;
         int ID_partida;
         public PictureBox[] Mano = new PictureBox[10];
@@ -38,16 +39,26 @@ namespace ProyectoSO
         int pasado;
         int primero;
         int turnosganados;
+        int num_turnos;
+        int num_cartas;
+        int turno_actual;
         int nocambies = 0;
         
 
-        public Interfaz_juego(User user, Socket server, int ID_partida, int accion)
+        public Interfaz_juego(User user, Socket server, int ID_partida, int accion, int num_cartas, string jugador1, string jugador2)
         {
             InitializeComponent();
             this.user = user;
             this.server = server;
             this.ID_partida = ID_partida;
             this.accion = accion;
+            this.num_cartas = num_cartas;
+            this.turno_actual = 1;
+            if (this.user.Name == jugador1)
+                this.contrincante = jugador2;
+            else
+                this.contrincante = jugador1;
+
         }
 
         internal void RecibirChat(string mensaje)
@@ -72,6 +83,10 @@ namespace ProyectoSO
 
         private void Interfaz_juego_Load(object sender, EventArgs e)
         {
+            ContrincanteLbl.Text = "Contrincante: " + contrincante;
+            TurnoLbl.Text = "Turno: 1";
+            RondasGanadasLbl.Visible = false;
+
             CartasArt[0] = new Carta(); CartasRan[0] = new Carta(); CartasMel[0] = new Carta(); CartasArt_M[0] = new Carta(); CartasRan_M[0] = new Carta(); CartasMel_M[0] = new Carta();
             CartasArt[1] = new Carta(); CartasRan[1] = new Carta(); CartasMel[1] = new Carta(); CartasArt_M[1] = new Carta(); CartasRan_M[1] = new Carta(); CartasMel_M[1] = new Carta();
             CartasArt[2] = new Carta(); CartasRan[2] = new Carta(); CartasMel[2] = new Carta(); CartasArt_M[2] = new Carta(); CartasRan_M[2] = new Carta(); CartasMel_M[2] = new Carta();
@@ -239,6 +254,11 @@ namespace ProyectoSO
         internal void ReiniciarTurno(string mensaje) // id_partida/FuerzaTotal/FuerzaTotal_M/resultado
         {
             string[] trozos = mensaje.Split('/');
+            this.turno_actual = Convert.ToInt32(trozos[4]);
+            if (this.turno_actual != 4)
+            {
+                TurnoLbl.Text = "Turno: " + trozos[4];
+            }
 
             pasado = 0;
             nocambies = 1;
@@ -313,10 +333,39 @@ namespace ProyectoSO
 
             }
 
+            // 0 = usuario pierde
+            // 1 = usuario gana
+            // 2 = usuario empata
+            int resultado = Convert.ToInt32(trozos[3]);
+            string texto;
+            switch (resultado)
+            {
+                case 0:
+                    texto = string.Format("Has perdido la ronda.\n resultado: {0} vs {1}", trozos[2], trozos[1]);
+                    MessageBox.Show(texto);
+                    break;
+                case 1:
+                    texto = string.Format("Has ganado la ronda.\n resultado: {0} vs {1}", trozos[2], trozos[1]);
+                    MessageBox.Show(texto);
+                    turnosganados++;
+                    break;
+                case 2:
+                    texto = string.Format("Empate.\n resultado: {0} vs {1}", trozos[2], trozos[1]);
+                    MessageBox.Show(texto);
+                    turnosganados++;
+                    break;
+            } 
 
+            RondasGanadasLbl.Visible = true;
+            RondasGanadasLbl.Text = "Has ganado:" + turnosganados + " turnos.";
         }
 
-
+        internal void EnviarResultados()
+        { 
+            string respuesta = "9/" + this.ID_partida + "/" + this.user.Name + "/" + this.turnosganados;
+            byte[] msg = Encoding.ASCII.GetBytes(respuesta);
+            server.Send(msg);
+        }
 
         //=============================================================================================================
         // Funciones de auxiliares para cartas

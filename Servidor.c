@@ -35,14 +35,18 @@ typedef struct {
 // Estructura para almacenar partida:
 // -> un identifiacor
 // -> una lista de los jugadores
-// -> una lista de bools de los jugadores que han confirmado la participacion 
 // -> un booleano sobre si la partida ha iniciado o no.
+// -> un int con el numero total de turnos que se han acordado: 1,3,5
+// -> un int con el numero del turno en juego: 1,2,3,4,5
 typedef struct{
 	int id;
 	Usuario jugadores[2];
-	int confirmaciones[2];
+	int puntos[2];
 	int init;
 	int pasados;
+	int num_turnos;
+	int turno_actual;
+	int num_cartas;
 } Partida;
 // Estructura para almacenar las partidas activas
 typedef struct {
@@ -306,13 +310,17 @@ int LogOUT(char *p, ListaUsuarios *lista){
 	return 0;
 }
 
-int CrearPartida(char *p, ListaPartidas *partidas, ListaUsuarios *usuarios, char jugador1[Max], char jugador2[Max]){
+int CrearPartida(char *p, ListaPartidas *partidas, ListaUsuarios *usuarios, char jugador1[Max], char jugador2[Max], int num_cartas){
 	// Crearemos una nueva partida con los jugadores antes de invitarlos, 
 	// iniciaremos con confirmaciones a 0.
 	// Devuelve la id de la partida o -1 si no se puede agregar mas partidas
 	int num = partidas->num;
 	if (num == Max2)
 		return -1;
+
+	partidas->partidas[num].num_cartas = num_cartas;
+	partidas->partidas[num].num_turnos = 3;
+	partidas->partidas[num].turno_actual = 1;
 
 	for (int i = 0; i < usuarios->num; i++){
 		if (strcmp(usuarios->usuarios[i].Nombre, jugador1) == 0)
@@ -544,8 +552,8 @@ int FinalizarTurno(int id_partida, ListaPartidas *Partidas, char *p, int *Fuerza
 	p = strtok(NULL, "/");
 	int FuerzaArt_M = atoi(p);
 	
-	FuerzaTotal = FuerzaMel + FuerzaArt + FuerzaRan;
-	FuerzaTotal_M = FuerzaMel_M + FuerzaRan_M + FuerzaArt_M;
+	*FuerzaTotal = FuerzaMel + FuerzaArt + FuerzaRan;
+	*FuerzaTotal_M = FuerzaMel_M + FuerzaRan_M + FuerzaArt_M;
 	
 	int resultado;
 	if (FuerzaTotal < FuerzaTotal_M)
@@ -556,10 +564,15 @@ int FinalizarTurno(int id_partida, ListaPartidas *Partidas, char *p, int *Fuerza
 		resultado = 2;  // Empate
 	
 	Partidas->partidas[id_partida].pasados = 0;
+	Partidas->partidas[id_partida].turno_actual++;
+
 	return resultado;
 	
 }
 	
+int FinalizarPartida(int id_partida){
+	return id_partida;
+}
 
 void *AtenderCliente(void *socket){
 	// Iniciamos el socket dentro del thread
@@ -673,9 +686,11 @@ void *AtenderCliente(void *socket){
 					p = strtok(NULL, "/");
 					char jugador2[Max];
 					strcpy(jugador2,p);
+					p = strtok(NULL, "/");
+					int num_cartas = atoi(p);
 
 					// 4/<Persona que ha invitado>
-					sprintf(invitacion,"4/%s", jugador1);
+					sprintf(invitacion,"4/%s/%i", jugador1, num_cartas);
 					printf("Invitacion: %s \n", invitacion);
 					for(int i = 0; i < Conectados.num; i++){
 						if(strcmp(Conectados.usuarios[i].Nombre, jugador2) == 0)
@@ -719,8 +734,11 @@ void *AtenderCliente(void *socket){
 				}
 				else if(aceptado == 1)
 				{
+					p = strtok(NULL, "/");
+					int num_cartas = atoi(p);
+
 					pthread_mutex_lock(&mutex);
-					int id_partida = CrearPartida(p, &Partidas, &Conectados, jugador1,jugador2);
+					int id_partida = CrearPartida(p, &Partidas, &Conectados, jugador1, jugador2, num_cartas);
 					pthread_mutex_unlock(&mutex);
 
 
@@ -737,13 +755,13 @@ void *AtenderCliente(void *socket){
 					{
 						if (primero == i)
 						{
-							sprintf(respuesta, "6/%i/1", id_partida); // 1 para el que inicia la primera accion
+							sprintf(respuesta, "6/%i/1/%i/%s/%s", id_partida, num_cartas, jugador1, jugador2); // 1 para el que inicia la primera accion
 							write(Partidas.partidas[id_partida].jugadores[i].Socket,
 							respuesta, strlen(respuesta));
 						}
 						else
 						{
-							sprintf(respuesta, "6/%i/0", id_partida);
+							sprintf(respuesta, "6/%i/0/%i/%s/%s", id_partida, num_cartas, jugador1, jugador2);
 							write(Partidas.partidas[id_partida].jugadores[i].Socket,
 							respuesta, strlen(respuesta));
 						}
@@ -778,7 +796,7 @@ void *AtenderCliente(void *socket){
 				int posPartida = BuscarPartidaPorID(id_partida, &Partidas);
 				//p = strtok(NULL, "/");
 				//int numCartas = atoi(p);
-				int numCartas = 6; //arbitrario, se cambiara cuando haya lobby
+				int numCartas = Partidas.partidas[posPartida].num_cartas; //arbitrario, se cambiara cuando haya lobby
 				if (posPartida != -1)
 				{
 					pthread_mutex_lock(&mutex);
@@ -809,11 +827,14 @@ void *AtenderCliente(void *socket){
 					int FuerzaTotal;
 					int FuerzaTotal_M;
 					int resultado = FinalizarTurno(id_partida, &Partidas, p, &FuerzaTotal, &FuerzaTotal_M);
+					int turno_actual = Partidas.partidas[id_partida].turno_actual;
 					for (int i=0;i <= 1; i++)
 					{
 						if(strcmp(Partidas.partidas[id_partida].jugadores[i].Nombre, jugador) == 0)
 						{
-							sprintf(Reenvio, "10/%i/%i/%i/%i", id_partida,FuerzaTotal,FuerzaTotal_M, resultado);
+							
+							sprintf(Reenvio, "10/%i/%i/%i/%i/%i", id_partida,FuerzaTotal,FuerzaTotal_M, resultado, turno_actual);
+							printf("Se envia: %s\n",Reenvio);
 							write(Partidas.partidas[id_partida].jugadores[i].Socket,
 							  Reenvio, strlen(Reenvio));
 						}
@@ -826,12 +847,20 @@ void *AtenderCliente(void *socket){
 								resultado_M = 0;
 							else if (resultado == 2)
 								resultado_M = 2;
-							sprintf(Reenvio, "10/%i/%i/%i/%i", id_partida,FuerzaTotal_M,FuerzaTotal, resultado_M);
+							sprintf(Reenvio, "10/%i/%i/%i/%i/%i", id_partida,FuerzaTotal_M,FuerzaTotal, resultado_M, turno_actual);
+							printf("Se envia: %s\n",Reenvio);
 							write(Partidas.partidas[id_partida].jugadores[i].Socket,
 								  Reenvio, strlen(Reenvio));
 						}
 					}
-					
+					if(Partidas.partidas[id_partida].turno_actual > 3){
+						// Se ha llegado al maximo de turnos.
+						// Pedir a los jugadores el numero de turnos ganados
+						sprintf(Reenvio, "11/%i",id_partida);
+						for(int i = 0; i<=1; i++)
+						write(Partidas.partidas[id_partida].jugadores[i].Socket,
+								  Reenvio, strlen(Reenvio));
+					}
 				}
 				else
 				{
@@ -857,8 +886,7 @@ void *AtenderCliente(void *socket){
 			//y/o cuando ya no pueden poner cartas de su mano o cuando el tiempo de turno acabe
 			// se recibe el estado a final de turno del tablero->invocamos una funcion de recuento desarrollada mas arriba
 
-				printf("Se ha desconectado.\n");
-				terminar = 1;
+				
 				break;
 			}
 
@@ -877,7 +905,7 @@ void *AtenderCliente(void *socket){
 		}
 		// Si el mensaje no es de desconexion, cerramos la conexion a mysql y enviamos 
 		// la respuesta al cliente
-		if ((codigo != 0) && (codigo != 3) && (codigo != 4) && (codigo != 5) && (codigo != 6) && (codigo != 7) &&(codigo != 8)){
+		if ((codigo != 0) && (codigo != 3) && (codigo != 4) && (codigo != 5) && (codigo != 6) && (codigo != 7) && (codigo != 8) && (codigo != 9)){
 			mysql_close(conn);
 			printf("Respuesta: %s\n", respuesta);
 			write(sock_conn, respuesta, strlen(respuesta));

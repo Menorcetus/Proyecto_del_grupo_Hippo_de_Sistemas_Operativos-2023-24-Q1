@@ -106,6 +106,9 @@
             this.FuerzaMel_lbl = new System.Windows.Forms.Label();
             this.FuerzaRan_lbl = new System.Windows.Forms.Label();
             this.FuerzaArt_lbl = new System.Windows.Forms.Label();
+            this.ContrincanteLbl = new System.Windows.Forms.Label();
+            this.TurnoLbl = new System.Windows.Forms.Label();
+            this.RondasGanadasLbl = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Mano1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Mano2)).BeginInit();
@@ -228,7 +231,7 @@
             this.ChatInput.Location = new System.Drawing.Point(26, 286);
             this.ChatInput.Margin = new System.Windows.Forms.Padding(2);
             this.ChatInput.Name = "ChatInput";
-            this.ChatInput.Size = new System.Drawing.Size(216, 26);
+            this.ChatInput.Size = new System.Drawing.Size(216, 20);
             this.ChatInput.TabIndex = 0;
             // 
             // Mano1
@@ -1059,7 +1062,7 @@
             // 
             // PasarTurnoBtn
             // 
-            this.PasarTurnoBtn.Location = new System.Drawing.Point(879, 11);
+            this.PasarTurnoBtn.Location = new System.Drawing.Point(979, 11);
             this.PasarTurnoBtn.Margin = new System.Windows.Forms.Padding(2);
             this.PasarTurnoBtn.Name = "PasarTurnoBtn";
             this.PasarTurnoBtn.Size = new System.Drawing.Size(145, 29);
@@ -1072,10 +1075,10 @@
             // 
             this.turno.AutoSize = true;
             this.turno.BackColor = System.Drawing.Color.Transparent;
-            this.turno.Location = new System.Drawing.Point(260, 532);
+            this.turno.Location = new System.Drawing.Point(1042, 531);
             this.turno.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.turno.Name = "turno";
-            this.turno.Size = new System.Drawing.Size(51, 20);
+            this.turno.Size = new System.Drawing.Size(35, 13);
             this.turno.TabIndex = 33;
             this.turno.Text = "label1";
             this.turno.TextChanged += new System.EventHandler(this.turno_TextChanged);
@@ -1085,7 +1088,7 @@
             this.FuerzaArt_M_lbl.AutoSize = true;
             this.FuerzaArt_M_lbl.Location = new System.Drawing.Point(463, 127);
             this.FuerzaArt_M_lbl.Name = "FuerzaArt_M_lbl";
-            this.FuerzaArt_M_lbl.Size = new System.Drawing.Size(51, 20);
+            this.FuerzaArt_M_lbl.Size = new System.Drawing.Size(35, 13);
             this.FuerzaArt_M_lbl.TabIndex = 34;
             this.FuerzaArt_M_lbl.Text = "label1";
             // 
@@ -1094,7 +1097,7 @@
             this.FuerzaRan_M_lbl.AutoSize = true;
             this.FuerzaRan_M_lbl.Location = new System.Drawing.Point(463, 286);
             this.FuerzaRan_M_lbl.Name = "FuerzaRan_M_lbl";
-            this.FuerzaRan_M_lbl.Size = new System.Drawing.Size(51, 20);
+            this.FuerzaRan_M_lbl.Size = new System.Drawing.Size(35, 13);
             this.FuerzaRan_M_lbl.TabIndex = 34;
             this.FuerzaRan_M_lbl.Text = "label1";
             // 
@@ -1103,7 +1106,7 @@
             this.FuerzaMel_M_lbl.AutoSize = true;
             this.FuerzaMel_M_lbl.Location = new System.Drawing.Point(463, 441);
             this.FuerzaMel_M_lbl.Name = "FuerzaMel_M_lbl";
-            this.FuerzaMel_M_lbl.Size = new System.Drawing.Size(51, 20);
+            this.FuerzaMel_M_lbl.Size = new System.Drawing.Size(35, 13);
             this.FuerzaMel_M_lbl.TabIndex = 34;
             this.FuerzaMel_M_lbl.Text = "label1";
             // 
@@ -1112,7 +1115,7 @@
             this.FuerzaMel_lbl.AutoSize = true;
             this.FuerzaMel_lbl.Location = new System.Drawing.Point(463, 615);
             this.FuerzaMel_lbl.Name = "FuerzaMel_lbl";
-            this.FuerzaMel_lbl.Size = new System.Drawing.Size(51, 20);
+            this.FuerzaMel_lbl.Size = new System.Drawing.Size(35, 13);
             this.FuerzaMel_lbl.TabIndex = 34;
             this.FuerzaMel_lbl.Text = "label1";
             // 
@@ -1121,7 +1124,7 @@
             this.FuerzaRan_lbl.AutoSize = true;
             this.FuerzaRan_lbl.Location = new System.Drawing.Point(463, 774);
             this.FuerzaRan_lbl.Name = "FuerzaRan_lbl";
-            this.FuerzaRan_lbl.Size = new System.Drawing.Size(51, 20);
+            this.FuerzaRan_lbl.Size = new System.Drawing.Size(35, 13);
             this.FuerzaRan_lbl.TabIndex = 34;
             this.FuerzaRan_lbl.Text = "label1";
             // 
@@ -1130,9 +1133,37 @@
             this.FuerzaArt_lbl.AutoSize = true;
             this.FuerzaArt_lbl.Location = new System.Drawing.Point(463, 929);
             this.FuerzaArt_lbl.Name = "FuerzaArt_lbl";
-            this.FuerzaArt_lbl.Size = new System.Drawing.Size(51, 20);
+            this.FuerzaArt_lbl.Size = new System.Drawing.Size(35, 13);
             this.FuerzaArt_lbl.TabIndex = 34;
             this.FuerzaArt_lbl.Text = "label1";
+            // 
+            // ContrincanteLbl
+            // 
+            this.ContrincanteLbl.AutoSize = true;
+            this.ContrincanteLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ContrincanteLbl.Location = new System.Drawing.Point(93, 460);
+            this.ContrincanteLbl.Name = "ContrincanteLbl";
+            this.ContrincanteLbl.Size = new System.Drawing.Size(60, 24);
+            this.ContrincanteLbl.TabIndex = 35;
+            this.ContrincanteLbl.Text = "label1";
+            // 
+            // TurnoLbl
+            // 
+            this.TurnoLbl.AutoSize = true;
+            this.TurnoLbl.Location = new System.Drawing.Point(804, 19);
+            this.TurnoLbl.Name = "TurnoLbl";
+            this.TurnoLbl.Size = new System.Drawing.Size(35, 13);
+            this.TurnoLbl.TabIndex = 36;
+            this.TurnoLbl.Text = "label2";
+            // 
+            // RondasGanadasLbl
+            // 
+            this.RondasGanadasLbl.AutoSize = true;
+            this.RondasGanadasLbl.Location = new System.Drawing.Point(221, 531);
+            this.RondasGanadasLbl.Name = "RondasGanadasLbl";
+            this.RondasGanadasLbl.Size = new System.Drawing.Size(35, 13);
+            this.RondasGanadasLbl.TabIndex = 37;
+            this.RondasGanadasLbl.Text = "label1";
             // 
             // Interfaz_juego
             // 
@@ -1142,6 +1173,9 @@
             this.BackgroundImage = global::ProyectoSO.Properties.Resources.fondo_gwent;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1920, 1080);
+            this.Controls.Add(this.RondasGanadasLbl);
+            this.Controls.Add(this.TurnoLbl);
+            this.Controls.Add(this.ContrincanteLbl);
             this.Controls.Add(this.FuerzaArt_lbl);
             this.Controls.Add(this.FuerzaRan_lbl);
             this.Controls.Add(this.FuerzaMel_M_lbl);
@@ -1374,5 +1408,8 @@
         private System.Windows.Forms.Label FuerzaMel_lbl;
         private System.Windows.Forms.Label FuerzaRan_lbl;
         private System.Windows.Forms.Label FuerzaArt_lbl;
+        private System.Windows.Forms.Label ContrincanteLbl;
+        private System.Windows.Forms.Label TurnoLbl;
+        private System.Windows.Forms.Label RondasGanadasLbl;
     }
 }

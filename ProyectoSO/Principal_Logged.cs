@@ -70,21 +70,39 @@ namespace ProyectoSO
             }
         }
 
+        private void Jugador1ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SelecctionarLablel.ForeColor = Color.Black;
+        }
+
+        private void TurnosComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CartasLbl.ForeColor = Color.Black;
+        }
+
         private void EnviarPartida_Click(object sender, EventArgs e)
         {
             if (Jugador1ComboBox.Text == this.user.Name)
-            {
-                MessageBox.Show("No te puedes invitar a ti mismo.");
-                return;
-            }
-            if (Jugador1ComboBox.Text == null)
                 {
-                    MessageBox.Show("Te falta gente por invitar.");
+                    EnviadoLbl.Text = "No te puedes invitar a ti mismo.";
+                    SelecctionarLablel.ForeColor = Color.Red;
+                    return;
+                }
+            if (CartasComboBox.Text == "")
+                {
+                    EnviadoLbl.Text = "Selecciona el numero de cartas.";
+                    CartasLbl.ForeColor = Color.Red;
+                    return;
+                }
+            if (Jugador1ComboBox.Text == "")
+                {
+                    EnviadoLbl.Text = "Tienes que invitar a alguien";
+                    SelecctionarLablel.ForeColor = Color.Red;
                     return;
                 }
             else
                 { // Ahora si podemos invitar a un jugador: partida 1vs1
-                    string mensaje = "3/" + this.user.Name + "/" + Jugador1ComboBox.Text;
+                    string mensaje = "3/" + this.user.Name + "/" + Jugador1ComboBox.Text + "/" + CartasComboBox.Text;
                     byte[] msg = Encoding.ASCII.GetBytes(mensaje);
                     server.Send(msg);
 
@@ -99,6 +117,7 @@ namespace ProyectoSO
                     DGVInvitados.RowCount = 1;
                     DGVInvitados.Rows[0].Cells[0].Value = Jugador1ComboBox.Text;
                     Jugador1ComboBox.Enabled = false;
+                    CartasComboBox.Enabled = false;
 
                 }
         }
@@ -107,20 +126,21 @@ namespace ProyectoSO
         {
             string[] trozos = mensaje.Split('/');
             string host = trozos[0];
-            string pregunta = string.Format("¿Quieres jugar en la partida de {0}?", host);
+            string num_cartas = trozos[1];
+            string pregunta = string.Format("¿Quieres jugar en la partida de {0}? Sera con baraja de {1} caratas.", host, num_cartas);
 
             DialogResult QuieroJugar = MessageBox.Show(pregunta, "Confirmacion", MessageBoxButtons.YesNo);
             if (QuieroJugar == DialogResult.Yes)
             {
                 // Enviar mensaje de aceptar partida
-                string respuesta = "5/" + "/1/" + user.Name + "/" + host;
+                string respuesta = "5/" + "1/" + user.Name + "/" + host + "/" + num_cartas;
                 byte[] msg = Encoding.ASCII.GetBytes(respuesta);
                 server.Send(msg);
             }
             else
             {
                 // Enviar mensaje de NO aceptar partida
-                string respuesta = "5/" + "/0/" + user.Name + "/" + host;
+                string respuesta = "5/" + "0/" + user.Name + "/" + host;
                 byte[] msg = Encoding.ASCII.GetBytes(respuesta);
                 server.Send(msg);
             }
