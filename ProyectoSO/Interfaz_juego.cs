@@ -367,6 +367,35 @@ namespace ProyectoSO
             server.Send(msg);
         }
 
+        internal void RecibirResultadoFinal(string mensaje)
+        {
+            string[] trozos = mensaje.Split('/');
+            int resultado = Convert.ToInt32(trozos[1]);
+            string texto; string ganador;
+            switch (resultado)
+            {
+                case 0:
+                    ganador = trozos[2];
+                    texto = string.Format("Has perdido contra {0}", ganador);
+                    MessageBox.Show(texto);
+                    Close();
+                    break;
+                case 1:
+                    ganador = trozos[2];
+                    texto = string.Format("Felicidades {0}, has ganado", ganador);
+                    MessageBox.Show(texto);
+                    Close();
+                    break;
+                case 2:
+                    texto = string.Format("Habeis empatado");
+                    MessageBox.Show(texto);
+                    Close();
+                    break;
+            }
+
+            
+        }
+
         //=============================================================================================================
         // Funciones de auxiliares para cartas
         private void ChangePictureBoxBorderColor(PictureBox pictureBox, Color color)
@@ -1801,5 +1830,6 @@ namespace ProyectoSO
                 M_PictureBox_Click(sender, e);
             }
         }
+
     }
 }

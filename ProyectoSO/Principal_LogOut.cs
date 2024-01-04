@@ -112,6 +112,9 @@ namespace ProyectoSO
                     case 11:
                         juego.EnviarResultados();
                         break;
+                    case 12:
+                        juego.RecibirResultadoFinal(mensaje);
+                        break;
 
                 }
             }

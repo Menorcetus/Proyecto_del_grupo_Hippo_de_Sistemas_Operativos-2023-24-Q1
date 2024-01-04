@@ -321,6 +321,8 @@ int CrearPartida(char *p, ListaPartidas *partidas, ListaUsuarios *usuarios, char
 	partidas->partidas[num].num_cartas = num_cartas;
 	partidas->partidas[num].num_turnos = 3;
 	partidas->partidas[num].turno_actual = 1;
+	partidas->partidas[num].puntos[0] = -1;
+	partidas->partidas[num].puntos[1] = -1;
 
 	for (int i = 0; i < usuarios->num; i++){
 		if (strcmp(usuarios->usuarios[i].Nombre, jugador1) == 0)
@@ -570,8 +572,24 @@ int FinalizarTurno(int id_partida, ListaPartidas *Partidas, char *p, int *Fuerza
 	
 }
 	
-int FinalizarPartida(int id_partida){
-	return id_partida;
+int FinalizarPartida(int id_partida, ListaPartidas *Partidas, char *ganador){
+	
+	int resultado;
+	int Fuerza1 = Partidas->partidas[id_partida].puntos[0];
+	int Fuerza2 = Partidas->partidas[id_partida].puntos[1];
+	
+	if (Fuerza1 < Fuerza2){
+		resultado = 0; // El jugador1 pierde, el jugador2 gana
+		strcpy(ganador, Partidas->partidas[id_partida].jugadores[1].Nombre);
+	}
+	else if (Fuerza1 > Fuerza2){
+		resultado = 1;  // El jugador1 gana, el jugado2 pierde
+		strcpy(ganador, Partidas->partidas[id_partida].jugadores[0].Nombre);
+	}
+	else if (Fuerza1 == Fuerza2){
+		resultado = 2;  // Empate: ambos ganan :D
+	}
+	return resultado;
 }
 
 void *AtenderCliente(void *socket){
@@ -879,14 +897,82 @@ void *AtenderCliente(void *socket){
 
 				break;
 			}
-
-			case 9:{ //Fin turno y fin partida
-
+			// Fin partida
+			case 9:{ 
 			//el turno puede acabar de distintas formas, cuando todos jugadores han pasado 
 			//y/o cuando ya no pueden poner cartas de su mano o cuando el tiempo de turno acabe
 			// se recibe el estado a final de turno del tablero->invocamos una funcion de recuento desarrollada mas arriba
-
+				p = strtok(NULL, "/");
+				int id_partida = atoi(p);
 				
+				p = strtok(NULL, "/");
+				char jugador[Max];
+				strcpy(jugador,p);
+
+				p = strtok(NULL, "/");
+				int rondas = atoi(p);
+
+				pthread_mutex_lock(&mutex);
+				int pos_jug;
+				if(strcmp(Partidas.partidas[id_partida].jugadores[0].Nombre, jugador)==0)
+					pos_jug = 0;
+				else
+					pos_jug = 1;
+				printf("%i\n", pos_jug);
+
+				Partidas.partidas[id_partida].puntos[pos_jug] = rondas;
+				printf("%i\n", rondas);
+
+				pthread_mutex_unlock(&mutex);
+				printf("%i\n", Partidas.partidas[id_partida].puntos[0]);
+				printf("%i\n", Partidas.partidas[id_partida].puntos[1]);
+				if ((Partidas.partidas[id_partida].puntos[0] != -1) && (Partidas.partidas[id_partida].puntos[1] != -1)){
+					// Finalizar definitivamente
+					char ganador[Max];
+					int res = FinalizarPartida(id_partida, &Partidas, &ganador);
+
+					switch (res)
+					{
+					case 0:{
+							sprintf(respuesta, "12/%i/0/%s", id_partida, ganador);
+							printf("Se envia: %s\n", respuesta);
+							write(Partidas.partidas[id_partida].jugadores[0].Socket,
+							  respuesta, strlen(respuesta));
+
+							sprintf(respuesta, "12/%i/1/%s", id_partida, ganador);
+							printf("Se envia: %s\n", respuesta);
+							write(Partidas.partidas[id_partida].jugadores[1].Socket,
+							  respuesta, strlen(respuesta));
+
+						break;
+					}
+					case 1:{
+							sprintf(respuesta, "12/%i/1/%s", id_partida, ganador);
+							printf("Se envia: %s\n", respuesta);
+							write(Partidas.partidas[id_partida].jugadores[0].Socket,
+							  respuesta, strlen(respuesta));
+
+							sprintf(respuesta, "12/%i/0/%s", id_partida, ganador);
+							printf("Se envia: %s\n", respuesta);
+							write(Partidas.partidas[id_partida].jugadores[1].Socket,
+							  respuesta, strlen(respuesta));
+						break;
+					}
+					case 2:{
+							sprintf(respuesta, "12/%i/2", id_partida);
+							printf("Se envia: %s\n", respuesta);
+							write(Partidas.partidas[id_partida].jugadores[0].Socket,
+							  respuesta, strlen(respuesta));
+
+							sprintf(respuesta, "12/%i/2", id_partida);
+							printf("Se envia: %s\n", respuesta);
+							write(Partidas.partidas[id_partida].jugadores[1].Socket,
+							  respuesta, strlen(respuesta));
+
+						break;
+					}
+					}
+				}				
 				break;
 			}
 
