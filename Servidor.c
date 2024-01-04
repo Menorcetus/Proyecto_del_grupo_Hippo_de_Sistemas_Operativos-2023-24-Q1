@@ -555,6 +555,7 @@ int FinalizarTurno(int id_partida, ListaPartidas *Partidas, char *p, int *Fuerza
 	else if (FuerzaTotal == FuerzaTotal_M)
 		resultado = 2;  // Empate
 	
+	Partidas->partidas[id_partida].pasados = 0;
 	return resultado;
 	
 }
@@ -835,13 +836,17 @@ void *AtenderCliente(void *socket){
 				else
 				{
 					int res = AnalizarTurno(id_partida, &Partidas, &jugador, p, &Reenvio);
-					pthread_mutex_unlock(&mutex);
+					
 					
 					for (int i=0;i <= 1; i++)
 						if(strcmp(Partidas.partidas[id_partida].jugadores[i].Nombre, jugador) != 0)
-						write(Partidas.partidas[id_partida].jugadores[i].Socket,
+						
+							write(Partidas.partidas[id_partida].jugadores[i].Socket,
 							  Reenvio, strlen(Reenvio));
+						
+					
 				}
+				pthread_mutex_unlock(&mutex);
 
 				break;
 			}

@@ -228,7 +228,7 @@
             this.ChatInput.Location = new System.Drawing.Point(26, 286);
             this.ChatInput.Margin = new System.Windows.Forms.Padding(2);
             this.ChatInput.Name = "ChatInput";
-            this.ChatInput.Size = new System.Drawing.Size(216, 22);
+            this.ChatInput.Size = new System.Drawing.Size(216, 26);
             this.ChatInput.TabIndex = 0;
             // 
             // Mano1
@@ -298,8 +298,8 @@
             this.Mano9.TabIndex = 4;
             this.Mano9.TabStop = false;
             this.Mano9.Click += new System.EventHandler(this.Mano9_Click);
-            this.Mano9.MouseLeave += new System.EventHandler(this.Mano5_MouseLeave);
-            this.Mano9.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mano5_MouseMove);
+            this.Mano9.MouseLeave += new System.EventHandler(this.Mano9_MouseLeave);
+            this.Mano9.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mano9_MouseMove);
             // 
             // Mano5
             // 
@@ -312,8 +312,8 @@
             this.Mano5.TabIndex = 4;
             this.Mano5.TabStop = false;
             this.Mano5.Click += new System.EventHandler(this.Mano5_Click);
-            this.Mano5.MouseLeave += new System.EventHandler(this.Mano6_MouseLeave);
-            this.Mano5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mano6_MouseMove);
+            this.Mano5.MouseLeave += new System.EventHandler(this.Mano5_MouseLeave);
+            this.Mano5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mano5_MouseMove);
             // 
             // Mano6
             // 
@@ -326,8 +326,8 @@
             this.Mano6.TabIndex = 4;
             this.Mano6.TabStop = false;
             this.Mano6.Click += new System.EventHandler(this.Mano6_Click);
-            this.Mano6.MouseLeave += new System.EventHandler(this.Mano7_MouseLeave);
-            this.Mano6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mano7_MouseMove);
+            this.Mano6.MouseLeave += new System.EventHandler(this.Mano6_MouseLeave);
+            this.Mano6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mano6_MouseMove);
             // 
             // Mano7
             // 
@@ -340,8 +340,8 @@
             this.Mano7.TabIndex = 4;
             this.Mano7.TabStop = false;
             this.Mano7.Click += new System.EventHandler(this.Mano7_Click);
-            this.Mano7.MouseLeave += new System.EventHandler(this.Mano8_MouseLeave);
-            this.Mano7.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mano8_MouseMove);
+            this.Mano7.MouseLeave += new System.EventHandler(this.Mano7_MouseLeave);
+            this.Mano7.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mano7_MouseMove);
             // 
             // Mano8
             // 
@@ -354,8 +354,8 @@
             this.Mano8.TabIndex = 4;
             this.Mano8.TabStop = false;
             this.Mano8.Click += new System.EventHandler(this.Mano8_Click);
-            this.Mano8.MouseLeave += new System.EventHandler(this.Mano9_MouseLeave);
-            this.Mano8.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mano9_MouseMove);
+            this.Mano8.MouseLeave += new System.EventHandler(this.Mano8_MouseLeave);
+            this.Mano8.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mano8_MouseMove);
             // 
             // Mano10
             // 
@@ -1075,7 +1075,7 @@
             this.turno.Location = new System.Drawing.Point(260, 532);
             this.turno.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.turno.Name = "turno";
-            this.turno.Size = new System.Drawing.Size(44, 16);
+            this.turno.Size = new System.Drawing.Size(51, 20);
             this.turno.TabIndex = 33;
             this.turno.Text = "label1";
             this.turno.TextChanged += new System.EventHandler(this.turno_TextChanged);
@@ -1085,7 +1085,7 @@
             this.FuerzaArt_M_lbl.AutoSize = true;
             this.FuerzaArt_M_lbl.Location = new System.Drawing.Point(463, 127);
             this.FuerzaArt_M_lbl.Name = "FuerzaArt_M_lbl";
-            this.FuerzaArt_M_lbl.Size = new System.Drawing.Size(44, 16);
+            this.FuerzaArt_M_lbl.Size = new System.Drawing.Size(51, 20);
             this.FuerzaArt_M_lbl.TabIndex = 34;
             this.FuerzaArt_M_lbl.Text = "label1";
             // 
@@ -1094,7 +1094,7 @@
             this.FuerzaRan_M_lbl.AutoSize = true;
             this.FuerzaRan_M_lbl.Location = new System.Drawing.Point(463, 286);
             this.FuerzaRan_M_lbl.Name = "FuerzaRan_M_lbl";
-            this.FuerzaRan_M_lbl.Size = new System.Drawing.Size(44, 16);
+            this.FuerzaRan_M_lbl.Size = new System.Drawing.Size(51, 20);
             this.FuerzaRan_M_lbl.TabIndex = 34;
             this.FuerzaRan_M_lbl.Text = "label1";
             // 
@@ -1103,7 +1103,7 @@
             this.FuerzaMel_M_lbl.AutoSize = true;
             this.FuerzaMel_M_lbl.Location = new System.Drawing.Point(463, 441);
             this.FuerzaMel_M_lbl.Name = "FuerzaMel_M_lbl";
-            this.FuerzaMel_M_lbl.Size = new System.Drawing.Size(44, 16);
+            this.FuerzaMel_M_lbl.Size = new System.Drawing.Size(51, 20);
             this.FuerzaMel_M_lbl.TabIndex = 34;
             this.FuerzaMel_M_lbl.Text = "label1";
             // 
@@ -1112,7 +1112,7 @@
             this.FuerzaMel_lbl.AutoSize = true;
             this.FuerzaMel_lbl.Location = new System.Drawing.Point(463, 615);
             this.FuerzaMel_lbl.Name = "FuerzaMel_lbl";
-            this.FuerzaMel_lbl.Size = new System.Drawing.Size(44, 16);
+            this.FuerzaMel_lbl.Size = new System.Drawing.Size(51, 20);
             this.FuerzaMel_lbl.TabIndex = 34;
             this.FuerzaMel_lbl.Text = "label1";
             // 
@@ -1121,7 +1121,7 @@
             this.FuerzaRan_lbl.AutoSize = true;
             this.FuerzaRan_lbl.Location = new System.Drawing.Point(463, 774);
             this.FuerzaRan_lbl.Name = "FuerzaRan_lbl";
-            this.FuerzaRan_lbl.Size = new System.Drawing.Size(44, 16);
+            this.FuerzaRan_lbl.Size = new System.Drawing.Size(51, 20);
             this.FuerzaRan_lbl.TabIndex = 34;
             this.FuerzaRan_lbl.Text = "label1";
             // 
@@ -1130,7 +1130,7 @@
             this.FuerzaArt_lbl.AutoSize = true;
             this.FuerzaArt_lbl.Location = new System.Drawing.Point(463, 929);
             this.FuerzaArt_lbl.Name = "FuerzaArt_lbl";
-            this.FuerzaArt_lbl.Size = new System.Drawing.Size(44, 16);
+            this.FuerzaArt_lbl.Size = new System.Drawing.Size(51, 20);
             this.FuerzaArt_lbl.TabIndex = 34;
             this.FuerzaArt_lbl.Text = "label1";
             // 
