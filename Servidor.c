@@ -712,6 +712,41 @@ int Galeria(MYSQL *conn, char *GaleriaInfo){
 	return 1;
 }
 
+int JugadoresEnfrentados(char *p, MYSQL *conn, char *Enfrentados)
+{
+	char consulta[buffer];
+	int err;
+	MYSQL_RES *resultado;
+	MYSQL_ROW *row;
+	
+	p = strtok( NULL, "/");
+	char nombre[30];
+	strcpy (nombre, p);
+	
+	strcpy(consulta, "SELECT DISTINCT Nombre FROM Usuarios,Partidas WHERE Nombre1 = '");
+	strcat(consulta, nombre);
+	strcat(consulta, "' OR Nombre2 = '");
+	strcat(consulta, nombre);
+	strcat(consulta, "';");
+	
+	err = mysql_query(conn, consulta);
+	if (err!=0) {
+		printf ("Error al recoger datos de la base %u %s\n", 
+				mysql_errno(conn), mysql_error(conn));
+		exit (1);
+	}
+	
+	resultado = mysql_store_result(conn);
+	row = mysql_fetch_row(resultado);
+	strcpy(Enfrentados,"14");
+	while (row != NULL){
+		sprintf(Enfrentados,"%s/%s",Enfrentados,row[0]);
+		row = mysql_fetch_row(resultado);
+	}
+	return 1;
+	
+}
+
 void *AtenderCliente(void *socket){
 	// Iniciamos el socket dentro del thread
 	int sock_conn;
@@ -1112,6 +1147,13 @@ void *AtenderCliente(void *socket){
 					pthread_mutex_unlock(&mutex);
 					break;
 				}
+			case 12:{
+					char Enfrentados[MaxBuffer];
+					int res = JugadoresEnfrentados(p, conn, &Enfrentados);
+					printf("Jugadores enfrentados: %s\n", Enfrentados);
+					write(sock_conn, Enfrentados, strlen(Enfrentados));
+					break;
+			}
 
 			// Mensaje de desconexion
 			case 0:{
@@ -1122,7 +1164,7 @@ void *AtenderCliente(void *socket){
 		}
 		// Si el mensaje no es de desconexion, cerramos la conexion a mysql y enviamos 
 		// la respuesta al cliente
-		if ((codigo != 0) && (codigo != 3) && (codigo != 4) && (codigo != 5) && (codigo != 6) && (codigo != 7) && (codigo != 8) && (codigo != 9) && (codigo != 10) && (codigo != 11)){
+		if ((codigo != 0) && (codigo != 3) && (codigo != 4) && (codigo != 5) && (codigo != 6) && (codigo != 7) && (codigo != 8) && (codigo != 9) && (codigo != 10) && (codigo != 11) && (codigo != 12)){
 			mysql_close(conn);
 			printf("Respuesta: %s\n", respuesta);
 			write(sock_conn, respuesta, strlen(respuesta));
