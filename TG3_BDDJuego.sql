@@ -23,7 +23,7 @@ CREATE TABLE Usuarios (
 
 CREATE TABLE Partidas (
     ID_partida INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
-    Duracion FLOAT, 
+    HPartida datetime, 
     Jugador1 VARCHAR(30), 
     Jugador2 VARCHAR(30), 
     FOREIGN KEY (Jugador1) REFERENCES Usuarios(Nombre),
