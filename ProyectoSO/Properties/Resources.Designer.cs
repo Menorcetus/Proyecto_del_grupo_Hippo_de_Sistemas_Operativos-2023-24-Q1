@@ -373,6 +373,16 @@ namespace ProyectoSO.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logged {
+            get {
+                object obj = ResourceManager.GetObject("logged", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap loging {
             get {
                 object obj = ResourceManager.GetObject("loging", resourceCulture);

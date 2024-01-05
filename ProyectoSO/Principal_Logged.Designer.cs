@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal_Logged));
             this.BarraPrincipal = new System.Windows.Forms.MenuStrip();
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -92,21 +93,22 @@
             this.usuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.logOutToolStripMenuItem1,
             this.darseDeBajaToolStripMenuItem});
+            this.usuarioToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.usuarioToolStripMenuItem.Text = "Usuario";
             // 
             // logOutToolStripMenuItem1
             // 
             this.logOutToolStripMenuItem1.Name = "logOutToolStripMenuItem1";
-            this.logOutToolStripMenuItem1.Size = new System.Drawing.Size(144, 22);
+            this.logOutToolStripMenuItem1.Size = new System.Drawing.Size(138, 22);
             this.logOutToolStripMenuItem1.Text = "LogOut";
             this.logOutToolStripMenuItem1.Click += new System.EventHandler(this.logOutToolStripMenuItem1_Click);
             // 
             // darseDeBajaToolStripMenuItem
             // 
             this.darseDeBajaToolStripMenuItem.Name = "darseDeBajaToolStripMenuItem";
-            this.darseDeBajaToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.darseDeBajaToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.darseDeBajaToolStripMenuItem.Text = "Darse de baja";
             this.darseDeBajaToolStripMenuItem.Click += new System.EventHandler(this.darseDeBajaToolStripMenuItem_Click);
             // 
@@ -115,22 +117,23 @@
             this.socialToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.conectadosToolStripMenuItem,
             this.amigosToolStripMenuItem1});
+            this.socialToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.socialToolStripMenuItem.Name = "socialToolStripMenuItem";
-            this.socialToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.socialToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.socialToolStripMenuItem.Text = "Social";
             // 
             // conectadosToolStripMenuItem
             // 
             this.conectadosToolStripMenuItem.CheckOnClick = true;
             this.conectadosToolStripMenuItem.Name = "conectadosToolStripMenuItem";
-            this.conectadosToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.conectadosToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.conectadosToolStripMenuItem.Text = "Conectados";
             this.conectadosToolStripMenuItem.Click += new System.EventHandler(this.conectadosToolStripMenuItem_Click);
             // 
             // amigosToolStripMenuItem1
             // 
             this.amigosToolStripMenuItem1.Name = "amigosToolStripMenuItem1";
-            this.amigosToolStripMenuItem1.Size = new System.Drawing.Size(223, 22);
+            this.amigosToolStripMenuItem1.Size = new System.Drawing.Size(208, 22);
             this.amigosToolStripMenuItem1.Text = "Amigos (No implementado)";
             // 
             // jugarToolStripMenuItem
@@ -138,15 +141,16 @@
             this.jugarToolStripMenuItem.CheckOnClick = true;
             this.jugarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.crearPartidaToolStripMenuItem});
+            this.jugarToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jugarToolStripMenuItem.Name = "jugarToolStripMenuItem";
-            this.jugarToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.jugarToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.jugarToolStripMenuItem.Text = "Jugar";
             // 
             // crearPartidaToolStripMenuItem
             // 
             this.crearPartidaToolStripMenuItem.CheckOnClick = true;
             this.crearPartidaToolStripMenuItem.Name = "crearPartidaToolStripMenuItem";
-            this.crearPartidaToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.crearPartidaToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.crearPartidaToolStripMenuItem.Text = "Crear partida";
             this.crearPartidaToolStripMenuItem.Click += new System.EventHandler(this.crearPartidaToolStripMenuItem_Click);
             // 
@@ -156,27 +160,28 @@
             this.galeríaToolStripMenuItem,
             this.manualToolStripMenuItem,
             this.consultasToolStripMenuItem});
+            this.otrosToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.otrosToolStripMenuItem.Name = "otrosToolStripMenuItem";
-            this.otrosToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.otrosToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.otrosToolStripMenuItem.Text = "Otros";
             // 
             // galeríaToolStripMenuItem
             // 
             this.galeríaToolStripMenuItem.Name = "galeríaToolStripMenuItem";
-            this.galeríaToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.galeríaToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.galeríaToolStripMenuItem.Text = "Galería";
             this.galeríaToolStripMenuItem.Click += new System.EventHandler(this.galeríaToolStripMenuItem_Click);
             // 
             // manualToolStripMenuItem
             // 
             this.manualToolStripMenuItem.Name = "manualToolStripMenuItem";
-            this.manualToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.manualToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.manualToolStripMenuItem.Text = "Manual";
             // 
             // consultasToolStripMenuItem
             // 
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
-            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.consultasToolStripMenuItem.Text = "Consultas";
             // 
             // cuentaToolStripMenuItem
@@ -435,7 +440,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackgroundImage = global::ProyectoSO.Properties.Resources.fondo_gwent;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1552, 880);
             this.Controls.Add(this.CrearPartida);

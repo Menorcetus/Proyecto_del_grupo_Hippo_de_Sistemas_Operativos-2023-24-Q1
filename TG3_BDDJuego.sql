@@ -46,6 +46,6 @@ VALUES ('a','a','a'),('bb','bb','bb'),('c','c','c'),('d','d','d'),('s','s','s');
 
 INSERT INTO Cartas (ID, Nombre, Fuerza, Posicion, Repetible)
 VALUES (0,'Hippotenusa',8,3,0),(1,'Highppo',6,1,1),(2,'Conclave de nutrias',4,1,1),(3,'Kinkis reclutas',1,1,1),(4,'King of KinkIX',5,1,0),
-(5,'Pirrata',5,1,1),(6,'Jinete de Hippo',6,1,1),(7,'Hipphombre',5,1,1),(8,'Hippo-tauro',7,1,1),(9,'Dragon-Nutria',9,2,0),(10,'Jimmy Enriques',3,2,1),(11,'Horda de ratas',2,1,1),(12,'Macaco',4,2,1),(13,'Plebeyos armados',3,2,1),(14,'Arquero elfo',6,2,1),(15,'Arcabucero enano',5,2,1),
+(5,'Pirrata',5,1,1),(6,'Jinete de Hippo',6,1,1),(7,'Hipphombre',5,1,1),(8,'Hippo-tauro',7,1,1),(9,'Dragon-Nutria',9,4,0),(10,'Jimmy Enriques',3,2,1),(11,'Horda de ratas',2,1,1),(12,'Macaco',4,2,1),(13,'Plebeyos armados',3,2,1),(14,'Arquero elfo',6,2,1),(15,'Arcabucero enano',5,2,1),
 (16,'Gnomo con tirachinas',3,2,1),(17,'Mago de fuego',6,2,1),(18,'Drac-King',5,2,1),(19,'3-mono',4,2,1),(20,'Homodino',5,3,1),(21,'Escupefuegos',6,3,1),(22,'Balista',6,3,1),(23,'Gremio de ingenieros',2,3,1),(24,'Duck',2,3,1),(25,'Bee-holder',2,3,1),(26,'Beer-holder',0,3,1),(27,'Apoyo moral',3,4,1),(28,'Superheterodino',10,4,0),(29,'Cucos',6,4,1);
 

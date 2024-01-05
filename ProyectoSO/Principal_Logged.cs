@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WMPLib;
+
 
 namespace ProyectoSO
 {
@@ -17,12 +19,15 @@ namespace ProyectoSO
         User user;
         Socket server;
         Thread Esperar;
+        WindowsMediaPlayer player = new WindowsMediaPlayer();
         public Principal_Logged(User user, Socket server)
         {
             InitializeComponent();
             this.user = user;
             this.server = server;
             Bienvenida.Text = "Bienvenido " + user.Name;
+            player.URL = "logged.wav";
+            player.settings.setMode("loop", true);
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -38,6 +43,7 @@ namespace ProyectoSO
                 string mensaje = "4/" + user.Name;
                 byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
                 server.Send(msg);
+                player.controls.stop();
                 Close();
             }
         }
@@ -194,6 +200,7 @@ namespace ProyectoSO
                 string respuesta = "11/" + user.Name;
                 byte[] msg = Encoding.ASCII.GetBytes(respuesta);
                 server.Send(msg);
+                player.controls.stop();
                 Close();
             }
         }
