@@ -66,18 +66,26 @@
             this.Titulo_invitar = new System.Windows.Forms.Label();
             this.Jugador1ComboBox = new System.Windows.Forms.ComboBox();
             this.panelconsultas1 = new System.Windows.Forms.Panel();
+            this.buscarenfrentadosBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.EnfrentadosDGV = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelconsultas2 = new System.Windows.Forms.Panel();
+            this.Buscar2 = new System.Windows.Forms.Button();
+            this.RivalBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.ResultadosDGV = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.RivalBox = new System.Windows.Forms.TextBox();
-            this.buscarenfrentadosBtn = new System.Windows.Forms.Button();
             this.Rondasganadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rondasperdidas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Buscar2 = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.PeriodoDGV = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BarraPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridConectados)).BeginInit();
             this.panelConectados.SuspendLayout();
@@ -87,6 +95,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.EnfrentadosDGV)).BeginInit();
             this.panelconsultas2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ResultadosDGV)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PeriodoDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // BarraPrincipal
@@ -167,7 +177,7 @@
             // 
             this.crearPartidaToolStripMenuItem.CheckOnClick = true;
             this.crearPartidaToolStripMenuItem.Name = "crearPartidaToolStripMenuItem";
-            this.crearPartidaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.crearPartidaToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.crearPartidaToolStripMenuItem.Text = "Crear partida";
             this.crearPartidaToolStripMenuItem.Click += new System.EventHandler(this.crearPartidaToolStripMenuItem_Click);
             // 
@@ -472,6 +482,16 @@
             this.panelconsultas1.TabIndex = 5;
             this.panelconsultas1.Visible = false;
             // 
+            // buscarenfrentadosBtn
+            // 
+            this.buscarenfrentadosBtn.Location = new System.Drawing.Point(320, 35);
+            this.buscarenfrentadosBtn.Name = "buscarenfrentadosBtn";
+            this.buscarenfrentadosBtn.Size = new System.Drawing.Size(67, 28);
+            this.buscarenfrentadosBtn.TabIndex = 4;
+            this.buscarenfrentadosBtn.Text = "Buscar";
+            this.buscarenfrentadosBtn.UseVisualStyleBackColor = true;
+            this.buscarenfrentadosBtn.Click += new System.EventHandler(this.buscarenfrentadosBtn_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -527,9 +547,37 @@
             this.panelconsultas2.Location = new System.Drawing.Point(474, 66);
             this.panelconsultas2.Margin = new System.Windows.Forms.Padding(2);
             this.panelconsultas2.Name = "panelconsultas2";
-            this.panelconsultas2.Size = new System.Drawing.Size(600, 321);
+            this.panelconsultas2.Size = new System.Drawing.Size(1076, 321);
             this.panelconsultas2.TabIndex = 6;
             this.panelconsultas2.Visible = false;
+            // 
+            // Buscar2
+            // 
+            this.Buscar2.Location = new System.Drawing.Point(29, 149);
+            this.Buscar2.Name = "Buscar2";
+            this.Buscar2.Size = new System.Drawing.Size(67, 28);
+            this.Buscar2.TabIndex = 5;
+            this.Buscar2.Text = "Buscar";
+            this.Buscar2.UseVisualStyleBackColor = true;
+            this.Buscar2.Click += new System.EventHandler(this.Buscar2_Click);
+            // 
+            // RivalBox
+            // 
+            this.RivalBox.Location = new System.Drawing.Point(29, 109);
+            this.RivalBox.Name = "RivalBox";
+            this.RivalBox.Size = new System.Drawing.Size(201, 20);
+            this.RivalBox.TabIndex = 10;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(27, 75);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(135, 19);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Introduce un usuario:";
             // 
             // label2
             // 
@@ -561,36 +609,8 @@
             this.ResultadosDGV.Name = "ResultadosDGV";
             this.ResultadosDGV.RowHeadersWidth = 62;
             this.ResultadosDGV.RowTemplate.Height = 24;
-            this.ResultadosDGV.Size = new System.Drawing.Size(300, 254);
+            this.ResultadosDGV.Size = new System.Drawing.Size(776, 254);
             this.ResultadosDGV.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(27, 75);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(135, 19);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Introduce un usuario:";
-            // 
-            // RivalBox
-            // 
-            this.RivalBox.Location = new System.Drawing.Point(29, 109);
-            this.RivalBox.Name = "RivalBox";
-            this.RivalBox.Size = new System.Drawing.Size(201, 20);
-            this.RivalBox.TabIndex = 10;
-            // 
-            // buscarenfrentadosBtn
-            // 
-            this.buscarenfrentadosBtn.Location = new System.Drawing.Point(320, 35);
-            this.buscarenfrentadosBtn.Name = "buscarenfrentadosBtn";
-            this.buscarenfrentadosBtn.Size = new System.Drawing.Size(67, 28);
-            this.buscarenfrentadosBtn.TabIndex = 4;
-            this.buscarenfrentadosBtn.Text = "Buscar";
-            this.buscarenfrentadosBtn.UseVisualStyleBackColor = true;
-            this.buscarenfrentadosBtn.Click += new System.EventHandler(this.buscarenfrentadosBtn_Click);
             // 
             // Rondasganadas
             // 
@@ -602,15 +622,95 @@
             this.Rondasperdidas.HeaderText = "Rondas perdidas";
             this.Rondasperdidas.Name = "Rondasperdidas";
             // 
-            // Buscar2
+            // panel3
             // 
-            this.Buscar2.Location = new System.Drawing.Point(29, 149);
-            this.Buscar2.Name = "Buscar2";
-            this.Buscar2.Size = new System.Drawing.Size(67, 28);
-            this.Buscar2.TabIndex = 5;
-            this.Buscar2.Text = "Buscar";
-            this.Buscar2.UseVisualStyleBackColor = true;
-            this.Buscar2.Click += new System.EventHandler(this.Buscar2_Click);
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel3.AutoSize = true;
+            this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.label5);
+            this.panel3.Controls.Add(this.PeriodoDGV);
+            this.panel3.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panel3.Location = new System.Drawing.Point(474, 412);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(600, 321);
+            this.panel3.TabIndex = 11;
+            this.panel3.Visible = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(29, 248);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(67, 28);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Buscar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(29, 109);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(201, 20);
+            this.textBox1.TabIndex = 10;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(27, 75);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(135, 19);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Introduce un usuario:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(10, 10);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(315, 36);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Partidas en el periodo";
+            // 
+            // PeriodoDGV
+            // 
+            this.PeriodoDGV.AllowUserToAddRows = false;
+            this.PeriodoDGV.AllowUserToDeleteRows = false;
+            this.PeriodoDGV.AllowUserToResizeColumns = false;
+            this.PeriodoDGV.AllowUserToResizeRows = false;
+            this.PeriodoDGV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PeriodoDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.PeriodoDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PeriodoDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3});
+            this.PeriodoDGV.Location = new System.Drawing.Point(250, 57);
+            this.PeriodoDGV.Margin = new System.Windows.Forms.Padding(2);
+            this.PeriodoDGV.Name = "PeriodoDGV";
+            this.PeriodoDGV.RowHeadersWidth = 62;
+            this.PeriodoDGV.RowTemplate.Height = 24;
+            this.PeriodoDGV.Size = new System.Drawing.Size(300, 254);
+            this.PeriodoDGV.TabIndex = 2;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Rondas ganadas";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Rondas perdidas";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
             // Principal_Logged
             // 
@@ -620,6 +720,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1552, 880);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panelconsultas2);
             this.Controls.Add(this.panelconsultas1);
             this.Controls.Add(this.CrearPartida);
@@ -650,6 +751,9 @@
             this.panelconsultas2.ResumeLayout(false);
             this.panelconsultas2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ResultadosDGV)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PeriodoDGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -706,5 +810,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Rondasganadas;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rondasperdidas;
         private System.Windows.Forms.Button Buscar2;
+        public System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        public System.Windows.Forms.DataGridView PeriodoDGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
     }
 }
