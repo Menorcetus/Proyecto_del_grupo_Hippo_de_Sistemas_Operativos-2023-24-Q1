@@ -215,13 +215,11 @@ namespace ProyectoSO
             {
                 panelconsultas1.Visible = true;
                 panelconsultas2.Visible = true;
-                panel3.Visible = true;
             }
             else if (consultasToolStripMenuItem.Checked == false)
             {
                 panelconsultas1.Visible = false;
                 panelconsultas2.Visible = false;
-                panel3.Visible= false;
             }
 
         }
@@ -251,17 +249,17 @@ namespace ProyectoSO
             }
         }
 
-        internal void LlenarPeriodo(string mensaje)
-        {
-
-
-        }
-
         private void Buscar2_Click(object sender, EventArgs e)
         {
-            string mensaje = "13/" + user.Name + "/" + RivalBox.Text;
-            byte[] msg = Encoding.ASCII.GetBytes(mensaje);
-            server.Send(msg);
+            if (RivalBox.Text != null)
+            {
+                string mensaje = "13/" + user.Name + "/" + RivalBox.Text;
+                byte[] msg = Encoding.ASCII.GetBytes(mensaje);
+                server.Send(msg);
+            }
+            else
+                MessageBox.Show("Introduce un usuario.");
+            
         }
 
         internal void LlenarResultadosRival(string mensaje)
