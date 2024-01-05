@@ -32,7 +32,6 @@ namespace ProyectoSO
             NombreLbl.Text = nombre;
             FuerzaLbl.Text = Convert.ToString(fuerza);
             NombreLbl_2.Text = "-  " + nombre + "  -";
-            timer.Start();
 
          //carro de descripciones para cada carta
          switch (this.id)
