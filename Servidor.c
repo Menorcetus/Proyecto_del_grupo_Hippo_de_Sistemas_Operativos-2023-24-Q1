@@ -597,20 +597,17 @@ int GuardarPartida(MYSQL *conn, ListaPartidas *Partidas, int id_partida){
 	// MYSQL variables
 	char consulta[buffer];
 	int err;
-	MYSQL_RES *resultado;
-	MYSQL_ROW *row;
 	
 	// Generamos los datos a guardar
 	char jugador1[Max];
-	strpcy(jugador1, Partidas.partidas[id_partida].jugadores[0].Nombre);
+	strcpy(jugador1, Partidas->partidas[id_partida].jugadores[0].Nombre);
 	char jugador2[Max];
-	strpcy(jugador2, Partidas.partidas[id_partida].jugadores[1].Nombre);
+	strcpy(jugador2, Partidas->partidas[id_partida].jugadores[1].Nombre);
 	int puntos1 = Partidas->partidas[id_partida].puntos[0];
 	int puntos2 = Partidas->partidas[id_partida].puntos[1];
 
 	// Generamos consulta
-	sprintf(consulta, "INSERT INTO Partidas 
-	(Jugador1, Jugador2, Puntos_T1, Puntos_T2) VALUES ('%s','%s','%i','%i')",
+	sprintf(consulta, "INSERT INTO Partidas (Jugador1, Jugador2, Puntos_T1, Puntos_T2) VALUES ('%s','%s','%i','%i')",
 	jugador1, jugador2, puntos1, puntos2);
 	printf("consulta:\n %s\n", consulta);
 
@@ -622,6 +619,37 @@ int GuardarPartida(MYSQL *conn, ListaPartidas *Partidas, int id_partida){
 		exit (1);
 	}
 	return err;
+}
+
+int Galeria(MYSQL *conn, char *GaleriaInfo){
+	// Recoge los datos basicos de la partida que ha acabado para guardarlas en la base de datos
+	// MYSQL variables
+	char consulta[buffer];
+	int err;
+	MYSQL_RES *resultado;
+	MYSQL_ROW *row;
+
+	// Generamos consulta
+	sprintf(consulta, "SELECT  ID, Nombre, Fuerza FROM Cartas");
+	printf("consulta:\n %s\n", consulta);
+
+	// Hacemos la consulta
+	err = mysql_query(conn, consulta);
+	if (err!=0) {
+		printf ("Error al recoger datos de la base %u %s\n", 
+				mysql_errno(conn), mysql_error(conn));
+		exit (1);
+	}
+
+	// Guardamos la informacion de la consulta
+	resultado = mysql_store_result(conn);
+	row = mysql_fetch_row(resultado);
+	strcpy(GaleriaInfo,"13");
+	while (row != NULL){
+		sprintf(GaleriaInfo,"%s/%i/%s/%i",GaleriaInfo,row[0],row[1],row[2]);
+		row = mysql_fetch_row(resultado);
+	}
+	return 1;
 }
 
 void *AtenderCliente(void *socket){
@@ -1009,12 +1037,14 @@ void *AtenderCliente(void *socket){
 				}				
 				break;
 			}
-
-			//case 9:{ //Fin partida
-			//	printf("Se ha desconectado.\n");
-			//	terminar = 1;
-			//	break;
-			//}
+			// enviar datos para galeria
+			case 10:{
+				char GaleriaInfo[MaxBuffer];
+				int res = Galeria(conn, &GaleriaInfo);
+				printf("Galeria: %s\n", GaleriaInfo);
+				write(sock_conn, GaleriaInfo, strlen(GaleriaInfo));
+				break;
+			}
 
 			// Mensaje de desconexion
 			case 0:{
@@ -1025,7 +1055,7 @@ void *AtenderCliente(void *socket){
 		}
 		// Si el mensaje no es de desconexion, cerramos la conexion a mysql y enviamos 
 		// la respuesta al cliente
-		if ((codigo != 0) && (codigo != 3) && (codigo != 4) && (codigo != 5) && (codigo != 6) && (codigo != 7) && (codigo != 8) && (codigo != 9)){
+		if ((codigo != 0) && (codigo != 3) && (codigo != 4) && (codigo != 5) && (codigo != 6) && (codigo != 7) && (codigo != 8) && (codigo != 9) && (codigo != 10)){
 			mysql_close(conn);
 			printf("Respuesta: %s\n", respuesta);
 			write(sock_conn, respuesta, strlen(respuesta));
