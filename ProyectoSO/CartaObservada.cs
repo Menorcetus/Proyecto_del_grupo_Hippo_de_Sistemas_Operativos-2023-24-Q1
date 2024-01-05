@@ -251,10 +251,5 @@ namespace ProyectoSO
 
             }
         }
-
-        private void timer_Tick(object sender, EventArgs e)
-        {
-            Close();
-        }
     }
 }

@@ -89,6 +89,8 @@ namespace ProyectoSO
 
         private void Carta22_Click(object sender, EventArgs e)
         {
+            if (observacion != null)
+                observacion.Close();
             PictureBox picturebox = (PictureBox)sender;
             Carta carta = cartasgaleria[DameCartaMano(picturebox)];
             observacion = new CartaObservada(carta);
