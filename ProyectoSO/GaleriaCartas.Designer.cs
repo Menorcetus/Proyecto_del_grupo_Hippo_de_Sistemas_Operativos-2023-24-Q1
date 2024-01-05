@@ -364,6 +364,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::ProyectoSO.Properties.Resources.Patron_madera;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.Controls.Add(this.Carta22);
             this.Controls.Add(this.Carta21);
@@ -395,8 +396,9 @@
             this.Controls.Add(this.Carta3);
             this.Controls.Add(this.Carta2);
             this.Controls.Add(this.Carta1);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "GaleriaCartas";
-            this.Text = "Form1";
+            this.Text = "Galería";
             this.Load += new System.EventHandler(this.GaleriaCartas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Carta1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Carta2)).EndInit();
