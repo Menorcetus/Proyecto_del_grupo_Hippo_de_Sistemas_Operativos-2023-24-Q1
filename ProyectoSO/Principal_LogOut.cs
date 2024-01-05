@@ -12,6 +12,7 @@ using ProyectoSO;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Globalization;
+using WMPLib;
 
 namespace ProyectoSO
 {
@@ -26,11 +27,18 @@ namespace ProyectoSO
         Interfaz_juego juego;
         GaleriaCartas galeria;
         int Entry = 1;
+        WindowsMediaPlayer player = new WindowsMediaPlayer();
+
+
+
 
         public Principal_LogOut()
         {
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
+            this.player = player;
+            
+            
         }
 
         public void AtenderServidor()
@@ -59,7 +67,7 @@ namespace ProyectoSO
                         int res = lform.Respuesta(mensaje);
                         if (res == 0)
                         {
-                            logged_form = new Principal_Logged(lform.GetUser(), server);
+                            logged_form = new Principal_Logged(lform.GetUser(), server, player);
                             this.user = lform.GetUser();
                             lform.Close();
 
@@ -78,6 +86,7 @@ namespace ProyectoSO
                         logged_form.MostrarRespuesta(mensaje);
                         break;
                     case 6: // iniciar partida y crear interfaz de juego nueva
+                        player.controls.stop();
                         string[] trozosMsg = mensaje.Split('/');
                         int id_partida = Convert.ToInt32(trozosMsg[0]);
                         int accion = Convert.ToInt32(trozosMsg[1]);

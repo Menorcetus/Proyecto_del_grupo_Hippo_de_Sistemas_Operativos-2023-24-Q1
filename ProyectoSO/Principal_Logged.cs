@@ -19,13 +19,15 @@ namespace ProyectoSO
         User user;
         Socket server;
         Thread Esperar;
-        WindowsMediaPlayer player = new WindowsMediaPlayer();
-        public Principal_Logged(User user, Socket server)
+        WindowsMediaPlayer player;
+
+        public Principal_Logged(User user, Socket server, WindowsMediaPlayer player)
         {
             InitializeComponent();
             this.user = user;
             this.server = server;
             Bienvenida.Text = "Bienvenido " + user.Name;
+            this.player = player;
             player.URL = "logged.wav";
             player.settings.setMode("loop", true);
         }
