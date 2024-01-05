@@ -190,6 +190,7 @@
     <Content Include="Resources\7.png" />
     <Content Include="Resources\8.png" />
     <Content Include="Resources\9.png" />
+    <None Include="Resources\register.jpg" />
     <None Include="Resources\Patron_madera.png" />
     <None Include="Resources\loging.jpg" />
     <None Include="Resources\fondo_gwent.png" />
