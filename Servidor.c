@@ -592,6 +592,38 @@ int FinalizarPartida(int id_partida, ListaPartidas *Partidas, char *ganador){
 	return resultado;
 }
 
+int GuardarPartida(MYSQL *conn, ListaPartidas *Partidas, int id_partida){
+	// Recoge los datos basicos de la partida que ha acabado para guardarlas en la base de datos
+	// MYSQL variables
+	char consulta[buffer];
+	int err;
+	MYSQL_RES *resultado;
+	MYSQL_ROW *row;
+	
+	// Generamos los datos a guardar
+	char jugador1[Max];
+	strpcy(jugador1, Partidas.partidas[id_partida].jugadores[0].Nombre);
+	char jugador2[Max];
+	strpcy(jugador2, Partidas.partidas[id_partida].jugadores[1].Nombre);
+	int puntos1 = Partidas->partidas[id_partida].puntos[0];
+	int puntos2 = Partidas->partidas[id_partida].puntos[1];
+
+	// Generamos consulta
+	sprintf(consulta, "INSERT INTO Partidas 
+	(Jugador1, Jugador2, Puntos_T1, Puntos_T2) VALUES ('%s','%s','%i','%i')",
+	jugador1, jugador2, puntos1, puntos2);
+	printf("consulta:\n %s\n", consulta);
+
+	// Hacemos la consulta
+	err = mysql_query(conn, consulta);
+	if (err!=0) {
+		printf ("Error al introducir datos la base %u %s\n", 
+				mysql_errno(conn), mysql_error(conn));
+		exit (1);
+	}
+	return err;
+}
+
 void *AtenderCliente(void *socket){
 	// Iniciamos el socket dentro del thread
 	int sock_conn;
@@ -930,6 +962,8 @@ void *AtenderCliente(void *socket){
 					// Finalizar definitivamente
 					char ganador[Max];
 					int res = FinalizarPartida(id_partida, &Partidas, &ganador);
+					// Funcion para hacer llamada a MYSQL
+					err = GuardarPartida(conn, &Partidas, id_partida);
 
 					switch (res)
 					{
