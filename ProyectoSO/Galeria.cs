@@ -18,7 +18,6 @@ namespace ProyectoSO
         public Galeria()
         {
             InitializeComponent();
-            int hola;
         }
 
         private void Galeria_Load(object sender, EventArgs e)
