@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
+using WMPLib;
 
 namespace ProyectoSO
 {
@@ -43,7 +44,9 @@ namespace ProyectoSO
         int num_cartas;
         int turno_actual;
         int nocambies = 0;
-        
+        WindowsMediaPlayer player2 = new WindowsMediaPlayer();
+        WindowsMediaPlayer player3 = new WindowsMediaPlayer();
+
 
         public Interfaz_juego(User user, Socket server, int ID_partida, int accion, int num_cartas, string jugador1, string jugador2)
         {
@@ -58,6 +61,9 @@ namespace ProyectoSO
                 this.contrincante = jugador2;
             else
                 this.contrincante = jugador1;
+
+            player3.URL = "partida.wav";
+            player3.settings.setMode("loop", true);
 
         }
 
@@ -393,6 +399,8 @@ namespace ProyectoSO
                     break;
             }
 
+            player3.controls.stop();
+
             
         }
 
@@ -665,8 +673,10 @@ namespace ProyectoSO
                     {
                         if (cartaselecc.tipo == 3 || cartaselecc.tipo == 4)
                         {
+
                             T_PictureBox_Click(sender, e);
                             CartasArt[0] = cartaselecc;
+                            player2.URL = "carta.wav";
                             FuerzaArt = ContarFuerza(CartasArt);
                             cartaselecc = null;
                             accion = 0;
@@ -688,7 +698,8 @@ namespace ProyectoSO
                      {
                          T_PictureBox_Click(sender, e);
                          CartasArt[1] = cartaselecc;
-                         FuerzaArt = ContarFuerza(CartasArt);
+                        player2.URL = "carta.wav";
+                        FuerzaArt = ContarFuerza(CartasArt);
                          cartaselecc = null;
                          accion = 0;
                          turno.Text = "¡Turno del contrincante!";
@@ -708,6 +719,7 @@ namespace ProyectoSO
                     {
                         T_PictureBox_Click(sender, e);
                         CartasArt[2] = cartaselecc;
+                        player2.URL = "carta.wav";
                         FuerzaArt = ContarFuerza(CartasArt);
                         cartaselecc = null;
                         accion = 0;
@@ -728,6 +740,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasArt[3] = cartaselecc;
                         FuerzaArt = ContarFuerza(CartasArt);
+                        player2.URL = "carta.wav";
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -747,6 +760,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasArt[4] = cartaselecc;
                         FuerzaArt = ContarFuerza(CartasArt);
+                        player2.URL = "carta.wav";
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -766,6 +780,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasArt[5] = cartaselecc;
                         FuerzaArt = ContarFuerza(CartasArt);
+                        player2.URL = "carta.wav";
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -785,6 +800,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasArt[6] = cartaselecc;
                         FuerzaArt = ContarFuerza(CartasArt);
+                        player2.URL = "carta.wav";
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -804,6 +820,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasArt[7] = cartaselecc;
                         FuerzaArt = ContarFuerza(CartasArt);
+                        player2.URL = "carta.wav";
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -824,6 +841,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasArt[8] = cartaselecc;
                         FuerzaArt = ContarFuerza(CartasArt);
+                        player2.URL = "carta.wav";
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -846,7 +864,8 @@ namespace ProyectoSO
                        T_PictureBox_Click(sender, e);
                        CartasRan[0] = cartaselecc;
                        FuerzaRan = ContarFuerza(CartasRan);
-                       cartaselecc = null;
+                        player2.URL = "carta.wav";
+                        cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
                     }
@@ -866,6 +885,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasRan[1] = cartaselecc;
                         FuerzaRan = ContarFuerza(CartasRan);
+                        player2.URL = "carta.wav";
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -886,6 +906,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasRan[2] = cartaselecc;
                         FuerzaRan = ContarFuerza(CartasRan);
+                        player2.URL = "carta.wav";
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -906,6 +927,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasRan[3] = cartaselecc;
                         FuerzaRan = ContarFuerza(CartasRan);
+                        player2.URL = "carta.wav";
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -926,6 +948,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasRan[4] = cartaselecc;
                         FuerzaRan = ContarFuerza(CartasRan);
+                        player2.URL = "carta.wav";
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -946,6 +969,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasRan[5] = cartaselecc;
                         FuerzaRan = ContarFuerza(CartasRan);
+                        player2.URL = "carta.wav";
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -966,6 +990,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasRan[6] = cartaselecc;
                         FuerzaRan = ContarFuerza(CartasRan);
+                        player2.URL = "carta.wav";
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -986,6 +1011,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasRan[7] = cartaselecc;
                         FuerzaRan = ContarFuerza(CartasRan);
+                        player2.URL = "carta.wav";
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -1006,6 +1032,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasRan[8] = cartaselecc;
                         FuerzaRan = ContarFuerza(CartasRan);
+                        player2.URL = "carta.wav";
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -1028,6 +1055,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasMel[0] = cartaselecc;
                         FuerzaMel = ContarFuerza(CartasMel);
+                        player2.URL = "carta.wav";
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -1049,6 +1077,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasMel[1] = cartaselecc;
                         FuerzaMel = ContarFuerza(CartasMel);
+                        player2.URL = "carta.wav";
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -1069,6 +1098,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasMel[2] = cartaselecc;
                         FuerzaMel = ContarFuerza(CartasMel);
+                        player2.URL = "carta.wav";
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -1089,6 +1119,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasMel[3] = cartaselecc;
                         FuerzaMel = ContarFuerza(CartasMel);
+                        player2.URL = "carta.wav";
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -1109,6 +1140,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasMel[4] = cartaselecc;
                         FuerzaMel = ContarFuerza(CartasMel);
+                        player2.URL = "carta.wav";
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -1129,6 +1161,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasMel[5] = cartaselecc;
                         FuerzaMel = ContarFuerza(CartasMel);
+                        player2.URL = "carta.wav";
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -1149,6 +1182,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasMel[6] = cartaselecc;
                         FuerzaMel = ContarFuerza(CartasMel);
+                        player2.URL = "carta.wav";
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -1169,6 +1203,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasMel[7] = cartaselecc;
                         FuerzaMel = ContarFuerza(CartasMel);
+                        player2.URL = "carta.wav";
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -1189,6 +1224,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasMel[8] = cartaselecc;
                         FuerzaMel = ContarFuerza(CartasMel);
+                        player2.URL = "carta.wav";
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -1756,6 +1792,7 @@ namespace ProyectoSO
             if (accion == 1)
             {
                 M_PictureBox_Click(sender, e);
+                player2.URL = "carta.wav";
             }   
         }
 
@@ -1764,6 +1801,7 @@ namespace ProyectoSO
             if (accion == 1)
             {
                 M_PictureBox_Click(sender, e);
+                player2.URL = "carta.wav";
             }
         }
 
@@ -1772,6 +1810,7 @@ namespace ProyectoSO
             if (accion == 1)
             {
                 M_PictureBox_Click(sender, e);
+                player2.URL = "carta.wav";
             }
         }
 
@@ -1780,6 +1819,7 @@ namespace ProyectoSO
             if (accion == 1)
             {
                 M_PictureBox_Click(sender, e);
+                player2.URL = "carta.wav";
             }
         }
 
@@ -1788,6 +1828,7 @@ namespace ProyectoSO
             if (accion == 1)
             {
                 M_PictureBox_Click(sender, e);
+                player2.URL = "carta.wav";
             }
         }
 
@@ -1796,6 +1837,7 @@ namespace ProyectoSO
             if (accion == 1)
             {
                 M_PictureBox_Click(sender, e);
+                player2.URL = "carta.wav";
             }
         }
 
@@ -1804,6 +1846,7 @@ namespace ProyectoSO
             if (accion == 1)
             {
                 M_PictureBox_Click(sender, e);
+                player2.URL = "carta.wav";
             }
         }
 
@@ -1812,6 +1855,7 @@ namespace ProyectoSO
             if (accion == 1)
             {
                 M_PictureBox_Click(sender, e);
+                player2.URL = "carta.wav";
             }
         }
 
@@ -1820,6 +1864,7 @@ namespace ProyectoSO
             if (accion == 1)
             {
                 M_PictureBox_Click(sender, e);
+                player2.URL = "carta.wav";
             }
         }
 
@@ -1828,6 +1873,7 @@ namespace ProyectoSO
             if (accion == 1)
             {
                 M_PictureBox_Click(sender, e);
+                player2.URL = "carta.wav";
             }
         }
 

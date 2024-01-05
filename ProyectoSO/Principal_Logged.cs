@@ -139,9 +139,11 @@ namespace ProyectoSO
             if (QuieroJugar == DialogResult.Yes)
             {
                 // Enviar mensaje de aceptar partida
+                player.controls.stop();
                 string respuesta = "5/" + "1/" + user.Name + "/" + host + "/" + num_cartas;
                 byte[] msg = Encoding.ASCII.GetBytes(respuesta);
                 server.Send(msg);
+
             }
             else
             {
