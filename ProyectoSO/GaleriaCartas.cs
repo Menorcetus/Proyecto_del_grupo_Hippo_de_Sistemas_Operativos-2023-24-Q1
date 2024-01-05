@@ -17,6 +17,7 @@ namespace ProyectoSO
         Carta[] cartasgaleria = new Carta[30];
         CartaObservada observacion;
         Thread ThreadCarta;
+
         public GaleriaCartas(string mensaje)
         {
             InitializeComponent();
