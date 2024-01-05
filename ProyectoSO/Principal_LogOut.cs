@@ -19,11 +19,12 @@ namespace ProyectoSO
     {
         Socket server;
         User user = new User();
-        Thread atender; Thread ThreadLogged; Thread ThreadJuego;
+        Thread atender; Thread ThreadLogged; Thread ThreadJuego; Thread ThreadGaleria;
         Principal_Logged logged_form;
         login_form lform;
         register_form rform;
         Interfaz_juego juego;
+        GaleriaCartas galeria;
         int Entry = 1;
 
         public Principal_LogOut()
@@ -114,6 +115,12 @@ namespace ProyectoSO
                         break;
                     case 12:
                         juego.RecibirResultadoFinal(mensaje);
+                        break;
+                    case 13:
+                        galeria = new GaleriaCartas(mensaje);
+                        ThreadStart tsGaleria = delegate { galeria.ShowDialog(); };
+                        ThreadGaleria = new Thread(tsGaleria);
+                        ThreadGaleria.Start();
                         break;
 
                 }

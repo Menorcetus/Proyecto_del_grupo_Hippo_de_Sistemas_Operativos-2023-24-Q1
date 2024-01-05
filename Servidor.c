@@ -646,7 +646,7 @@ int Galeria(MYSQL *conn, char *GaleriaInfo){
 	row = mysql_fetch_row(resultado);
 	strcpy(GaleriaInfo,"13");
 	while (row != NULL){
-		sprintf(GaleriaInfo,"%s/%i/%s/%i",GaleriaInfo,row[0],row[1],row[2]);
+		sprintf(GaleriaInfo,"%s/%i/%s/%i",GaleriaInfo,atoi(row[0]),row[1],atoi(row[2]));
 		row = mysql_fetch_row(resultado);
 	}
 	return 1;

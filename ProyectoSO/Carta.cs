@@ -12,6 +12,7 @@ namespace ProyectoSO
 
         //las cartas cogerán valores desde la base de datos
         public int id { get; set; }
+        public string name { get; set; }
         public int fuerza { get; set; }
         public int tipo { get; set; }
 

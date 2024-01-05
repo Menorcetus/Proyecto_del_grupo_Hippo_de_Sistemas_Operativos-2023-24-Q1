@@ -49,16 +49,18 @@
             this.panelConectados = new System.Windows.Forms.Panel();
             this.TituloConectados = new System.Windows.Forms.Label();
             this.CrearPartida = new System.Windows.Forms.Panel();
+            this.CartasComboBox = new System.Windows.Forms.ComboBox();
             this.EnviadoLbl = new System.Windows.Forms.Label();
             this.DGVInvitados = new System.Windows.Forms.DataGridView();
             this.Invitado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Accepted = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.EnviarPartida = new System.Windows.Forms.Button();
+            this.CartasLbl = new System.Windows.Forms.Label();
             this.SelecctionarLablel = new System.Windows.Forms.Label();
             this.Titulo_invitar = new System.Windows.Forms.Label();
             this.Jugador1ComboBox = new System.Windows.Forms.ComboBox();
-            this.CartasComboBox = new System.Windows.Forms.ComboBox();
-            this.CartasLbl = new System.Windows.Forms.Label();
+            this.otrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.galeríaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BarraPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridConectados)).BeginInit();
             this.panelConectados.SuspendLayout();
@@ -72,7 +74,8 @@
             this.BarraPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usuarioToolStripMenuItem,
             this.socialToolStripMenuItem,
-            this.jugarToolStripMenuItem});
+            this.jugarToolStripMenuItem,
+            this.otrosToolStripMenuItem});
             this.BarraPrincipal.Location = new System.Drawing.Point(0, 0);
             this.BarraPrincipal.Name = "BarraPrincipal";
             this.BarraPrincipal.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
@@ -92,7 +95,7 @@
             // logOutToolStripMenuItem1
             // 
             this.logOutToolStripMenuItem1.Name = "logOutToolStripMenuItem1";
-            this.logOutToolStripMenuItem1.Size = new System.Drawing.Size(114, 22);
+            this.logOutToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.logOutToolStripMenuItem1.Text = "LogOut";
             this.logOutToolStripMenuItem1.Click += new System.EventHandler(this.logOutToolStripMenuItem1_Click);
             // 
@@ -132,7 +135,7 @@
             // 
             this.crearPartidaToolStripMenuItem.CheckOnClick = true;
             this.crearPartidaToolStripMenuItem.Name = "crearPartidaToolStripMenuItem";
-            this.crearPartidaToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.crearPartidaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.crearPartidaToolStripMenuItem.Text = "Crear partida";
             this.crearPartidaToolStripMenuItem.Click += new System.EventHandler(this.crearPartidaToolStripMenuItem_Click);
             // 
@@ -268,6 +271,21 @@
             this.CrearPartida.TabIndex = 4;
             this.CrearPartida.Visible = false;
             // 
+            // CartasComboBox
+            // 
+            this.CartasComboBox.FormattingEnabled = true;
+            this.CartasComboBox.Items.AddRange(new object[] {
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.CartasComboBox.Location = new System.Drawing.Point(43, 195);
+            this.CartasComboBox.Name = "CartasComboBox";
+            this.CartasComboBox.Size = new System.Drawing.Size(162, 21);
+            this.CartasComboBox.TabIndex = 8;
+            this.CartasComboBox.SelectedIndexChanged += new System.EventHandler(this.TurnosComboBox_SelectedIndexChanged);
+            // 
             // EnviadoLbl
             // 
             this.EnviadoLbl.AutoSize = true;
@@ -327,6 +345,17 @@
             this.EnviarPartida.UseVisualStyleBackColor = true;
             this.EnviarPartida.Click += new System.EventHandler(this.EnviarPartida_Click);
             // 
+            // CartasLbl
+            // 
+            this.CartasLbl.AutoSize = true;
+            this.CartasLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CartasLbl.Location = new System.Drawing.Point(39, 159);
+            this.CartasLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.CartasLbl.Name = "CartasLbl";
+            this.CartasLbl.Size = new System.Drawing.Size(231, 20);
+            this.CartasLbl.TabIndex = 4;
+            this.CartasLbl.Text = "Selecciona el numero de cartas";
+            // 
             // SelecctionarLablel
             // 
             this.SelecctionarLablel.AutoSize = true;
@@ -359,31 +388,20 @@
             this.Jugador1ComboBox.TabIndex = 0;
             this.Jugador1ComboBox.SelectedIndexChanged += new System.EventHandler(this.Jugador1ComboBox_SelectedIndexChanged);
             // 
-            // CartasComboBox
+            // otrosToolStripMenuItem
             // 
-            this.CartasComboBox.FormattingEnabled = true;
-            this.CartasComboBox.Items.AddRange(new object[] {
-            "6",
-            "7",
-            "8",
-            "9",
-            "10"});
-            this.CartasComboBox.Location = new System.Drawing.Point(43, 195);
-            this.CartasComboBox.Name = "CartasComboBox";
-            this.CartasComboBox.Size = new System.Drawing.Size(162, 21);
-            this.CartasComboBox.TabIndex = 8;
-            this.CartasComboBox.SelectedIndexChanged += new System.EventHandler(this.TurnosComboBox_SelectedIndexChanged);
+            this.otrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.galeríaToolStripMenuItem});
+            this.otrosToolStripMenuItem.Name = "otrosToolStripMenuItem";
+            this.otrosToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.otrosToolStripMenuItem.Text = "Otros";
             // 
-            // CartasLbl
+            // galeríaToolStripMenuItem
             // 
-            this.CartasLbl.AutoSize = true;
-            this.CartasLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CartasLbl.Location = new System.Drawing.Point(39, 159);
-            this.CartasLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.CartasLbl.Name = "CartasLbl";
-            this.CartasLbl.Size = new System.Drawing.Size(231, 20);
-            this.CartasLbl.TabIndex = 4;
-            this.CartasLbl.Text = "Selecciona el numero de cartas";
+            this.galeríaToolStripMenuItem.Name = "galeríaToolStripMenuItem";
+            this.galeríaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.galeríaToolStripMenuItem.Text = "Galería";
+            this.galeríaToolStripMenuItem.Click += new System.EventHandler(this.galeríaToolStripMenuItem_Click);
             // 
             // Principal_Logged
             // 
@@ -453,5 +471,7 @@
         private System.Windows.Forms.Label EnviadoLbl;
         private System.Windows.Forms.ComboBox CartasComboBox;
         private System.Windows.Forms.Label CartasLbl;
+        private System.Windows.Forms.ToolStripMenuItem otrosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem galeríaToolStripMenuItem;
     }
 }

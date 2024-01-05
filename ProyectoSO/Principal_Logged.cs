@@ -175,5 +175,12 @@ namespace ProyectoSO
             else if (crearPartidaToolStripMenuItem.Checked == true)
                 CrearPartida.Visible = true;
         }
+
+        private void galeríaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string mensaje = "10/" + user.Name;
+            byte[] msg = Encoding.ASCII.GetBytes(mensaje);
+            server.Send(msg);
+        }
     }
 }
