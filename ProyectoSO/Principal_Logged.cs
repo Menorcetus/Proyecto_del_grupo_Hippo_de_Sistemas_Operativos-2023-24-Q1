@@ -240,5 +240,22 @@ namespace ProyectoSO
                 EnfrentadosDGV.Rows.Add(trozos[i]);
             }
         }
+
+        private void Buscar2_Click(object sender, EventArgs e)
+        {
+            string mensaje = "13/" + user.Name + "/" + RivalBox.Text;
+            byte[] msg = Encoding.ASCII.GetBytes(mensaje);
+            server.Send(msg);
+        }
+
+        internal void LlenarResultadosRival(string mensaje)
+        {
+            string[] trozos = mensaje.Split('/');
+            ResultadosDGV.RowCount = 0;
+            for (int i = 0; i < trozos.Length; i++)
+            {
+                ResultadosDGV.Rows.Add(trozos[i], trozos[i+1]);
+            }
+        }
     }
 }

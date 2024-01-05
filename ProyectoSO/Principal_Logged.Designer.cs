@@ -74,10 +74,10 @@
             this.ResultadosDGV = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.RivalBox = new System.Windows.Forms.TextBox();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buscarenfrentadosBtn = new System.Windows.Forms.Button();
             this.Rondasganadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rondasperdidas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buscarenfrentadosBtn = new System.Windows.Forms.Button();
+            this.Buscar2 = new System.Windows.Forms.Button();
             this.BarraPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridConectados)).BeginInit();
             this.panelConectados.SuspendLayout();
@@ -518,6 +518,7 @@
             this.panelconsultas2.AutoSize = true;
             this.panelconsultas2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panelconsultas2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelconsultas2.Controls.Add(this.Buscar2);
             this.panelconsultas2.Controls.Add(this.RivalBox);
             this.panelconsultas2.Controls.Add(this.label3);
             this.panelconsultas2.Controls.Add(this.label2);
@@ -553,7 +554,6 @@
             this.ResultadosDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ResultadosDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ResultadosDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn2,
             this.Rondasganadas,
             this.Rondasperdidas});
             this.ResultadosDGV.Location = new System.Drawing.Point(250, 57);
@@ -582,12 +582,15 @@
             this.RivalBox.Size = new System.Drawing.Size(201, 20);
             this.RivalBox.TabIndex = 10;
             // 
-            // dataGridViewTextBoxColumn2
+            // buscarenfrentadosBtn
             // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Usuario";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.buscarenfrentadosBtn.Location = new System.Drawing.Point(320, 35);
+            this.buscarenfrentadosBtn.Name = "buscarenfrentadosBtn";
+            this.buscarenfrentadosBtn.Size = new System.Drawing.Size(67, 28);
+            this.buscarenfrentadosBtn.TabIndex = 4;
+            this.buscarenfrentadosBtn.Text = "Buscar";
+            this.buscarenfrentadosBtn.UseVisualStyleBackColor = true;
+            this.buscarenfrentadosBtn.Click += new System.EventHandler(this.buscarenfrentadosBtn_Click);
             // 
             // Rondasganadas
             // 
@@ -599,15 +602,15 @@
             this.Rondasperdidas.HeaderText = "Rondas perdidas";
             this.Rondasperdidas.Name = "Rondasperdidas";
             // 
-            // buscarenfrentadosBtn
+            // Buscar2
             // 
-            this.buscarenfrentadosBtn.Location = new System.Drawing.Point(320, 35);
-            this.buscarenfrentadosBtn.Name = "buscarenfrentadosBtn";
-            this.buscarenfrentadosBtn.Size = new System.Drawing.Size(67, 28);
-            this.buscarenfrentadosBtn.TabIndex = 4;
-            this.buscarenfrentadosBtn.Text = "Buscar";
-            this.buscarenfrentadosBtn.UseVisualStyleBackColor = true;
-            this.buscarenfrentadosBtn.Click += new System.EventHandler(this.buscarenfrentadosBtn_Click);
+            this.Buscar2.Location = new System.Drawing.Point(29, 149);
+            this.Buscar2.Name = "Buscar2";
+            this.Buscar2.Size = new System.Drawing.Size(67, 28);
+            this.Buscar2.TabIndex = 5;
+            this.Buscar2.Text = "Buscar";
+            this.Buscar2.UseVisualStyleBackColor = true;
+            this.Buscar2.Click += new System.EventHandler(this.Buscar2_Click);
             // 
             // Principal_Logged
             // 
@@ -699,9 +702,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.DataGridView ResultadosDGV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.Button buscarenfrentadosBtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rondasganadas;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rondasperdidas;
-        private System.Windows.Forms.Button buscarenfrentadosBtn;
+        private System.Windows.Forms.Button Buscar2;
     }
 }

@@ -128,6 +128,9 @@ namespace ProyectoSO
                     case 14: // Consulta la lista de jugadores con los que he echado una partida.
                         logged_form.LlenarEnfrentados(mensaje);
                         break;
+                    case 15:
+                        logged_form.LlenarResultadosRival(mensaje);
+                        break;
 
                 }
             }

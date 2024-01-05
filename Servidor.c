@@ -768,7 +768,9 @@ int ResultadosPartidas(char *p, MYSQL *conn, char *Resultados){
 	strcat(consulta, "' AND Jugador2 = '");
 	strcat(consulta, rival);
 	strcat(consulta, "' UNION SELECT Puntos_T2 FROM Partidas WHERE Jugador1 = '");
+	strcat(consulta, rival);
 	strcat(consulta, "' AND Jugador2 = '");
+	strcat(consulta, nombre);
 	strcat(consulta, "';");
 	
 	err = mysql_query(conn, consulta);
@@ -786,7 +788,9 @@ int ResultadosPartidas(char *p, MYSQL *conn, char *Resultados){
 	strcat(consulta, "' AND Jugador2 = '");
 	strcat(consulta, rival);
 	strcat(consulta, "' UNION SELECT Puntos_T1 FROM Partidas WHERE Jugador1 = '");
+	strcat(consulta, rival);
 	strcat(consulta, "' AND Jugador2 = '");
+	strcat(consulta, nombre);
 	strcat(consulta, "';");
 	
 	err = mysql_query(conn, consulta);
