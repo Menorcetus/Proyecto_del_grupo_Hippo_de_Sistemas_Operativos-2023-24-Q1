@@ -22,18 +22,15 @@ CREATE TABLE Usuarios (
 
 CREATE TABLE Partidas (
     ID_partida INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
-    Num_jug INT, Duracion FLOAT, 
-    Jugador1 INT NOT NULL, 
-    Jugador2 INT NOT NULL, 
-    Jugador3 INT NOT NULL, 
-    Jugador4 INT NOT NULL, 
-    FOREIGN KEY (Jugador1) REFERENCES Usuarios(ID_usuario),
-    FOREIGN KEY (Jugador2) REFERENCES Usuarios(ID_usuario),
-    FOREIGN KEY (Jugador3) REFERENCES Usuarios(ID_usuario),
-    FOREIGN KEY (Jugador4) REFERENCES Usuarios(ID_usuario),
+    Duracion FLOAT, 
+
+    Jugador1 VARCHAR(30) NOT NULL, 
+    Jugador2 VARCHAR(30) NOT NULL, 
+    FOREIGN KEY (Jugador1) REFERENCES Usuarios(Nombre),
+    FOREIGN KEY (Jugador2) REFERENCES Usuarios(Nombre),
+
     Puntos_T1 INT, Puntos_T2 INT
     ) ENGINE = InnoDB;
-
 
 
 CREATE TABLE Cartas (
