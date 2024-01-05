@@ -178,6 +178,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel2.Controls.Add(this.Chatlabel);
             this.panel2.Controls.Add(this.ChatEnviar);
             this.panel2.Controls.Add(this.ChatOutput);
@@ -191,17 +192,18 @@
             // Chatlabel
             // 
             this.Chatlabel.AutoSize = true;
-            this.Chatlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Chatlabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Chatlabel.Location = new System.Drawing.Point(24, 14);
             this.Chatlabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Chatlabel.Name = "Chatlabel";
-            this.Chatlabel.Size = new System.Drawing.Size(53, 24);
+            this.Chatlabel.Size = new System.Drawing.Size(50, 21);
             this.Chatlabel.TabIndex = 3;
             this.Chatlabel.Text = "Chat ";
             // 
             // ChatEnviar
             // 
             this.ChatEnviar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ChatEnviar.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChatEnviar.Location = new System.Drawing.Point(248, 286);
             this.ChatEnviar.Margin = new System.Windows.Forms.Padding(2);
             this.ChatEnviar.Name = "ChatEnviar";
@@ -376,13 +378,16 @@
             // 
             // PedirMazo_btn
             // 
+            this.PedirMazo_btn.BackColor = System.Drawing.Color.Goldenrod;
+            this.PedirMazo_btn.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PedirMazo_btn.ForeColor = System.Drawing.Color.Firebrick;
             this.PedirMazo_btn.Location = new System.Drawing.Point(879, 1026);
             this.PedirMazo_btn.Margin = new System.Windows.Forms.Padding(2);
             this.PedirMazo_btn.Name = "PedirMazo_btn";
             this.PedirMazo_btn.Size = new System.Drawing.Size(145, 29);
             this.PedirMazo_btn.TabIndex = 5;
             this.PedirMazo_btn.Text = "Mezclar";
-            this.PedirMazo_btn.UseVisualStyleBackColor = true;
+            this.PedirMazo_btn.UseVisualStyleBackColor = false;
             this.PedirMazo_btn.Click += new System.EventHandler(this.PedirMazo_btn_Click);
             // 
             // Art1
@@ -1062,23 +1067,27 @@
             // 
             // PasarTurnoBtn
             // 
-            this.PasarTurnoBtn.Location = new System.Drawing.Point(979, 11);
+            this.PasarTurnoBtn.BackColor = System.Drawing.Color.Goldenrod;
+            this.PasarTurnoBtn.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasarTurnoBtn.ForeColor = System.Drawing.Color.Firebrick;
+            this.PasarTurnoBtn.Location = new System.Drawing.Point(945, 16);
             this.PasarTurnoBtn.Margin = new System.Windows.Forms.Padding(2);
             this.PasarTurnoBtn.Name = "PasarTurnoBtn";
             this.PasarTurnoBtn.Size = new System.Drawing.Size(145, 29);
             this.PasarTurnoBtn.TabIndex = 5;
             this.PasarTurnoBtn.Text = "Pasar Turno";
-            this.PasarTurnoBtn.UseVisualStyleBackColor = true;
+            this.PasarTurnoBtn.UseVisualStyleBackColor = false;
             this.PasarTurnoBtn.Click += new System.EventHandler(this.PasarTurnoBtn_Click);
             // 
             // turno
             // 
             this.turno.AutoSize = true;
-            this.turno.BackColor = System.Drawing.Color.Transparent;
+            this.turno.BackColor = System.Drawing.Color.Wheat;
+            this.turno.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.turno.Location = new System.Drawing.Point(1042, 531);
             this.turno.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.turno.Name = "turno";
-            this.turno.Size = new System.Drawing.Size(35, 13);
+            this.turno.Size = new System.Drawing.Size(53, 21);
             this.turno.TabIndex = 33;
             this.turno.Text = "label1";
             this.turno.TextChanged += new System.EventHandler(this.turno_TextChanged);
@@ -1086,82 +1095,107 @@
             // FuerzaArt_M_lbl
             // 
             this.FuerzaArt_M_lbl.AutoSize = true;
-            this.FuerzaArt_M_lbl.Location = new System.Drawing.Point(463, 127);
+            this.FuerzaArt_M_lbl.BackColor = System.Drawing.Color.Wheat;
+            this.FuerzaArt_M_lbl.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FuerzaArt_M_lbl.ForeColor = System.Drawing.Color.Brown;
+            this.FuerzaArt_M_lbl.Location = new System.Drawing.Point(462, 120);
             this.FuerzaArt_M_lbl.Name = "FuerzaArt_M_lbl";
-            this.FuerzaArt_M_lbl.Size = new System.Drawing.Size(35, 13);
+            this.FuerzaArt_M_lbl.Size = new System.Drawing.Size(53, 21);
             this.FuerzaArt_M_lbl.TabIndex = 34;
             this.FuerzaArt_M_lbl.Text = "label1";
             // 
             // FuerzaRan_M_lbl
             // 
             this.FuerzaRan_M_lbl.AutoSize = true;
-            this.FuerzaRan_M_lbl.Location = new System.Drawing.Point(463, 286);
+            this.FuerzaRan_M_lbl.BackColor = System.Drawing.Color.Wheat;
+            this.FuerzaRan_M_lbl.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FuerzaRan_M_lbl.ForeColor = System.Drawing.Color.Brown;
+            this.FuerzaRan_M_lbl.Location = new System.Drawing.Point(463, 282);
             this.FuerzaRan_M_lbl.Name = "FuerzaRan_M_lbl";
-            this.FuerzaRan_M_lbl.Size = new System.Drawing.Size(35, 13);
+            this.FuerzaRan_M_lbl.Size = new System.Drawing.Size(53, 21);
             this.FuerzaRan_M_lbl.TabIndex = 34;
             this.FuerzaRan_M_lbl.Text = "label1";
             // 
             // FuerzaMel_M_lbl
             // 
             this.FuerzaMel_M_lbl.AutoSize = true;
-            this.FuerzaMel_M_lbl.Location = new System.Drawing.Point(463, 441);
+            this.FuerzaMel_M_lbl.BackColor = System.Drawing.Color.Wheat;
+            this.FuerzaMel_M_lbl.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FuerzaMel_M_lbl.ForeColor = System.Drawing.Color.Brown;
+            this.FuerzaMel_M_lbl.Location = new System.Drawing.Point(462, 440);
             this.FuerzaMel_M_lbl.Name = "FuerzaMel_M_lbl";
-            this.FuerzaMel_M_lbl.Size = new System.Drawing.Size(35, 13);
+            this.FuerzaMel_M_lbl.Size = new System.Drawing.Size(53, 21);
             this.FuerzaMel_M_lbl.TabIndex = 34;
             this.FuerzaMel_M_lbl.Text = "label1";
             // 
             // FuerzaMel_lbl
             // 
             this.FuerzaMel_lbl.AutoSize = true;
-            this.FuerzaMel_lbl.Location = new System.Drawing.Point(463, 615);
+            this.FuerzaMel_lbl.BackColor = System.Drawing.Color.Wheat;
+            this.FuerzaMel_lbl.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FuerzaMel_lbl.ForeColor = System.Drawing.Color.Brown;
+            this.FuerzaMel_lbl.Location = new System.Drawing.Point(462, 608);
             this.FuerzaMel_lbl.Name = "FuerzaMel_lbl";
-            this.FuerzaMel_lbl.Size = new System.Drawing.Size(35, 13);
+            this.FuerzaMel_lbl.Size = new System.Drawing.Size(53, 21);
             this.FuerzaMel_lbl.TabIndex = 34;
             this.FuerzaMel_lbl.Text = "label1";
             // 
             // FuerzaRan_lbl
             // 
             this.FuerzaRan_lbl.AutoSize = true;
-            this.FuerzaRan_lbl.Location = new System.Drawing.Point(463, 774);
+            this.FuerzaRan_lbl.BackColor = System.Drawing.Color.Wheat;
+            this.FuerzaRan_lbl.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FuerzaRan_lbl.ForeColor = System.Drawing.Color.Brown;
+            this.FuerzaRan_lbl.Location = new System.Drawing.Point(462, 766);
             this.FuerzaRan_lbl.Name = "FuerzaRan_lbl";
-            this.FuerzaRan_lbl.Size = new System.Drawing.Size(35, 13);
+            this.FuerzaRan_lbl.Size = new System.Drawing.Size(53, 21);
             this.FuerzaRan_lbl.TabIndex = 34;
             this.FuerzaRan_lbl.Text = "label1";
             // 
             // FuerzaArt_lbl
             // 
             this.FuerzaArt_lbl.AutoSize = true;
-            this.FuerzaArt_lbl.Location = new System.Drawing.Point(463, 929);
+            this.FuerzaArt_lbl.BackColor = System.Drawing.Color.Wheat;
+            this.FuerzaArt_lbl.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FuerzaArt_lbl.ForeColor = System.Drawing.Color.Brown;
+            this.FuerzaArt_lbl.Location = new System.Drawing.Point(462, 921);
             this.FuerzaArt_lbl.Name = "FuerzaArt_lbl";
-            this.FuerzaArt_lbl.Size = new System.Drawing.Size(35, 13);
+            this.FuerzaArt_lbl.Size = new System.Drawing.Size(53, 21);
             this.FuerzaArt_lbl.TabIndex = 34;
             this.FuerzaArt_lbl.Text = "label1";
             // 
             // ContrincanteLbl
             // 
             this.ContrincanteLbl.AutoSize = true;
-            this.ContrincanteLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ContrincanteLbl.BackColor = System.Drawing.Color.Goldenrod;
+            this.ContrincanteLbl.Font = new System.Drawing.Font("Times New Roman", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ContrincanteLbl.ForeColor = System.Drawing.Color.Firebrick;
             this.ContrincanteLbl.Location = new System.Drawing.Point(93, 460);
             this.ContrincanteLbl.Name = "ContrincanteLbl";
-            this.ContrincanteLbl.Size = new System.Drawing.Size(60, 24);
+            this.ContrincanteLbl.Size = new System.Drawing.Size(64, 24);
             this.ContrincanteLbl.TabIndex = 35;
             this.ContrincanteLbl.Text = "label1";
             // 
             // TurnoLbl
             // 
             this.TurnoLbl.AutoSize = true;
-            this.TurnoLbl.Location = new System.Drawing.Point(804, 19);
+            this.TurnoLbl.BackColor = System.Drawing.Color.Goldenrod;
+            this.TurnoLbl.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TurnoLbl.Location = new System.Drawing.Point(838, 19);
             this.TurnoLbl.Name = "TurnoLbl";
-            this.TurnoLbl.Size = new System.Drawing.Size(35, 13);
+            this.TurnoLbl.Size = new System.Drawing.Size(53, 21);
             this.TurnoLbl.TabIndex = 36;
             this.TurnoLbl.Text = "label2";
             // 
             // RondasGanadasLbl
             // 
             this.RondasGanadasLbl.AutoSize = true;
-            this.RondasGanadasLbl.Location = new System.Drawing.Point(221, 531);
+            this.RondasGanadasLbl.BackColor = System.Drawing.Color.Wheat;
+            this.RondasGanadasLbl.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RondasGanadasLbl.ForeColor = System.Drawing.Color.Firebrick;
+            this.RondasGanadasLbl.Location = new System.Drawing.Point(220, 531);
             this.RondasGanadasLbl.Name = "RondasGanadasLbl";
-            this.RondasGanadasLbl.Size = new System.Drawing.Size(35, 13);
+            this.RondasGanadasLbl.Size = new System.Drawing.Size(61, 23);
             this.RondasGanadasLbl.TabIndex = 37;
             this.RondasGanadasLbl.Text = "label1";
             // 
