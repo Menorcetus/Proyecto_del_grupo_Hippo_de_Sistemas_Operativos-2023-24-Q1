@@ -17,7 +17,6 @@
 // Variables para la implementacion de una lista de sockets
 int socket_num = 0;
 int sockets[100];
-
 pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 
 typedef struct{
@@ -255,12 +254,12 @@ int DesRegister(char *p, MYSQL *conn, ListaUsuarios *lista){
 	}
 	err=mysql_query (conn, consulta);
 	
-	strcpy(consulta, "UPDATE Partidas SET Jugador1 = 'N/A' WHERE Jugador1 = '");
+	strcpy(consulta, "UPDATE Partidas SET Jugador1 = 'N_A' WHERE Jugador1 = '");
 	strcat(consulta, nombre);
 	strcat(consulta, "';");
 	err=mysql_query (conn, consulta);
 	
-	strcpy(consulta, "UPDATE Partidas SET Jugador2 = 'N/A' WHERE Jugador2 = '");
+	strcpy(consulta, "UPDATE Partidas SET Jugador2 = 'N_A' WHERE Jugador2 = '");
 	strcat(consulta, nombre);
 	strcat(consulta, "';");
 	err=mysql_query (conn, consulta);
@@ -283,7 +282,7 @@ int DesRegister(char *p, MYSQL *conn, ListaUsuarios *lista){
 		return 1;
 	}
 }
-	
+
 
 
 int LogIN(char *p, MYSQL *conn, char info[buffer], ListaUsuarios *lista, int Socket){
@@ -347,7 +346,7 @@ int LogIN(char *p, MYSQL *conn, char info[buffer], ListaUsuarios *lista, int Soc
 		return 0;
 	}
 	// Password incorrecta
-	else	
+	else if (strcmp(password, realpass) == 0)	
 		return 2;
 }
 
@@ -723,9 +722,9 @@ int JugadoresEnfrentados(char *p, MYSQL *conn, char *Enfrentados)
 	char nombre[30];
 	strcpy (nombre, p);
 	
-	strcpy(consulta, "SELECT DISTINCT Nombre FROM Usuarios,Partidas WHERE Nombre1 = '");
+	strcpy(consulta, "SELECT DISTINCT Jugador1 FROM Partidas WHERE Jugador2 = '");
 	strcat(consulta, nombre);
-	strcat(consulta, "' OR Nombre2 = '");
+	strcat(consulta, "' UNION SELECT DISTINCT Jugador2 FROM Partidas WHERE Jugador1 = '");
 	strcat(consulta, nombre);
 	strcat(consulta, "';");
 	
@@ -740,8 +739,9 @@ int JugadoresEnfrentados(char *p, MYSQL *conn, char *Enfrentados)
 	row = mysql_fetch_row(resultado);
 	strcpy(Enfrentados,"14");
 	while (row != NULL){
-		sprintf(Enfrentados,"%s/%s",Enfrentados,row[0]);
-		row = mysql_fetch_row(resultado);
+			sprintf(Enfrentados,"%s/%s",Enfrentados,row[0]);
+			row = mysql_fetch_row(resultado);
+		
 	}
 	return 1;
 	

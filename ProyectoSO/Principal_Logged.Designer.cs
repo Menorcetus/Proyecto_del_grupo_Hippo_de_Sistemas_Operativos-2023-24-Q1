@@ -65,11 +65,28 @@
             this.SelecctionarLablel = new System.Windows.Forms.Label();
             this.Titulo_invitar = new System.Windows.Forms.Label();
             this.Jugador1ComboBox = new System.Windows.Forms.ComboBox();
+            this.panelconsultas1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.EnfrentadosDGV = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panelconsultas2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ResultadosDGV = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.RivalBox = new System.Windows.Forms.TextBox();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rondasganadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rondasperdidas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buscarenfrentadosBtn = new System.Windows.Forms.Button();
             this.BarraPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridConectados)).BeginInit();
             this.panelConectados.SuspendLayout();
             this.CrearPartida.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVInvitados)).BeginInit();
+            this.panelconsultas1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EnfrentadosDGV)).BeginInit();
+            this.panelconsultas2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ResultadosDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // BarraPrincipal
@@ -150,7 +167,7 @@
             // 
             this.crearPartidaToolStripMenuItem.CheckOnClick = true;
             this.crearPartidaToolStripMenuItem.Name = "crearPartidaToolStripMenuItem";
-            this.crearPartidaToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.crearPartidaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.crearPartidaToolStripMenuItem.Text = "Crear partida";
             this.crearPartidaToolStripMenuItem.Click += new System.EventHandler(this.crearPartidaToolStripMenuItem_Click);
             // 
@@ -168,21 +185,23 @@
             // galeríaToolStripMenuItem
             // 
             this.galeríaToolStripMenuItem.Name = "galeríaToolStripMenuItem";
-            this.galeríaToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.galeríaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.galeríaToolStripMenuItem.Text = "Galería";
             this.galeríaToolStripMenuItem.Click += new System.EventHandler(this.galeríaToolStripMenuItem_Click);
             // 
             // manualToolStripMenuItem
             // 
             this.manualToolStripMenuItem.Name = "manualToolStripMenuItem";
-            this.manualToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.manualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.manualToolStripMenuItem.Text = "Manual";
             // 
             // consultasToolStripMenuItem
             // 
+            this.consultasToolStripMenuItem.CheckOnClick = true;
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
-            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.consultasToolStripMenuItem.Text = "Consultas";
+            this.consultasToolStripMenuItem.Click += new System.EventHandler(this.consultasToolStripMenuItem_Click);
             // 
             // cuentaToolStripMenuItem
             // 
@@ -311,7 +330,7 @@
             this.CrearPartida.Controls.Add(this.SelecctionarLablel);
             this.CrearPartida.Controls.Add(this.Titulo_invitar);
             this.CrearPartida.Controls.Add(this.Jugador1ComboBox);
-            this.CrearPartida.Location = new System.Drawing.Point(666, 81);
+            this.CrearPartida.Location = new System.Drawing.Point(773, 47);
             this.CrearPartida.Margin = new System.Windows.Forms.Padding(2);
             this.CrearPartida.Name = "CrearPartida";
             this.CrearPartida.Size = new System.Drawing.Size(676, 441);
@@ -435,6 +454,161 @@
             this.Jugador1ComboBox.TabIndex = 0;
             this.Jugador1ComboBox.SelectedIndexChanged += new System.EventHandler(this.Jugador1ComboBox_SelectedIndexChanged);
             // 
+            // panelconsultas1
+            // 
+            this.panelconsultas1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelconsultas1.AutoSize = true;
+            this.panelconsultas1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panelconsultas1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelconsultas1.Controls.Add(this.buscarenfrentadosBtn);
+            this.panelconsultas1.Controls.Add(this.label1);
+            this.panelconsultas1.Controls.Add(this.EnfrentadosDGV);
+            this.panelconsultas1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panelconsultas1.Location = new System.Drawing.Point(36, 66);
+            this.panelconsultas1.Margin = new System.Windows.Forms.Padding(2);
+            this.panelconsultas1.Name = "panelconsultas1";
+            this.panelconsultas1.Size = new System.Drawing.Size(411, 347);
+            this.panelconsultas1.TabIndex = 5;
+            this.panelconsultas1.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(10, 6);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(305, 72);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Usuarios enfrentados\r\nanteriormente\r\n";
+            // 
+            // EnfrentadosDGV
+            // 
+            this.EnfrentadosDGV.AllowUserToAddRows = false;
+            this.EnfrentadosDGV.AllowUserToDeleteRows = false;
+            this.EnfrentadosDGV.AllowUserToResizeColumns = false;
+            this.EnfrentadosDGV.AllowUserToResizeRows = false;
+            this.EnfrentadosDGV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.EnfrentadosDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.EnfrentadosDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.EnfrentadosDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1});
+            this.EnfrentadosDGV.Location = new System.Drawing.Point(12, 80);
+            this.EnfrentadosDGV.Margin = new System.Windows.Forms.Padding(2);
+            this.EnfrentadosDGV.Name = "EnfrentadosDGV";
+            this.EnfrentadosDGV.RowHeadersWidth = 62;
+            this.EnfrentadosDGV.RowTemplate.Height = 24;
+            this.EnfrentadosDGV.Size = new System.Drawing.Size(387, 250);
+            this.EnfrentadosDGV.TabIndex = 2;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Usuario";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // panelconsultas2
+            // 
+            this.panelconsultas2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelconsultas2.AutoSize = true;
+            this.panelconsultas2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panelconsultas2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelconsultas2.Controls.Add(this.RivalBox);
+            this.panelconsultas2.Controls.Add(this.label3);
+            this.panelconsultas2.Controls.Add(this.label2);
+            this.panelconsultas2.Controls.Add(this.ResultadosDGV);
+            this.panelconsultas2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panelconsultas2.Location = new System.Drawing.Point(474, 66);
+            this.panelconsultas2.Margin = new System.Windows.Forms.Padding(2);
+            this.panelconsultas2.Name = "panelconsultas2";
+            this.panelconsultas2.Size = new System.Drawing.Size(600, 321);
+            this.panelconsultas2.TabIndex = 6;
+            this.panelconsultas2.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(10, 10);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(326, 36);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Resultados de partidas\r\n";
+            // 
+            // ResultadosDGV
+            // 
+            this.ResultadosDGV.AllowUserToAddRows = false;
+            this.ResultadosDGV.AllowUserToDeleteRows = false;
+            this.ResultadosDGV.AllowUserToResizeColumns = false;
+            this.ResultadosDGV.AllowUserToResizeRows = false;
+            this.ResultadosDGV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ResultadosDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ResultadosDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ResultadosDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn2,
+            this.Rondasganadas,
+            this.Rondasperdidas});
+            this.ResultadosDGV.Location = new System.Drawing.Point(250, 57);
+            this.ResultadosDGV.Margin = new System.Windows.Forms.Padding(2);
+            this.ResultadosDGV.Name = "ResultadosDGV";
+            this.ResultadosDGV.RowHeadersWidth = 62;
+            this.ResultadosDGV.RowTemplate.Height = 24;
+            this.ResultadosDGV.Size = new System.Drawing.Size(300, 254);
+            this.ResultadosDGV.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(27, 75);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(135, 19);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Introduce un usuario:";
+            // 
+            // RivalBox
+            // 
+            this.RivalBox.Location = new System.Drawing.Point(29, 109);
+            this.RivalBox.Name = "RivalBox";
+            this.RivalBox.Size = new System.Drawing.Size(201, 20);
+            this.RivalBox.TabIndex = 10;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Usuario";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // Rondasganadas
+            // 
+            this.Rondasganadas.HeaderText = "Rondas ganadas";
+            this.Rondasganadas.Name = "Rondasganadas";
+            // 
+            // Rondasperdidas
+            // 
+            this.Rondasperdidas.HeaderText = "Rondas perdidas";
+            this.Rondasperdidas.Name = "Rondasperdidas";
+            // 
+            // buscarenfrentadosBtn
+            // 
+            this.buscarenfrentadosBtn.Location = new System.Drawing.Point(320, 35);
+            this.buscarenfrentadosBtn.Name = "buscarenfrentadosBtn";
+            this.buscarenfrentadosBtn.Size = new System.Drawing.Size(67, 28);
+            this.buscarenfrentadosBtn.TabIndex = 4;
+            this.buscarenfrentadosBtn.Text = "Buscar";
+            this.buscarenfrentadosBtn.UseVisualStyleBackColor = true;
+            this.buscarenfrentadosBtn.Click += new System.EventHandler(this.buscarenfrentadosBtn_Click);
+            // 
             // Principal_Logged
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -443,6 +617,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1552, 880);
+            this.Controls.Add(this.panelconsultas2);
+            this.Controls.Add(this.panelconsultas1);
             this.Controls.Add(this.CrearPartida);
             this.Controls.Add(this.panelConectados);
             this.Controls.Add(this.Bienvenida);
@@ -465,6 +641,12 @@
             this.CrearPartida.ResumeLayout(false);
             this.CrearPartida.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVInvitados)).EndInit();
+            this.panelconsultas1.ResumeLayout(false);
+            this.panelconsultas1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EnfrentadosDGV)).EndInit();
+            this.panelconsultas2.ResumeLayout(false);
+            this.panelconsultas2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ResultadosDGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -508,5 +690,18 @@
         private System.Windows.Forms.ToolStripMenuItem darseDeBajaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manualToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultasToolStripMenuItem;
+        public System.Windows.Forms.Panel panelconsultas1;
+        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.DataGridView EnfrentadosDGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        public System.Windows.Forms.Panel panelconsultas2;
+        private System.Windows.Forms.TextBox RivalBox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.DataGridView ResultadosDGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Rondasganadas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Rondasperdidas;
+        private System.Windows.Forms.Button buscarenfrentadosBtn;
     }
 }

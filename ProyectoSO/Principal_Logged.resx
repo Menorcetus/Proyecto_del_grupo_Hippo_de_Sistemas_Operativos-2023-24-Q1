@@ -135,6 +135,24 @@
   <metadata name="Accepted.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="EnfrentadosDGV.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="ResultadosDGV.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Rondasganadas.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Rondasperdidas.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -145,7 +163,7 @@
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABkAAAANGCAYAAAClbUIdAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAA/7JJREFUeF7U/WfXZsmVJYbhV1DUEksSKAzHsOHLAOUry2W5rMwyWSbLewNXKNhC
+        wAAADsABataJCQAA/7JJREFUeF7U/WfXZsmVJYbhV1DUEksSKAzHsOHLAOUry2W5rMwyWSbLewNXKNhC
         oeC96S60mWlOd8HMcIZDMz0SG90zFNfSJ4pcaPRHLS1xSTM/5VHsfc4+Z0fc+7yZQPeI1Ie9IuK4sDee
         957zxo13XX/vucMNA++77obD373iqsP7R4qycP2Z5F1+1cCVlPlPkL8i8v+7v/sPDv/Bf/x3iP/je99P
         2n/8/g8d/jejfCn4D979nkiX8uOf/uLhyc986fDk628cnhjpAy99PNo02oM6gP/o7/2D0hVQvhQ88vHP

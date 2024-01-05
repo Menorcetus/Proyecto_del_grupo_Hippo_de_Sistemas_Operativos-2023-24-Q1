@@ -126,6 +126,7 @@ namespace ProyectoSO
                         ThreadGaleria.Start();
                         break;
                     case 14: // Consulta la lista de jugadores con los que he echado una partida.
+                        logged_form.LlenarEnfrentados(mensaje);
                         break;
 
                 }

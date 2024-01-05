@@ -208,5 +208,37 @@ namespace ProyectoSO
                 Close();
             }
         }
+
+        private void consultasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (consultasToolStripMenuItem.Checked == true)
+            {
+                panelconsultas1.Visible = true;
+                panelconsultas2.Visible = true;
+            }
+            else if (consultasToolStripMenuItem.Checked == false)
+            {
+                panelconsultas1.Visible = false;
+                panelconsultas2.Visible = false;
+            }
+
+        }
+
+        private void buscarenfrentadosBtn_Click(object sender, EventArgs e)
+        {
+            string mensaje = "12/" + user.Name;
+            byte[] msg = Encoding.ASCII.GetBytes(mensaje);
+            server.Send(msg);
+        }
+
+        internal void LlenarEnfrentados(string mensaje)
+        {
+            string[] trozos = mensaje.Split('/');
+            EnfrentadosDGV.RowCount = 0;
+            for (int i = 0; i < trozos.Length; i++)
+            {
+                EnfrentadosDGV.Rows.Add(trozos[i]);
+            }
+        }
     }
 }
