@@ -741,7 +741,69 @@ int JugadoresEnfrentados(char *p, MYSQL *conn, char *Enfrentados)
 	while (row != NULL){
 			sprintf(Enfrentados,"%s/%s",Enfrentados,row[0]);
 			row = mysql_fetch_row(resultado);
-		
+	}
+	return 1;
+}
+
+int ResultadosPartidas(char *p, MYSQL *conn, char *Resultados){
+	
+	char consulta[buffer];
+	int err;
+	MYSQL_RES *resultado;
+	MYSQL_RES *resultado2;
+	MYSQL_ROW *row;
+	MYSQL_ROW *row2;
+	
+	p = strtok( NULL, "/");
+	char nombre[30];
+	strcpy (nombre, p);
+
+	p = strtok(NULL, "/");
+	char rival[30];
+	strcpy(rival,p);
+	
+	
+	strcpy(consulta, "SELECT Puntos_T1 FROM Partidas WHERE Jugador1 = '");
+	strcat(consulta, nombre);
+	strcat(consulta, "' AND Jugador2 = '");
+	strcat(consulta, rival);
+	strcat(consulta, "' UNION SELECT Puntos_T2 FROM Partidas WHERE Jugador1 = '");
+	strcat(consulta, "' AND Jugador2 = '");
+	strcat(consulta, "';");
+	
+	err = mysql_query(conn, consulta);
+	if (err!=0) {
+		printf ("Error al recoger datos de la base %u %s\n", 
+				mysql_errno(conn), mysql_error(conn));
+		exit (1);
+	}
+	
+	resultado = mysql_store_result(conn);
+	row = mysql_fetch_row(resultado);
+	
+	strcpy(consulta, "SELECT Puntos_T2 FROM Partidas WHERE Jugador1 = '");
+	strcat(consulta, nombre);
+	strcat(consulta, "' AND Jugador2 = '");
+	strcat(consulta, rival);
+	strcat(consulta, "' UNION SELECT Puntos_T1 FROM Partidas WHERE Jugador1 = '");
+	strcat(consulta, "' AND Jugador2 = '");
+	strcat(consulta, "';");
+	
+	err = mysql_query(conn, consulta);
+	if (err!=0) {
+		printf ("Error al recoger datos de la base %u %s\n", 
+				mysql_errno(conn), mysql_error(conn));
+		exit (1);
+	}
+	
+	resultado2 = mysql_store_result(conn);
+	row2 = mysql_fetch_row(resultado);
+	
+	strcpy(Resultados,"15");
+	while (row != NULL && row2 != NULL){
+		sprintf(Resultados,"%s/%i/%i",Resultados,atoi(row[0]),atoi(row2[0]));
+		row = mysql_fetch_row(resultado);
+		row2 =  mysql_fetch_row(resultado2);
 	}
 	return 1;
 	
@@ -1154,6 +1216,14 @@ void *AtenderCliente(void *socket){
 					write(sock_conn, Enfrentados, strlen(Enfrentados));
 					break;
 			}
+			case 13:{
+					char Resultados[MaxBuffer];
+					int res = ResultadosPartidas(p, conn, &Resultados);
+					printf("Resultados: %s\n", Resultados);
+					write(sock_conn, Resultados, strlen(Resultados));
+					break;
+			}
+					
 
 			// Mensaje de desconexion
 			case 0:{
