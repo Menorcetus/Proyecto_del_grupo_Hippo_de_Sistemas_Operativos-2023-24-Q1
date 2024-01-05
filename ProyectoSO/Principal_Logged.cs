@@ -182,5 +182,20 @@ namespace ProyectoSO
             byte[] msg = Encoding.ASCII.GetBytes(mensaje);
             server.Send(msg);
         }
+
+        private void darseDeBajaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string pregunta = string.Format("¿Quieres eliminar la cuenta con usuario {0}",this.user.Name);
+            DialogResult Delete = MessageBox.Show(pregunta, "Confirmacion", MessageBoxButtons.YesNo);
+            if (Delete == DialogResult.Yes)
+            {
+                // Enviar mensaje de aceptar partida
+                MessageBox.Show("El usuario se ha eliminado correctamente");
+                string respuesta = "11/" + user.Name;
+                byte[] msg = Encoding.ASCII.GetBytes(respuesta);
+                server.Send(msg);
+                Close();
+            }
+        }
     }
 }

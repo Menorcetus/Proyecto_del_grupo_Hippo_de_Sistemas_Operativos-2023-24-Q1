@@ -33,11 +33,6 @@ namespace ProyectoSO
             CheckForIllegalCrossThreadCalls = false;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            
-        }
-
         public void AtenderServidor()
         {
             while (true)
@@ -48,7 +43,6 @@ namespace ProyectoSO
                 string clean_ms = Encoding.ASCII.GetString(msg2).Split('\0')[0];
                 string[] trozos = clean_ms.Split(new[] {'/'}, 2);
 
-                
                 int codigo = Convert.ToInt32(trozos[0]);
                 string mensaje = trozos[1];
 
@@ -121,6 +115,8 @@ namespace ProyectoSO
                         ThreadStart tsGaleria = delegate { galeria.ShowDialog(); };
                         ThreadGaleria = new Thread(tsGaleria);
                         ThreadGaleria.Start();
+                        break;
+                    case 14: // Consulta la lista de jugadores con los que he echado una partida.
                         break;
 
                 }

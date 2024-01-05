@@ -124,6 +124,7 @@ int ActualizarListaUsuarios(ListaUsuarios *lista, char nombre[Max]){
 		return 1;
 }	
 
+
 int DarConectados(ListaUsuarios *lista, ListaUsuarios *conectados){
 	// Rellena una lista de usuarios conectados con la info de la lista general
 	// Primero borramos el contenido de la lista de conectados
@@ -225,6 +226,65 @@ int Register(char *p, char consulta[buffer], MYSQL *conn, ListaUsuarios *lista){
 	else
 		return 0;			
 }
+
+int DesRegister(char *p, MYSQL *conn, ListaUsuarios *lista){
+	// Hacemos la querry para detectar si el usuario ya existe
+	char consulta[buffer];
+	int err;
+	MYSQL_RES *resultado;
+	
+	p = strtok( NULL, "/");
+	char nombre[30];
+	strcpy (nombre, p);
+	
+	int i = 0;
+	while (strcmp(lista->usuarios[i].Nombre, nombre) != 0)
+		i++;
+	// Debugg
+	lista->usuarios[i].con = 0; 
+	lista->usuarios[i].Socket = NULL; 
+	printf("Estado actualizado:\n");
+	printf("-> Nombre: %s\n",lista->usuarios[i].Nombre);
+	printf("-> Conectado? %i\n",lista->usuarios[i].con);
+	printf("-> Socket: %i\n",lista->usuarios[i].Socket);
+	
+	strcpy(consulta, "SET FOREIGN_KEY_CHECKS=0;");
+	if (mysql_query(conn, consulta) != 0) {
+		printf ("Error al consultar datos de la base %u %s\n",
+				mysql_errno(conn), mysql_error(conn));
+	}
+	err=mysql_query (conn, consulta);
+	
+	strcpy(consulta, "UPDATE Partidas SET Jugador1 = 'N/A' WHERE Jugador1 = '");
+	strcat(consulta, nombre);
+	strcat(consulta, "';");
+	err=mysql_query (conn, consulta);
+	
+	strcpy(consulta, "UPDATE Partidas SET Jugador2 = 'N/A' WHERE Jugador2 = '");
+	strcat(consulta, nombre);
+	strcat(consulta, "';");
+	err=mysql_query (conn, consulta);
+	
+	strcpy(consulta, "DELETE FROM Usuarios WHERE Nombre = '");
+	strcat(consulta, nombre);
+	strcat(consulta,"';");
+	err=mysql_query (conn, consulta);
+	
+	strcpy(consulta, "SET FOREIGN_KEY_CHECKS=1;");
+	if (mysql_query(conn, consulta) != 0) {
+		printf ("Error al consultar datos de la base %u %s\n",
+				mysql_errno(conn), mysql_error(conn));
+	}
+	
+	err=mysql_query (conn, consulta);
+	if (err!=0) {
+		printf ("Error al consultar datos de la base %u %s\n",
+				mysql_errno(conn), mysql_error(conn));
+		return 1;
+	}
+}
+	
+
 
 int LogIN(char *p, MYSQL *conn, char info[buffer], ListaUsuarios *lista, int Socket){
 	// SELECT PASSWORD FROM USERS WHERE NOMBRE = <nombre>;
@@ -1045,6 +1105,13 @@ void *AtenderCliente(void *socket){
 				write(sock_conn, GaleriaInfo, strlen(GaleriaInfo));
 				break;
 			}
+				
+			case 11: { // darse de baja
+					pthread_mutex_lock(&mutex);
+					int res = DesRegister(p, conn, &Usuarios);
+					pthread_mutex_unlock(&mutex);
+					break;
+				}
 
 			// Mensaje de desconexion
 			case 0:{
@@ -1055,7 +1122,7 @@ void *AtenderCliente(void *socket){
 		}
 		// Si el mensaje no es de desconexion, cerramos la conexion a mysql y enviamos 
 		// la respuesta al cliente
-		if ((codigo != 0) && (codigo != 3) && (codigo != 4) && (codigo != 5) && (codigo != 6) && (codigo != 7) && (codigo != 8) && (codigo != 9) && (codigo != 10)){
+		if ((codigo != 0) && (codigo != 3) && (codigo != 4) && (codigo != 5) && (codigo != 6) && (codigo != 7) && (codigo != 8) && (codigo != 9) && (codigo != 10) && (codigo != 11)){
 			mysql_close(conn);
 			printf("Respuesta: %s\n", respuesta);
 			write(sock_conn, respuesta, strlen(respuesta));

@@ -38,7 +38,7 @@ namespace ProyectoSO
             user.Password = pass_box.Text;
             user.Name = user_box.Text;
             user.register = true;
-            if(server != null )
+            if(server != null && user.Email != "" && user.Password != "" && user.Name != "")
             {
                 string mensaje = "1/" + user.Name + "/" + user.Email + "/" + user.Password;
                 byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
