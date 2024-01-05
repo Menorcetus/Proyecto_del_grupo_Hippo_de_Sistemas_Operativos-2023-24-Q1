@@ -15,6 +15,7 @@ se recogen los datos de una partida cuandoe sta finaliza*/
 CREATE TABLE Usuarios (
     ID_usuario INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
     Nombre VARCHAR(30), 
+    KEY(Nombre),
     Correo VARCHAR(30), 
     Password VARCHAR(30)
     ) ENGINE = InnoDB;
@@ -23,14 +24,12 @@ CREATE TABLE Usuarios (
 CREATE TABLE Partidas (
     ID_partida INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
     Duracion FLOAT, 
-
-    Jugador1 VARCHAR(30) NOT NULL, 
-    Jugador2 VARCHAR(30) NOT NULL, 
+    Jugador1 VARCHAR(30), 
+    Jugador2 VARCHAR(30), 
     FOREIGN KEY (Jugador1) REFERENCES Usuarios(Nombre),
     FOREIGN KEY (Jugador2) REFERENCES Usuarios(Nombre),
-
     Puntos_T1 INT, Puntos_T2 INT
-    ) ENGINE = InnoDB;
+) ENGINE = InnoDB;
 
 
 CREATE TABLE Cartas (
