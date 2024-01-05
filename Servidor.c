@@ -801,7 +801,7 @@ int ResultadosPartidas(char *p, MYSQL *conn, char *Resultados){
 	}
 	
 	resultado2 = mysql_store_result(conn);
-	row2 = mysql_fetch_row(resultado);
+	row2 = mysql_fetch_row(resultado2);
 	
 	strcpy(Resultados,"15");
 	while (row != NULL && row2 != NULL){
@@ -1238,7 +1238,7 @@ void *AtenderCliente(void *socket){
 		}
 		// Si el mensaje no es de desconexion, cerramos la conexion a mysql y enviamos 
 		// la respuesta al cliente
-		if ((codigo != 0) && (codigo != 3) && (codigo != 4) && (codigo != 5) && (codigo != 6) && (codigo != 7) && (codigo != 8) && (codigo != 9) && (codigo != 10) && (codigo != 11) && (codigo != 12)){
+		if ((codigo != 0) && (codigo != 3) && (codigo != 4) && (codigo != 5) && (codigo != 6) && (codigo != 7) && (codigo != 8) && (codigo != 9) && (codigo != 10) && (codigo != 11) && (codigo != 12) && (codigo != 13)){
 			mysql_close(conn);
 			printf("Respuesta: %s\n", respuesta);
 			write(sock_conn, respuesta, strlen(respuesta));

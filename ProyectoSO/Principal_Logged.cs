@@ -233,6 +233,14 @@ namespace ProyectoSO
 
         internal void LlenarEnfrentados(string mensaje)
         {
+            foreach (DataGridViewRow row in EnfrentadosDGV.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    // Clear the content of each cell
+                    cell.Value = null; // Or use an empty string: ""
+                }
+            }
             string[] trozos = mensaje.Split('/');
             EnfrentadosDGV.RowCount = 0;
             for (int i = 0; i < trozos.Length; i++)
@@ -250,11 +258,19 @@ namespace ProyectoSO
 
         internal void LlenarResultadosRival(string mensaje)
         {
+            foreach (DataGridViewRow row in ResultadosDGV.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    // Clear the content of each cell
+                    cell.Value = null; // Or use an empty string: ""
+                }
+            }
             string[] trozos = mensaje.Split('/');
             ResultadosDGV.RowCount = 0;
-            for (int i = 0; i < trozos.Length; i++)
+            for (int i = 0; i < trozos.Length/2; i++)
             {
-                ResultadosDGV.Rows.Add(trozos[i], trozos[i+1]);
+                ResultadosDGV.Rows.Add(trozos[2*i], trozos[2*i+1]);
             }
         }
     }
