@@ -38,19 +38,22 @@
             this.dataGridConectados.AllowUserToAddRows = false;
             this.dataGridConectados.AllowUserToDeleteRows = false;
             this.dataGridConectados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridConectados.Location = new System.Drawing.Point(12, 12);
+            this.dataGridConectados.Location = new System.Drawing.Point(9, 10);
+            this.dataGridConectados.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridConectados.Name = "dataGridConectados";
             this.dataGridConectados.ReadOnly = true;
             this.dataGridConectados.RowHeadersWidth = 51;
             this.dataGridConectados.RowTemplate.Height = 24;
-            this.dataGridConectados.Size = new System.Drawing.Size(582, 298);
+            this.dataGridConectados.Size = new System.Drawing.Size(436, 242);
             this.dataGridConectados.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(641, 352);
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(476, 286);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 38);
+            this.button1.Size = new System.Drawing.Size(86, 31);
             this.button1.TabIndex = 1;
             this.button1.Text = "Actualizar";
             this.button1.UseVisualStyleBackColor = true;
@@ -58,13 +61,15 @@
             // 
             // Grid_Form_Conectados
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridConectados);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Grid_Form_Conectados";
-            this.Text = "Grid_Form_Conectados";
+            this.Text = "Conectados";
             this.Load += new System.EventHandler(this.Grid_Form_Conectados_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridConectados)).EndInit();
             this.ResumeLayout(false);

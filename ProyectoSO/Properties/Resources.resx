@@ -121,6 +121,12 @@
   <data name="fondo_gwent" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fondo_gwent.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="loging" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\loging.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Patron_madera" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Patron_madera.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
