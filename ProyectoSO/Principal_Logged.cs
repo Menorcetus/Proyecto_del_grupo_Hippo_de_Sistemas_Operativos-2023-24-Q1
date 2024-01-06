@@ -307,7 +307,7 @@ namespace ProyectoSO
             for (int i = 0; i < trozos.Length / 3; i++)
 
             {
-                Periodo_DGV.Rows.Add(trozos[3 * i], trozos[3 * i + 1] + " - " + trozos[3 * i + 3] , trozos[3 * i + 2] +" - " + trozos[3 * i + 4]);
+                Periodo_DGV.Rows.Add(trozos[3 * i], trozos[3 * i + 1] + " --> " + Convert.ToInt32(trozos[3 * i + 2]) , trozos[3 * i + 3] + " --> " + Convert.ToInt32(trozos[3 * i + 4]));
             }
         
 

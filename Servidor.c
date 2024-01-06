@@ -912,7 +912,7 @@ int DarPeriodosPartidas(char *p, MYSQL *conn, char *Periodos)
 	row = mysql_fetch_row(resultado);
 	strcpy(Periodos,"16");
 	while (row != NULL){
-			sprintf(Periodos,"%s/%s/%s/%i/%s/%i",Periodos,row[1],row[2],row[5],row[3],row[4]);
+			sprintf(Periodos,"%s/%s/%s/%i/%s/%i",Periodos,row[1],row[2],atoi(row[5]),row[3],atoi(row[4]));
 			row = mysql_fetch_row(resultado);
 	}
 	return 1;
