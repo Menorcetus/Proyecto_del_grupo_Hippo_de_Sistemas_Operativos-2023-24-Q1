@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Linq.Expressions;
@@ -330,6 +331,13 @@ namespace ProyectoSO
                     Periodo_DGV.Rows.Add(trozos[3 * i], trozos[3 * i + 1] + " --> " + Convert.ToInt32(trozos[3 * i + 2]), trozos[3 * i + 3] + " --> " + Convert.ToInt32(trozos[3 * i + 4]));
                 }
             }        
+        }
+
+        private void manualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process proceso = new Process();
+            proceso.StartInfo.FileName = "Manual_Juego.pdf"; // en el bin\Debug
+            proceso.Start();
         }
     }
 }

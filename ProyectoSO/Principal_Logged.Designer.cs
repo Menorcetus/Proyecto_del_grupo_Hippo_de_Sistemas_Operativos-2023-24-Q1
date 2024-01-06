@@ -79,16 +79,16 @@
             this.Rondasganadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rondasperdidas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelconsultas3 = new System.Windows.Forms.Panel();
-            this.Periodo_btn = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.dateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerInit = new System.Windows.Forms.DateTimePicker();
             this.Periodo_DGV = new System.Windows.Forms.DataGridView();
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Jugador1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Jugador2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateTimePickerInit = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.Periodo_btn = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.BarraPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridConectados)).BeginInit();
             this.panelConectados.SuspendLayout();
@@ -131,14 +131,14 @@
             // logOutToolStripMenuItem1
             // 
             this.logOutToolStripMenuItem1.Name = "logOutToolStripMenuItem1";
-            this.logOutToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.logOutToolStripMenuItem1.Size = new System.Drawing.Size(138, 22);
             this.logOutToolStripMenuItem1.Text = "LogOut";
             this.logOutToolStripMenuItem1.Click += new System.EventHandler(this.logOutToolStripMenuItem1_Click);
             // 
             // darseDeBajaToolStripMenuItem
             // 
             this.darseDeBajaToolStripMenuItem.Name = "darseDeBajaToolStripMenuItem";
-            this.darseDeBajaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.darseDeBajaToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.darseDeBajaToolStripMenuItem.Text = "Darse de baja";
             this.darseDeBajaToolStripMenuItem.Click += new System.EventHandler(this.darseDeBajaToolStripMenuItem_Click);
             // 
@@ -198,21 +198,22 @@
             // galeríaToolStripMenuItem
             // 
             this.galeríaToolStripMenuItem.Name = "galeríaToolStripMenuItem";
-            this.galeríaToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.galeríaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.galeríaToolStripMenuItem.Text = "Galería";
             this.galeríaToolStripMenuItem.Click += new System.EventHandler(this.galeríaToolStripMenuItem_Click);
             // 
             // manualToolStripMenuItem
             // 
             this.manualToolStripMenuItem.Name = "manualToolStripMenuItem";
-            this.manualToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.manualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.manualToolStripMenuItem.Text = "Manual";
+            this.manualToolStripMenuItem.Click += new System.EventHandler(this.manualToolStripMenuItem_Click);
             // 
             // consultasToolStripMenuItem
             // 
             this.consultasToolStripMenuItem.CheckOnClick = true;
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
-            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.consultasToolStripMenuItem.Text = "Consultas";
             this.consultasToolStripMenuItem.Click += new System.EventHandler(this.consultasToolStripMenuItem_Click);
             // 
@@ -647,48 +648,23 @@
             this.panelconsultas3.TabIndex = 11;
             this.panelconsultas3.Visible = false;
             // 
-            // Periodo_btn
+            // dateTimePickerEnd
             // 
-            this.Periodo_btn.Location = new System.Drawing.Point(119, 251);
-            this.Periodo_btn.Name = "Periodo_btn";
-            this.Periodo_btn.Size = new System.Drawing.Size(67, 28);
-            this.Periodo_btn.TabIndex = 5;
-            this.Periodo_btn.Text = "Buscar";
-            this.Periodo_btn.UseVisualStyleBackColor = true;
-            this.Periodo_btn.Click += new System.EventHandler(this.Periodo_btn_Click);
+            this.dateTimePickerEnd.CustomFormat = "yyyy/MM/dd";
+            this.dateTimePickerEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerEnd.Location = new System.Drawing.Point(16, 202);
+            this.dateTimePickerEnd.Name = "dateTimePickerEnd";
+            this.dateTimePickerEnd.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerEnd.TabIndex = 25;
             // 
-            // label5
+            // dateTimePickerInit
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(10, 10);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(299, 36);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Partidas por periodo";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(26, 161);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(158, 19);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Datos del fin del periodo";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(12, 73);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(172, 19);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Datos de inicio del periodo";
+            this.dateTimePickerInit.CustomFormat = "yyyy/MM/dd";
+            this.dateTimePickerInit.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerInit.Location = new System.Drawing.Point(16, 109);
+            this.dateTimePickerInit.Name = "dateTimePickerInit";
+            this.dateTimePickerInit.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerInit.TabIndex = 24;
             // 
             // Periodo_DGV
             // 
@@ -726,23 +702,48 @@
             this.Jugador2.Name = "Jugador2";
             this.Jugador2.Width = 79;
             // 
-            // dateTimePickerInit
+            // label7
             // 
-            this.dateTimePickerInit.CustomFormat = "yyyy/MM/dd";
-            this.dateTimePickerInit.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerInit.Location = new System.Drawing.Point(16, 109);
-            this.dateTimePickerInit.Name = "dateTimePickerInit";
-            this.dateTimePickerInit.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePickerInit.TabIndex = 24;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(12, 73);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(172, 19);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Datos de inicio del periodo";
             // 
-            // dateTimePickerEnd
+            // label6
             // 
-            this.dateTimePickerEnd.CustomFormat = "yyyy/MM/dd";
-            this.dateTimePickerEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerEnd.Location = new System.Drawing.Point(16, 202);
-            this.dateTimePickerEnd.Name = "dateTimePickerEnd";
-            this.dateTimePickerEnd.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePickerEnd.TabIndex = 25;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(26, 161);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(158, 19);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Datos del fin del periodo";
+            // 
+            // Periodo_btn
+            // 
+            this.Periodo_btn.Location = new System.Drawing.Point(119, 251);
+            this.Periodo_btn.Name = "Periodo_btn";
+            this.Periodo_btn.Size = new System.Drawing.Size(67, 28);
+            this.Periodo_btn.TabIndex = 5;
+            this.Periodo_btn.Text = "Buscar";
+            this.Periodo_btn.UseVisualStyleBackColor = true;
+            this.Periodo_btn.Click += new System.EventHandler(this.Periodo_btn_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(10, 10);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(299, 36);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Partidas por periodo";
             // 
             // Principal_Logged
             // 
