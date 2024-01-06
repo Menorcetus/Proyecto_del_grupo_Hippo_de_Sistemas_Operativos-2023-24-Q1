@@ -131,6 +131,9 @@ namespace ProyectoSO
                     case 15:
                         logged_form.LlenarResultadosRival(mensaje);
                         break;
+                    case 16:
+                        logged_form.LlenarPeriodos(mensaje);
+                        break;
 
                 }
             }

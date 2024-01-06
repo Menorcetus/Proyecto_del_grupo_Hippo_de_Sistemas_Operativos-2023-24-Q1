@@ -303,11 +303,11 @@ namespace ProyectoSO
                 }
             }
             string[] trozos = mensaje.Split('/');
-            ResultadosDGV.RowCount = 0;
+            Periodo_DGV.RowCount = 0;
             for (int i = 0; i < trozos.Length / 3; i++)
 
             {
-                ResultadosDGV.Rows.Add(trozos[3 * i], trozos[3 * i + 1] + " - " + trozos[3 * i + 3] , trozos[3 * i + 2] +" - " + trozos[3 * i + 4]);
+                Periodo_DGV.Rows.Add(trozos[3 * i], trozos[3 * i + 1] + " - " + trozos[3 * i + 3] , trozos[3 * i + 2] +" - " + trozos[3 * i + 4]);
             }
         
 

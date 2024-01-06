@@ -43,6 +43,9 @@ CREATE TABLE Cartas (
 INSERT INTO Usuarios(Nombre, Correo, Password) 
 VALUES ('a','a','a'),('bb','bb','bb'),('c','c','c'),('d','d','d'),('s','s','s');
 
+/*INSERT INTO Partidas(HPartida, Jugador1, Jugador2, Puntos_T1, Puntos_T2) 
+VALUES ('a','a','b'),('bb','bb','bb'),('c','c','c'),('d','d','d'),('s','s','s');
+*/
 
 INSERT INTO Cartas (ID, Nombre, Fuerza, Posicion, Repetible)
 VALUES (0,'Hippotenusa',8,3,0),(1,'Highppo',6,1,1),(2,'Conclave de nutrias',4,1,1),(3,'Kinkis reclutas',1,1,1),(4,'King of KinkIX',5,1,0),
