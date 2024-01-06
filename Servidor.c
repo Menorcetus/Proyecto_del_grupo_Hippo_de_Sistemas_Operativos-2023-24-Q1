@@ -775,6 +775,8 @@ int JugadoresEnfrentados(char *p, MYSQL *conn, char *Enfrentados){
 	resultado = mysql_store_result(conn);
 	row = mysql_fetch_row(resultado);
 	strcpy(Enfrentados,"14");
+	if(row == NULL)
+		strcpy(Enfrentados,"14/-1");
 	while (row != NULL){
 			sprintf(Enfrentados,"%s/%s",Enfrentados,row[0]);
 			row = mysql_fetch_row(resultado);
@@ -843,8 +845,10 @@ int ResultadosPartidas(char *p, MYSQL *conn, char *Resultados){
 	// Guardamos info y creamos mensaje para enviar
 	resultado2 = mysql_store_result(conn);
 	row2 = mysql_fetch_row(resultado2);
-	
-	strcpy(Resultados,"15");
+
+	strcpy(Resultados,"15");	
+	if(row == NULL)
+		strcpy(Resultados,"15/-1");
 	while (row != NULL && row2 != NULL){
 		sprintf(Resultados,"%s/%i/%i",Resultados,atoi(row[0]),atoi(row2[0]));
 		row = mysql_fetch_row(resultado);
@@ -853,9 +857,10 @@ int ResultadosPartidas(char *p, MYSQL *conn, char *Resultados){
 	return 1;
 }
 
-int DarPeriodosPartidas(char *p, MYSQL *conn, char *Periodos)
-{
+int DarPeriodosPartidas(char *p, MYSQL *conn, char *Periodos){
+	// Busca las partidas en un intervalo de tiempo
 
+	// MYSQL variables
 	char consulta[buffer];
 	int err;
 	MYSQL_RES *resultado;
@@ -911,6 +916,8 @@ int DarPeriodosPartidas(char *p, MYSQL *conn, char *Periodos)
 	resultado = mysql_store_result(conn);
 	row = mysql_fetch_row(resultado);
 	strcpy(Periodos,"16");
+	if(row == NULL)
+		strcpy(Periodos,"16/-1");
 	while (row != NULL){
 			sprintf(Periodos,"%s/%s/%s/%i/%s/%i",Periodos,row[1],row[2],atoi(row[5]),row[3],atoi(row[4]));
 			row = mysql_fetch_row(resultado);
@@ -1331,6 +1338,8 @@ void *AtenderCliente(void *socket){
 					write(sock_conn, Resultados, strlen(Resultados));
 					break;
 			}
+			// Intervalo de tiempo
+			// Recibe: 14/<anno inicio>/<mes inicio>/<dia inicio>/<anno final>/<mes final>/<dia final>
 			case 14:{
 					char Periodos[MaxBuffer];
 					int res = DarPeriodosPartidas(p, conn, &Periodos);

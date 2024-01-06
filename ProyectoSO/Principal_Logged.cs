@@ -245,10 +245,17 @@ namespace ProyectoSO
                 }
             }
             string[] trozos = mensaje.Split('/');
-            EnfrentadosDGV.RowCount = 0;
-            for (int i = 0; i < trozos.Length; i++)
+            if (trozos[0] == "-1")
             {
-                EnfrentadosDGV.Rows.Add(trozos[i]);
+                MessageBox.Show("Aun no has jugado contra nadie.");
+            }
+            else
+            {
+                EnfrentadosDGV.RowCount = 0;
+                for (int i = 0; i < trozos.Length; i++)
+                {
+                    EnfrentadosDGV.Rows.Add(trozos[i]);
+                }
             }
         }
 
@@ -276,10 +283,17 @@ namespace ProyectoSO
                 }
             }
             string[] trozos = mensaje.Split('/');
-            ResultadosDGV.RowCount = 0;
-            for (int i = 0; i < trozos.Length/2; i++)
+            if (trozos[0] == "-1")
             {
-                ResultadosDGV.Rows.Add(trozos[2*i], trozos[2*i+1]);
+                MessageBox.Show("Aun no has jugado contra ese jugador.");
+            }
+            else
+            {
+                ResultadosDGV.RowCount = 0;
+                for (int i = 0; i < trozos.Length / 2; i++)
+                {
+                    ResultadosDGV.Rows.Add(trozos[2 * i], trozos[2 * i + 1]);
+                }
             }
         }
 
@@ -303,15 +317,19 @@ namespace ProyectoSO
                 }
             }
             string[] trozos = mensaje.Split('/');
-            Periodo_DGV.RowCount = 0;
-            for (int i = 0; i < trozos.Length / 3; i++)
-
+            if (trozos[0] == "-1")
             {
-                Periodo_DGV.Rows.Add(trozos[3 * i], trozos[3 * i + 1] + " --> " + Convert.ToInt32(trozos[3 * i + 2]) , trozos[3 * i + 3] + " --> " + Convert.ToInt32(trozos[3 * i + 4]));
+                MessageBox.Show("No se han encontrado partidas en ese intervalo.");
             }
-        
+            else
+            {
+                Periodo_DGV.RowCount = 0;
+                for (int i = 0; i < trozos.Length / 3; i++)
 
-
+                {
+                    Periodo_DGV.Rows.Add(trozos[3 * i], trozos[3 * i + 1] + " --> " + Convert.ToInt32(trozos[3 * i + 2]), trozos[3 * i + 3] + " --> " + Convert.ToInt32(trozos[3 * i + 4]));
+                }
+            }        
         }
     }
 }

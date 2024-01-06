@@ -174,7 +174,7 @@ namespace ProyectoSO
                 }
                 catch (SocketException ex)
                 {
-                    //Si hay excepcion imprimimos error y salimos del programa con return 
+                    //Si hay excepcion imprimimos error y salimos
                     MessageBox.Show("No he podido conectar con el servidor");
                     // Mucahs gracias a Asier Lopez^2 por ayudarnos con la consola de control
                     ConsolaControl.AppendText(String.Format("Entry {0}: No he podido conectar con el servidor {1}. ", Entry, IP_Box.Text) + Environment.NewLine);
