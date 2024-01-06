@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
@@ -215,11 +216,13 @@ namespace ProyectoSO
             {
                 panelconsultas1.Visible = true;
                 panelconsultas2.Visible = true;
+                panelconsultas3.Visible = true;
             }
             else if (consultasToolStripMenuItem.Checked == false)
             {
                 panelconsultas1.Visible = false;
                 panelconsultas2.Visible = false;
+                panelconsultas3.Visible = false;
             }
 
         }
@@ -278,6 +281,37 @@ namespace ProyectoSO
             {
                 ResultadosDGV.Rows.Add(trozos[2*i], trozos[2*i+1]);
             }
+        }
+
+        private void Periodo_btn_Click(object sender, EventArgs e)
+        {
+
+                string mensaje = "14/" + this.dateTimePickerInit.Text + "/" + this.dateTimePickerEnd.Text;
+                byte[] msg = Encoding.ASCII.GetBytes(mensaje);
+                server.Send(msg);
+
+        }
+
+        internal void LlenarPeriodos(string mensaje)
+        {
+            foreach (DataGridViewRow row in Periodo_DGV.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    // Clear the content of each cell
+                    cell.Value = null; // Or use an empty string: ""
+                }
+            }
+            string[] trozos = mensaje.Split('/');
+            ResultadosDGV.RowCount = 0;
+            for (int i = 0; i < trozos.Length / 3; i++)
+
+            {
+                ResultadosDGV.Rows.Add(trozos[3 * i], trozos[3 * i + 1] + " - " + trozos[3 * i + 3] , trozos[3 * i + 2] +" - " + trozos[3 * i + 4]);
+            }
+        
+
+
         }
     }
 }

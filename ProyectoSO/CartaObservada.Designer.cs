@@ -36,7 +36,9 @@
             this.descripcLbl = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.NombreLbl_2 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.CartaBox)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // CartaBox
@@ -52,7 +54,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 18F);
-            this.label1.Location = new System.Drawing.Point(408, 110);
+            this.label1.Location = new System.Drawing.Point(3, 65);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 27);
             this.label1.TabIndex = 1;
@@ -62,7 +64,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 18F);
-            this.label2.Location = new System.Drawing.Point(408, 232);
+            this.label2.Location = new System.Drawing.Point(3, 187);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 27);
             this.label2.TabIndex = 2;
@@ -71,7 +73,9 @@
             // NombreLbl
             // 
             this.NombreLbl.AutoSize = true;
+            this.NombreLbl.BackColor = System.Drawing.Color.Transparent;
             this.NombreLbl.Font = new System.Drawing.Font("Times New Roman", 18F);
+            this.NombreLbl.ForeColor = System.Drawing.Color.Gold;
             this.NombreLbl.Location = new System.Drawing.Point(69, 23);
             this.NombreLbl.Name = "NombreLbl";
             this.NombreLbl.Size = new System.Drawing.Size(28, 27);
@@ -82,7 +86,7 @@
             // 
             this.FuerzaLbl.AutoSize = true;
             this.FuerzaLbl.Font = new System.Drawing.Font("Times New Roman", 18F);
-            this.FuerzaLbl.Location = new System.Drawing.Point(497, 232);
+            this.FuerzaLbl.Location = new System.Drawing.Point(92, 187);
             this.FuerzaLbl.Name = "FuerzaLbl";
             this.FuerzaLbl.Size = new System.Drawing.Size(28, 27);
             this.FuerzaLbl.TabIndex = 5;
@@ -92,7 +96,7 @@
             // 
             this.descripcLbl.AutoSize = true;
             this.descripcLbl.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descripcLbl.Location = new System.Drawing.Point(410, 375);
+            this.descripcLbl.Location = new System.Drawing.Point(5, 330);
             this.descripcLbl.Name = "descripcLbl";
             this.descripcLbl.Size = new System.Drawing.Size(22, 21);
             this.descripcLbl.TabIndex = 6;
@@ -102,7 +106,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 18F);
-            this.label3.Location = new System.Drawing.Point(409, 324);
+            this.label3.Location = new System.Drawing.Point(4, 279);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(133, 27);
             this.label3.TabIndex = 7;
@@ -113,28 +117,40 @@
             this.NombreLbl_2.AutoSize = true;
             this.NombreLbl_2.BackColor = System.Drawing.Color.Transparent;
             this.NombreLbl_2.Font = new System.Drawing.Font("Times New Roman", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NombreLbl_2.Location = new System.Drawing.Point(520, 109);
+            this.NombreLbl_2.Location = new System.Drawing.Point(115, 64);
             this.NombreLbl_2.Name = "NombreLbl_2";
             this.NombreLbl_2.Size = new System.Drawing.Size(172, 28);
             this.NombreLbl_2.TabIndex = 8;
             this.NombreLbl_2.Text = "--------------------";
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Cornsilk;
+            this.panel1.Controls.Add(this.NombreLbl_2);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.descripcLbl);
+            this.panel1.Controls.Add(this.FuerzaLbl);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(398, 67);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(536, 600);
+            this.panel1.TabIndex = 9;
+            // 
             // CartaObservada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::ProyectoSO.Properties.Resources.Patron_madera;
             this.ClientSize = new System.Drawing.Size(1081, 690);
-            this.Controls.Add(this.NombreLbl_2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.descripcLbl);
-            this.Controls.Add(this.FuerzaLbl);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.NombreLbl);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.CartaBox);
             this.Name = "CartaObservada";
             this.Load += new System.EventHandler(this.CartaObservada_Load);
             ((System.ComponentModel.ISupportInitialize)(this.CartaBox)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,5 +166,6 @@
         private System.Windows.Forms.Label descripcLbl;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label NombreLbl_2;
+        private System.Windows.Forms.Panel panel1;
     }
 }

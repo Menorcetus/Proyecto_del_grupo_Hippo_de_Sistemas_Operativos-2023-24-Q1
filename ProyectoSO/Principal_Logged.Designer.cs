@@ -78,14 +78,17 @@
             this.ResultadosDGV = new System.Windows.Forms.DataGridView();
             this.Rondasganadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rondasperdidas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.panelconsultas3 = new System.Windows.Forms.Panel();
+            this.Periodo_btn = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.PeriodoDGV = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.Periodo_DGV = new System.Windows.Forms.DataGridView();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Jugador1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Jugador2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateTimePickerInit = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
             this.BarraPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridConectados)).BeginInit();
             this.panelConectados.SuspendLayout();
@@ -95,8 +98,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.EnfrentadosDGV)).BeginInit();
             this.panelconsultas2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ResultadosDGV)).BeginInit();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PeriodoDGV)).BeginInit();
+            this.panelconsultas3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Periodo_DGV)).BeginInit();
             this.SuspendLayout();
             // 
             // BarraPrincipal
@@ -128,14 +131,14 @@
             // logOutToolStripMenuItem1
             // 
             this.logOutToolStripMenuItem1.Name = "logOutToolStripMenuItem1";
-            this.logOutToolStripMenuItem1.Size = new System.Drawing.Size(138, 22);
+            this.logOutToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.logOutToolStripMenuItem1.Text = "LogOut";
             this.logOutToolStripMenuItem1.Click += new System.EventHandler(this.logOutToolStripMenuItem1_Click);
             // 
             // darseDeBajaToolStripMenuItem
             // 
             this.darseDeBajaToolStripMenuItem.Name = "darseDeBajaToolStripMenuItem";
-            this.darseDeBajaToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.darseDeBajaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.darseDeBajaToolStripMenuItem.Text = "Darse de baja";
             this.darseDeBajaToolStripMenuItem.Click += new System.EventHandler(this.darseDeBajaToolStripMenuItem_Click);
             // 
@@ -195,21 +198,21 @@
             // galeríaToolStripMenuItem
             // 
             this.galeríaToolStripMenuItem.Name = "galeríaToolStripMenuItem";
-            this.galeríaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.galeríaToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.galeríaToolStripMenuItem.Text = "Galería";
             this.galeríaToolStripMenuItem.Click += new System.EventHandler(this.galeríaToolStripMenuItem_Click);
             // 
             // manualToolStripMenuItem
             // 
             this.manualToolStripMenuItem.Name = "manualToolStripMenuItem";
-            this.manualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.manualToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.manualToolStripMenuItem.Text = "Manual";
             // 
             // consultasToolStripMenuItem
             // 
             this.consultasToolStripMenuItem.CheckOnClick = true;
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
-            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.consultasToolStripMenuItem.Text = "Consultas";
             this.consultasToolStripMenuItem.Click += new System.EventHandler(this.consultasToolStripMenuItem_Click);
             // 
@@ -622,52 +625,37 @@
             this.Rondasperdidas.HeaderText = "Rondas perdidas";
             this.Rondasperdidas.Name = "Rondasperdidas";
             // 
-            // panel3
+            // panelconsultas3
             // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.panelconsultas3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel3.AutoSize = true;
-            this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel3.Controls.Add(this.button1);
-            this.panel3.Controls.Add(this.textBox1);
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.PeriodoDGV);
-            this.panel3.Cursor = System.Windows.Forms.Cursors.Default;
-            this.panel3.Location = new System.Drawing.Point(474, 412);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(600, 321);
-            this.panel3.TabIndex = 11;
-            this.panel3.Visible = false;
+            this.panelconsultas3.AutoSize = true;
+            this.panelconsultas3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panelconsultas3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelconsultas3.Controls.Add(this.dateTimePickerEnd);
+            this.panelconsultas3.Controls.Add(this.dateTimePickerInit);
+            this.panelconsultas3.Controls.Add(this.Periodo_DGV);
+            this.panelconsultas3.Controls.Add(this.label7);
+            this.panelconsultas3.Controls.Add(this.label6);
+            this.panelconsultas3.Controls.Add(this.Periodo_btn);
+            this.panelconsultas3.Controls.Add(this.label5);
+            this.panelconsultas3.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panelconsultas3.Location = new System.Drawing.Point(474, 475);
+            this.panelconsultas3.Margin = new System.Windows.Forms.Padding(2);
+            this.panelconsultas3.Name = "panelconsultas3";
+            this.panelconsultas3.Size = new System.Drawing.Size(732, 282);
+            this.panelconsultas3.TabIndex = 11;
+            this.panelconsultas3.Visible = false;
             // 
-            // button1
+            // Periodo_btn
             // 
-            this.button1.Location = new System.Drawing.Point(29, 248);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(67, 28);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(29, 109);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(201, 20);
-            this.textBox1.TabIndex = 10;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(27, 75);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(135, 19);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Introduce un usuario:";
+            this.Periodo_btn.Location = new System.Drawing.Point(119, 251);
+            this.Periodo_btn.Name = "Periodo_btn";
+            this.Periodo_btn.Size = new System.Drawing.Size(67, 28);
+            this.Periodo_btn.TabIndex = 5;
+            this.Periodo_btn.Text = "Buscar";
+            this.Periodo_btn.UseVisualStyleBackColor = true;
+            this.Periodo_btn.Click += new System.EventHandler(this.Periodo_btn_Click);
             // 
             // label5
             // 
@@ -676,41 +664,85 @@
             this.label5.Location = new System.Drawing.Point(10, 10);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(315, 36);
+            this.label5.Size = new System.Drawing.Size(299, 36);
             this.label5.TabIndex = 3;
-            this.label5.Text = "Partidas en el periodo";
+            this.label5.Text = "Partidas por periodo";
             // 
-            // PeriodoDGV
+            // label6
             // 
-            this.PeriodoDGV.AllowUserToAddRows = false;
-            this.PeriodoDGV.AllowUserToDeleteRows = false;
-            this.PeriodoDGV.AllowUserToResizeColumns = false;
-            this.PeriodoDGV.AllowUserToResizeRows = false;
-            this.PeriodoDGV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.PeriodoDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.PeriodoDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.PeriodoDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
-            this.PeriodoDGV.Location = new System.Drawing.Point(250, 57);
-            this.PeriodoDGV.Margin = new System.Windows.Forms.Padding(2);
-            this.PeriodoDGV.Name = "PeriodoDGV";
-            this.PeriodoDGV.RowHeadersWidth = 62;
-            this.PeriodoDGV.RowTemplate.Height = 24;
-            this.PeriodoDGV.Size = new System.Drawing.Size(300, 254);
-            this.PeriodoDGV.TabIndex = 2;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(26, 161);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(158, 19);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Datos del fin del periodo";
             // 
-            // dataGridViewTextBoxColumn2
+            // label7
             // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Rondas ganadas";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(12, 73);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(172, 19);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Datos de inicio del periodo";
             // 
-            // dataGridViewTextBoxColumn3
+            // Periodo_DGV
             // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Rondas perdidas";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.Periodo_DGV.AllowUserToAddRows = false;
+            this.Periodo_DGV.AllowUserToDeleteRows = false;
+            this.Periodo_DGV.AllowUserToResizeColumns = false;
+            this.Periodo_DGV.AllowUserToResizeRows = false;
+            this.Periodo_DGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.Periodo_DGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.Periodo_DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Periodo_DGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Fecha,
+            this.Jugador1,
+            this.Jugador2});
+            this.Periodo_DGV.Location = new System.Drawing.Point(320, 57);
+            this.Periodo_DGV.Name = "Periodo_DGV";
+            this.Periodo_DGV.Size = new System.Drawing.Size(409, 188);
+            this.Periodo_DGV.TabIndex = 23;
+            // 
+            // Fecha
+            // 
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
+            this.Fecha.Width = 62;
+            // 
+            // Jugador1
+            // 
+            this.Jugador1.HeaderText = "Jugador 1";
+            this.Jugador1.Name = "Jugador1";
+            this.Jugador1.Width = 79;
+            // 
+            // Jugador2
+            // 
+            this.Jugador2.HeaderText = "Jugador 2";
+            this.Jugador2.Name = "Jugador2";
+            this.Jugador2.Width = 79;
+            // 
+            // dateTimePickerInit
+            // 
+            this.dateTimePickerInit.CustomFormat = "yyyy/MM/dd";
+            this.dateTimePickerInit.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerInit.Location = new System.Drawing.Point(16, 109);
+            this.dateTimePickerInit.Name = "dateTimePickerInit";
+            this.dateTimePickerInit.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerInit.TabIndex = 24;
+            // 
+            // dateTimePickerEnd
+            // 
+            this.dateTimePickerEnd.CustomFormat = "yyyy/MM/dd";
+            this.dateTimePickerEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerEnd.Location = new System.Drawing.Point(16, 202);
+            this.dateTimePickerEnd.Name = "dateTimePickerEnd";
+            this.dateTimePickerEnd.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerEnd.TabIndex = 25;
             // 
             // Principal_Logged
             // 
@@ -720,7 +752,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1552, 880);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panelconsultas3);
             this.Controls.Add(this.panelconsultas2);
             this.Controls.Add(this.panelconsultas1);
             this.Controls.Add(this.CrearPartida);
@@ -751,9 +783,9 @@
             this.panelconsultas2.ResumeLayout(false);
             this.panelconsultas2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ResultadosDGV)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PeriodoDGV)).EndInit();
+            this.panelconsultas3.ResumeLayout(false);
+            this.panelconsultas3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Periodo_DGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -810,13 +842,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Rondasganadas;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rondasperdidas;
         private System.Windows.Forms.Button Buscar2;
-        public System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label4;
+        public System.Windows.Forms.Panel panelconsultas3;
+        private System.Windows.Forms.Button Periodo_btn;
         private System.Windows.Forms.Label label5;
-        public System.Windows.Forms.DataGridView PeriodoDGV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridView Periodo_DGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Jugador1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Jugador2;
+        private System.Windows.Forms.DateTimePicker dateTimePickerInit;
+        private System.Windows.Forms.DateTimePicker dateTimePickerEnd;
     }
 }

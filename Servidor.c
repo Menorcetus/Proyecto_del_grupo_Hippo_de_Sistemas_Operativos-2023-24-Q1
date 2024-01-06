@@ -853,6 +853,72 @@ int ResultadosPartidas(char *p, MYSQL *conn, char *Resultados){
 	return 1;
 }
 
+int DarPeriodosPartidas(char *p, MYSQL *conn, char *Periodos)
+{
+
+	char consulta[buffer];
+	int err;
+	MYSQL_RES *resultado;
+	MYSQL_ROW *row;
+
+	//Guardar las fechas por separado
+
+	p = strtok( NULL, "/");
+	char anno_init[15];
+	strcpy (anno_init, p);
+	p = strtok( NULL, "/");
+	char mes_init[15];
+	strcpy (mes_init, p);
+	p = strtok( NULL, "/");
+	char dia_init[15];
+	strcpy (dia_init, p);
+	p = strtok( NULL, "/");
+	char anno_end[15];
+	strcpy (anno_end, p);
+	p = strtok( NULL, "/");
+	char mes_end[15];
+	strcpy (mes_end, p);
+	p = strtok( NULL, "/");
+	char dia_end[15];
+	strcpy (dia_end, p);
+
+	//;%s-%s-%s' AND '2016-20-31'"	
+	//para seleccionar el intervalo de fechas
+	strcpy(consulta, "SELECT * FROM `Partidas` WHERE HPartida BETWEEN '") 
+	strcat(consulta, anno_init);
+	strcat(consulta, "-");
+	strcat(consulta, mes_init);
+	strcat(consulta, "-");
+	strcat(consulta, dia_init);
+	strcat(consulta, "' AND '");
+	strcat(consulta, anno_end);
+	strcat(consulta, "-");
+	strcat(consulta, mes_end);
+	strcat(consulta, "-");
+	strcat(consulta, dia_end);
+	strcat(consulta, "';");
+
+
+	err = mysql_query(conn, consulta);
+		if (err!=0)
+		{
+			printf ("Error al recoger datos de la base %u %s\n", 
+					mysql_errno(conn), mysql_error(conn));
+			exit (1);
+		}
+
+	// Creamos el mensaje
+	resultado = mysql_store_result(conn);
+	row = mysql_fetch_row(resultado);
+	strcpy(Periodos,"16");
+	while (row != NULL){
+			sprintf(Periodos,"%s/%s/%s/%i/%s/%i",Periodos,row[1],row[2],row[5],row[3],row[4]);
+			row = mysql_fetch_row(resultado);
+	}
+	return 1;
+
+}
+
 void *AtenderCliente(void *socket){
 	// Iniciamos el socket dentro del thread
 	int sock_conn;
@@ -1263,6 +1329,13 @@ void *AtenderCliente(void *socket){
 					int res = ResultadosPartidas(p, conn, &Resultados);
 					printf("Resultados: %s\n", Resultados);
 					write(sock_conn, Resultados, strlen(Resultados));
+					break;
+			}
+			case 14:{
+					char Periodos[MaxBuffer];
+					int res = DarPeriodosPartidas(p, conn, &Periodos);
+					printf("Periodos: %s\n", Periodos);
+					write(sock_conn, Periodos, strlen(Periodos));
 					break;
 			}
 			// Mensaje de desconexion
