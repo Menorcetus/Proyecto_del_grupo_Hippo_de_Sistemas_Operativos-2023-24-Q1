@@ -251,7 +251,7 @@ namespace ProyectoSO
 
         private void Buscar2_Click(object sender, EventArgs e)
         {
-            if (RivalBox.Text != null)
+            if (RivalBox.Text != "")
             {
                 string mensaje = "13/" + user.Name + "/" + RivalBox.Text;
                 byte[] msg = Encoding.ASCII.GetBytes(mensaje);
