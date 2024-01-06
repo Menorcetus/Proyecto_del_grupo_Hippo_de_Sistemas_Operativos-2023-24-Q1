@@ -884,7 +884,7 @@ int DarPeriodosPartidas(char *p, MYSQL *conn, char *Periodos)
 
 	//;%s-%s-%s' AND '2016-20-31'"	
 	//para seleccionar el intervalo de fechas
-	strcpy(consulta, "SELECT * FROM `Partidas` WHERE HPartida BETWEEN '") 
+	strcpy(consulta, "SELECT * FROM `Partidas` WHERE HPartida BETWEEN '"); 
 	strcat(consulta, anno_init);
 	strcat(consulta, "-");
 	strcat(consulta, mes_init);
