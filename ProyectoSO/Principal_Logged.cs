@@ -331,7 +331,10 @@ namespace ProyectoSO
         {
             Process proceso = new Process();
             proceso.StartInfo.FileName = "Manual_Juego.pdf"; // en el bin\Debug
-            proceso.Start();
+            if (proceso.Container != null)
+                proceso.Start();
+            else
+                MessageBox.Show("Error al abrir el manual");
         }
     }
 }
