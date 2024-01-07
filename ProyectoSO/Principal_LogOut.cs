@@ -14,6 +14,7 @@ using System.Threading;
 using System.Globalization;
 using WMPLib;
 using System.Reflection.Emit;
+using System.Diagnostics;
 
 namespace ProyectoSO
 {
@@ -246,6 +247,22 @@ namespace ProyectoSO
         private void IP_Box_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void manuelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            Process proceso = new Process();
+            proceso.StartInfo.FileName = @"..\..\Resources\Manual_Juego.pdf"; // en el bin\Debug
+            try
+            {
+                proceso.Start();
+            }
+            catch
+            {
+                MessageBox.Show("Error al abrir el manual");
+            }
+
         }
     }
 }
