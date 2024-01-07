@@ -54,7 +54,7 @@
             this.UsuarioLbl.Location = new System.Drawing.Point(335, 219);
             this.UsuarioLbl.Name = "UsuarioLbl";
             this.UsuarioLbl.Size = new System.Drawing.Size(49, 15);
-            this.UsuarioLbl.TabIndex = 1;
+            this.UsuarioLbl.TabIndex = 4;
             this.UsuarioLbl.Text = "Usuario";
             // 
             // PaswordLbl
@@ -64,7 +64,7 @@
             this.PaswordLbl.Location = new System.Drawing.Point(325, 304);
             this.PaswordLbl.Name = "PaswordLbl";
             this.PaswordLbl.Size = new System.Drawing.Size(68, 15);
-            this.PaswordLbl.TabIndex = 2;
+            this.PaswordLbl.TabIndex = 5;
             this.PaswordLbl.Text = "Contraseña";
             // 
             // user_box
@@ -73,7 +73,7 @@
             this.user_box.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.user_box.Name = "user_box";
             this.user_box.Size = new System.Drawing.Size(108, 22);
-            this.user_box.TabIndex = 3;
+            this.user_box.TabIndex = 1;
             this.user_box.TextChanged += new System.EventHandler(this.user_box_TextChanged);
             this.user_box.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.user_box_KeyPress);
             // 
@@ -84,12 +84,13 @@
             this.pass_box.Name = "pass_box";
             this.pass_box.PasswordChar = '*';
             this.pass_box.Size = new System.Drawing.Size(108, 22);
-            this.pass_box.TabIndex = 4;
+            this.pass_box.TabIndex = 2;
             this.pass_box.TextChanged += new System.EventHandler(this.user_box_TextChanged);
             this.pass_box.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.user_box_KeyPress);
             // 
             // login_form
             // 
+            this.AcceptButton = this.login_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ProyectoSO.Properties.Resources.loging;

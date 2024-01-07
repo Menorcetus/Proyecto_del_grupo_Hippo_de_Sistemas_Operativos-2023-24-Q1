@@ -112,6 +112,7 @@
             // 
             // register_form
             // 
+            this.AcceptButton = this.register_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ProyectoSO.Properties.Resources.register;
