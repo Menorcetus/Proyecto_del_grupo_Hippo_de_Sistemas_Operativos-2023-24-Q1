@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
 using WMPLib;
+using System.IO;
 
 namespace ProyectoSO
 {
@@ -62,7 +63,7 @@ namespace ProyectoSO
             else
                 this.contrincante = jugador1;
 
-            player3.URL = "partida.wav";
+            player3.URL = Path.GetFullPath(@"..\..\Resources\partida.wav"); ;
             player3.settings.setMode("loop", true);
 
         }
@@ -676,7 +677,7 @@ namespace ProyectoSO
 
                             T_PictureBox_Click(sender, e);
                             CartasArt[0] = cartaselecc;
-                            player2.URL = "carta.wav";
+                            player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
                             FuerzaArt = ContarFuerza(CartasArt);
                             cartaselecc = null;
                             accion = 0;
@@ -698,7 +699,7 @@ namespace ProyectoSO
                      {
                          T_PictureBox_Click(sender, e);
                          CartasArt[1] = cartaselecc;
-                        player2.URL = "carta.wav";
+                        player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
                         FuerzaArt = ContarFuerza(CartasArt);
                          cartaselecc = null;
                          accion = 0;
@@ -719,7 +720,7 @@ namespace ProyectoSO
                     {
                         T_PictureBox_Click(sender, e);
                         CartasArt[2] = cartaselecc;
-                        player2.URL = "carta.wav";
+                        player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
                         FuerzaArt = ContarFuerza(CartasArt);
                         cartaselecc = null;
                         accion = 0;
@@ -740,7 +741,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasArt[3] = cartaselecc;
                         FuerzaArt = ContarFuerza(CartasArt);
-                        player2.URL = "carta.wav";
+                        player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -760,7 +761,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasArt[4] = cartaselecc;
                         FuerzaArt = ContarFuerza(CartasArt);
-                        player2.URL = "carta.wav";
+                        player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -780,7 +781,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasArt[5] = cartaselecc;
                         FuerzaArt = ContarFuerza(CartasArt);
-                        player2.URL = "carta.wav";
+                        player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -800,7 +801,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasArt[6] = cartaselecc;
                         FuerzaArt = ContarFuerza(CartasArt);
-                        player2.URL = "carta.wav";
+                        player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -820,7 +821,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasArt[7] = cartaselecc;
                         FuerzaArt = ContarFuerza(CartasArt);
-                        player2.URL = "carta.wav";
+                        player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -841,7 +842,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasArt[8] = cartaselecc;
                         FuerzaArt = ContarFuerza(CartasArt);
-                        player2.URL = "carta.wav";
+                        player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -864,7 +865,7 @@ namespace ProyectoSO
                        T_PictureBox_Click(sender, e);
                        CartasRan[0] = cartaselecc;
                        FuerzaRan = ContarFuerza(CartasRan);
-                        player2.URL = "carta.wav";
+                        player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -885,7 +886,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasRan[1] = cartaselecc;
                         FuerzaRan = ContarFuerza(CartasRan);
-                        player2.URL = "carta.wav";
+                        player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -906,7 +907,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasRan[2] = cartaselecc;
                         FuerzaRan = ContarFuerza(CartasRan);
-                        player2.URL = "carta.wav";
+                        player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -927,7 +928,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasRan[3] = cartaselecc;
                         FuerzaRan = ContarFuerza(CartasRan);
-                        player2.URL = "carta.wav";
+                        player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -948,7 +949,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasRan[4] = cartaselecc;
                         FuerzaRan = ContarFuerza(CartasRan);
-                        player2.URL = "carta.wav";
+                        player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -969,7 +970,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasRan[5] = cartaselecc;
                         FuerzaRan = ContarFuerza(CartasRan);
-                        player2.URL = "carta.wav";
+                        player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -990,7 +991,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasRan[6] = cartaselecc;
                         FuerzaRan = ContarFuerza(CartasRan);
-                        player2.URL = "carta.wav";
+                        player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -1011,7 +1012,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasRan[7] = cartaselecc;
                         FuerzaRan = ContarFuerza(CartasRan);
-                        player2.URL = "carta.wav";
+                        player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -1032,7 +1033,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasRan[8] = cartaselecc;
                         FuerzaRan = ContarFuerza(CartasRan);
-                        player2.URL = "carta.wav";
+                        player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -1055,7 +1056,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasMel[0] = cartaselecc;
                         FuerzaMel = ContarFuerza(CartasMel);
-                        player2.URL = "carta.wav";
+                        player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -1077,7 +1078,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasMel[1] = cartaselecc;
                         FuerzaMel = ContarFuerza(CartasMel);
-                        player2.URL = "carta.wav";
+                        player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -1098,7 +1099,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasMel[2] = cartaselecc;
                         FuerzaMel = ContarFuerza(CartasMel);
-                        player2.URL = "carta.wav";
+                        player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -1119,7 +1120,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasMel[3] = cartaselecc;
                         FuerzaMel = ContarFuerza(CartasMel);
-                        player2.URL = "carta.wav";
+                        player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -1140,7 +1141,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasMel[4] = cartaselecc;
                         FuerzaMel = ContarFuerza(CartasMel);
-                        player2.URL = "carta.wav";
+                        player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -1161,7 +1162,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasMel[5] = cartaselecc;
                         FuerzaMel = ContarFuerza(CartasMel);
-                        player2.URL = "carta.wav";
+                        player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -1182,7 +1183,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasMel[6] = cartaselecc;
                         FuerzaMel = ContarFuerza(CartasMel);
-                        player2.URL = "carta.wav";
+                        player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -1203,7 +1204,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasMel[7] = cartaselecc;
                         FuerzaMel = ContarFuerza(CartasMel);
-                        player2.URL = "carta.wav";
+                        player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -1224,7 +1225,7 @@ namespace ProyectoSO
                         T_PictureBox_Click(sender, e);
                         CartasMel[8] = cartaselecc;
                         FuerzaMel = ContarFuerza(CartasMel);
-                        player2.URL = "carta.wav";
+                        player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
                         cartaselecc = null;
                         accion = 0;
                         turno.Text = "¡Turno del contrincante!";
@@ -1792,7 +1793,7 @@ namespace ProyectoSO
             if (accion == 1)
             {
                 M_PictureBox_Click(sender, e);
-                player2.URL = "carta.wav";
+                player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
             }   
         }
 
@@ -1801,7 +1802,7 @@ namespace ProyectoSO
             if (accion == 1)
             {
                 M_PictureBox_Click(sender, e);
-                player2.URL = "carta.wav";
+                player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
             }
         }
 
@@ -1810,7 +1811,7 @@ namespace ProyectoSO
             if (accion == 1)
             {
                 M_PictureBox_Click(sender, e);
-                player2.URL = "carta.wav";
+                player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
             }
         }
 
@@ -1819,7 +1820,7 @@ namespace ProyectoSO
             if (accion == 1)
             {
                 M_PictureBox_Click(sender, e);
-                player2.URL = "carta.wav";
+                player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
             }
         }
 
@@ -1828,7 +1829,7 @@ namespace ProyectoSO
             if (accion == 1)
             {
                 M_PictureBox_Click(sender, e);
-                player2.URL = "carta.wav";
+                player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
             }
         }
 
@@ -1837,7 +1838,7 @@ namespace ProyectoSO
             if (accion == 1)
             {
                 M_PictureBox_Click(sender, e);
-                player2.URL = "carta.wav";
+                player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
             }
         }
 
@@ -1846,7 +1847,7 @@ namespace ProyectoSO
             if (accion == 1)
             {
                 M_PictureBox_Click(sender, e);
-                player2.URL = "carta.wav";
+                player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
             }
         }
 
@@ -1855,7 +1856,7 @@ namespace ProyectoSO
             if (accion == 1)
             {
                 M_PictureBox_Click(sender, e);
-                player2.URL = "carta.wav";
+                player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
             }
         }
 
@@ -1864,7 +1865,7 @@ namespace ProyectoSO
             if (accion == 1)
             {
                 M_PictureBox_Click(sender, e);
-                player2.URL = "carta.wav";
+                player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
             }
         }
 
@@ -1873,7 +1874,7 @@ namespace ProyectoSO
             if (accion == 1)
             {
                 M_PictureBox_Click(sender, e);
-                player2.URL = "carta.wav";
+                player2.URL = Path.GetFullPath(@"..\..\Resources\carta.wav");
             }
         }
     }

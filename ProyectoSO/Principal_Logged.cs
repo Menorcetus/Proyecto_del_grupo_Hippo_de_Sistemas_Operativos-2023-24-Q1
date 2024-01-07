@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Net.Sockets;
@@ -30,7 +31,8 @@ namespace ProyectoSO
             this.server = server;
             Bienvenida.Text = "Bienvenido " + user.Name;
             this.player = player;
-            player.URL = "logged.wav";
+            string path = Path.GetFullPath(@"..\..\Resources\logged_audio.wav");
+            player.URL = path;
             player.settings.setMode("loop", true);
         }
 
