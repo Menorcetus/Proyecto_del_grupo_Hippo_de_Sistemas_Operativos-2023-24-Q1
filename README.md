@@ -27,5 +27,5 @@ Versión 5 generada por Iván Pascuas Palma
 Versión 5 verificada por Jordi Gómez Yagual
 
 Version 6 generada por Miguel Martínez Martínez
-Version 6 verificada por Ivan Pascuas Palma y Jordi Gómez Yagual
-Version 6 comunicada por Jordi Gómez Yagual
+Version 6 verificada por Iván Pascuas Palma y Jordi Gómez Yagual
+Version 6 comunicada por Jordi Gómez Yagual Y Iván Pascuas Palma
