@@ -330,7 +330,7 @@ namespace ProyectoSO
         private void manualToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Process proceso = new Process();
-            proceso.StartInfo.FileName = "Manual_Juego.pdf"; // en el bin\Debug
+            proceso.StartInfo.FileName = @"..\..\Resources\Manual_Juego.pdf"; // en el bin\Debug
             try
             {
                 proceso.Start();
@@ -339,7 +339,6 @@ namespace ProyectoSO
             {
                 MessageBox.Show("Error al abrir el manual");
             }
-                
         }
     }
 }
