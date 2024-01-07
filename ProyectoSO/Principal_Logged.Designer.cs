@@ -129,14 +129,14 @@
             // logOutToolStripMenuItem1
             // 
             this.logOutToolStripMenuItem1.Name = "logOutToolStripMenuItem1";
-            this.logOutToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.logOutToolStripMenuItem1.Size = new System.Drawing.Size(138, 22);
             this.logOutToolStripMenuItem1.Text = "LogOut";
             this.logOutToolStripMenuItem1.Click += new System.EventHandler(this.logOutToolStripMenuItem1_Click);
             // 
             // darseDeBajaToolStripMenuItem
             // 
             this.darseDeBajaToolStripMenuItem.Name = "darseDeBajaToolStripMenuItem";
-            this.darseDeBajaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.darseDeBajaToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.darseDeBajaToolStripMenuItem.Text = "Darse de baja";
             this.darseDeBajaToolStripMenuItem.Click += new System.EventHandler(this.darseDeBajaToolStripMenuItem_Click);
             // 
@@ -196,14 +196,14 @@
             // galeríaToolStripMenuItem
             // 
             this.galeríaToolStripMenuItem.Name = "galeríaToolStripMenuItem";
-            this.galeríaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.galeríaToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.galeríaToolStripMenuItem.Text = "Galería";
             this.galeríaToolStripMenuItem.Click += new System.EventHandler(this.galeríaToolStripMenuItem_Click);
             // 
             // manualToolStripMenuItem
             // 
             this.manualToolStripMenuItem.Name = "manualToolStripMenuItem";
-            this.manualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.manualToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.manualToolStripMenuItem.Text = "Manual";
             this.manualToolStripMenuItem.Click += new System.EventHandler(this.manualToolStripMenuItem_Click);
             // 
@@ -211,7 +211,7 @@
             // 
             this.consultasToolStripMenuItem.CheckOnClick = true;
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
-            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.consultasToolStripMenuItem.Text = "Consultas";
             this.consultasToolStripMenuItem.Click += new System.EventHandler(this.consultasToolStripMenuItem_Click);
             // 
@@ -280,6 +280,7 @@
             this.dataGridConectados.Name = "dataGridConectados";
             this.dataGridConectados.RowHeadersWidth = 62;
             this.dataGridConectados.RowTemplate.Height = 24;
+            this.dataGridConectados.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dataGridConectados.Size = new System.Drawing.Size(387, 254);
             this.dataGridConectados.TabIndex = 2;
             // 
@@ -515,6 +516,7 @@
             this.EnfrentadosDGV.Name = "EnfrentadosDGV";
             this.EnfrentadosDGV.RowHeadersWidth = 62;
             this.EnfrentadosDGV.RowTemplate.Height = 24;
+            this.EnfrentadosDGV.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.EnfrentadosDGV.Size = new System.Drawing.Size(387, 250);
             this.EnfrentadosDGV.TabIndex = 2;
             // 
@@ -605,6 +607,7 @@
             this.ResultadosDGV.Name = "ResultadosDGV";
             this.ResultadosDGV.RowHeadersWidth = 62;
             this.ResultadosDGV.RowTemplate.Height = 24;
+            this.ResultadosDGV.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.ResultadosDGV.Size = new System.Drawing.Size(776, 254);
             this.ResultadosDGV.TabIndex = 2;
             // 
@@ -665,7 +668,6 @@
             this.Periodo_DGV.AllowUserToResizeColumns = false;
             this.Periodo_DGV.AllowUserToResizeRows = false;
             this.Periodo_DGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.Periodo_DGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.Periodo_DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Periodo_DGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Fecha,
@@ -673,6 +675,9 @@
             this.Jugador2});
             this.Periodo_DGV.Location = new System.Drawing.Point(320, 57);
             this.Periodo_DGV.Name = "Periodo_DGV";
+            this.Periodo_DGV.ReadOnly = true;
+            this.Periodo_DGV.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Periodo_DGV.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.Periodo_DGV.Size = new System.Drawing.Size(409, 188);
             this.Periodo_DGV.TabIndex = 23;
             // 
@@ -680,16 +685,19 @@
             // 
             this.Fecha.HeaderText = "Fecha";
             this.Fecha.Name = "Fecha";
+            this.Fecha.ReadOnly = true;
             // 
             // Jugador1
             // 
             this.Jugador1.HeaderText = "Jugador 1";
             this.Jugador1.Name = "Jugador1";
+            this.Jugador1.ReadOnly = true;
             // 
             // Jugador2
             // 
             this.Jugador2.HeaderText = "Jugador 2";
             this.Jugador2.Name = "Jugador2";
+            this.Jugador2.ReadOnly = true;
             // 
             // label7
             // 
