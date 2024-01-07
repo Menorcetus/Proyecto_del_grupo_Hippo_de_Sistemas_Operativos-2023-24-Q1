@@ -1,6 +1,6 @@
 
 Proyecto_del_grupo_Hippo_de_Sistemas_Operativos-2023-24-Q1
-Dungengineers (Joc de cartes)
+Engeent (Se proncia engint) (Joc de cartes)
 
 Versión 1 generada por Jordi Gómez Yagual
 Versión 1 verificada por Miguel Martínez Martínez
@@ -25,3 +25,7 @@ URL https://youtu.be/KRmOEuJGQl8
 
 Versión 5 generada por Iván Pascuas Palma
 Versión 5 verificada por Jordi Gómez Yagual
+
+Version 6 generada por Miguel Martínez Martínez
+Version 6 verificada por Ivan Pascuas Palma y Jordi Gómez Yagual
+Version 6 comunicada por Jordi Gómez Yagual

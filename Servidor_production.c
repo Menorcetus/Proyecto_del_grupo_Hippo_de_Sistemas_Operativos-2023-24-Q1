@@ -449,18 +449,6 @@ int CrearPartida(char *p, ListaPartidas *partidas, ListaUsuarios *usuarios, char
 	return num;
 }
 
-int BuscarPartidaPorID(int id_partida,ListaPartidas *Partidas){ 
-	// Busca la posicion de la partida
-	int enc = 0;
-	for (int i=0; i <= Partidas->num;i++)
-	{
-		if (Partidas->partidas[i].id == id_partida)
-			return  i;
-	}
-	if (enc == 0)
-	return -1; // no se ha encontrado
-}
-
 void GenerarListaCartas (MYSQL *conn, ListaCartas *listaCartas){
 	// Genera lista de todas cartas al iniciar servidor en el main
 
@@ -650,15 +638,17 @@ int FinalizarTurno(int id_partida, ListaPartidas *Partidas, char *p, int *Fuerza
 	
 	// Suma las fuerzas
 	*FuerzaTotal = FuerzaMel + FuerzaArt + FuerzaRan;
+	int FT = FuerzaMel + FuerzaArt + FuerzaRan;
 	*FuerzaTotal_M = FuerzaMel_M + FuerzaRan_M + FuerzaArt_M;
+	int FT_M = FuerzaMel_M + FuerzaRan_M + FuerzaArt_M;
 	
 	// Comparacion
 	int resultado;
-	if (FuerzaTotal < FuerzaTotal_M)
+	if (FT < FT_M)
 		resultado = 0; // El usuario pierde
-	else if (FuerzaTotal > FuerzaTotal_M)
+	else if (FT > FT_M)
 		resultado = 1;  // El usuario gana
-	else if (FuerzaTotal == FuerzaTotal_M)
+	else if (FT == FT_M)
 		resultado = 2;  // Empate
 	
 	// Pase + reinicio de turno
@@ -1149,9 +1139,8 @@ void *AtenderCliente(void *socket){
 				p = strtok(NULL, "/");
 				int id_partida = atoi(p);
 
-				int posPartida = BuscarPartidaPorID(id_partida, &Partidas);
-				int numCartas = Partidas.partidas[posPartida].num_cartas; 
-				if (posPartida != -1)
+				int numCartas = Partidas.partidas[id_partida].num_cartas; 
+				if (id_partida != -1)
 				{
 					pthread_mutex_lock(&mutex);
 					DarMano(&mazo, &Cartas, numCartas);
@@ -1160,7 +1149,7 @@ void *AtenderCliente(void *socket){
 					// Se envia des de aqui por que el paquete es mas grande de lo normal
 					write(sock_conn, mazo, strlen(mazo));
 				}
-				else if (posPartida == -1)
+				else if (id_partida == -1)
 					printf("Partida no encontrada.\n");
 				break;
 			}
