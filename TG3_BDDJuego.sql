@@ -23,7 +23,7 @@ CREATE TABLE Usuarios (
 
 CREATE TABLE Partidas (
     ID_partida INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
-    HPartida datetime, 
+    HPartida datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, 
     Jugador1 VARCHAR(30), 
     Jugador2 VARCHAR(30), 
     FOREIGN KEY (Jugador1) REFERENCES Usuarios(Nombre),
@@ -42,10 +42,9 @@ CREATE TABLE Cartas (
 
 INSERT INTO Usuarios(Nombre, Correo, Password) 
 VALUES ('a','a','a'),('bb','bb','bb'),('c','c','c'),('d','d','d'),('s','s','s');
+INSERT INTO Partidas(Jugador1, Jugador2, Puntos_T1, Puntos_T2) 
+VALUES ('a','bb','1','2'),('a','bb','0','3'),('bb','a','2','1'),('s','a','1','2'),('c','bb','3','1');
 
-/*INSERT INTO Partidas(HPartida, Jugador1, Jugador2, Puntos_T1, Puntos_T2) 
-VALUES ('a','a','b'),('bb','bb','bb'),('c','c','c'),('d','d','d'),('s','s','s');
-*/
 
 INSERT INTO Cartas (ID, Nombre, Fuerza, Posicion, Repetible)
 VALUES (0,'Hippotenusa',8,3,0),(1,'Highppo',6,1,1),(2,'Conclave de nutrias',4,1,1),(3,'Kinkis reclutas',1,1,1),(4,'King of KinkIX',5,1,0),

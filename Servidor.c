@@ -334,6 +334,13 @@ int LogIN(char *p, MYSQL *conn, char info[buffer], ListaUsuarios *lista, int Soc
 	p = strtok( NULL, "/");
 	char nombre[30];
 	strcpy (nombre, p);
+ 
+	int i = 0;
+	while(i < lista->num){
+		if(strcmp(lista->usuarios[i].Nombre, nombre) == 0 && lista->usuarios[i].con == 1)
+			return -1;
+		i++;	
+	}
 
 	p = strtok( NULL, "/");
 	char password[30];
@@ -1015,6 +1022,8 @@ void *AtenderCliente(void *socket){
 					sprintf(respuesta,"2/No se ha encontrado el usuario");
 				else if (res == 2)
 					sprintf(respuesta,"2/La password es incorrecta");
+				else if(res == -1)
+					sprintf(respuesta,"2/El usuario ya esta conectado");
 
 				break;
 			}

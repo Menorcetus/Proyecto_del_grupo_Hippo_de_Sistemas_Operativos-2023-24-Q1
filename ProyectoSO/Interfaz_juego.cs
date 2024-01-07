@@ -1876,6 +1876,5 @@ namespace ProyectoSO
                 player2.URL = "carta.wav";
             }
         }
-
     }
 }

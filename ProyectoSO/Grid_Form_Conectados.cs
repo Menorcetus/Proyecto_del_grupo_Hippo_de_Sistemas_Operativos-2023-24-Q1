@@ -14,6 +14,7 @@ namespace ProyectoSO
 {
     public partial class Grid_Form_Conectados : Form
     {
+        // Ya no sirve pero me da pena borrarlo
         User user;
         Socket server;
         public Grid_Form_Conectados(User user, Socket server)

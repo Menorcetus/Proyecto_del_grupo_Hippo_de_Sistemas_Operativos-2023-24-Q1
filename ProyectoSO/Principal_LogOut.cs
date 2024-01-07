@@ -13,6 +13,7 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Globalization;
 using WMPLib;
+using System.Reflection.Emit;
 
 namespace ProyectoSO
 {
@@ -75,8 +76,13 @@ namespace ProyectoSO
                             ThreadLogged = new Thread(ts);
                             ThreadLogged.Start();
                         }
+                        else
+                        {
+                            lform.UsuarioLbl.ForeColor = Color.Black;
+                            lform.PaswordLbl.ForeColor = Color.Black;
+                        }
                         break;
-                    case 3:
+                    case 3: // rellena tabla de conectados
                         logged_form.Tabla(mensaje);
                         break;
                     case 4:
@@ -104,7 +110,6 @@ namespace ProyectoSO
                         break;
 
                     case 8:
-                        // Aplicar Thread-Cross
                         juego.RecibirMano(mensaje);
                         break;
                     case 9:
@@ -118,6 +123,11 @@ namespace ProyectoSO
                         break;
                     case 12:
                         juego.RecibirResultadoFinal(mensaje);
+                        logged_form.Jugador1ComboBox.Enabled = true;
+                        logged_form.CartasComboBox.Enabled = true;
+                        logged_form.EnviadoLbl.Text = null;
+                        logged_form.EnviarPartida.Text = "Invitar";
+                        logged_form.EnviarPartida.Enabled = true;
                         break;
                     case 13:
                         galeria = new GaleriaCartas(mensaje);

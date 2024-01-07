@@ -51,12 +51,10 @@
             this.Bienvenida = new System.Windows.Forms.Label();
             this.dataGridConectados = new System.Windows.Forms.DataGridView();
             this.User_column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Jugando_column = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panelConectados = new System.Windows.Forms.Panel();
             this.TituloConectados = new System.Windows.Forms.Label();
             this.CrearPartida = new System.Windows.Forms.Panel();
             this.CartasComboBox = new System.Windows.Forms.ComboBox();
-            this.EnviadoLbl = new System.Windows.Forms.Label();
             this.DGVInvitados = new System.Windows.Forms.DataGridView();
             this.Invitado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Accepted = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -65,6 +63,7 @@
             this.SelecctionarLablel = new System.Windows.Forms.Label();
             this.Titulo_invitar = new System.Windows.Forms.Label();
             this.Jugador1ComboBox = new System.Windows.Forms.ComboBox();
+            this.EnviadoLbl = new System.Windows.Forms.Label();
             this.panelconsultas1 = new System.Windows.Forms.Panel();
             this.buscarenfrentadosBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -116,7 +115,6 @@
             this.BarraPrincipal.Size = new System.Drawing.Size(1552, 24);
             this.BarraPrincipal.TabIndex = 0;
             this.BarraPrincipal.Text = "menuStrip1";
-            this.BarraPrincipal.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // usuarioToolStripMenuItem
             // 
@@ -198,14 +196,14 @@
             // galeríaToolStripMenuItem
             // 
             this.galeríaToolStripMenuItem.Name = "galeríaToolStripMenuItem";
-            this.galeríaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.galeríaToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.galeríaToolStripMenuItem.Text = "Galería";
             this.galeríaToolStripMenuItem.Click += new System.EventHandler(this.galeríaToolStripMenuItem_Click);
             // 
             // manualToolStripMenuItem
             // 
             this.manualToolStripMenuItem.Name = "manualToolStripMenuItem";
-            this.manualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.manualToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.manualToolStripMenuItem.Text = "Manual";
             this.manualToolStripMenuItem.Click += new System.EventHandler(this.manualToolStripMenuItem_Click);
             // 
@@ -213,7 +211,7 @@
             // 
             this.consultasToolStripMenuItem.CheckOnClick = true;
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
-            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.consultasToolStripMenuItem.Text = "Consultas";
             this.consultasToolStripMenuItem.Click += new System.EventHandler(this.consultasToolStripMenuItem_Click);
             // 
@@ -276,8 +274,7 @@
             this.dataGridConectados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridConectados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridConectados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.User_column,
-            this.Jugando_column});
+            this.User_column});
             this.dataGridConectados.Location = new System.Drawing.Point(12, 57);
             this.dataGridConectados.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridConectados.Name = "dataGridConectados";
@@ -292,15 +289,6 @@
             this.User_column.MinimumWidth = 8;
             this.User_column.Name = "User_column";
             this.User_column.ReadOnly = true;
-            // 
-            // Jugando_column
-            // 
-            this.Jugando_column.HeaderText = "Jugando";
-            this.Jugando_column.MinimumWidth = 8;
-            this.Jugando_column.Name = "Jugando_column";
-            this.Jugando_column.ReadOnly = true;
-            this.Jugando_column.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Jugando_column.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // panelConectados
             // 
@@ -337,13 +325,13 @@
             this.CrearPartida.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CrearPartida.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.CrearPartida.Controls.Add(this.CartasComboBox);
-            this.CrearPartida.Controls.Add(this.EnviadoLbl);
             this.CrearPartida.Controls.Add(this.DGVInvitados);
-            this.CrearPartida.Controls.Add(this.EnviarPartida);
             this.CrearPartida.Controls.Add(this.CartasLbl);
             this.CrearPartida.Controls.Add(this.SelecctionarLablel);
             this.CrearPartida.Controls.Add(this.Titulo_invitar);
             this.CrearPartida.Controls.Add(this.Jugador1ComboBox);
+            this.CrearPartida.Controls.Add(this.EnviadoLbl);
+            this.CrearPartida.Controls.Add(this.EnviarPartida);
             this.CrearPartida.Location = new System.Drawing.Point(773, 47);
             this.CrearPartida.Margin = new System.Windows.Forms.Padding(2);
             this.CrearPartida.Name = "CrearPartida";
@@ -362,18 +350,9 @@
             "10"});
             this.CartasComboBox.Location = new System.Drawing.Point(43, 195);
             this.CartasComboBox.Name = "CartasComboBox";
-            this.CartasComboBox.Size = new System.Drawing.Size(162, 21);
+            this.CartasComboBox.Size = new System.Drawing.Size(162, 24);
             this.CartasComboBox.TabIndex = 8;
             this.CartasComboBox.SelectedIndexChanged += new System.EventHandler(this.TurnosComboBox_SelectedIndexChanged);
-            // 
-            // EnviadoLbl
-            // 
-            this.EnviadoLbl.AutoSize = true;
-            this.EnviadoLbl.Location = new System.Drawing.Point(381, 159);
-            this.EnviadoLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.EnviadoLbl.Name = "EnviadoLbl";
-            this.EnviadoLbl.Size = new System.Drawing.Size(0, 13);
-            this.EnviadoLbl.TabIndex = 7;
             // 
             // DGVInvitados
             // 
@@ -464,9 +443,18 @@
             this.Jugador1ComboBox.Location = new System.Drawing.Point(41, 114);
             this.Jugador1ComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.Jugador1ComboBox.Name = "Jugador1ComboBox";
-            this.Jugador1ComboBox.Size = new System.Drawing.Size(164, 21);
+            this.Jugador1ComboBox.Size = new System.Drawing.Size(164, 24);
             this.Jugador1ComboBox.TabIndex = 0;
             this.Jugador1ComboBox.SelectedIndexChanged += new System.EventHandler(this.Jugador1ComboBox_SelectedIndexChanged);
+            // 
+            // EnviadoLbl
+            // 
+            this.EnviadoLbl.AutoSize = true;
+            this.EnviadoLbl.Location = new System.Drawing.Point(381, 159);
+            this.EnviadoLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.EnviadoLbl.Name = "EnviadoLbl";
+            this.EnviadoLbl.Size = new System.Drawing.Size(0, 16);
+            this.EnviadoLbl.TabIndex = 7;
             // 
             // panelconsultas1
             // 
@@ -568,8 +556,9 @@
             // RivalBox
             // 
             this.RivalBox.Location = new System.Drawing.Point(29, 109);
+            this.RivalBox.MaxLength = 30;
             this.RivalBox.Name = "RivalBox";
-            this.RivalBox.Size = new System.Drawing.Size(201, 20);
+            this.RivalBox.Size = new System.Drawing.Size(201, 22);
             this.RivalBox.TabIndex = 10;
             // 
             // label3
@@ -654,7 +643,7 @@
             this.dateTimePickerEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerEnd.Location = new System.Drawing.Point(16, 202);
             this.dateTimePickerEnd.Name = "dateTimePickerEnd";
-            this.dateTimePickerEnd.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerEnd.Size = new System.Drawing.Size(200, 22);
             this.dateTimePickerEnd.TabIndex = 25;
             // 
             // dateTimePickerInit
@@ -663,7 +652,7 @@
             this.dateTimePickerInit.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerInit.Location = new System.Drawing.Point(16, 109);
             this.dateTimePickerInit.Name = "dateTimePickerInit";
-            this.dateTimePickerInit.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerInit.Size = new System.Drawing.Size(200, 22);
             this.dateTimePickerInit.TabIndex = 24;
             // 
             // Periodo_DGV
@@ -688,19 +677,19 @@
             // 
             this.Fecha.HeaderText = "Fecha";
             this.Fecha.Name = "Fecha";
-            this.Fecha.Width = 62;
+            this.Fecha.Width = 70;
             // 
             // Jugador1
             // 
             this.Jugador1.HeaderText = "Jugador 1";
             this.Jugador1.Name = "Jugador1";
-            this.Jugador1.Width = 79;
+            this.Jugador1.Width = 92;
             // 
             // Jugador2
             // 
             this.Jugador2.HeaderText = "Jugador 2";
             this.Jugador2.Name = "Jugador2";
-            this.Jugador2.Width = 79;
+            this.Jugador2.Width = 92;
             // 
             // label7
             // 
@@ -756,10 +745,10 @@
             this.Controls.Add(this.panelconsultas3);
             this.Controls.Add(this.panelconsultas2);
             this.Controls.Add(this.panelconsultas1);
-            this.Controls.Add(this.CrearPartida);
             this.Controls.Add(this.panelConectados);
             this.Controls.Add(this.Bienvenida);
             this.Controls.Add(this.BarraPrincipal);
+            this.Controls.Add(this.CrearPartida);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.BarraPrincipal;
@@ -808,22 +797,15 @@
         private System.Windows.Forms.ToolStripMenuItem conectadosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem amigosToolStripMenuItem1;
         private System.Windows.Forms.Label TituloConectados;
-        private System.Windows.Forms.DataGridViewTextBoxColumn User_column;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Jugando_column;
         public System.Windows.Forms.DataGridView dataGridConectados;
         public System.Windows.Forms.Panel panelConectados;
         private System.Windows.Forms.ToolStripMenuItem jugarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem crearPartidaToolStripMenuItem;
-        private System.Windows.Forms.Panel CrearPartida;
         private System.Windows.Forms.Label SelecctionarLablel;
         private System.Windows.Forms.Label Titulo_invitar;
-        private System.Windows.Forms.ComboBox Jugador1ComboBox;
-        private System.Windows.Forms.Button EnviarPartida;
         private System.Windows.Forms.DataGridView DGVInvitados;
         private System.Windows.Forms.DataGridViewTextBoxColumn Invitado;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Accepted;
-        private System.Windows.Forms.Label EnviadoLbl;
-        private System.Windows.Forms.ComboBox CartasComboBox;
         private System.Windows.Forms.Label CartasLbl;
         private System.Windows.Forms.ToolStripMenuItem otrosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem galeríaToolStripMenuItem;
@@ -854,5 +836,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Jugador2;
         private System.Windows.Forms.DateTimePicker dateTimePickerInit;
         private System.Windows.Forms.DateTimePicker dateTimePickerEnd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn User_column;
+        private System.Windows.Forms.Panel CrearPartida;
+        public System.Windows.Forms.ComboBox Jugador1ComboBox;
+        public System.Windows.Forms.Button EnviarPartida;
+        public System.Windows.Forms.ComboBox CartasComboBox;
+        public System.Windows.Forms.Label EnviadoLbl;
     }
 }

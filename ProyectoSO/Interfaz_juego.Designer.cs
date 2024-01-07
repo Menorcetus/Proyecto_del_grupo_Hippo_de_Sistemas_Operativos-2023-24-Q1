@@ -217,11 +217,11 @@
             // 
             this.ChatOutput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ChatOutput.Enabled = false;
             this.ChatOutput.Location = new System.Drawing.Point(28, 40);
             this.ChatOutput.Margin = new System.Windows.Forms.Padding(2);
             this.ChatOutput.Multiline = true;
             this.ChatOutput.Name = "ChatOutput";
+            this.ChatOutput.ReadOnly = true;
             this.ChatOutput.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.ChatOutput.Size = new System.Drawing.Size(292, 242);
             this.ChatOutput.TabIndex = 1;
@@ -233,7 +233,7 @@
             this.ChatInput.Location = new System.Drawing.Point(26, 286);
             this.ChatInput.Margin = new System.Windows.Forms.Padding(2);
             this.ChatInput.Name = "ChatInput";
-            this.ChatInput.Size = new System.Drawing.Size(216, 20);
+            this.ChatInput.Size = new System.Drawing.Size(216, 22);
             this.ChatInput.TabIndex = 0;
             // 
             // Mano1

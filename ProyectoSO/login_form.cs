@@ -36,7 +36,15 @@ namespace ProyectoSO
             user.Name = user_box.Text;
             user.Password = pass_box.Text;
             user.register = false;
-            if(server != null && user.Name != "" && user.Password != "")
+            if (user.Name == "")
+            {
+                UsuarioLbl.ForeColor = Color.Red;
+            }
+            if (user.Password == "")
+            {
+                PaswordLbl.ForeColor = Color.Red;
+            }
+            else if(server != null && user.Name != "" && user.Password != "")
             {
                 string mensaje = "2/" + user.Name + "/" + user.Password;
                 byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
@@ -44,7 +52,7 @@ namespace ProyectoSO
             }
             else
             {
-                MessageBox.Show("Aun no te has conectado cabezon");
+                MessageBox.Show("Revisa las credenciales.", "Advertencia");
             }
 
         }
@@ -57,11 +65,27 @@ namespace ProyectoSO
                 user.Name = trozos[1];
                 user.Email = trozos[2];
             }
-            MessageBox.Show(mensaje.Split('/')[0]);
             if (trozos[0] == "Se ha iniciado sesion")
+            {
+                MessageBox.Show(mensaje.Split('/')[0]);
                 return 0;
-            else
+            }
+            else if (trozos[0] == "El usuario ya esta conectado")
+            {
+                MessageBox.Show(trozos[0], "Advertencia");
                 return 1;
+            }
+            else
+            {
+                MessageBox.Show("Revisa las credenciales.", "Advertencia");
+                return 1;
+            }
+        }
+
+        private void user_box_TextChanged(object sender, EventArgs e)
+        {
+            UsuarioLbl.ForeColor = Color.Black;
+            PaswordLbl.ForeColor = Color.Black;
         }
     }
 }

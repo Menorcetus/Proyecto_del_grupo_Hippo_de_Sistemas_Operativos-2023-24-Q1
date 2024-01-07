@@ -73,12 +73,6 @@
     <Compile Include="Interfaz_juego.Designer.cs">
       <DependentUpon>Interfaz_juego.cs</DependentUpon>
     </Compile>
-    <Compile Include="Invitar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Invitar.Designer.cs">
-      <DependentUpon>Invitar.cs</DependentUpon>
-    </Compile>
     <Compile Include="Principal_Logged.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,9 +116,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaz_juego.resx">
       <DependentUpon>Interfaz_juego.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Invitar.resx">
-      <DependentUpon>Invitar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal_Logged.resx">
       <DependentUpon>Principal_Logged.cs</DependentUpon>
@@ -190,6 +181,11 @@
     <Content Include="Resources\7.png" />
     <Content Include="Resources\8.png" />
     <Content Include="Resources\9.png" />
+    <None Include="Resources\Manual_Juego.pdf" />
+    <None Include="Resources\partida.wav" />
+    <None Include="Resources\logged.wav" />
+    <None Include="Resources\galeria.wav" />
+    <None Include="Resources\carta.wav" />
     <None Include="Resources\logged.png" />
     <None Include="Resources\register.jpg" />
     <None Include="Resources\Patron_madera.png" />

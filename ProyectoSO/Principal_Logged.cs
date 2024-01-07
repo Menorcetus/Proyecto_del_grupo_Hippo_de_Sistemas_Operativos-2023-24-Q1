@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoSO.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,7 +21,6 @@ namespace ProyectoSO
     {
         User user;
         Socket server;
-        Thread Esperar;
         WindowsMediaPlayer player;
 
         public Principal_Logged(User user, Socket server, WindowsMediaPlayer player)
@@ -32,11 +32,6 @@ namespace ProyectoSO
             this.player = player;
             player.URL = "logged.wav";
             player.settings.setMode("loop", true);
-        }
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
         }
 
         private void logOutToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -75,7 +70,8 @@ namespace ProyectoSO
                 for(int i = 0; i < Convert.ToInt32(trozos[0]); i++)
                 {
                     dataGridConectados.Rows[i].Cells[0].Value = trozos[i + 1];
-                    Jugador1ComboBox.Items.Add(trozos[i + 1]);
+                    if(trozos[i + 1] != this.user.Name)
+                        Jugador1ComboBox.Items.Add(trozos[i + 1]);
                 }
             }
         }
@@ -119,16 +115,11 @@ namespace ProyectoSO
                     EnviadoLbl.Text = "Se ha enviado la invitacion";
                     EnviarPartida.Enabled = false;
                     EnviarPartida.Text = "Esperando jugadores";
-                    // Possible forma de hacer una lobby?
-                    //ThreadStart ts = delegate { EsperarInvitados(); };
-                    //Esperar = new Thread(ts);
-                    //Esperar.Start();
 
                     DGVInvitados.RowCount = 1;
                     DGVInvitados.Rows[0].Cells[0].Value = Jugador1ComboBox.Text;
                     Jugador1ComboBox.Enabled = false;
                     CartasComboBox.Enabled = false;
-
                 }
         }
 
@@ -139,7 +130,7 @@ namespace ProyectoSO
             string num_cartas = trozos[1];
             string pregunta = string.Format("¿Quieres jugar en la partida de {0}? Sera con baraja de {1} caratas.", host, num_cartas);
 
-            DialogResult QuieroJugar = MessageBox.Show(pregunta, "Confirmacion", MessageBoxButtons.YesNo);
+            DialogResult QuieroJugar = MessageBox.Show(pregunta, "Invitacion", MessageBoxButtons.YesNo);
             if (QuieroJugar == DialogResult.Yes)
             {
                 // Enviar mensaje de aceptar partida
@@ -166,18 +157,19 @@ namespace ProyectoSO
             string jugador = trozos[1];
             if (respuesta == "1")
             {
-                // MessageBox.Show("%s ha aceptado la partida", jugador);
                 DGVInvitados.Rows[0].Cells[1].Value = true;
             }
             else if(respuesta == "0")
             {
-                MessageBox.Show("{0} No ha aceptado la partida, la partida se va a cancelar.", jugador);
+                string text = string.Format("{0} NO ha aceptado la partida, la partida se va a cancelar.", jugador);
+                MessageBox.Show(text, "Respuesta a invitacion");
                 DGVInvitados.RowCount = 0;
                 EnviarPartida.Text = "Invitar";
                 EnviarPartida.Enabled = true;
+                EnviadoLbl.Text = null;
                 Jugador1ComboBox.Enabled = true;
+                CartasComboBox.Enabled = true;
             }
-
         }
 
         private void crearPartidaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -201,7 +193,7 @@ namespace ProyectoSO
             DialogResult Delete = MessageBox.Show(pregunta, "Confirmacion", MessageBoxButtons.YesNo);
             if (Delete == DialogResult.Yes)
             {
-                // Enviar mensaje de aceptar partida
+                // Enviar mensaje de eliminar partida
                 MessageBox.Show("El usuario se ha eliminado correctamente");
                 string respuesta = "11/" + user.Name;
                 byte[] msg = Encoding.ASCII.GetBytes(respuesta);
@@ -262,7 +254,11 @@ namespace ProyectoSO
 
         private void Buscar2_Click(object sender, EventArgs e)
         {
-            if (RivalBox.Text != "")
+            if (RivalBox.Text == user.Name)
+            {
+                MessageBox.Show("No te busques a ti mismo.", "Error");
+            }
+            else if (RivalBox.Text != "")
             {
                 string mensaje = "13/" + user.Name + "/" + RivalBox.Text;
                 byte[] msg = Encoding.ASCII.GetBytes(mensaje);
@@ -300,11 +296,9 @@ namespace ProyectoSO
 
         private void Periodo_btn_Click(object sender, EventArgs e)
         {
-
-                string mensaje = "14/" + this.dateTimePickerInit.Text + "/" + this.dateTimePickerEnd.Text;
-                byte[] msg = Encoding.ASCII.GetBytes(mensaje);
-                server.Send(msg);
-
+            string mensaje = "14/" + this.dateTimePickerInit.Text + "/" + this.dateTimePickerEnd.Text;
+            byte[] msg = Encoding.ASCII.GetBytes(mensaje);
+            server.Send(msg);
         }
 
         internal void LlenarPeriodos(string mensaje)
@@ -325,10 +319,10 @@ namespace ProyectoSO
             else
             {
                 Periodo_DGV.RowCount = 0;
-                for (int i = 0; i < trozos.Length / 3; i++)
+                for (int i = 0; i < trozos.Length / 5; i++)
 
                 {
-                    Periodo_DGV.Rows.Add(trozos[3 * i], trozos[3 * i + 1] + " --> " + Convert.ToInt32(trozos[3 * i + 2]), trozos[3 * i + 3] + " --> " + Convert.ToInt32(trozos[3 * i + 4]));
+                    Periodo_DGV.Rows.Add(trozos[5 * i], trozos[5 * i + 1] + " --> " + trozos[5 * i + 2], trozos[5 * i + 3] + " --> " + trozos[5 * i + 4]);
                 }
             }        
         }

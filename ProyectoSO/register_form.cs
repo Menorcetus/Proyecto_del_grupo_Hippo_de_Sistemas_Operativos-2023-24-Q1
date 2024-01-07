@@ -38,7 +38,20 @@ namespace ProyectoSO
             user.Password = pass_box.Text;
             user.Name = user_box.Text;
             user.register = true;
-            if(server != null && user.Email != "" && user.Password != "" && user.Name != "")
+
+            if(mail_box.Text == "")
+            {
+                Correo.ForeColor = Color.Red;
+            }
+            if (pass_box.Text == "")
+            {
+                PasswordLbl.ForeColor = Color.Red;
+            }
+            if (user_box.Text == "")
+            {
+                NombreLbl.ForeColor = Color.Red;
+            }
+            if (server != null && user.Email != "" && user.Password != "" && user.Name != "")
             {
                 string mensaje = "1/" + user.Name + "/" + user.Email + "/" + user.Password;
                 byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
@@ -46,7 +59,7 @@ namespace ProyectoSO
             }
             else
             {
-                MessageBox.Show("Sigues sin conectarte...");
+                MessageBox.Show("Faltan campos por rellenar");
             }
            
         }
@@ -60,6 +73,13 @@ namespace ProyectoSO
             }
             else
                 MessageBox.Show(mensaje);
+        }
+
+        private void user_box_TextChanged(object sender, EventArgs e)
+        {
+            NombreLbl.ForeColor = Color.Black;
+            PasswordLbl.ForeColor = Color.Black;
+            Correo.ForeColor = Color.Black;
         }
     }
 }
