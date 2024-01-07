@@ -57,6 +57,7 @@
             this.user_box.Size = new System.Drawing.Size(100, 22);
             this.user_box.TabIndex = 1;
             this.user_box.TextChanged += new System.EventHandler(this.user_box_TextChanged);
+            this.user_box.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.user_box_KeyPress);
             // 
             // mail_box
             // 
@@ -66,6 +67,7 @@
             this.mail_box.Size = new System.Drawing.Size(100, 22);
             this.mail_box.TabIndex = 2;
             this.mail_box.TextChanged += new System.EventHandler(this.user_box_TextChanged);
+            this.mail_box.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.user_box_KeyPress);
             // 
             // pass_box
             // 
@@ -76,6 +78,7 @@
             this.pass_box.Size = new System.Drawing.Size(100, 22);
             this.pass_box.TabIndex = 3;
             this.pass_box.TextChanged += new System.EventHandler(this.user_box_TextChanged);
+            this.pass_box.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.user_box_KeyPress);
             // 
             // NombreLbl
             // 

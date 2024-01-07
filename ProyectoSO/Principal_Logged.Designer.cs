@@ -58,12 +58,12 @@
             this.DGVInvitados = new System.Windows.Forms.DataGridView();
             this.Invitado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Accepted = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.EnviarPartida = new System.Windows.Forms.Button();
             this.CartasLbl = new System.Windows.Forms.Label();
             this.SelecctionarLablel = new System.Windows.Forms.Label();
             this.Titulo_invitar = new System.Windows.Forms.Label();
             this.Jugador1ComboBox = new System.Windows.Forms.ComboBox();
             this.EnviadoLbl = new System.Windows.Forms.Label();
+            this.EnviarPartida = new System.Windows.Forms.Button();
             this.panelconsultas1 = new System.Windows.Forms.Panel();
             this.buscarenfrentadosBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -353,6 +353,7 @@
             this.CartasComboBox.Size = new System.Drawing.Size(162, 24);
             this.CartasComboBox.TabIndex = 8;
             this.CartasComboBox.SelectedIndexChanged += new System.EventHandler(this.TurnosComboBox_SelectedIndexChanged);
+            this.CartasComboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Jugador1ComboBox_KeyPress);
             // 
             // DGVInvitados
             // 
@@ -390,19 +391,6 @@
             this.Accepted.ReadOnly = true;
             this.Accepted.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Accepted.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // EnviarPartida
-            // 
-            this.EnviarPartida.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.EnviarPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EnviarPartida.Location = new System.Drawing.Point(383, 81);
-            this.EnviarPartida.Margin = new System.Windows.Forms.Padding(2);
-            this.EnviarPartida.Name = "EnviarPartida";
-            this.EnviarPartida.Size = new System.Drawing.Size(183, 76);
-            this.EnviarPartida.TabIndex = 5;
-            this.EnviarPartida.Text = "Invitar";
-            this.EnviarPartida.UseVisualStyleBackColor = true;
-            this.EnviarPartida.Click += new System.EventHandler(this.EnviarPartida_Click);
             // 
             // CartasLbl
             // 
@@ -446,6 +434,7 @@
             this.Jugador1ComboBox.Size = new System.Drawing.Size(164, 24);
             this.Jugador1ComboBox.TabIndex = 0;
             this.Jugador1ComboBox.SelectedIndexChanged += new System.EventHandler(this.Jugador1ComboBox_SelectedIndexChanged);
+            this.Jugador1ComboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Jugador1ComboBox_KeyPress);
             // 
             // EnviadoLbl
             // 
@@ -455,6 +444,19 @@
             this.EnviadoLbl.Name = "EnviadoLbl";
             this.EnviadoLbl.Size = new System.Drawing.Size(0, 16);
             this.EnviadoLbl.TabIndex = 7;
+            // 
+            // EnviarPartida
+            // 
+            this.EnviarPartida.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.EnviarPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EnviarPartida.Location = new System.Drawing.Point(383, 81);
+            this.EnviarPartida.Margin = new System.Windows.Forms.Padding(2);
+            this.EnviarPartida.Name = "EnviarPartida";
+            this.EnviarPartida.Size = new System.Drawing.Size(183, 76);
+            this.EnviarPartida.TabIndex = 5;
+            this.EnviarPartida.Text = "Invitar";
+            this.EnviarPartida.UseVisualStyleBackColor = true;
+            this.EnviarPartida.Click += new System.EventHandler(this.EnviarPartida_Click);
             // 
             // panelconsultas1
             // 
@@ -560,6 +562,7 @@
             this.RivalBox.Name = "RivalBox";
             this.RivalBox.Size = new System.Drawing.Size(201, 22);
             this.RivalBox.TabIndex = 10;
+            this.RivalBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RivalBox_KeyPress);
             // 
             // label3
             // 

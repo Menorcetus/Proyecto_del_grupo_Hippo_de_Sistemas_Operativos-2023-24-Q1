@@ -37,8 +37,7 @@ namespace ProyectoSO
         {
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
-            this.player = player;
-            
+            this.player = player;         
             
         }
 
@@ -242,6 +241,11 @@ namespace ProyectoSO
                 ConsolaControl.Visible = false;
             else if (consolaToolStripMenuItem.Checked == true)
                 ConsolaControl.Visible = true;
+        }
+
+        private void IP_Box_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

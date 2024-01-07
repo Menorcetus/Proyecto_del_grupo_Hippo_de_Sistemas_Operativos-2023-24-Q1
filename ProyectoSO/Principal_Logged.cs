@@ -340,5 +340,18 @@ namespace ProyectoSO
                 MessageBox.Show("Error al abrir el manual");
             }
         }
+
+        private void Jugador1ComboBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void RivalBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '/')
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

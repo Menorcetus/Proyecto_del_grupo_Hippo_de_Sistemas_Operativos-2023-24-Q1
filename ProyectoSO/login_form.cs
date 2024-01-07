@@ -87,5 +87,13 @@ namespace ProyectoSO
             UsuarioLbl.ForeColor = Color.Black;
             PaswordLbl.ForeColor = Color.Black;
         }
+
+        private void user_box_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '/')
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
