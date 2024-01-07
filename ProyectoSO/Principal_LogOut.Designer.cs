@@ -39,15 +39,17 @@
             this.ConsolaControl = new System.Windows.Forms.TextBox();
             this.IP_Box = new System.Windows.Forms.ComboBox();
             this.Titulo = new System.Windows.Forms.Label();
+            this.manuelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // Connector_button
             // 
             this.Connector_button.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Connector_button.Location = new System.Drawing.Point(363, 163);
+            this.Connector_button.Location = new System.Drawing.Point(242, 106);
+            this.Connector_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Connector_button.Name = "Connector_button";
-            this.Connector_button.Size = new System.Drawing.Size(129, 52);
+            this.Connector_button.Size = new System.Drawing.Size(86, 34);
             this.Connector_button.TabIndex = 0;
             this.Connector_button.Text = "Conexión";
             this.Connector_button.UseVisualStyleBackColor = true;
@@ -59,11 +61,12 @@
             this.menuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ConexionStripMenuItem1,
-            this.toolsToolStripMenuItem});
+            this.toolsToolStripMenuItem,
+            this.manuelToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Padding = new System.Windows.Forms.Padding(6, 3, 0, 3);
-            this.menuStrip2.Size = new System.Drawing.Size(900, 25);
+            this.menuStrip2.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip2.Size = new System.Drawing.Size(600, 24);
             this.menuStrip2.TabIndex = 3;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -74,7 +77,7 @@
             this.registroToolStripMenuItem});
             this.ConexionStripMenuItem1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ConexionStripMenuItem1.Name = "ConexionStripMenuItem1";
-            this.ConexionStripMenuItem1.Size = new System.Drawing.Size(64, 19);
+            this.ConexionStripMenuItem1.Size = new System.Drawing.Size(64, 20);
             this.ConexionStripMenuItem1.Text = "Conexión";
             this.ConexionStripMenuItem1.Visible = false;
             // 
@@ -100,23 +103,24 @@
             this.consolaToolStripMenuItem});
             this.toolsToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 19);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.toolsToolStripMenuItem.Text = "Tools";
             // 
             // consolaToolStripMenuItem
             // 
             this.consolaToolStripMenuItem.CheckOnClick = true;
             this.consolaToolStripMenuItem.Name = "consolaToolStripMenuItem";
-            this.consolaToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.consolaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.consolaToolStripMenuItem.Text = "Consola";
             this.consolaToolStripMenuItem.Click += new System.EventHandler(this.consolaToolStripMenuItem_Click);
             // 
             // Desconectar
             // 
             this.Desconectar.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Desconectar.Location = new System.Drawing.Point(363, 258);
+            this.Desconectar.Location = new System.Drawing.Point(242, 168);
+            this.Desconectar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Desconectar.Name = "Desconectar";
-            this.Desconectar.Size = new System.Drawing.Size(128, 55);
+            this.Desconectar.Size = new System.Drawing.Size(85, 36);
             this.Desconectar.TabIndex = 4;
             this.Desconectar.Text = "Desconectar";
             this.Desconectar.UseVisualStyleBackColor = true;
@@ -124,12 +128,13 @@
             // 
             // ConsolaControl
             // 
-            this.ConsolaControl.Location = new System.Drawing.Point(14, 388);
+            this.ConsolaControl.Location = new System.Drawing.Point(9, 252);
+            this.ConsolaControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ConsolaControl.Multiline = true;
             this.ConsolaControl.Name = "ConsolaControl";
             this.ConsolaControl.ReadOnly = true;
             this.ConsolaControl.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.ConsolaControl.Size = new System.Drawing.Size(872, 159);
+            this.ConsolaControl.Size = new System.Drawing.Size(583, 105);
             this.ConsolaControl.TabIndex = 5;
             this.ConsolaControl.Visible = false;
             // 
@@ -140,27 +145,36 @@
             "10.4.119.5",
             "192.168.56.101",
             "192.168.56.102"});
-            this.IP_Box.Location = new System.Drawing.Point(336, 100);
+            this.IP_Box.Location = new System.Drawing.Point(224, 65);
+            this.IP_Box.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.IP_Box.MaxLength = 15;
             this.IP_Box.Name = "IP_Box";
-            this.IP_Box.Size = new System.Drawing.Size(193, 28);
+            this.IP_Box.Size = new System.Drawing.Size(130, 21);
             this.IP_Box.TabIndex = 6;
             // 
             // Titulo
             // 
             this.Titulo.AutoSize = true;
             this.Titulo.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Titulo.Location = new System.Drawing.Point(358, 74);
+            this.Titulo.Location = new System.Drawing.Point(239, 48);
+            this.Titulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Titulo.Name = "Titulo";
             this.Titulo.Size = new System.Drawing.Size(108, 15);
             this.Titulo.TabIndex = 7;
             this.Titulo.Text = "Seleciona un servidor";
             // 
+            // manuelToolStripMenuItem
+            // 
+            this.manuelToolStripMenuItem.Name = "manuelToolStripMenuItem";
+            this.manuelToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.manuelToolStripMenuItem.Text = "Manual";
+            this.manuelToolStripMenuItem.Click += new System.EventHandler(this.manuelToolStripMenuItem_Click);
+            // 
             // Principal_LogOut
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 563);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.Titulo);
             this.Controls.Add(this.IP_Box);
             this.Controls.Add(this.ConsolaControl);
@@ -168,6 +182,7 @@
             this.Controls.Add(this.Connector_button);
             this.Controls.Add(this.menuStrip2);
             this.MainMenuStrip = this.menuStrip2;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Principal_LogOut";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Acceso";
@@ -191,6 +206,7 @@
         private System.Windows.Forms.ToolStripMenuItem consolaToolStripMenuItem;
         private System.Windows.Forms.ComboBox IP_Box;
         private System.Windows.Forms.Label Titulo;
+        private System.Windows.Forms.ToolStripMenuItem manuelToolStripMenuItem;
     }
 }
 
